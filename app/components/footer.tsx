@@ -10,7 +10,7 @@ export const Footer = () => {
       rel="noopener noreferrer"
     >
       <Image
-        src="/images/rcs-logo.png"
+        src="/logos/rcs-logo.png"
         alt="Vercel Logo"
         className="dark:invert w-24 h-auto"
         width={796}

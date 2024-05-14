@@ -1,6 +1,6 @@
 "use server";
 
-import { signIn } from '../../scripts/auth';
+import { signIn } from '../../auth';
 import { AuthError } from 'next-auth';
 import { z } from 'zod';
 import { sql } from '@vercel/postgres';

@@ -1,5 +1,6 @@
 const { db } = require('@vercel/postgres');
 const { users } = require('../app/lib/placeholder-data.js');
+const { pages } = require('../app/lib/placeholder-data.js');
 const bcrypt = require('bcrypt');
 
 async function seedUsers(client) {
@@ -41,10 +42,51 @@ async function seedUsers(client) {
   }
 }
 
+async function seedPages(client) {
+  try {
+    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+    // Create the "pages" table if it doesn't exist
+    const createTable = await client.sql`
+      CREATE TABLE IF NOT EXISTS pages (
+        id INT PRIMARY KEY,
+        url TEXT NOT NULL,
+        name TEXT NOT NULL,
+        slug TEXT NOT NULL,
+        h1 TEXT NOT NULL,
+        sections JSONB
+      );
+    `;
+
+    console.log(`Created "pages" table`);
+
+    // Insert data into the "pages" table
+    const insertedPages = await Promise.all(
+      pages.map(async (page) => {
+        return client.sql`
+        INSERT INTO pages (id, url, name, slug, h1, sections)
+        VALUES (${page.id}, ${page.url}, ${page.name}, ${page.slug}, ${page.h1}, ${page.sections})
+        ON CONFLICT (id) DO UPDATE SET url = EXCLUDED.url, name = EXCLUDED.name, slug = EXCLUDED.slug, h1 = EXCLUDED.h1, sections = EXCLUDED.sections;
+      `;
+      }),
+    );
+
+    console.log(`Seeded ${insertedPages.length} pages`);
+
+    return {
+      createTable,
+      pages: insertedPages,
+    };
+  } catch (error) {
+    console.error('Error seeding pages:', error);
+    throw error;
+  }
+}
+
 async function main() {
   const client = await db.connect();
 
   await seedUsers(client);
+  await seedPages(client);
 
   await client.end();
 }

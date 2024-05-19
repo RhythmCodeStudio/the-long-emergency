@@ -1,7 +1,11 @@
-export default function MusicPage() {
+import { getPage } from "../lib/data";
+
+export default async function MusicPage() {
+  const musicPageData = await getPage("music");
+  console.log(musicPageData);
   return (
     <div>
-      <h1>Music Page</h1>
+      <h1>{musicPageData.h1}</h1>
     </div>
   );
 }

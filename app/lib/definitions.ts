@@ -5,6 +5,24 @@ export type User = {
   password: string;
 };
 
+export type Section = {
+  id: string;
+  page: string;
+  name: string;
+  type: 'text' | 'image';
+  order: number;
+  content: TextBlock | Image;
+};
+
+export type Page = {
+  id: string;
+  name: string;
+  slug: string;
+  sections: Section[];
+  h1: string;
+  url: string;
+};
+
 export type TextBlock = {
   id: string;
   page: string;

@@ -12,7 +12,7 @@ export const Footer = () => {
       <Image
         src="/logos/rcs-logo.png"
         alt="Vercel Logo"
-        className="dark:invert w-24 h-auto"
+        className="dark:invert w-16 h-auto"
         width={796}
         height={816}
         priority

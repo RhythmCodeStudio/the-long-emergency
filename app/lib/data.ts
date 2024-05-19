@@ -53,10 +53,8 @@ export async function getPages() {
 
 export async function getPage(slug: string) {
   noStore();
-  console.log(`Fetching page with slug: ${slug}`);
   try {
     const page = await sql`SELECT * FROM pages WHERE slug=${slug}`;
-    console.log(`Fetched page: ${page.rows[0]}`);
     return page.rows[0] as Page;
   } catch (error) {
     console.error('Failed to fetch page:', error);

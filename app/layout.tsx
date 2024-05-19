@@ -5,7 +5,8 @@ import { extractRouterConfig } from "uploadthing/server";
  
 import { ourFileRouter } from "./api/uploadthing/core";
 
-import { Inter } from "next/font/google";
+import { Inter, Permanent_Marker } from "next/font/google";
+
 
 // import components
 import { Header } from "./components/header";
@@ -13,7 +14,7 @@ import { Footer } from "./components/footer";
 
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const permanentMarker = Permanent_Marker({ weight: "400", subsets: ["latin"]});
 
 export const metadata: Metadata = {
   title: "The Long Emergency",
@@ -27,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="over">
-      <body className={inter.className}>
+      <body className={permanentMarker.className}>
         <Header />
         <NextSSRPlugin
           /**

@@ -1,5 +1,9 @@
-export default function Nav() {
+"use client";
+// import from react
+import { useState } from "react";
+import { Bars4Icon } from "@heroicons/react/24/outline";
 
+export default function Nav() {
   const navItems = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about"},
@@ -10,8 +14,10 @@ export default function Nav() {
     { name: "Blog", path: "/blog"},
   ];
 
+  
+
   return (
-    <nav className="flex justify-between items-center p-4">
+    <nav className="font-mono flex justify-between items-center p-4">
       <div className="flex space-x-12">
         {navItems.map((item) => (
           <a key={item.path} href={item.path}>

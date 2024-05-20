@@ -16,11 +16,11 @@ export default function Nav() {
   ];
 
   return (
-    <nav className=" flex justify-between items-center p-2 lg:p-6">
+    <nav className="text-xl flex justify-between items-center p-2 lg:p-6">
       <div
         className={`flex ${
           isMobileMenuOpen ? "" : "hidden lg:flex"
-        } font-mono w-full space-x-24`}>
+        } font-mono w-full space-x-20`}>
         {navItems.map((item) => (
           <a key={item.href} href={item.href}>
             {item.name}

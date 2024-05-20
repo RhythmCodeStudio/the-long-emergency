@@ -21,9 +21,10 @@ export default async function Home() {
           className="absolute inset-0 z-0"
         /> */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-center  z-10">
-            {pageData.h1}
-          </h1>
+          {/* pageData.h1 needs to be pageData.page_title after re-seeding */}
+          <h2 className="text-4xl md:text-6xl lg:text-8xl font-bold text-center  z-10">
+            {pageData.h1} 
+          </h2>
         </div>
         {/* <div className="">
           <Link href="/login">Admin Login</Link>

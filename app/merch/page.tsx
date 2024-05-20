@@ -4,7 +4,8 @@ export default async function MerchPage() {
   const merchPageData = await getPage("merch");
   return (
     <div>
-      <h1>{merchPageData.h1}</h1>
+         {/* merchPageData.h1 needs to be merchPageData.page_title after re-seeding database */}
+         <h2>{merchPageData.h1}</h2>
     </div>
   );
 }

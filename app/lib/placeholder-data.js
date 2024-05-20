@@ -13,7 +13,7 @@ const pages = [
     name: "Home",
     slug: "home",
     url: "/",
-    h1: "The Long Emergency",
+    page_title: "The Long Emergency",
     sections: [],
   },
   {
@@ -21,7 +21,7 @@ const pages = [
     name: "About",
     slug: "about",
     url: "/about",
-    h1: "About",
+    page_title: "About",
     sections: [],
   },
   {
@@ -29,7 +29,7 @@ const pages = [
     name: "Music",
     slug: "music",
     url: "/music",
-    h1: "Music",
+    page_title: "Music",
     sections: [],
   },
   {
@@ -37,7 +37,7 @@ const pages = [
     name: "Shows",
     slug: "shows",
     url: "/shows",
-    h1: "Shows",
+    page_title: "Shows",
     sections: [],
   },
   {
@@ -45,7 +45,7 @@ const pages = [
     name: "Blog",
     slug: "blog",
     url: "/blog",
-    h1: "Blog",
+    page_title: "Blog",
     sections: [],
   },
   {
@@ -53,7 +53,7 @@ const pages = [
     name: "Contact",
     slug: "contact",
     url: "/contact",
-    h1: "Contact Page",
+    page_title: "Contact Page",
     sections: [],
   },
   {
@@ -61,7 +61,7 @@ const pages = [
     name: "Merch",
     slug: "merch",
     url: "/merch",
-    h1: "Merch",
+    page_title: "Merch",
     sections: [],
   },
   {
@@ -69,7 +69,7 @@ const pages = [
     name: "Login",
     slug: "login",
     url: "/login",
-    h1: "Login",
+    page_title: "Login",
     sections: [],
   },
   {
@@ -77,7 +77,7 @@ const pages = [
     name: "Admin",
     slug: "admin",
     url: "/admin",
-    h1: "Admin",
+    page_title: "Admin",
     sections: [],
   },
 ];

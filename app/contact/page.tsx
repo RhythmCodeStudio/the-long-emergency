@@ -5,7 +5,8 @@ export default async function ContactPage() {
   console.log(contactPageData);
   return (
     <div>
-      <h1>{contactPageData.h1}</h1>
+      {/* contactPageData.h1 needs to be pageData.page_title after re-seeding database */}
+      <h2>{contactPageData.h1}</h2>
     </div>
   );
 }

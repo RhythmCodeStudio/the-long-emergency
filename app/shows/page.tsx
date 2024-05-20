@@ -4,7 +4,8 @@ export default async function ShowsPage() {
   const showsPageData = await getPage("shows");
   return (
     <div>
-      <h1>{showsPageData.h1}</h1>
+         {/* showsPageData.h1 needs to be showsPageData.page_title after re-seeding database */}
+         <h2>{showsPageData.h1}</h2>
     </div>
   );
 }

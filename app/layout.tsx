@@ -27,7 +27,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="over">
-      <body className={`${permanentMarker.className} min-h-screen flex flex-col`}>
+      <body className={`${permanentMarker.className} min-h-screen flex flex-col`}
+        style={{
+          backgroundImage: "url('/images/masks-no-text-4800x3190.png')",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+        }}
+        
+      >
         <Header />
         <NextSSRPlugin
           /**

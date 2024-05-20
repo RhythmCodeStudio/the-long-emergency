@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="over">
-      <body className={permanentMarker.className}>
+      <body className={`${permanentMarker.className} min-h-screen flex flex-col`}>
         <Header />
         <NextSSRPlugin
           /**
@@ -38,7 +38,9 @@ export default function RootLayout({
            */
           routerConfig={extractRouterConfig(ourFileRouter)}
         />
-        <main className="flex flex-col">{children}</main>
+        <main className="flex-grow">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

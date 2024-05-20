@@ -2,11 +2,10 @@ import type { Metadata } from "next";
 
 import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import { extractRouterConfig } from "uploadthing/server";
- 
+
 import { ourFileRouter } from "./api/uploadthing/core";
 
 import { Inter, Permanent_Marker } from "next/font/google";
-
 
 // import components
 import { Header } from "./components/header";
@@ -14,7 +13,7 @@ import { Footer } from "./components/footer";
 
 import "./globals.css";
 
-const permanentMarker = Permanent_Marker({ weight: "400", subsets: ["latin"]});
+const permanentMarker = Permanent_Marker({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "The Long Emergency",
@@ -38,8 +37,8 @@ export default function RootLayout({
            * as if you were to fetch `/api/uploadthing` directly.
            */
           routerConfig={extractRouterConfig(ourFileRouter)}
-        />  
-        {children}
+        />
+        <main className="flex flex-col">{children}</main>
         <Footer />
       </body>
     </html>

@@ -4,26 +4,32 @@ import { useState } from "react";
 import { Bars4Icon } from "@heroicons/react/24/outline";
 
 export default function Nav() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navItems = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about"},
-    { name: "Contact", path: "/contact"},
-    { name: "Music", path: "/music"},
-    { name: "Shows", path: "/shows"},
-    { name: "Merch", path: "/merch"},
-    { name: "Blog", path: "/blog"},
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Contact", href: "/contact" },
+    { name: "Music", href: "/music" },
+    { name: "Shows", href: "/shows" },
+    { name: "Merch", href: "/merch" },
+    { name: "Blog", href: "/blog" },
   ];
 
-  
-
   return (
-    <nav className="font-mono flex justify-between items-center p-4">
-      <div className="flex space-x-12">
+    <nav className=" flex justify-between items-center p-2 lg:p-6">
+      <div
+        className={`flex ${
+          isMobileMenuOpen ? "" : "hidden lg:flex"
+        } font-mono w-full space-x-24`}>
         {navItems.map((item) => (
-          <a key={item.path} href={item.path}>
+          <a key={item.href} href={item.href}>
             {item.name}
           </a>
         ))}
+      </div>
+      <div className="flex items-center justify-between lg:hidden w-full ">
+        {/* <span className="text-2xl">The Long Emergency</span> */}
+        <Bars4Icon className="h-6 w-6" />
       </div>
     </nav>
   );

@@ -2,10 +2,9 @@ import type { Metadata } from "next";
 
 import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import { extractRouterConfig } from "uploadthing/server";
-
 import { ourFileRouter } from "./api/uploadthing/core";
 
-import { Inter, Permanent_Marker } from "next/font/google";
+import { Permanent_Marker } from "next/font/google";
 
 // import components
 import { Header } from "./components/header";
@@ -27,15 +26,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="over">
-      <body className={`${permanentMarker.className} min-h-screen flex flex-col`}
+      <body
+        className={`${permanentMarker.className} min-h-screen flex flex-col`}
         style={{
           backgroundImage: "url('/images/masks-no-text-4800x3190.png')",
           backgroundPosition: "center",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
-        }}
-        
-      >
+          minHeight: "100vh",
+        }}>
         <Header />
         <NextSSRPlugin
           /**
@@ -46,11 +45,9 @@ export default function RootLayout({
            */
           routerConfig={extractRouterConfig(ourFileRouter)}
         />
-        <main className="flex-grow">
-          {children}
-        </main>
+        <main className="flex-grow">{children}</main>
         <Footer />
       </body>
     </html>
   );
-}
+};

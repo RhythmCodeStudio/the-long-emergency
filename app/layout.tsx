@@ -30,8 +30,8 @@ export default function RootLayout({
         className={`${permanentMarker.className} min-h-screen flex flex-col`}
         style={{
           backgroundImage: "url('/images/masks-no-text-4800x3190.png')",
-          backgroundPosition: "center",
-          backgroundSize: "cover",
+          backgroundPosition: "center center",
+          backgroundSize: "100% 100%",
           backgroundRepeat: "no-repeat",
           minHeight: "100vh",
         }}>

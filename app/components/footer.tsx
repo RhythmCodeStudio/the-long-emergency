@@ -2,9 +2,9 @@ import Image from 'next/image';
 
 export const Footer = () => {
   return (
-    <footer className="z-10 flex w-full  justify-center">
+    <footer className="z-10 flex w-full  justify-center mb-6">
       <a
-        className="flex flex-col items-center p-4"
+        className="flex flex-col items-center "
         href="https://rhythmcodestudio.tech"
         target="_blank"
         rel="noopener noreferrer"

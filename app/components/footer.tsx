@@ -12,7 +12,7 @@ export const Footer = () => {
         <Image
           src="/logos/rcs-logo.png"
           alt="Rhythm Code Studio Logo"
-          className="invert w-12 h-auto"
+          className="invert w-10 h-auto"
           width={796}
           height={816}
           priority

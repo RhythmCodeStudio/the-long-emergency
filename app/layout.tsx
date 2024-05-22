@@ -25,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="over">
+    <html lang="en" style={{ height: '100%' }}>
       <body
         className={`${permanentMarker.className} min-h-screen flex flex-col`}
         style={{
@@ -33,7 +33,7 @@ export default function RootLayout({
           backgroundPosition: "center center",
           backgroundSize: "100% 100%",
           backgroundRepeat: "no-repeat",
-          minHeight: "100vh",
+          minHeight: "100%",
         }}>
         <Header />
         <NextSSRPlugin

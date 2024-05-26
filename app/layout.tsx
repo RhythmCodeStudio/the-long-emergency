@@ -49,9 +49,9 @@ export default function RootLayout({
           <main className="flex flex-grow items-center justify-center">
             {children}
           </main>
-          <div className="mt-auto">
+          
             <Footer />
-          </div>
+          
         </div>
       </body>
     </html>

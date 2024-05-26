@@ -6,7 +6,7 @@ import SocialMediaLinks from "./socialMediaLinks";
 export const Footer = () => {
   return (
     <footer className="z-10 flex flex-col items-center justify-center w-full p-4">
-      <SocialMediaLinks />
+      <SocialMediaLinks size={30} />
       <span className="text-sm m-2 p-2 text-center">
         © 2024 The Long Emergency
       </span>

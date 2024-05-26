@@ -10,26 +10,13 @@ export default async function Home() {
   const pageData = await getPage("home");
 
   return (
-    <>
-      <div className="">
-        {/* <BannerImage
-          src="/images/masks-no-text-4800x3190.png"
-          // src="/images/guitar-mask-mound-4800x3755.png"
-          alt="paper mache masks"
-          width={4800}
-          height={3190}
-          className="absolute inset-0 z-0"
-        /> */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          {/* pageData.h1 needs to be pageData.page_title after re-seeding */}
-          <h2 className="text-4xl md:text-6xl lg:text-8xl font-bold text-center  z-10">
-            {pageData.h1} 
-          </h2>
-        </div>
-        {/* <div className="">
-          <Link href="/login">Admin Login</Link>
-        </div> */}
+    <section className="flex flex-col items-center justify-content m-2 p-2">
+      <div className="flex flex-col justify-center items-center">
+        {/* pageData.h1 needs to be pageData.page_title after re-seeding */}
+        <h2 className="text-3xl md:text-6xl lg:text-8xl font-bold text-center z-10">
+          {pageData.h1}
+        </h2>
       </div>
-    </>
+    </section>
   );
 }

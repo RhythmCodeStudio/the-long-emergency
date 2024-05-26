@@ -7,10 +7,10 @@ import { usePathname } from "next/navigation";
 export const Header = () => {
   const currentPath = usePathname();
   return (
-    <header className="z-10">
-      <div className="flex flex-col items-center w-full justify-center pb-8 pt-12 ">
+    <header className="z-10 p-4">
+      <div className="flex flex-col items-center w-full justify-center">
         {/* <h1 className={`text-4xl lg:text-6xl ${currentPath === "/" ? "hidden" : ""}`}> */}
-        <h1 className={`text-4xl 4xl:text-6xl`}>
+        <h1 className={`text-3xl 4xl:text-6xl m-2 p-2`}>
           The Long Emergency
         </h1>
         <Nav />

@@ -1,14 +1,21 @@
-import Image from 'next/image';
+// import from next
+import Image from "next/image";
+// import components
+import SocialMediaLinks from "./socialMediaLinks";
 
 export const Footer = () => {
   return (
-    <footer className="z-10 flex w-full  justify-center mb-6">
+    <footer className="z-10 flex flex-col items-center justify-center w-full p-4">
+      <SocialMediaLinks />
+      <span className="text-sm m-2 p-2 text-center">
+        © 2024 The Long Emergency
+      </span>
       <a
-        className="flex flex-col items-center "
+        className="flex flex-col items-center justify-center text-center md:hover:transform hover:scale-110 transition-transform"
         href="https://rhythmcodestudio.tech"
         target="_blank"
-        rel="noopener noreferrer"
-      >
+        rel="noopener noreferrer">
+        <span className="text-sm m-2 p-2">Website by Rhythm Code Studio</span>
         <Image
           src="/logos/rcs-logo.png"
           alt="Rhythm Code Studio Logo"
@@ -17,8 +24,7 @@ export const Footer = () => {
           height={816}
           priority
         />
-        <span className="text-sm mt-2">Rhythm Code Studio</span>
       </a>
     </footer>
   );
-}
+};

@@ -25,29 +25,35 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" style={{ height: '100%' }}>
+    <html lang="en" className="over" style={{ height: "100%" }}>
       <body
         className={`${permanentMarker.className} min-h-screen flex flex-col`}
         style={{
           backgroundImage: "url('/images/masks-no-text-4800x3190.png')",
           backgroundPosition: "center center",
-          backgroundSize: "100% 100%",
+          backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           minHeight: "100%",
         }}>
-        <Header />
-        <NextSSRPlugin
-          /**
-           * The `extractRouterConfig` will extract **only** the route configs
-           * from the router to prevent additional information from being
-           * leaked to the client. The data passed to the client is the same
-           * as if you were to fetch `/api/uploadthing` directly.
-           */
-          routerConfig={extractRouterConfig(ourFileRouter)}
-        />
-        <main className="flex-grow">{children}</main>
-        <Footer />
+        <div className="flex flex-col min-h-screen ">
+          <Header />
+          <NextSSRPlugin
+            /**
+             * The `extractRouterConfig` will extract **only** the route configs
+             * from the router to prevent additional information from being
+             * leaked to the client. The data passed to the client is the same
+             * as if you were to fetch `/api/uploadthing` directly.
+             */
+            routerConfig={extractRouterConfig(ourFileRouter)}
+          />
+          <main className="flex flex-grow items-center justify-center">
+            {children}
+          </main>
+          <div className="mt-auto">
+            <Footer />
+          </div>
+        </div>
       </body>
     </html>
   );
-};
+}

@@ -1,7 +1,8 @@
 "use client";
 // import from react
 import { useState } from "react";
-import { Bars4Icon } from "@heroicons/react/24/outline";
+// import { Bars4Icon } from "@heroicons/react/24/outline";
+import { FiMenu } from "react-icons/fi";
 
 export default function Nav() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -28,7 +29,7 @@ export default function Nav() {
         ))}
       </ul>
       <div className="flex items-center justify-between lg:hidden w-full ">
-        <Bars4Icon className="h-6 w-6" />
+        <FiMenu className="h-6 w-6" />
       </div>
     </nav>
   );

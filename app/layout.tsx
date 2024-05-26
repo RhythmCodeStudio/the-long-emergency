@@ -35,7 +35,7 @@ export default function RootLayout({
           backgroundRepeat: "no-repeat",
           minHeight: "100%",
         }}>
-        <div className="flex flex-col min-h-screen ">
+        {/* <div className="flex flex-col"> */}
           <Header />
           <NextSSRPlugin
             /**
@@ -52,7 +52,7 @@ export default function RootLayout({
           
             <Footer />
           
-        </div>
+        {/* </div> */}
       </body>
     </html>
   );

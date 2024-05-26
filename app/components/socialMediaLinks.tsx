@@ -8,19 +8,19 @@ import IconLink from "./iconLink";
 const linkData = [
   {
     href: "https://www.instagram.com/longemergency/",
-    icon: <FiInstagram size={24} />,
+    icon: <FiInstagram size={30} />,
     label: "link to The Long Emergency on Instagram",
     name: "link to The Long Emergency on Instagram",
   },
   {
     href: "https://www.linkedin.com/company/rhythm-code-studio/",
-    icon: <FiMail size={24} />,
+    icon: <FiMail size={30} />,
     label: "email The Long Emergency",
     name: "link to The Long Emergency on LinkedIn",
   },
   {
     href: "https://www.facebook.com/thelongemergencyband",
-    icon: <FiFacebook size={24} />,
+    icon: <FiFacebook size={30} />,
     label: "link to The Long Emergency on Facebook",
     name: "link to The Long Emergency on Facebook",
   },

@@ -1,6 +1,47 @@
 import { sql } from "@vercel/postgres";
-import { User, Section, Page, TextBlock, Image } from "./definitions";
+import { User, Section, Page, TextBlock, Image, Album, Song } from "./definitions";
 import { unstable_noStore as noStore } from 'next/cache';
+
+
+export async function getAlbum(id: number) {
+  try {
+    const album = await sql`SELECT * FROM albums WHERE id=${id}`;
+    return album.rows[0] as Album;
+  } catch (error) {
+    console.error('Failed to fetch album:', error);
+    throw new Error('Failed to fetch album.');
+  }
+};
+
+export async function getAlbums() {
+  try {
+    const albums = await sql`SELECT * FROM albums`;
+    return albums.rows as Album[];
+  } catch (error) {
+    console.error('Failed to fetch albums:', error);
+    throw new Error('Failed to fetch albums.');
+  }
+};
+
+export async function getSong(id: number) {
+  try {
+    const song = await sql`SELECT * FROM songs WHERE id=${id}`;
+    return song.rows[0] as Song;
+  } catch (error) {
+    console.error('Failed to fetch song:', error);
+    throw new Error('Failed to fetch song.');
+  }
+};
+
+export async function getSongs() {
+  try {
+    const songs = await sql`SELECT * FROM songs`;
+    return songs.rows as Song[];
+  } catch (error) {
+    console.error('Failed to fetch songs:', error);
+    throw new Error('Failed to fetch songs.');
+  }
+};
 
 export async function getUsers() {
   try {
@@ -120,9 +161,9 @@ export async function updateImage(imageUrl: string, alt: string) {
   }
 }
 
-export async function updatePage(pageId: string, h1: string) {
+export async function updatePage(pageId: string, page_title: string) {
   try {
-    await sql`UPDATE pages SET h1=${h1} WHERE id=${pageId}`;
+    await sql`UPDATE pages SET page_title=${page_title} WHERE id=${pageId}`;
   } catch (error) {
     console.error('Failed to update page:', error);
     throw new Error('Failed to update page.');

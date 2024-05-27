@@ -29,7 +29,8 @@ export default function Nav() {
         ))}
       </ul>
       <div className="flex items-center justify-between lg:hidden w-full ">
-        <FiMenu className="h-6 w-6" />
+        {/* <FiMenu className="h-6 w-6" /> */}
+        <h2>Menu</h2>
       </div>
     </nav>
   );

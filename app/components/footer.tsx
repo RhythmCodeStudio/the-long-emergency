@@ -5,9 +5,11 @@ import SocialMediaLinks from "./socialMediaLinks";
 
 export const Footer = () => {
   return (
-    <footer className="z-10 flex flex-col items-center justify-center w-full mb-6">
+    <footer className="z-10 flex flex-col items-center justify-center w-full mb-4">
+      <div className="m-2">
       <SocialMediaLinks size={30} />
-      <span className="text-sm m-2 p-2 text-center">
+      </div>
+      <span className="text-sm p-2 text-center">
         © 2024 The Long Emergency
       </span>
       <a
@@ -15,7 +17,7 @@ export const Footer = () => {
         href="https://rhythmcodestudio.tech"
         target="_blank"
         rel="noopener noreferrer">
-        <span className="text-sm m-2 p-2">Website by Rhythm Code Studio</span>
+        <span className="text-sm p-2">Website by Rhythm Code Studio</span>
         <Image
           src="/logos/rcs-mark-only-light.png"
           alt="Rhythm Code Studio Logo"

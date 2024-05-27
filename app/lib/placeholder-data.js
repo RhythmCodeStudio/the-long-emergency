@@ -81,9 +81,136 @@ const pages = [
     sections: [],
   },
 ];
+
+const songs = [
+  {
+    id: 1,
+    title: "I-35",
+    artist: "The Long Emergency",
+    album: "I-35",
+    year: 2013,
+    genre: ["Rock", "Indie"],
+    track_number: 1,
+  },
+  {
+    id: 2,
+    title: "Sing Me To Sleep",
+    artist: "The Long Emergency",
+    album: "I-35",
+    year: 2013,
+    genre: ["Rock", "Indie"],
+    track_number: 2,
+  },
+  {
+    id: 3,
+    title: "Last Night",
+    artist: "The Long Emergency",
+    album: "Starting Over",
+    year: 2013,
+    genre: ["Rock", "Indie"],
+    track_number: 1,
+  },
+  {
+    id: 4,
+    title: "Snow Emergency",
+    artist: "The Long Emergency",
+    album: "Starting Over",
+    year: 2013,
+    genre: ["Rock", "Indie"],
+    track_number: 2,
+  },
+  {
+    id: 5,
+    title: "I-35",
+    artist: "The Long Emergency",
+    album: "Starting Over",
+    year: 2013,
+    genre: ["Rock", "Indie"],
+    track_number: 3,
+  },
+  {
+    id: 6,
+    title: "I Am Not Sorry",
+    artist: "The Long Emergency",
+    album: "Starting Over",
+    year: 2013,
+    genre: ["Rock", "Indie"],
+    track_number: 4,
+  },
+  {
+    id: 7,
+    title: "Twist The Knife",
+    artist: "The Long Emergency",
+    album: "Starting Over",
+    year: 2013,
+    genre: ["Rock", "Indie"],
+    track_number: 5,
+  },
+  {
+    id: 8,
+    title: "Starting Over",
+    artist: "The Long Emergency",
+    album: "Starting Over",
+    year: 2013,
+    genre: ["Rock", "Indie"],
+    track_number: 6,
+  },
+  {
+    id: 9,
+    title: "Sing Me To Sleep",
+    artist: "The Long Emergency",
+    album: "Starting Over",
+    year: 2013,
+    genre: ["Rock", "Indie"],
+    track_number: 7,
+  },
+];
+
+const albums = [
+  {
+    id: 1,
+    title: "I-35",
+    artist: "The Long Emergency",
+    year: 2013,
+    genre: "Rock",
+    cover_image: "/tracks/i-35/album-art/i-35-cover.jpg",
+    type: "single",
+    songs: [
+      {
+        id: 1,
+        title: "I-35",
+        artist: "The Long Emergency",
+        album: "I-35",
+        year: 2013,
+        genre: ["Rock", "Indie"],
+        track_number: 1,
+      },
+      {
+        id: 2,
+        title: "Sing Me To Sleep",
+        artist: "The Long Emergency",
+        album: "I-35",
+        year: 2013,
+        genre: ["Rock", "Indie"],
+        track_number: 2,
+      },
+    ],
+  },
+  {
+    id: 2,
+    title: "Starting Over",
+    artist: "The Long Emergency",
+    year: 2013,
+    genre: "Rock",
+    cover_image: "/tracks/starting-over/album-art/cover.jpg",
+    type: "album",
+  },
+]
  
 
 module.exports = {
   users,
-  pages
+  pages,
+  albums,
+  songs,
 };

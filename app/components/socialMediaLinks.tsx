@@ -30,7 +30,7 @@ export default function SocialMediaLinks({ size }: { size: number }) {
     },
   ];
   return (
-    <div className="flex justify-center items-center space-x-16 lg:space-x-28 xl:space-x-48 m-2 p-2">
+    <div className="flex justify-center items-center space-x-28 lg:space-x-32 xl:space-x-56 m-2 p-2">
       {linkData.map((link) => (
         <div key={link.href} className="sm:hover:transform hover:scale-125 transition-transform">
           <IconLink

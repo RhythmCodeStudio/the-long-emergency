@@ -19,7 +19,7 @@ export type Page = {
   name: string;
   slug: string;
   sections: Section[];
-  h1: string;
+  page_title: string;
   url: string;
 };
 
@@ -35,4 +35,25 @@ export type Image = {
   alt: string;
   width: number;
   height: number;
+};
+
+export type Song = {
+  id: number;
+  title: string;
+  artist: string;
+  album: string;
+  year: number;
+  genre: string[];
+  track_number: number;
+};
+
+export type Album = {
+  id: number;
+  title: string;
+  artist: string;
+  year: number;
+  genre: string;
+  cover_image: string;
+  type: string;
+  songs: Song[];
 };

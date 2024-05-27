@@ -1,7 +1,86 @@
-const { db } = require('@vercel/postgres');
-const { users } = require('../app/lib/placeholder-data.js');
-const { pages } = require('../app/lib/placeholder-data.js');
-const bcrypt = require('bcrypt');
+const { db } = require("@vercel/postgres");
+const { users } = require("../app/lib/placeholder-data.js");
+const { pages } = require("../app/lib/placeholder-data.js");
+const { albums } = require("../app/lib/placeholder-data.js");
+const { songs } = require("../app/lib/placeholder-data.js");
+
+const bcrypt = require("bcrypt");
+
+async function seedAlbums(client) {
+  try {
+    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+    // Create the "albums" table if it doesn't exist
+    const createTable = await client.sql`
+      CREATE TABLE IF NOT EXISTS albums (
+        id INT PRIMARY KEY,
+        title TEXT NOT NULL,
+        artist TEXT NOT NULL,
+        year INT NOT NULL,
+        genre TEXT NOT NULL,
+        cover_image TEXT NOT NULL,
+        type TEXT NOT NULL
+      );
+    `;
+    console.log(`Created "albums" table`);
+
+    // Insert data into the "albums" table
+    const insertedAlbums = await Promise.all(
+      albums.map(async (album) => {
+        return client.sql`
+        INSERT INTO albums (id, title, artist, year, genre, cover_image, type)
+        VALUES (${album.id}, ${album.title}, ${album.artist}, ${album.year}, ${album.genre}, ${album.cover_image}, ${album.type})
+        ON CONFLICT (id) DO NOTHING;
+      `;
+      })
+    );
+    console.log(`Seeded ${insertedAlbums.length} albums`);
+    return {
+      createTable,
+      albums: insertedAlbums,
+    };
+  } catch (error) {
+    console.error("Error seeding albums:", error);
+    throw error;
+  }
+}
+
+async function seedSongs(client) {
+  try {
+    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+    // Create the "songs" table if it doesn't exist
+    const createTable = await client.sql`
+      CREATE TABLE IF NOT EXISTS songs (
+        id INT PRIMARY KEY,
+        title TEXT NOT NULL,
+        artist TEXT NOT NULL,
+        album TEXT NOT NULL,
+        year INT NOT NULL,
+        genre TEXT NOT NULL,
+        track_number INT NOT NULL
+      );
+    `;
+    console.log(`Created "songs" table`);
+
+    // Insert data into the "songs" table
+    const insertedSongs = await Promise.all(
+      songs.map(async (song) => {
+        return client.sql`
+        INSERT INTO songs (id, title, artist, album, year, genre, track_number)
+        VALUES (${song.id}, ${song.title}, ${song.artist}, ${song.album}, ${song.year}, ${song.genre}, ${song.track_number})
+        ON CONFLICT (id) DO NOTHING;
+      `;
+      })
+    );
+    console.log(`Seeded ${insertedSongs.length} songs`);
+    return {
+      createTable,
+      songs: insertedSongs,
+    };
+  } catch (error) {
+    console.error("Error seeding songs:", error);
+    throw error;
+  }
+}
 
 async function seedUsers(client) {
   try {
@@ -27,7 +106,7 @@ async function seedUsers(client) {
         VALUES (${user.id}, ${user.name}, ${user.email}, ${hashedPassword})
         ON CONFLICT (id) DO NOTHING;
       `;
-      }),
+      })
     );
 
     console.log(`Seeded ${insertedUsers.length} users`);
@@ -37,7 +116,7 @@ async function seedUsers(client) {
       users: insertedUsers,
     };
   } catch (error) {
-    console.error('Error seeding users:', error);
+    console.error("Error seeding users:", error);
     throw error;
   }
 }
@@ -45,6 +124,10 @@ async function seedUsers(client) {
 async function seedPages(client) {
   try {
     await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+     // Drop the "pages" table if it exists
+     await client.sql`
+     DROP TABLE IF EXISTS pages;
+   `;
     // Create the "pages" table if it doesn't exist
     const createTable = await client.sql`
       CREATE TABLE IF NOT EXISTS pages (
@@ -52,7 +135,7 @@ async function seedPages(client) {
         url TEXT NOT NULL,
         name TEXT NOT NULL,
         slug TEXT NOT NULL,
-        h1 TEXT NOT NULL,
+        page_title TEXT NOT NULL,
         sections JSONB
       );
     `;
@@ -63,11 +146,11 @@ async function seedPages(client) {
     const insertedPages = await Promise.all(
       pages.map(async (page) => {
         return client.sql`
-        INSERT INTO pages (id, url, name, slug, h1, sections)
-        VALUES (${page.id}, ${page.url}, ${page.name}, ${page.slug}, ${page.h1}, ${page.sections})
-        ON CONFLICT (id) DO UPDATE SET url = EXCLUDED.url, name = EXCLUDED.name, slug = EXCLUDED.slug, h1 = EXCLUDED.h1, sections = EXCLUDED.sections;
+        INSERT INTO pages (id, url, name, slug, page_title, sections)
+        VALUES (${page.id}, ${page.url}, ${page.name}, ${page.slug}, ${page.page_title}, ${page.sections})
+        ON CONFLICT (id) DO UPDATE SET url = EXCLUDED.url, name = EXCLUDED.name, slug = EXCLUDED.slug, page_title = EXCLUDED.page_title, sections = EXCLUDED.sections;
       `;
-      }),
+      })
     );
 
     console.log(`Seeded ${insertedPages.length} pages`);
@@ -77,7 +160,7 @@ async function seedPages(client) {
       pages: insertedPages,
     };
   } catch (error) {
-    console.error('Error seeding pages:', error);
+    console.error("Error seeding pages:", error);
     throw error;
   }
 }
@@ -87,13 +170,15 @@ async function main() {
 
   await seedUsers(client);
   await seedPages(client);
+  await seedAlbums(client);
+  await seedSongs(client);
 
   await client.end();
 }
 
 main().catch((err) => {
   console.error(
-    'An error occurred while attempting to seed the database:',
-    err,
+    "An error occurred while attempting to seed the database:",
+    err
   );
 });

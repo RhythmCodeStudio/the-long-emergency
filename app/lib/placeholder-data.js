@@ -173,7 +173,7 @@ const albums = [
     artist: "The Long Emergency",
     year: 2013,
     genre: "Rock",
-    cover_image: "/tracks/i-35/album-art/i-35-cover.jpg",
+    cover_image: "/tracks/I-35/album-art/i-35-cover.jpg",
     type: "single",
     songs: [
       {

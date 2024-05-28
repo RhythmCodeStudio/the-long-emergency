@@ -19,6 +19,41 @@ export const metadata: Metadata = {
   description: "Official website for The Long Emergency",
 };
 
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" className="over" style={{ height: "100%" }}>
+      <body className={`${permanentMarker.className}  flex flex-col`}>
+        <div
+          style={{
+            backgroundImage: "url('/images/masks-no-text-4800x3190.png')",
+            backgroundPosition: "center center",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            minHeight: "100vh",
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <Header />
+          <NextSSRPlugin
+            routerConfig={extractRouterConfig(ourFileRouter)}
+          />
+          <main className="flex flex-grow items-center justify-center">
+            {children}
+          </main>
+          <Footer />
+        </div>
+      </body>
+    </html>
+  );
+}
+
+
+
 // export default function RootLayout({
 //   children,
 // }: Readonly<{
@@ -53,36 +88,3 @@ export const metadata: Metadata = {
 //     </html>
 //   );
 // }
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en" className="over" style={{ height: "100%" }}>
-      <body className={`${permanentMarker.className}  flex flex-col`}>
-        <div
-          style={{
-            backgroundImage: "url('/images/masks-no-text-4800x3190.png')",
-            backgroundPosition: "center center",
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-            minHeight: "100vh",
-            display: "flex",
-            flexDirection: "column",
-          }}
-          
-        >
-          <Header />
-          <NextSSRPlugin
-            routerConfig={extractRouterConfig(ourFileRouter)}
-          />
-          <main className="flex flex-grow items-center justify-center">
-            {children}
-          </main>
-          <Footer />
-        </div>
-      </body>
-    </html>
-  );
-}

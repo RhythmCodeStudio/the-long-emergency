@@ -1,6 +1,5 @@
 // import from next
-import Link from "next/link";
-import Image from "next/image";
+
 // import from lib
 import { getPage } from "./lib/data";
 // import components

@@ -1,11 +1,16 @@
 "use client";
+// import from next
+import Link from 'next/link';
+import { usePathname } from 'next/navigation'
 // import from react
 import { useState } from "react";
 // import { Bars4Icon } from "@heroicons/react/24/outline";
-import { FiMenu } from "react-icons/fi";
+// import { FiMenu } from "react-icons/fi";
 
 export default function Nav() {
+  const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
@@ -15,16 +20,20 @@ export default function Nav() {
     { name: "Merch", href: "/merch" },
     { name: "Blog", href: "/blog" },
   ];
-
+  const activeLink = navLinks.find((link) => link.href === pathname)?.name;
   return (
     <nav className="text-xl lg:text-2xl flex justify-between items-center p-2 lg:p-6">
       <ul
         className={`flex ${
           isMobileMenuOpen ? "" : "hidden lg:flex"
-        } font-mono w-full space-x-20`}>
+        } w-full space-x-20`}>
         {navLinks.map((link) => (
-          <li key={link.href}>
-            <a href={link.href}>{link.name}</a>
+          <li 
+          className={`cursor-pointer hover:text-blue-500 transition duration-300 ease-in-out ${link.name === activeLink ? 'text-3xl' : 'font-mono'}`}
+          key={link.href} 
+         
+          >
+            <Link href={link.href}>{link.name}</Link>
           </li>
         ))}
       </ul>

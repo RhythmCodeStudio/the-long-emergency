@@ -6,9 +6,55 @@ const { songs } = require("../app/lib/placeholder-data.js");
 
 const bcrypt = require("bcrypt");
 
+async function seedSongs(client) {
+  try {
+    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+    await client.sql`
+     DROP TABLE IF EXISTS songs;
+   `;
+    // Create the "songs" table if it doesn't exist
+    const createTable = await client.sql`
+      CREATE TABLE IF NOT EXISTS songs (
+        id INT PRIMARY KEY,
+        title TEXT NOT NULL,
+        artist TEXT NOT NULL,
+        album INT NOT NULL,
+        year INT NOT NULL,
+        genre TEXT NOT NULL,
+        track_number INT NOT NULL,
+        src TEXT NOT NULL,
+        FOREIGN KEY (album) REFERENCES albums(id)
+      );
+    `;
+    console.log(`Created "songs" table`);
+
+    // Insert data into the "songs" table
+    const insertedSongs = await Promise.all(
+      songs.map(async (song) => {
+        return client.sql`
+        INSERT INTO songs (id, title, artist, album, year, genre, track_number, src)
+        VALUES (${song.id}, ${song.title}, ${song.artist}, ${song.album}, ${song.year}, ${song.genre}, ${song.track_number}, ${song.src})
+        ON CONFLICT (id) DO NOTHING;
+      `;
+      })
+    );
+    console.log(`Seeded ${insertedSongs.length} songs`);
+    return {
+      createTable,
+      songs: insertedSongs,
+    };
+  } catch (error) {
+    console.error("Error seeding songs:", error);
+    throw error;
+  }
+}
+
 async function seedAlbums(client) {
   try {
     await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+    await client.sql`
+    DROP TABLE IF EXISTS albums CASCADE;
+    `;
     // Create the "albums" table if it doesn't exist
     const createTable = await client.sql`
       CREATE TABLE IF NOT EXISTS albums (
@@ -44,43 +90,6 @@ async function seedAlbums(client) {
   }
 }
 
-async function seedSongs(client) {
-  try {
-    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
-    // Create the "songs" table if it doesn't exist
-    const createTable = await client.sql`
-      CREATE TABLE IF NOT EXISTS songs (
-        id INT PRIMARY KEY,
-        title TEXT NOT NULL,
-        artist TEXT NOT NULL,
-        album TEXT NOT NULL,
-        year INT NOT NULL,
-        genre TEXT NOT NULL,
-        track_number INT NOT NULL
-      );
-    `;
-    console.log(`Created "songs" table`);
-
-    // Insert data into the "songs" table
-    const insertedSongs = await Promise.all(
-      songs.map(async (song) => {
-        return client.sql`
-        INSERT INTO songs (id, title, artist, album, year, genre, track_number)
-        VALUES (${song.id}, ${song.title}, ${song.artist}, ${song.album}, ${song.year}, ${song.genre}, ${song.track_number})
-        ON CONFLICT (id) DO NOTHING;
-      `;
-      })
-    );
-    console.log(`Seeded ${insertedSongs.length} songs`);
-    return {
-      createTable,
-      songs: insertedSongs,
-    };
-  } catch (error) {
-    console.error("Error seeding songs:", error);
-    throw error;
-  }
-}
 
 async function seedUsers(client) {
   try {

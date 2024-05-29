@@ -41,10 +41,11 @@ export type Song = {
   id: number;
   title: string;
   artist: string;
-  album: string;
+  album: number;
   year: number;
   genre: string[];
   track_number: number;
+  src: string;
 };
 
 export type Album = {

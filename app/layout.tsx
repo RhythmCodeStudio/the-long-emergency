@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="over" style={{ height: "100%" }}>
-      <body className={`${permanentMarker.className}  flex flex-col`}>
+      <body className={`${permanentMarker.className} overflow-x-hidden flex flex-col`}>
         <div
           style={{
             backgroundImage: "url('/images/masks-no-text-4800x3190.png')",

@@ -27,40 +27,56 @@ export default function Nav() {
   const activeLink = navLinks.find((link) => link.href === pathname)?.label;
 
   return (
-    <nav className="text-2xl flex justify-between items-center p-8">
+    <nav className="text-2xl p-8 flex justify-center items-center text-center">
       {/* mobile nav */}
-      {/* <div className=" flex fixed inset-0 bg-black z-50 justify-center items-center h-full">
-        <div className="flex justify-end">
-          <button className="p-4 top-0 right-0 absolute" onClick={closeMenu} aria-label="Close Menu">
-            <FiX className="text-xl" />
-          </button>
+      {menuOpen && (
+        <div className="invert flex fixed inset-0 bg-black z-50 justify-center items-center h-full"
+        
+        style={{
+          backgroundImage: "url('/images/masks-no-text-4800x3190.png')",
+          backgroundPosition: "center center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          minHeight: "100vh",
+          display: "flex",
+          flexDirection: "column",
+        }}             
+        >
+          <div className="flex justify-end">
+            <button
+              className="p-4 top-0 right-0 absolute"
+              onClick={closeMenu}
+              aria-label="Close Menu">
+              <FiX className="text-2xl" />
+            </button>
+          </div>
+          <div id="mobile-nav-link-container" className="font-bold">
+            <h1 className="text-center text-3xl">The Long Emergency</h1>
+            <ul className="space-y-8 text-2xl">
+              {navLinks.map((link) => (
+                <li
+                  key={link.label}
+                  className={`font-bold text-center w-full p-2 ${
+                    pathname === link.href ? "hidden" : ""
+                  }`}>
+                  <Link href={link.href}>
+                    <div
+                      className="flex flex-col items-center justify-center"
+                      onClick={() => setMenuOpen(false)}>
+                      <span>{link.label}</span>
+                    </div>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-        <div id="mobile-nav-link-container"className="">
-          <h1 className="text-center">The Long Emergency</h1>
-          <ul className="space-y-4">
-            {navLinks.map((link) => (
-              <li
-                key={link.label}
-                className={`font-bold text-center w-full p-2 ${
-                  pathname === link.href ? "hidden" : ""
-                }`}>
-                <Link href={link.href}>
-                  <div
-                    className="flex flex-col items-center justify-center"
-                    onClick={() => setMenuOpen(false)}>
-                    <span>{link.label}</span>
-                  </div>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div> */}
+      )}
       {/* desktop nav */}
-      <ul className={`hidden md:flex w-full space-x-20`}>
+      <ul className={`w-full hidden md:flex items-center justify-between`}>
         {navLinks.map((link) => (
           <li
-            className={` hover:scale-110 transition transition-transform duration-300 ease-in-out ${
+            className={`px-8 md:px-12 lg:px-16 xl:px-20 flex hover:scale-110 transition transition-transform duration-300 ease-in-out ${
               link.label === activeLink ? "hidden" : "font-mono"
             }`}
             key={link.href}>
@@ -75,4 +91,4 @@ export default function Nav() {
       </div>
     </nav>
   );
-};
+}

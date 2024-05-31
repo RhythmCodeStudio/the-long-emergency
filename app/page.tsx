@@ -11,9 +11,10 @@ export default async function Home() {
   return (
     <section className="flex flex-col items-center justify-content m-2 p-2">
       <div className="flex flex-col justify-center items-center">
-        <h2 className="hidden sm:flex text-3xl md:text-6xl lg:text-8xl font-bold text-center z-10">
+        {/* <h2 className="hidden sm:flex text-3xl md:text-6xl lg:text-8xl font-bold text-center z-10"> */}
+        <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-6xl 4xl:text-8xl font-bold text-center z-10">
           {pageData.page_title}
-        </h2>
+        </h1>
       </div>
     </section>
   );

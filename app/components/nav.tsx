@@ -30,18 +30,17 @@ export default function Nav() {
     <nav className="text-2xl p-8 flex justify-center items-center text-center">
       {/* mobile nav */}
       {menuOpen && (
-        <div className="invert flex fixed inset-0 bg-black z-50 justify-center items-center h-full"
-        
-        style={{
-          backgroundImage: "url('/images/masks-no-text-4800x3190.png')",
-          backgroundPosition: "center center",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          minHeight: "100vh",
-          display: "flex",
-          flexDirection: "column",
-        }}             
-        >
+        <div
+          className="invert flex fixed inset-0 bg-black z-50 justify-center items-center h-full"
+          style={{
+            backgroundImage: "url('/images/masks-no-text-4800x3190.png')",
+            backgroundPosition: "center center",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            minHeight: "100vh",
+            display: "flex",
+            flexDirection: "column",
+          }}>
           <div className="flex justify-end">
             <button
               className="p-4 top-0 right-0 absolute"
@@ -51,12 +50,12 @@ export default function Nav() {
             </button>
           </div>
           <div id="mobile-nav-link-container" className="font-bold">
-            <h1 className="text-center text-3xl">The Long Emergency</h1>
-            <ul className="space-y-8 text-2xl">
+            <h1 className="text-center text-3xl m-2 m-2">The Long Emergency</h1>
+            <ul className=" text-2xl">
               {navLinks.map((link) => (
                 <li
                   key={link.label}
-                  className={`font-bold text-center w-full p-2 ${
+                  className={`font-bold text-center w-full py-6 ${
                     pathname === link.href ? "hidden" : ""
                   }`}>
                   <Link href={link.href}>
@@ -73,7 +72,7 @@ export default function Nav() {
         </div>
       )}
       {/* desktop nav */}
-      <ul className={`w-full hidden md:flex items-center justify-between`}>
+      <ul className={`expand-on-load w-full hidden md:flex items-center justify-between`}>
         {navLinks.map((link) => (
           <li
             className={`px-8 md:px-12 lg:px-16 xl:px-20 flex hover:scale-110 transition transition-transform duration-300 ease-in-out ${

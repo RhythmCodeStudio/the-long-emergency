@@ -55,3 +55,7 @@ input[type='number']::-webkit-outer-spin-button {
 a {
   cursor: url("/cursor/devil-horns.cur"), auto;
 }
+
+.expand-on-load {
+  @apply animate-expand;
+}

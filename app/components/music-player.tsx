@@ -4,7 +4,7 @@ import 'react-h5-audio-player/lib/styles.css';
 
 export default function MusicPlayer() {
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="expand-on-load flex flex-col justify-center items-center">
       <h4>Music Player</h4>
       <AudioPlayer
         src="/tracks/starting-over/flac/last-night.flac"

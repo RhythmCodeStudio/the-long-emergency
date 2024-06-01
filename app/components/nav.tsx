@@ -75,7 +75,7 @@ export default function Nav() {
       <ul className={`expand-on-load w-full hidden md:flex items-center justify-between`}>
         {navLinks.map((link) => (
           <li
-            className={`px-8 md:px-12 lg:px-16 xl:px-20 flex hover:scale-110 transition transition-transform duration-300 ease-in-out ${
+            className={`px-8 md:px-8 lg:px-14 xl:px-20 lg:py-8 flex hover:scale-110 transition transition-transform duration-300 ease-in-out ${
               link.label === activeLink ? "hidden" : "font-mono"
             }`}
             key={link.href}>

@@ -27,7 +27,7 @@ export default function Nav() {
   const activeLink = navLinks.find((link) => link.href === pathname)?.label;
 
   return (
-    <nav className="text-2xl p-8 flex justify-center items-center text-center">
+    <nav className="text-2xl 3xl:text-4xl p-6 flex justify-center items-center text-center">
       {/* mobile nav */}
       {menuOpen && (
         <div

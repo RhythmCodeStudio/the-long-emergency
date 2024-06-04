@@ -1,14 +1,18 @@
 "use client";
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
+import { Song } from '../lib/definitions';
 
-export default function MusicPlayer() {
+export default function MusicPlayer({ song }: { song: Song }) {
   return (
-    <div className="expand-on-load flex flex-col justify-center items-center">
-      <h4>Music Player</h4>
+    <div className=" expand-on-load flex flex-col justify-center items-center">
       <AudioPlayer
-        src="/tracks/starting-over/flac/last-night.flac"
-        onPlay={(e) => console.log('onPlay')}
+        className="text-center text-black"
+        src={ song.src }
+        onPlay={(e) => console.log(`Now playing`)}
+        preload='auto'
+        header={song.title}
+        footer="The Long Emergency"
         />
     </div>
   );

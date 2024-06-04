@@ -4,6 +4,8 @@ import { getPage, getAlbums, getSongs } from "../lib/data";
 import Image from "next/image";
 // import components
 import MusicPlayer from "../components/music-player";
+import DownloadButton from "../components/download-button";
+import PlayButton from "../components/play-button";
 // import icons
 import { HiDownload } from "react-icons/hi";
 import { FiDownload } from "react-icons/fi";
@@ -41,13 +43,17 @@ export default async function MusicPage() {
                 {songs
                   .filter((song) => song.album === album.id)
                   .map((song) => (
-
-                    <li key={song.id} >
-                      <FiDownload className="inline justify-center" />
+                    <li key={song.id}>
                       <span>{song.title}</span>
-                      <FiPlay className="inline" />
+                      <div className="flex justify-center items-center">
+                        <div className="mx-6">
+                        <DownloadButton src={song.src} />
+                        </div>
+                        <div className="mx-6">
+                        <PlayButton src={song.src} />
+                        </div>
+                      </div>
                     </li>
-                    
                   ))}
               </ol>
             </div>
@@ -55,7 +61,7 @@ export default async function MusicPage() {
         ))}
       </div>
       <div className="px-12">
-        <MusicPlayer />
+        <MusicPlayer song={songs[0]} />
       </div>
     </div>
   );

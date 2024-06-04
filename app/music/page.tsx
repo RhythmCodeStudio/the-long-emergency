@@ -1,4 +1,3 @@
-
 // import data
 import { getPage, getAlbums, getSongs } from "../lib/data";
 import { Album, Song } from "../lib/definitions";
@@ -17,11 +16,9 @@ export default async function MusicPage() {
   // console.log("songs", songs);
   // console.log("albums", albums);
   return (
-  
     <div className="flex justify-center items center flex-col">
+      <h2 className="text-center text-2xl lg:text-4xl">{musicPageData.page_title}</h2>
       <MusicDisplay albums={albums} songs={songs} />
     </div>
-  
-      
   );
 }

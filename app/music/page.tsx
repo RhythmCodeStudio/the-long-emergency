@@ -19,43 +19,46 @@ export default async function MusicPage() {
   console.log("albums", albums);
   return (
     <div className="flex justify-center items center flex-col">
-      <h2 className="text-center text-2xl">{musicPageData.page_title}</h2>
-      <div className="p-12 grid grid-cols-1 lg:grid-cols-2 flex justify-center items center text-center">
+      {/* <h2 className="text-center text-2xl">{musicPageData.page_title}</h2> */}
+      <div className="px-10 grid grid-cols-1 lg:grid-cols-2 flex justify-center items center text-center">
         {albums.map((album) => (
           <div
             key={album.id}
             className="m-4 expand-on-load font-mono text-lg md:text-2xl">
             <div className="py-4">
               <h3 className="text-2xl">{album.title}</h3>
-              {/* <p>{album.type}</p> */}
+              <p>{album.type}</p>
               <p>{album.year}</p>
             </div>
 
-            <Image
-              src={album.cover_image}
-              alt={album.title}
-              width={1423}
-              height={1411}
-            />
+            <div className="relative">
+              <Image
+                src={album.cover_image}
+                alt={album.title}
+                width={1423}
+                height={1411}
+              />
 
-            <div className="py-4">
-              <ol className="list-decimal list-inside">
-                {songs
-                  .filter((song) => song.album === album.id)
-                  .map((song) => (
-                    <li key={song.id}>
-                      <span>{song.title}</span>
-                      <div className="flex justify-center items-center">
-                        <div className="mx-6">
-                        <DownloadButton src={song.src} />
+              <div className="py-4">
+                <ol className="list-decimal list-inside pl-2">
+                  {songs
+                    .filter((song) => song.album === album.id)
+                    .map((song, index) => (
+                      <li key={song.id} className="flex items-center">
+                        <span className="mr-2">{index + 1}.</span>
+                        <span className="">{song.title}</span>
+                        <div className="ml-auto flex pr-2">
+                          <div className="ml-2">
+                            <PlayButton src={song.src} />
+                          </div>
+                          <div className="ml-2">
+                            <DownloadButton src={song.src} />
+                          </div>
                         </div>
-                        <div className="mx-6">
-                        <PlayButton src={song.src} />
-                        </div>
-                      </div>
-                    </li>
-                  ))}
-              </ol>
+                      </li>
+                    ))}
+                </ol>
+              </div>
             </div>
           </div>
         ))}

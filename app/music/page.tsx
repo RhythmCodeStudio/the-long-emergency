@@ -1,71 +1,27 @@
+
 // import data
 import { getPage, getAlbums, getSongs } from "../lib/data";
+import { Album, Song } from "../lib/definitions";
 // import from next
 import Image from "next/image";
 // import components
+import MusicDisplay from "../components/music-display";
 import MusicPlayer from "../components/music-player";
 import DownloadButton from "../components/download-button";
 import PlayButton from "../components/play-button";
-// import icons
-import { HiDownload } from "react-icons/hi";
-import { FiDownload } from "react-icons/fi";
-import { FiPlay } from "react-icons/fi";
 
 export default async function MusicPage() {
   const musicPageData = await getPage("music");
   const albums = await getAlbums();
   const songs = await getSongs();
-  console.log("songs", songs);
-  console.log("albums", albums);
+  // console.log("songs", songs);
+  // console.log("albums", albums);
   return (
+  
     <div className="flex justify-center items center flex-col">
-      {/* <h2 className="text-center text-2xl">{musicPageData.page_title}</h2> */}
-      <div className="px-10 grid grid-cols-1 lg:grid-cols-2 flex justify-center items center text-center">
-        {albums.map((album) => (
-          <div
-            key={album.id}
-            className="m-4 expand-on-load font-mono text-lg md:text-2xl">
-            <div className="py-4">
-              <h3 className="text-2xl">{album.title}</h3>
-              <p>{album.type}</p>
-              <p>{album.year}</p>
-            </div>
-
-            <div className="relative">
-              <Image
-                src={album.cover_image}
-                alt={album.title}
-                width={1423}
-                height={1411}
-              />
-
-              <div className="py-4">
-                <ol className="list-decimal list-inside pl-2">
-                  {songs
-                    .filter((song) => song.album === album.id)
-                    .map((song, index) => (
-                      <li key={song.id} className="flex items-center">
-                        <span className="mr-2">{index + 1}.</span>
-                        <span className="">{song.title}</span>
-                        <div className="ml-auto flex pr-2">
-                          <div className="ml-2">
-                            <PlayButton src={song.src} />
-                          </div>
-                          <div className="ml-2">
-                            <DownloadButton src={song.src} />
-                          </div>
-                        </div>
-                      </li>
-                    ))}
-                </ol>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-      <div className="px-12">
-        <MusicPlayer song={songs[0]} />
-      </div>
+      <MusicDisplay albums={albums} songs={songs} />
     </div>
+  
+      
   );
 }

@@ -14,7 +14,7 @@ export const Header = () => {
           The Long Emergency
         </h1>
         <Nav />
-        <h1 className={`sm:hidden expand-on-load text-4xl 4xl:text-6xl  ${currentPath === "/" ? "hidden" : ""}`}>
+        <h1 className={`sm:hidden expand-on-load text-3xl 4xl:text-6xl  ${currentPath === "/" ? "hidden" : ""}`}>
           The Long Emergency
         </h1>
       </div>

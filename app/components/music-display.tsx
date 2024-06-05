@@ -1,6 +1,4 @@
 "use client";
-// import data
-// import { getAlbums, getSongs } from "../lib/data";
 // import from react
 import { useState } from "react";
 // import from next
@@ -18,13 +16,9 @@ export default function MusicDisplay({
   albums: Album[];
   songs: Song[];
 }) {
-  const [currentSong, setCurrentSong] = useState<Song>(songs[2]);
-  // console.log("currentSong", currentSong);
-  // const albums = await getAlbums();
-  // const songs = await getSongs();
+  const [currentSong, setCurrentSong] = useState<Song>({} as Song);
   return (
     <div className="flex justify-center items center flex-col">
-      {/* <h2 className="text-center text-2xl">{musicPageData.page_title}</h2> */}
       <div className="px-10 grid grid-cols-1 lg:grid-cols-2 flex justify-center items center text-center">
         {albums.map((album) => (
           <div
@@ -44,14 +38,14 @@ export default function MusicDisplay({
                 height={1411}
               />
               <div className="py-4">
-                <ol className="list-decimal list-inside pl-2">
+                <ol className="list-decimal list-inside pl-2 ">
                   {songs
                     .filter((song) => song.album === album.id)
                     .map((song, index) => (
-                      <li key={song.id} className="flex items-center">
+                      <li key={song.id} className="flex items-center my-1">
                         <span className="mr-2">{index + 1}.</span>
                         <span className="">{song.title}</span>
-                        <div className="ml-auto flex pr-2">
+                        <div className="ml-auto flex pr-2 ">
                           <div className="mr-2">
                             <PlayButton song={song} onPlay={setCurrentSong} />
                           </div>
@@ -62,6 +56,11 @@ export default function MusicDisplay({
                       </li>
                     ))}
                 </ol>
+
+                <p>Download Full Album</p>
+                <div className="flex justify-center">
+                    <DownloadButton src={album.zip} />
+                </div>
               </div>
             </div>
           </div>

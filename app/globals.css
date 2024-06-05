@@ -56,6 +56,11 @@ a {
   cursor: url("/cursor/devil-horns.cur"), auto;
 }
 
+button {
+  cursor: url("/cursor/devil-horns.cur"), auto;
+}
+
 .expand-on-load {
   @apply animate-expand;
 }
+

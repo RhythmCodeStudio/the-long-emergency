@@ -184,7 +184,7 @@ const albums = [
     genre: "Rock",
     cover_image: "/music/i-35/album-art/i-35-cover.jpg",
     type: "single",
-   
+    zip: "/music/i-35/i-35-full.zip"
   },
   {
     id: 2,
@@ -194,7 +194,7 @@ const albums = [
     genre: "Rock",
     cover_image: "/music/starting-over/album-art/cover.jpg",
     type: "album",
-    
+    zip: "/music/starting-over/starting-over-full.zip"
   },
 ];
 

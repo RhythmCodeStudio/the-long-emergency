@@ -7,9 +7,9 @@ export default function MusicPlayer({ song }: { song: Song }) {
   return (
     <div className=" expand-on-load flex flex-col justify-center items-center">
       <AudioPlayer
-        className="text-center text-black"
+        className="text-center text-black outline-black"
         src={ song.src }
-        onPlay={(e) => console.log(`Now playing`)}
+        onPlay={(e) => console.log(`Now playing ${song.title}`)}
         preload='auto'
         header={song.title}
         footer="The Long Emergency"

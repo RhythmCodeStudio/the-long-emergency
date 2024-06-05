@@ -57,4 +57,5 @@ export type Album = {
   cover_image: string;
   type: string;
   songs: Song[];
+  zip: string;
 };

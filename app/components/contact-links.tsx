@@ -8,7 +8,7 @@ import IconLink from "./iconLink";
 
 
 
-export default function SocialMediaLinks({ size }: { size: number }) {
+export default function ContactLinks({ size }: { size: number }) {
   const linkData = [
     {
       href: "https://www.instagram.com/longemergency/",
@@ -17,7 +17,7 @@ export default function SocialMediaLinks({ size }: { size: number }) {
       name: "link to The Long Emergency on Instagram",
     },
     {
-      href: "https://www.linkedin.com/company/rhythm-code-studio/",
+      href: "mailto:thelongemergencyband@gmail.com",
       icon: <FiMail size={size} />,
       label: "email The Long Emergency",
       name: "link to The Long Emergency on LinkedIn",

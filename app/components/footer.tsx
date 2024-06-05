@@ -1,13 +1,13 @@
 // import from next
 import Image from "next/image";
 // import components
-import SocialMediaLinks from "./socialMediaLinks";
+import ContactLinks from "./contact-links";
 
 export const Footer = () => {
   return (
     <footer className=" flex flex-col items-center justify-center w-full mb-4">
       <div className="m-2 expand-on-load">
-      <SocialMediaLinks size={30} />
+      <ContactLinks size={30} />
       </div>
       <span className="expand-on-load text-sm p-2 text-center">
         © 2024 The Long Emergency

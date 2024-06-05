@@ -27,7 +27,7 @@ export default function Nav() {
   const activeLink = navLinks.find((link) => link.href === pathname)?.label;
 
   return (
-    <nav className="text-2xl 3xl:text-4xl p-6 flex justify-center items-center text-center">
+    <nav className="text-2xl 3xl:text-4xl p- flex justify-center items-center text-center">
       {/* mobile nav */}
       {menuOpen && (
         <div
@@ -85,7 +85,7 @@ export default function Nav() {
       </ul>
       <div className="p-4 absolute top-0 right-0 md:hidden">
         <button onClick={openMenu} aria-label="Open Menu">
-          <FiMenu className="h-6 w-6" />
+          <FiMenu className=" expand-on-load h-6 w-6" />
         </button>
       </div>
     </nav>

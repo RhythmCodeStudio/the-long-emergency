@@ -13,20 +13,20 @@ export default function ContactLinks({ size }: { size: number }) {
     {
       href: "https://www.instagram.com/longemergency/",
       icon: <FiInstagram size={size} />,
-      label: "link to The Long Emergency on Instagram",
-      name: "link to The Long Emergency on Instagram",
+      label: "Follow The Long Emergency on Instagram",
+      name: "Follow The Long Emergency on Instagram",
     },
     {
       href: "mailto:thelongemergencyband@gmail.com",
       icon: <FiMail size={size} />,
-      label: "email The Long Emergency",
-      name: "link to The Long Emergency on LinkedIn",
+      label: "Email The Long Emergency",
+      name: "Email The Long Emergency",
     },
     {
       href: "https://www.facebook.com/thelongemergencyband",
       icon: <FiFacebook size={size} />,
-      label: "link to The Long Emergency on Facebook",
-      name: "link to The Long Emergency on Facebook",
+      label: "Follow The Long Emergency on Facebook",
+      name: "Follow The Long Emergency on Facebook",
     },
   ];
   return (

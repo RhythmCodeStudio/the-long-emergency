@@ -1,15 +1,15 @@
+// import from next
 import type { Metadata } from "next";
-
+//  import from upload thing
 import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import { extractRouterConfig } from "uploadthing/server";
 import { ourFileRouter } from "./api/uploadthing/core";
-
+// import fonts
 import { Permanent_Marker } from "next/font/google";
-
 // import components
 import { Header } from "./components/header";
 import { Footer } from "./components/footer";
-
+// import styles
 import "./globals.css";
 
 const permanentMarker = Permanent_Marker({ weight: "400", subsets: ["latin"] });

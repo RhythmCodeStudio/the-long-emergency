@@ -10,7 +10,7 @@ export default function PlayButton({ song, onPlay }: { song: Song, onPlay: (song
         onClick={() => onPlay(song)}
       >
         <FiPlay 
-          className="text-lg xl:text-2xl"
+          className="text-lg xl:text-2xl "
         />
       </button>
     </div>

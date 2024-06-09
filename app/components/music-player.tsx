@@ -5,7 +5,7 @@ import { Song } from '../lib/definitions';
 
 export default function MusicPlayer({ song }: { song: Song }) {
   return (
-    <div className=" expand-on-load flex flex-col justify-center items-center">
+    <div className=" expand-on-load flex flex-col justify-center items-center shadow-xl shadow-blue-300/50">
       <AudioPlayer
         className="text-center text-black outline-black"
         src={ song.src }

@@ -64,3 +64,8 @@ button {
   @apply animate-expand;
 }
 
+@media (min-width: 1024px) {
+  .placeholder {
+    visibility: hidden;
+  }
+}

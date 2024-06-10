@@ -51,7 +51,7 @@ export default function ContactForm() {
     }
   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     // trim form data
     const trimmedFirstName = firstName.trim();

@@ -53,7 +53,7 @@ const pages = [
     name: "Contact",
     slug: "contact",
     url: "/contact",
-    page_title: "Contact Page",
+    page_title: "Contact",
     sections: [],
   },
   {
@@ -177,16 +177,6 @@ const songs = [
 
 const albums = [
   {
-    id: 1,
-    title: "I-35",
-    artist: "The Long Emergency",
-    year: 2013,
-    genre: "Rock",
-    cover_image: "/music/i-35/album-art/i-35-cover.jpg",
-    type: "single",
-    zip: "/music/i-35/i-35-full.zip"
-  },
-  {
     id: 2,
     title: "Starting Over",
     artist: "The Long Emergency",
@@ -195,6 +185,16 @@ const albums = [
     cover_image: "/music/starting-over/album-art/cover.jpg",
     type: "album",
     zip: "/music/starting-over/starting-over-full.zip"
+  },
+  {
+    id: 1,
+    title: "I-35",
+    artist: "The Long Emergency",
+    year: 2013,
+    genre: "Rock",
+    cover_image: "/music/i-35/album-art/i-35-cover.jpg",
+    type: "single",
+    zip: "/music/i-35/i-35-full.zip"
   },
 ];
 

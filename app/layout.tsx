@@ -16,7 +16,7 @@ const permanentMarker = Permanent_Marker({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "The Long Emergency",
-  description: "Official website for The Long Emergency",
+  description: "Official website for rock band, The Long Emergency, from St. Louis, Missouri.",
 };
 
 export default function RootLayout({
@@ -26,7 +26,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="over" style={{ height: "100%" }}>
-      <body className={`${permanentMarker.className} overflow-x-hidden flex flex-col`}>
+      <body
+        className={`${permanentMarker.className} overflow-x-hidden flex flex-col`}>
         <div
           style={{
             backgroundImage: "url('/images/masks-no-text-4800x3190.png')",
@@ -36,12 +37,9 @@ export default function RootLayout({
             minHeight: "100vh",
             display: "flex",
             flexDirection: "column",
-          }}
-        >
+          }}>
           <Header />
-          <NextSSRPlugin
-            routerConfig={extractRouterConfig(ourFileRouter)}
-          />
+          <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
           <main className="flex flex-grow items-center justify-center">
             {children}
           </main>
@@ -51,8 +49,6 @@ export default function RootLayout({
     </html>
   );
 }
-
-
 
 // export default function RootLayout({
 //   children,

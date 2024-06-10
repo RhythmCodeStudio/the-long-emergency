@@ -1,4 +1,5 @@
-
+// import from next
+import Image from "next/image";
 // import from lib
 import { getPage } from "./lib/data";
 
@@ -15,6 +16,7 @@ export default async function Home() {
           {pageData.page_title}
         </h1>
       </div>
+   
     </section>
   );
 }

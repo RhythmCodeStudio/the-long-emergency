@@ -108,8 +108,8 @@ export default function ContactForm() {
           //   process.env.NEXT_PUBLIC_EMAILJS_USER_ID
           // )
           .send(
-            process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-            process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+            process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
+            process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? '',
             emailTemplateParams,
             process.env.NEXT_PUBLIC_EMAILJS_USER_ID
           )
@@ -253,7 +253,7 @@ export default function ContactForm() {
         <Button color="primary" 
 variant="shadow"
             onClick={handleFormSubmit}
-            isSubmitted={buttonSubmitted}
+            // isSubmitted={buttonSubmitted}
             type="submit"
             className="text-black"
           >Send</Button>

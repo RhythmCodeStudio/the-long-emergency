@@ -8,7 +8,7 @@ export default async function ContactPage() {
   const contactPageData = await getPage("contact");
   return (
     <div className="flex justify-center items-center flex-col">
-      <h2>{contactPageData.page_title}</h2>
+      <h2 className="expand-on-load">{contactPageData.page_title}</h2>
       <ContactForm />
       <div className="-mt-6 w-full h-auto p-6 max-w-600 expand-on-load ">
         <Image
@@ -19,7 +19,6 @@ export default async function ContactPage() {
           height={3205}
         />
       </div>
-      {/* <ContactForm /> */}
     </div>
   );
 }

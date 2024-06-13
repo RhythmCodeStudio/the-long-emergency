@@ -137,11 +137,11 @@ export default function ContactForm() {
   };
 
   return (
-    <div className=" w-full">
+    <div className="w-full">
       {/* <h3 className="text-center text-xl text-2xl xl:text-3xl font-bold">Get In Touch</h3> */}
       <form
         onSubmit={handleFormSubmit}
-        className="p-12 shadow-2xl max-w-200 mx-auto relative">
+        className="expand-on-load p-12 max-w-200 mx-auto relative">
         {/* <h3 className="text-center text-xl text-2xl xl:text-3xl font-bold">Get In Touch</h3> */}
         <div className="flex flex-col justify-center">
           <label htmlFor="firstName">

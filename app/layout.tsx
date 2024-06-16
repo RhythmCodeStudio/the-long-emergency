@@ -29,17 +29,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: "The Long Emergency",
     description: "Official website for The Long Emergency, a rock band from St. Louis, Missouri.",
-    url: "http://localhost:3000/",
+    url: "https://www.thelongemergency.net",
     siteName: "The Long Emergency",
     type: "website",
     locale: "en_US",
     images: [{
-      url: "https:/localhost:3000/opengraph-image.png",
+      url: "https://www.thelongemergency.net//opengraph-image.png",
       width: 960,
       height:691
     }],
   },
-  
 };
 
 export default function RootLayout({

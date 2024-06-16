@@ -2,7 +2,11 @@
 import { getPage, getAlbums, getSongs } from "../lib/data";
 // import components
 import MusicDisplay from "../components/music-display";
-
+// export metadata
+export const meta = {
+  title: "Music",
+  description: "Music by The Long Emergency",
+};
 
 export default async function MusicPage() {
   const musicPageData = await getPage("music");

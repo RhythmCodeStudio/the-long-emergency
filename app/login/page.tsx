@@ -1,6 +1,8 @@
+// import data
 import { getPage } from "../lib/data";
-
+// import components
 import LoginForm from "../components/login-form";
+
 
 export default async function LoginPage() {
   const loginPageData = await getPage("login");

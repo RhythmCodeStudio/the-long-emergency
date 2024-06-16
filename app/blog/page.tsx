@@ -1,4 +1,10 @@
+// import data
 import { getPage } from "../lib/data";
+// export metadata
+export const meta = {
+  title: "Blog",
+  description: "Blog posts by The Long Emergency",
+};
 
 export default async function BlogPage() {
   const blogPageData = await getPage("blog");

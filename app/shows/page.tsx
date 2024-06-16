@@ -1,7 +1,12 @@
 // import from next
 import Image from "next/image";
-
+// import data
 import { getPage } from "../lib/data";
+// export metadata
+export const meta = {
+  title: "Shows",
+  description: "Shows by The Long Emergency",
+};
 
 export default async function ShowsPage() {
   const showsPageData = await getPage("shows");

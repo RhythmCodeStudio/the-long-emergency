@@ -4,6 +4,11 @@ import Image from "next/image";
 import { getPage } from "../lib/data";
 // import components
 import BandBio from "../components/band-bio";
+// export metadata
+export const meta = {
+  title: "About",
+  description: "About The Long Emergency",
+};
 
 
 export default async function AboutPage() {

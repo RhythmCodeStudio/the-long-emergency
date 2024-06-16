@@ -3,6 +3,12 @@ import ContactForm from "../components/contact-form";
 import { getPage } from "../lib/data";
 // import from next
 import Image from "next/image";
+// export metadata
+export const meta = {
+  title: "Contact",
+  description: "Contact The Long Emergency",
+};
+
 
 export default async function ContactPage() {
   const contactPageData = await getPage("contact");

@@ -17,9 +17,12 @@ import "./globals.css";
 const permanentMarker = Permanent_Marker({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "The Long Emergency",
+  title: {
+    template: '%s | The Long Emergency | St. Louis, Missouri',
+    default: 'The Long Emergency | St. Louis, Missouri',
+  },
   description: "Official website for rock band, The Long Emergency, from St. Louis, Missouri.",
-  metadataBase: new URL("http://localhost:3000/"),
+  metadataBase: new URL("https://www.thelongemergency.net/"),
   alternates: {
     canonical: "/",
     languages: {

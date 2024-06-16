@@ -25,9 +25,6 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.thelongemergency.net/"),
   alternates: {
     canonical: "/",
-    languages: {
-      'en-US': 'en-US',
-    },
   },
   openGraph: {
     title: "The Long Emergency",

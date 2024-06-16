@@ -10,11 +10,13 @@ export default async function AboutPage() {
   const aboutPageData = await getPage("about");
   return (
     <div className="flex flex-col items-center">
-      <h2 className="text-center text-2xl lg:text-4xl">
+      <h2 className="expand-on-load text-center text-2xl lg:text-4xl">
         {aboutPageData.page_title}
       </h2>
+      <div className="expand-on-load">
       <BandBio />
-      <div className="px-6 lg:p-0 ">
+      </div>
+      <div className="expand-on-load px-6 lg:p-0 ">
         <Image
           src="/images/kev-16-9.jpg"
           alt="Kevin Long performing with The Long Emergency"

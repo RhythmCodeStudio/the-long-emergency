@@ -22,9 +22,6 @@ export const metadata: Metadata = {
   metadataBase: new URL("http://localhost:3000/"),
   alternates: {
     canonical: "/",
-    languages: {
-      'en-US': 'en-US',
-    },
   },
   openGraph: {
     title: "The Long Emergency",

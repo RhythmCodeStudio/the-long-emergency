@@ -23,12 +23,12 @@ export default function ContactLinks({ size }: { size: number }) {
       label: "Email The Long Emergency",
       name: "Email The Long Emergency",
     },
-    {
-      href: "https://www.patreon.com",
-      icon: <PiPatreonLogoBold size={size} />,
-      label: "Support The Long Emergency on Patreon",
-      name: "Support The Long Emergency on Patreon",
-    },
+    // {
+    //   href: "https://www.patreon.com",
+    //   icon: <PiPatreonLogoBold size={size} />,
+    //   label: "Support The Long Emergency on Patreon",
+    //   name: "Support The Long Emergency on Patreon",
+    // },
     {
       href: "https://www.facebook.com/thelongemergencyband",
       icon: <FiFacebook size={size} />,

@@ -1,5 +1,7 @@
 // import from next
 import type { Metadata } from "next";
+// import analytics
+import { Analytics } from '@vercel/analytics/react';
 //  import from upload thing
 import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import { extractRouterConfig } from "uploadthing/server";
@@ -17,6 +19,27 @@ const permanentMarker = Permanent_Marker({ weight: "400", subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "The Long Emergency",
   description: "Official website for rock band, The Long Emergency, from St. Louis, Missouri.",
+  metadataBase: new URL("http://localhost:3000/"),
+  alternates: {
+    canonical: "/",
+    languages: {
+      'en-US': 'en-US',
+    },
+  },
+  openGraph: {
+    title: "The Long Emergency",
+    description: "Official website for The Long Emergency, a rock band from St. Louis, Missouri.",
+    url: "http://localhost:3000/",
+    siteName: "The Long Emergency",
+    type: "website",
+    locale: "en_US",
+    images: [{
+      url: "https:/localhost:3000/opengraph-image.png",
+      width: 960,
+      height:691
+    }],
+  },
+  
 };
 
 export default function RootLayout({

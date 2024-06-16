@@ -1,3 +1,3 @@
 # The Long Emergency
 
-## The Long Emergency is coming...
+## The Long Emergency is coming

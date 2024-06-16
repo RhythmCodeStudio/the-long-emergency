@@ -61,7 +61,7 @@ export default function RootLayout({
             display: "flex",
             flexDirection: "column",
           }}>
-          <Header />
+          {/* <Header /> */}
           <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
           <main className="flex flex-grow items-center justify-center">
             {children}

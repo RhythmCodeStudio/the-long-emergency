@@ -18,10 +18,10 @@ export default async function AboutPage() {
       <h2 className="expand-on-load text-center text-2xl lg:text-4xl">
         {aboutPageData.page_title}
       </h2>
-      <div className="expand-on-load">
+      <div className="expand-on-load p-2 xl:px-36 2xl:px-52 3xl:px-96">
       <BandBio />
       </div>
-      <div className="expand-on-load px-6 lg:p-0 ">
+      <div className="expand-on-load p-12 ">
         <Image
           src="/images/kev-16-9.jpg"
           alt="Kevin Long performing with The Long Emergency"

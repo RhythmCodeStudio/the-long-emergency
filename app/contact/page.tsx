@@ -14,7 +14,7 @@ export default async function ContactPage() {
   const contactPageData = await getPage("contact");
   return (
     <div className="flex justify-center items-center flex-col">
-      <h2 className="expand-on-load">{contactPageData.page_title}</h2>
+      <h2 className="expand-on-load text-2xl lg:text-4xl">{contactPageData.page_title}</h2>
       <ContactForm />
       <div className="-mt-6 w-full h-auto p-12 max-w-200 expand-on-load ">
         <Image

@@ -27,7 +27,7 @@ export default function Nav() {
   const activeLink = navLinks.find((link) => link.href === pathname)?.label;
 
   return (
-    <nav className="text-2xl 3xl:text-4xl p- flex justify-center items-center text-center">
+    <nav className="text-2xl 3xl:text-3xl flex justify-center items-center text-center">
       {/* mobile nav */}
       {menuOpen && (
         <div
@@ -72,7 +72,7 @@ export default function Nav() {
         </div>
       )}
       {/* desktop nav */}
-      <ul className={`expand-on-load w-full hidden md:flex items-center justify-between`}>
+      <ul className={`expand-on-load w-full hidden md:flex items-center justify-between mt-6 lg:mt-0`}>
         {navLinks.map((link) => (
           <li
             className={`px-8 md:px-8 lg:px-14 xl:px-20 lg:py-8 flex hover:scale-110 transition transition-transform duration-300 ease-in-out ${

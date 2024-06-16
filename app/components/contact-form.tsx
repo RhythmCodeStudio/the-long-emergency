@@ -1,10 +1,10 @@
 "use client";
 // import from vercel
-import { track } from '@vercel/analytics';
+import { track } from "@vercel/analytics";
 // import from react
 import { ChangeEvent, SetStateAction, useState } from "react";
 
-import {Button, ButtonGroup} from "@nextui-org/button";
+import { Button, ButtonGroup } from "@nextui-org/button";
 // import components
 
 // import from utils
@@ -31,7 +31,17 @@ export default function ContactForm() {
   const [deliveryErrorMessage, setDeliveryErrorMessage] = useState("");
   const [buttonSubmitted, setButtonSubmitted] = useState(false);
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>, setState: { (value: SetStateAction<string>): void; (value: SetStateAction<string>): void; (value: SetStateAction<string>): void; (value: SetStateAction<string>): void; (value: SetStateAction<string>): void; (arg0: any): void; }) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>,
+    setState: {
+      (value: SetStateAction<string>): void;
+      (value: SetStateAction<string>): void;
+      (value: SetStateAction<string>): void;
+      (value: SetStateAction<string>): void;
+      (value: SetStateAction<string>): void;
+      (arg0: any): void;
+    }
+  ) => {
     setState(e.target.value);
     // Check if the email is being updated and is valid
     if (e.target.name === "email" && validateEmail(e.target.value)) {
@@ -51,15 +61,15 @@ export default function ContactForm() {
     }
   };
 
-  const handleFormSubmit = (e: { preventDefault: () => void; }) => {
+  const handleFormSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     // trim form data
     const trimmedFirstName = firstName.trim();
     const trimmedLastName = lastName.trim();
-    const trimmedEmail= email.trim();
+    const trimmedEmail = email.trim();
     const trimmedPhone = phone.trim();
     // validation  for inputs, handle errors accordingly
-    const isEmailValid = validateEmail(trimmedEmail); 
+    const isEmailValid = validateEmail(trimmedEmail);
     const isPhoneValid = validatePhone(trimmedPhone);
     const isFirstNameValid = validateName(trimmedFirstName);
     const isLastNameValid = validateName(trimmedLastName);
@@ -101,36 +111,28 @@ export default function ContactForm() {
 
       try {
         emailjs
-          // .send(
-          //   process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-          //   process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-          //   emailTemplateParams,
-          //   process.env.NEXT_PUBLIC_EMAILJS_USER_ID
-          // )
           .send(
             process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
-            process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? '',
+            process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '',
             emailTemplateParams,
             process.env.NEXT_PUBLIC_EMAILJS_USER_ID
           )
-          .then(
-            (result) => {
-              track("Contact form submission");
-              setButtonSubmitted(true);
-              setFirstName("");
-              setLastName("");
-              setEmail("");
-              setPhone("");
-              setMessage("");
-              // Reset the button's submitted state after 5 seconds
-              setTimeout(() => {
-                setButtonSubmitted(false);
-              }, 5000);
-            }
-          );
+          .then((result) => {
+            track("Contact form submission");
+            setButtonSubmitted(true);
+            setFirstName("");
+            setLastName("");
+            setEmail("");
+            setPhone("");
+            setMessage("");
+            // Reset the button's submitted state after 5 seconds
+            setTimeout(() => {
+              setButtonSubmitted(false);
+            }, 5000);
+          });
       } catch (error) {
         setDeliveryErrorMessage(
-          "There was an error delivering your message. Please click to email us at mmmcontact@mikemartinmedia.com. We apologize for the inconvenience."
+          "There was an error delivering your message. Please click to email us at thelongemergencyband@gmail.com. Sorry for the trouble."
         );
       }
     }
@@ -235,13 +237,13 @@ export default function ContactForm() {
           <textarea
             autoComplete="off"
             maxLength={1000}
-            placeholder="How can we help you?"
+            placeholder="What is on your mind?"
             onChange={(e) => handleChange(e, setMessage)}
             value={message}
             required
             name="message"
             id="message"
-            className="border-2 border-gray-800 p-2 h-60 w-60 resize-none w-full"
+            className="text-black border-2 border-gray-800 p-2 h-60 w-60 resize-none w-full"
           />
           {messageErrorMessage && (
             <div className="flex justify-center items-center mt-2 mb-4">
@@ -250,13 +252,15 @@ export default function ContactForm() {
           )}
         </div>
         <div className="flex justify-center items-center p-6">
-        <Button color="primary" 
-variant="shadow"
+          <Button
+            color="primary"
+            variant="shadow"
             onClick={handleFormSubmit}
             // isSubmitted={buttonSubmitted}
             type="submit"
-            className="text-black"
-          >Send</Button>
+            className="text-black">
+            Send
+          </Button>
         </div>
         {deliveryErrorMessage && (
           <div className="flex text-balance text-center justify-center items-center mt-2 mb-4">
@@ -271,7 +275,6 @@ variant="shadow"
             </a>
           </div>
         )}
-       
       </form>
     </div>
   );

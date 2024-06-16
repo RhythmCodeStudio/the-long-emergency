@@ -10,7 +10,7 @@ export default async function ContactPage() {
     <div className="flex justify-center items-center flex-col">
       <h2 className="expand-on-load">{contactPageData.page_title}</h2>
       <ContactForm />
-      <div className="-mt-6 w-full h-auto p-6 max-w-600 expand-on-load ">
+      <div className="-mt-6 w-full h-auto p-12 max-w-200 expand-on-load ">
         <Image
           priority
           src="/images/guitar-mask-mound-4510x3205.png"

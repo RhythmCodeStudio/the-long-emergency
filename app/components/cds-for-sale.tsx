@@ -25,19 +25,22 @@ export default async function CdsForSale(
   return (
     <div className="grid grid-cols-1 gap-4">
       {availableCds.map((cd) => (
-        <div className="expand-on-load cd-item font-mono p-16 " key={cd.title}>
+        <div className="flex flex-col justify-center expand-on-load font-mono p-6 w-72 md:w-96" key={cd.title}>
           <Image 
             width={960}
             height={952}
             src={cd.imageUrl} 
             alt={cd.title} 
-            className="w-96 xl:w-128 h-auto shadow-xl shadow-blue-300/50 border border-2-black"
+            className=" h-auto shadow-xl shadow-blue-300/50 border border-2-black"
           />
+          <div className="p-2">
           <h3>{cd.title}{" "}</h3>
           {/* <p>{cd.artist}</p> */}
-          <p>${cd.price}</p>
+          
           <p>{cd.description}</p>
-          <p>Released in {cd.year}</p>
+          <p>${cd.price}</p>
+          {/* <p>Released in {cd.year}</p> */}
+          </div>
         </div>
       ))}
     </div>

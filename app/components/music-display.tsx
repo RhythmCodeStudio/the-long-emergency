@@ -27,7 +27,7 @@ export default function MusicDisplay({
 
   return (
     <div className="flex justify-center items center flex-col">
-      <div className="px-10 grid grid-cols-1 lg:grid-cols-2 lg:gap-36 flex justify-center items center text-center">
+      <div className="px-10 grid grid-cols-1 lg:grid-cols-2 lg:gap-24 flex justify-center items center text-center">
         {albums.map((album) => (
           <div
             key={album.id}
@@ -38,7 +38,7 @@ export default function MusicDisplay({
               <p>{album.year}</p>
             </div>
             <div className="relative">
-              <div className="border border-2-black shadow-xl shadow-blue-300/50 max-w-144">
+              <div className="border border-2-black shadow-xl shadow-blue-300/50 max-w-72">
                 <Image
                   priority
                   src={album.cover_image}

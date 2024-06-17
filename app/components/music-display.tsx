@@ -31,7 +31,7 @@ export default function MusicDisplay({
               <p>{album.year}</p>
             </div>
             <div className="relative">
-              <div className="border border-black shadow-xl shadow-blue-300/50 max-w-144">
+              <div className="border border-2-black shadow-xl shadow-blue-300/50 max-w-144">
                 <Image
                   priority
                   src={album.cover_image}

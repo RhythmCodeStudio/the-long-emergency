@@ -45,7 +45,7 @@ export default async function ShowsPage() {
   return (
     <div className="flex justify-center items-center flex-col">
       <div className="expand-on-load">
-        <h2 className="text-2xl">{showsPageData.page_title}</h2>
+        <h2 className="text-2xl lg:text-4xl">{showsPageData.page_title}</h2>
         </div>
       <h3 className="expand-on-load text-xl font-mono p-6">The Long Emergency is coming...</h3>
      
@@ -67,7 +67,7 @@ export default async function ShowsPage() {
               <span className="underline font-bold">
                 <Link href="/contact">contact</Link>
               </span>{" "}
-              for booking or requesting a show.
+              for booking.
             </p>
           </div>
         ) : (

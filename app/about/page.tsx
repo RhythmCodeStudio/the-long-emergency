@@ -5,7 +5,7 @@ import { getPage } from "../lib/data";
 // import components
 import BandBio from "../components/band-bio";
 // export metadata
-export const meta = {
+export const metadata  = {
   title: "About",
   description: "About The Long Emergency",
 };

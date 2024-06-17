@@ -4,7 +4,7 @@ import { getPage } from "../lib/data";
 // import from next
 import Image from "next/image";
 // export metadata
-export const meta = {
+export const metadata  = {
   title: "Contact",
   description: "Contact The Long Emergency",
 };

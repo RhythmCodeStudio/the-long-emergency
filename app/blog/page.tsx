@@ -1,7 +1,7 @@
 // import data
 import { getPage } from "../lib/data";
 // export metadata
-export const meta = {
+export const metadata  = {
   title: "Blog",
   description: "Blog posts by The Long Emergency",
 };

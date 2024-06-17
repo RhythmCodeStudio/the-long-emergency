@@ -4,7 +4,7 @@ import Link from "next/link";
 // import data
 import { getPage } from "../lib/data";
 // export metadata
-export const meta = {
+export const metadata = {
   title: "Shows",
   description: "Shows by The Long Emergency",
 };

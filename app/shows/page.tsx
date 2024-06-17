@@ -73,7 +73,7 @@ export default async function ShowsPage() {
         ) : (
           gigs.map((gig) => (
             <ul className="p-2 text-lg md:text-xl">
-              <li key={gig.date} className="py-2 expand-on-load ">
+                <li key={gig.index} className="py-2 expand-on-load ">
                 <p className="font-mono text-center">{gig.date}</p>
                 <p className="font-mono text-center">{gig.venue}</p>
                 <p className="font-mono text-center">

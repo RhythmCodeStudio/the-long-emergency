@@ -24,6 +24,17 @@ export default function MusicDisplay({
       album: song.album,
     });
   };
+  const trackSongDownload = (song: Song) => {
+    track("song-download", {
+      song: song.title,
+      album: song.album,
+    });
+  };
+  const trackAlbumDownload = (album: Album) => {
+    track("album-download", {
+      album: album.title,
+    });
+  };
 
   return (
     <div className="flex justify-center items center flex-col">
@@ -50,7 +61,11 @@ export default function MusicDisplay({
               <div className="py-4">
                 <div className="download-album-div ">
                   <p>Download {album.title}</p>
-                  <div className="flex justify-center">
+                  <div
+                    className="flex justify-center"
+                    onClick={() => {
+                      trackAlbumDownload(album);
+                    }}>
                     <DownloadButton src={album.zip} />
                   </div>
                 </div>
@@ -71,7 +86,11 @@ export default function MusicDisplay({
                               }}
                             />
                           </div>
-                          <div className="ml-2">
+                          <div
+                            className="ml-2"
+                            onClick={() => {
+                              trackSongDownload(song);
+                            }}>
                             <DownloadButton src={song.src} />
                           </div>
                         </div>

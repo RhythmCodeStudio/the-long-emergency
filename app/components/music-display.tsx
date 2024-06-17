@@ -1,4 +1,5 @@
 "use client";
+import { track } from "@vercel/analytics";
 // import from react
 import { useState } from "react";
 // import from next
@@ -17,6 +18,12 @@ export default function MusicDisplay({
   songs: Song[];
 }) {
   const [currentSong, setCurrentSong] = useState<Song>({} as Song);
+  const trackSongPlay = (song: Song) => {
+    track("song-play", {
+      song: song.title,
+      album: song.album,
+    });
+  };
 
   return (
     <div className="flex justify-center items center flex-col">
@@ -56,7 +63,13 @@ export default function MusicDisplay({
                         <span className="">{song.title}</span>
                         <div className="ml-auto flex pr-2 ">
                           <div className="mr-2">
-                            <PlayButton song={song} onPlay={setCurrentSong} />
+                            <PlayButton
+                              song={song}
+                              onPlay={() => {
+                                setCurrentSong(song);
+                                trackSongPlay(song);
+                              }}
+                            />
                           </div>
                           <div className="ml-2">
                             <DownloadButton src={song.src} />

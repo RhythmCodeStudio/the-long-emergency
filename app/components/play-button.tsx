@@ -15,4 +15,4 @@ export default function PlayButton({ song, onPlay }: { song: Song, onPlay: (song
       </button>
     </div>
   );
-}
+};

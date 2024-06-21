@@ -6,6 +6,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import { extractRouterConfig } from "uploadthing/server";
 import { ourFileRouter } from "./api/uploadthing/core";
+
 // import fonts
 import { Permanent_Marker } from "next/font/google";
 // import components
@@ -14,6 +15,7 @@ import { Footer } from "./components/footer";
 // import styles
 import "./globals.css";
 
+// define font
 const permanentMarker = Permanent_Marker({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {

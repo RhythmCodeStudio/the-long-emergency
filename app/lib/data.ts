@@ -43,6 +43,16 @@ export async function getSongs() {
   }
 };
 
+export async function getMerch() {
+  try {
+    const merch = await sql`SELECT * FROM merch`;
+    return merch.rows;
+  } catch (error) {
+    console.error('Failed to fetch merch:', error);
+    throw new Error('Failed to fetch merch.');
+  }
+};
+
 export async function getUsers() {
   try {
     const users = await sql`SELECT * FROM users`;

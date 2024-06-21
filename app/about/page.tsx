@@ -18,7 +18,7 @@ export default async function AboutPage() {
       <h2 className="expand-on-load text-center text-2xl lg:text-4xl">
         {aboutPageData.page_title}
       </h2>
-      <div className="expand-on-load pt-6 xl:px-36 2xl:px-52 3xl:px-96">
+      <div className="pt-6 expand-on-load">
       <BandBio />
       </div>
       

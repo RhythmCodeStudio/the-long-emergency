@@ -198,9 +198,34 @@ const albums = [
   },
 ];
 
+const merch = [
+  {
+    id: 1,
+    name: "Starting Over - CD",
+    price: 10,
+    image: "/images/starting-over.jpg",
+    description: "The debut album from The Long Emergency on CD. Includes digital download (MP3).",
+  },
+  {
+    id: 2,
+    name: "Starting Over - MP3",
+    price: 5,
+    image: "/images/starting-over.jpg",
+    description: "Digital copy of the debut album from The Long Emergency. Includes album art.",
+  },
+  {
+    id: 3,
+    name: "I-35 - MP3",
+    price: 2,
+    image: "/images/i-35.jpg",
+    description: "Digital copy of the single I-35 from The Long Emergency. Includes the B-side Sing Me To Sleep.",
+  },
+];
+
 module.exports = {
   users,
   pages,
   albums,
   songs,
+  merch,
 };

@@ -3,6 +3,7 @@ const { users } = require("../app/lib/placeholder-data.js");
 const { pages } = require("../app/lib/placeholder-data.js");
 const { albums } = require("../app/lib/placeholder-data.js");
 const { songs } = require("../app/lib/placeholder-data.js");
+const { merch } = require("../app/lib/placeholder-data.js");
 
 const bcrypt = require("bcrypt");
 
@@ -91,7 +92,6 @@ async function seedAlbums(client) {
   }
 }
 
-
 async function seedUsers(client) {
   try {
     await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
@@ -134,8 +134,8 @@ async function seedUsers(client) {
 async function seedPages(client) {
   try {
     await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
-     // Drop the "pages" table if it exists
-     await client.sql`
+    // Drop the "pages" table if it exists
+    await client.sql`
      DROP TABLE IF EXISTS pages;
    `;
     // Create the "pages" table if it doesn't exist
@@ -175,6 +175,49 @@ async function seedPages(client) {
   }
 }
 
+async function seedMerch(client) {
+  try {
+    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+    // Drop the "merch" table if it exists
+    await client.sql`
+    DROP TABLE IF EXISTS merch;
+  `;
+    // Create the "merch" table if it doesn't exist
+    const createTable = await client.sql`
+      CREATE TABLE IF NOT EXISTS merch (
+        id INT PRIMARY KEY,
+        name TEXT NOT NULL,
+        price INT NOT NULL,
+        image TEXT NOT NULL,
+        description TEXT NOT NULL
+      );
+    `;
+
+    console.log(`Created "merch" table`);
+
+    // Insert data into the "merch" table
+    const insertedMerch = await Promise.all(
+      merch.map(async (item) => {
+        return client.sql`
+        INSERT INTO merch (id, name, price, description, image)
+        VALUES (${item.id}, ${item.name}, ${item.price}, ${item.description}, ${item.image})
+        ON CONFLICT (id) DO NOTHING;
+      `;
+      })
+    );
+
+    console.log(`Seeded ${insertedMerch.length} merch items`);
+
+    return {
+      createTable,
+      merch: insertedMerch,
+    };
+  } catch (error) {
+    console.error("Error seeding merch:", error);
+    throw error;
+  }
+}
+
 async function main() {
   const client = await db.connect();
 
@@ -182,6 +225,7 @@ async function main() {
   await seedPages(client);
   await seedAlbums(client);
   await seedSongs(client);
+  await seedMerch(client);
 
   await client.end();
 }

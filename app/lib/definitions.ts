@@ -66,4 +66,5 @@ export type MerchProduct = {
   price: number;
   image: string;
   description: string;
+  stripe_url: string;
 };

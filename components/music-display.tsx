@@ -5,10 +5,10 @@ import { useState } from "react";
 // import from next
 import Image from "next/image";
 // import components
-import MusicPlayer from "../components/music-player";
-import DownloadButton from "../components/download-button";
-import PlayButton from "../components/play-button";
-import { Album, Song } from "../lib/definitions";
+import MusicPlayer from "./music-player";
+import DownloadButton from "./download-button";
+import PlayButton from "./play-button";
+import { Album, Song } from "../app/lib/definitions";
 
 export default function MusicDisplay({
   albums,
@@ -43,19 +43,20 @@ export default function MusicDisplay({
           <div
             key={album.id}
             className="m-4 expand-on-load font-mono text- md:text-2xl">
-            <div className="py-4">
+            <div className="py-">
               <h3 className="text-2xl">{album.title}</h3>
               <p>{album.type}</p>
               <p>{album.year}</p>
             </div>
             <div className="relative">
-              <div className="border border-2-black shadow-xl shadow-blue-300/50 max-w-72">
+              <div className=" max-w-96 p-6">
                 <Image
                   priority
                   src={album.cover_image}
                   alt={album.title}
                   width={1423}
                   height={1411}
+                  className=" h-auto shadow-xl shadow-blue-300/50 border border-2-black"
                 />
               </div>
               <div className="py-4">
@@ -102,7 +103,7 @@ export default function MusicDisplay({
           </div>
         ))}
       </div>
-      <div className="px-12">
+      <div className="p-8">
         <MusicPlayer song={currentSong || undefined} />
       </div>
     </div>

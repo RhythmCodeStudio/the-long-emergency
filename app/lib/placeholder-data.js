@@ -205,6 +205,7 @@ const merch = [
     price: 10,
     image: "/images/starting-over.jpg",
     description: "The debut album from The Long Emergency on CD. Includes digital download (MP3).",
+    stripe_url: "https://buy.stripe.com/test_14k9CVeHc33c1i0bIK",
   },
   {
     id: 2,
@@ -212,6 +213,7 @@ const merch = [
     price: 5,
     image: "/images/starting-over.jpg",
     description: "Digital copy of the debut album from The Long Emergency. Includes album art.",
+    stripe_url: "https://buy.stripe.com/test_fZe8yRgPk6fof8QbIJ",
   },
   {
     id: 3,
@@ -219,6 +221,7 @@ const merch = [
     price: 2,
     image: "/images/i-35.jpg",
     description: "Digital copy of the single I-35 from The Long Emergency. Includes the B-side Sing Me To Sleep.",
+    stripe_url: "https://buy.stripe.com/test_9AQ3ex9mSavEf8Q8wz",
   },
 ];
 

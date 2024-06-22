@@ -13,7 +13,7 @@ import {
   validateName,
   validatePhone,
   validateMessage,
-} from "../utils/utils";
+} from "../app/utils/utils";
 // import from emailjs
 import emailjs from "@emailjs/browser";
 

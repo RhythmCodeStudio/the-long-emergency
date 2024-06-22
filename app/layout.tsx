@@ -10,8 +10,8 @@ import { ourFileRouter } from "./api/uploadthing/core";
 // import fonts
 import { Permanent_Marker } from "next/font/google";
 // import components
-import { Header } from "./components/header";
-import { Footer } from "./components/footer";
+import { Header } from "../components/header";
+import { Footer } from "../components/footer";
 // import styles
 import "./globals.css";
 

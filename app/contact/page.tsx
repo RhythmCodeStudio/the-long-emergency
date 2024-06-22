@@ -1,5 +1,5 @@
 // import data
-import ContactForm from "../components/contact-form";
+import ContactForm from "../../components/contact-form";
 import { getPage } from "../lib/data";
 // import from next
 import Image from "next/image";

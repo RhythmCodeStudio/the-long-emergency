@@ -1,7 +1,7 @@
 // import data
 import { getPage } from "../lib/data";
 // import components
-import BlogPost from "../components/blog-post";
+import BlogPost from "../../components/blog-post";
 // import from next
 import Image from "next/image";
 // export metadata

@@ -189,7 +189,8 @@ async function seedMerch(client) {
         name TEXT NOT NULL,
         price INT NOT NULL,
         image TEXT NOT NULL,
-        description TEXT NOT NULL
+        description TEXT NOT NULL,
+        stripe_url TEXT NOT NULL
       );
     `;
 
@@ -199,8 +200,8 @@ async function seedMerch(client) {
     const insertedMerch = await Promise.all(
       merch.map(async (item) => {
         return client.sql`
-        INSERT INTO merch (id, name, price, description, image)
-        VALUES (${item.id}, ${item.name}, ${item.price}, ${item.description}, ${item.image})
+        INSERT INTO merch (id, name, price, description, image, stripe_url)
+        VALUES (${item.id}, ${item.name}, ${item.price}, ${item.description}, ${item.image}, ${item.stripe_url})
         ON CONFLICT (id) DO NOTHING;
       `;
       })

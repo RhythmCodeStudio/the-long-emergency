@@ -14,8 +14,9 @@ export default function BandBio() {
           band released its debut album Starting Over in May of that year.
         </p>
       </div>
-      <div className="expand-on-load p-6">
+      <div className="expand-on-load p-12">
         <Image
+          priority
           src="/images/kev-16-9.jpg"
           alt="Kevin Long performing with The Long Emergency"
           width={545}

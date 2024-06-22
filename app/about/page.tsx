@@ -3,7 +3,7 @@ import Image from "next/image";
 // import data
 import { getPage } from "../lib/data";
 // import components
-import BandBio from "../components/band-bio";
+import BandBio from "../../components/band-bio";
 // export metadata
 export const metadata  = {
   title: "About",

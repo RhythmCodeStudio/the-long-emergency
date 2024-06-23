@@ -1,7 +1,7 @@
 "use client";
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
-import { Song } from '../lib/definitions';
+import { Song } from '../app/lib/definitions';
 
 export default function MusicPlayer({ song }: { song: Song }) {
   return (

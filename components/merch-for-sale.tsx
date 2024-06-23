@@ -3,20 +3,8 @@
 import Image from "next/image";
 // import definitions
 import { MerchProduct } from "../app/lib/definitions";
-// import CheckoutForm from "./checkout-form";
-// import convertToSubcurrency from "../app/lib/convert-to-sub-currency";
-// import { Elements } from "@stripe/react-stripe-js";
-import { loadStripe } from "@stripe/stripe-js";
 
-// if (process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY === undefined) {
-//   throw new Error("NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY is not defined");
-// }
-// const stripePromise = loadStripe(
-//   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ?? ""
-// );
 
-// const amount = 10;
-// console.log(amount)
 export default function MerchForSale({ merch }: { merch: MerchProduct[] }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-12">

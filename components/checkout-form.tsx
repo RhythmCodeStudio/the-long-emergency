@@ -63,6 +63,7 @@ const CheckoutForm = ({ amount }: { amount: number }) => {
     setLoading(false);
   };
 
+
   if (!clientSecret || !stripe || !elements) {
     return (
       <div className="flex items-center justify-center">

@@ -13,8 +13,8 @@ if (process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY === undefined) {
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
 export default  function CheckoutPage() {
-  const selectedItems = JSON.parse(localStorage.getItem('selectedItems') || '[]') as MerchProduct[];
-  const amount = selectedItems.reduce((acc, item) => acc + item.price, 0);
+  // const selectedItems = JSON.parse(localStorage.getItem('selectedItems') || '[]') as MerchProduct[];
+  // const amount = selectedItems.reduce((acc, item) => acc + item.price, 0);
   
   return (
     <div className="flex flex-col justify-center items-center">
@@ -25,7 +25,7 @@ export default  function CheckoutPage() {
         stripe={stripePromise}
         options={{
           mode: "payment",
-          amount: convertToSubcurrency(amount),
+          // amount: convertToSubcurrency(amount),
           currency: "usd",
           
         }}
@@ -33,7 +33,7 @@ export default  function CheckoutPage() {
         <div className='bg-white rounded-xl'>
         <AddressForm />
         <h2 className="text-black text-center">Billing</h2>
-        <CheckoutForm amount={amount} />
+        
         </div>
       </Elements>
     </div>

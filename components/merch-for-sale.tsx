@@ -15,7 +15,7 @@ export default function MerchForSale({ merch }: { merch: MerchProduct[] }) {
 
   const addToCart = (product: MerchProduct) => {
     setSelectedItems((prevItems) => [...prevItems, product]);
-    localStorage.setItem('selectedItems', JSON.stringify([...selectedItems, product]));
+    // localStorage.setItem('selectedItems', JSON.stringify([...selectedItems, product]));
   };
 
   const removeFromCart = (id: number) => {

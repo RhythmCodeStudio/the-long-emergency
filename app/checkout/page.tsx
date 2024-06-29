@@ -1,5 +1,4 @@
 "use client";
-import { useEffect, useState } from "react";
 // import components
 import CheckoutForm from "@/components/checkout-form";
 import AddressForm from '@/components/address-form';
@@ -14,16 +13,8 @@ if (process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY === undefined) {
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
 export default  function CheckoutPage() {
-  const [selectedItems, setSelectedItems] = useState<MerchProduct[]>([]);
-  const [amount, setAmount] = useState(0);
-
-  useEffect(() => {
-    // Fetch data from localStorage when component mounts on the client side
-    const items = JSON.parse(localStorage.getItem("selectedItems") || "[]");
-    setSelectedItems(items);
-    const totalAmount = items.reduce((acc: number, item: MerchProduct) => acc + item.price, 0);
-    setAmount(totalAmount);
-  }, []);
+  const selectedItems = JSON.parse(localStorage.getItem('selectedItems') || '[]') as MerchProduct[];
+  const amount = selectedItems.reduce((acc, item) => acc + item.price, 0);
   
   return (
     <div className="flex flex-col justify-center items-center">

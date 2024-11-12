@@ -19,6 +19,39 @@ export default withUt({
           '100%': { transform: 'scale(1)' }
         }
       },
+      fontFamily: {
+        emergency: ["var(--font-emergency)"],
+      },
+      rotate: {
+        '15': '15deg',
+        '16': '16deg',
+        '17': '17deg',
+        '18': '18deg',
+        '19': '19deg',
+        '20': '20deg',
+        '21': '21deg',
+        '22': '22deg',
+        '23': '23deg',
+        '24': '24deg',
+        '25': '25deg',
+        '26': '26deg',
+      },
+      spacing: {
+        '58': '14.5rem',
+        '66': '16.5rem',
+        '72': '18rem',
+        '80': '20rem',
+        '96': '24rem',
+        '104': '26rem',
+        '112': '28rem',
+        '120': '30rem',
+        '128': '32rem',
+        '144': '36rem',
+        '152': '38rem',
+        '160': '40rem',
+        '176': '44rem',
+        '192': '48rem',
+      },
       height: {
         '128': '32rem',  // 512px
         '144': '36rem',  // 576px

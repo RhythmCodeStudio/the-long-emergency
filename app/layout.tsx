@@ -1,3 +1,9 @@
+import localFont from "next/font/local";
+const emergency = localFont({
+  src: "../public/fonts/emergency.ttf",
+  display: "swap",
+  variable: "--font-emergency",
+});
 // import from next
 import type { Metadata } from "next";
 // import analytics
@@ -46,7 +52,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="over" style={{ height: "100%" }}>
+    <html 
+      lang="en" 
+      className={`over ${emergency.variable}`} 
+      style={{ height: "100%" }}
+    >
       <body
         className={`${permanentMarker.className} overflow-x-hidden flex flex-col`}>
         <div

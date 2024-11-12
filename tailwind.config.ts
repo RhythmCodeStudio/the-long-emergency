@@ -22,6 +22,9 @@ export default withUt({
       fontFamily: {
         emergency: ["var(--font-emergency)"],
       },
+      textShadow: {
+        'outline-black': '2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000',
+      },
       rotate: {
         '15': '15deg',
         '16': '16deg',
@@ -37,6 +40,9 @@ export default withUt({
         '26': '26deg',
       },
       spacing: {
+        '7': '1.75rem',
+        '8': '2rem',
+        '9': '2.25rem',
         '58': '14.5rem',
         '66': '16.5rem',
         '72': '18rem',

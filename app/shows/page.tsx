@@ -45,9 +45,9 @@ export default async function ShowsPage() {
   return (
     <div className="flex justify-center items-center flex-col">
       <div className="expand-on-load">
-        <h2 className="m text-2xl lg:text-4xl">{showsPageData.page_title}</h2>
+        <h2 className="m text-2xl lg:text-4xl text-outline">{showsPageData.page_title}</h2>
         </div>
-      <h3 className="expand-on-load text-xl font-mono p-6">The Long Emergency is coming...</h3>
+      <h3 className="expand-on-load text-xl font-mono p-6 text-outline">The Long Emergency is coming...</h3>
      
       <div className="expand-on-load w-full h-auto p-6">
         <Image
@@ -58,7 +58,7 @@ export default async function ShowsPage() {
           height={320}
         />
       </div>
-      <div className="p-6">
+      <div className="p-6 text-outline">
         <p className="expand-on-load text-center font-mono text-xl">Upcoming Shows:</p>
         {gigs.length === 0 ? (
           <div className="p-6 expand-on-load">

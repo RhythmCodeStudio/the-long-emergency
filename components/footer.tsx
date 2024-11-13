@@ -9,7 +9,7 @@ export const Footer = () => {
       <div className="m-2 expand-on-load">
       <ContactLinks size={30} />
       </div>
-      <span className="expand-on-load text-sm p-2 text-center">
+      <span className="expand-on-load text-sm p-2 text-center text-outline">
         © 2024 The Long Emergency
       </span>
       <a
@@ -17,14 +17,13 @@ export const Footer = () => {
         href="https://rhythmcodestudio.tech"
         target="_blank"
         rel="noopener noreferrer">
-        <span className="expand-on-load text-sm p-2">Website by Rhythm Code Studio LLC</span>
+        <span className="expand-on-load text-sm p-2 text-outline">Website by Rhythm Code Studio LLC</span>
         <Image
           src="/logos/rcs-mark-only-light.png"
           alt="Rhythm Code Studio Logo"
           className="expand-on-load invert w-8 h-auto"
           width={796}
           height={816}
-          priority
         />
       </a>
     </footer>

@@ -35,7 +35,7 @@ export default async function CdsForSale() {
             className=" h-auto shadow-xl shadow-blue-300/50 border border-2-black"
           />
           <div className="p-2">
-            <h3>{cd.title} </h3>
+            <h3 className="">{cd.title} </h3>
             {/* <p>{cd.artist}</p> */}
 
             <p>{cd.description}</p>

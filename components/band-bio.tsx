@@ -5,7 +5,7 @@ export default function BandBio() {
   return (
     <section className="max-w-800 flex flex-col justify-center items-center">
       <div className="px-12 pb-3 lg:px-48 xl:px-64 2xl:px-96 font-mono">
-        <p>
+        <p className="text-outline">
           The Long Emergency is led by multi-instrumentalist and songwriter
           Kevin Long. From 2003 to 2013 Kevin was a mainstay on the Twin Cities
           independent music scene, performing as a solo artist and with several
@@ -24,7 +24,7 @@ export default function BandBio() {
         />
       </div>
       <div className="px-12 py-3 lg:px-48 xl:px-64 2xl:px-96 font-mono">
-        <p>
+        <p className="text-outline">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat
           ipsam officiis quidem quos sequi ab! Consequatur non neque harum
           possimus, atque, earum commodi suscipit incidunt veritatis nisi illo,

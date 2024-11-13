@@ -58,7 +58,7 @@ export default function RootLayout({
       style={{ height: "100%" }}
     >
       <body
-        className={`${permanentMarker.className} overflow-x-hidden flex flex-col`}>
+        className={`font-emergency overflow-x-hidden flex flex-col`}>
         <div
           style={{
             backgroundImage: "url('/images/masks-no-text-4800x3190.png')",
@@ -68,7 +68,17 @@ export default function RootLayout({
             minHeight: "100vh",
             display: "flex",
             flexDirection: "column",
-          }}>
+          }}
+          // style={{
+          //   backgroundImage: "url('/images/masks-no-text-2048-rotate.png')",
+          //   backgroundPosition: "center center",
+          //   backgroundSize: "42%",
+          //   backgroundRepeat: "no-repeat",
+          //   minHeight: "100vh",
+          //   display: "flex",
+          //   flexDirection: "column",
+          // }}
+          >
           <Header />
           <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
           <main className="flex flex-grow items-center justify-center">

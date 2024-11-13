@@ -43,7 +43,7 @@ export default function MusicDisplay({
           <div
             key={album.id}
             className="m-4 expand-on-load font-mono text- md:text-2xl">
-            <div className="py-">
+            <div className="text-outline">
               <h3 className="text-2xl">{album.title}</h3>
               <p>{album.type}</p>
               <p>{album.year}</p>
@@ -59,7 +59,7 @@ export default function MusicDisplay({
                   className=" h-auto shadow-xl shadow-blue-300/50 border border-2-black"
                 />
               </div>
-              <div className="py-4">
+              <div className="py-4 text-outline">
                 <div className="download-album-div ">
                   <p>Download {album.title}</p>
                   <div

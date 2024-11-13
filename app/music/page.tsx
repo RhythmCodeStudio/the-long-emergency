@@ -14,7 +14,7 @@ export default async function MusicPage() {
   const songs = await getSongs();
   return (
     <div className="flex justify-center items center flex-col">
-      <h2 className="my-3 text-center text-2xl lg:text-4xl">{musicPageData.page_title}</h2>
+      <h2 className="my-3 text-center text-2xl lg:text-4xl text-outline">{musicPageData.page_title}</h2>
       <MusicDisplay albums={albums} songs={songs} />
     </div>
   );

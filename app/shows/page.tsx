@@ -11,6 +11,17 @@ export const metadata = {
 
 export default async function ShowsPage() {
   const gigs: any[] = [
+    {
+      date: "1/17/2025",
+      venue: "Greenfinch Theater & Dive",
+      city: "St. Louis",
+      state: "MO",
+      country: "USA",
+      other_info: "with Leaving Missouri and Random Fog",
+      cost: "$5",
+      ticket_link: "https://www.greenfinchstl.com/tickets",
+      poster: "/images/show-posters/masks.png",
+    },
     // {
     //   date: "1/13/1992",
     //   venue: "Mississippi Nights",
@@ -45,21 +56,27 @@ export default async function ShowsPage() {
   return (
     <div className="flex justify-center items-center flex-col">
       <div className="expand-on-load">
-        <h2 className="m text-2xl lg:text-4xl text-outline">{showsPageData.page_title}</h2>
-        </div>
-      <h3 className="expand-on-load text-xl font-mono p-6 text-outline">The Long Emergency is coming...</h3>
-     
-      <div className="expand-on-load w-full h-auto p-6">
+        <h2 className="m text-3xl lg:text-4xl text-outline">
+          {showsPageData.page_title}
+        </h2>
+      </div>
+      <h3 className="expand-on-load text-xl font-mono p-6 text-outline">
+        The Long Emergency is coming...
+      </h3>
+
+      {/* <div className="expand-on-load w-full h-auto p-6">
         <Image
           priority
           src="/images/banner.png"
-          alt="guitar mask mound"
+          alt="Kevin Long playing guitar and singing into a microphone"
           width={870}
           height={320}
         />
-      </div>
+      </div> */}
       <div className="p-6 text-outline">
-        <p className="expand-on-load text-center font-mono text-xl">Upcoming Shows:</p>
+        {/* <p className="expand-on-load text-center font-mono text-xl">
+          Upcoming Shows:
+        </p> */}
         {gigs.length === 0 ? (
           <div className="p-6 expand-on-load">
             <p className="text-center font-mono text-lg md:text-xl">
@@ -72,9 +89,17 @@ export default async function ShowsPage() {
           </div>
         ) : (
           gigs.map((gig) => (
-            <ul key={gig.index} className="p-2 text-lg md:text-xl">
-                <li className="py-2 expand-on-load ">
-                <p className="font-mono text-center">{gig.date}</p>
+            <ul key={gig.index} className="p-2 md:text-lg md:text-xl">
+              <li className="py-2 expand-on-load ">
+                <div className="flex justify-center items-center">
+                  <Image
+                    src={gig.poster}
+                    alt="show poster"
+                    width={300}
+                    height={425}
+                  />
+                </div>
+                <p className="font-mono text-center mt-6">{gig.date}</p>
                 <p className="font-mono text-center">{gig.venue}</p>
                 <p className="font-mono text-center">
                   {gig.city}, {gig.state}
@@ -92,6 +117,15 @@ export default async function ShowsPage() {
             </ul>
           ))
         )}
+      </div>
+      <div className="expand-on-load w-full h-auto px-6">
+        <Image
+          priority
+          src="/images/banner.png"
+          alt="Kevin Long playing guitar and singing into a microphone"
+          width={870}
+          height={320}
+        />
       </div>
     </div>
   );

@@ -143,7 +143,7 @@ export default function ContactForm() {
       {/* <h3 className="text-center text-xl text-2xl xl:text-3xl font-bold">Get In Touch</h3> */}
       <form
         onSubmit={handleFormSubmit}
-        className="expand-on-load px-12 py-6 max-w-200 mx-auto relative">
+        className="expand-on-load px-12 py-6 max-w-200 mx-auto relative font-mono">
         {/* <h3 className="text-center text-xl text-2xl xl:text-3xl font-bold">Get In Touch</h3> */}
         <div className="flex flex-col justify-center">
           <label htmlFor="firstName">
@@ -237,7 +237,7 @@ export default function ContactForm() {
           <textarea
             autoComplete="off"
             maxLength={1000}
-            placeholder="What is on your mind?"
+            placeholder="Let's rock"
             onChange={(e) => handleChange(e, setMessage)}
             value={message}
             required
@@ -258,7 +258,7 @@ export default function ContactForm() {
             onClick={handleFormSubmit}
             // isSubmitted={buttonSubmitted}
             type="submit"
-            className="text-black">
+            className="text-black outline">
             Send
           </Button>
         </div>

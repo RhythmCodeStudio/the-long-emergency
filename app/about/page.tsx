@@ -21,7 +21,6 @@ export default async function AboutPage() {
       <div className="pt-6 expand-on-load">
       <BandBio />
       </div>
-      
     </div>
   );
 }

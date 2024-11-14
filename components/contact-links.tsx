@@ -6,32 +6,29 @@ import { PiPatreonLogoBold } from "react-icons/pi";
 // import components
 import IconLink from "./iconLink";
 
-
-
-
 export default function ContactLinks({ size }: { size: number }) {
   const linkData = [
     {
       href: "https://www.instagram.com/longemergency/",
-      icon: <FiInstagram size={size} />,
+      icon: <FiInstagram size={size} className="icon-outline"/>,
       label: "Follow The Long Emergency on Instagram",
       name: "Follow The Long Emergency on Instagram",
     },
     {
       href: "mailto:thelongemergencyband@gmail.com",
-      icon: <FiMail size={size} />,
+      icon: <FiMail size={size} className="icon-outline"/>,
       label: "Email The Long Emergency",
       name: "Email The Long Emergency",
     },
     {
       href: "https://www.patreon.com",
-      icon: <PiPatreonLogoBold size={size} />,
+      icon: <PiPatreonLogoBold size={size} className="icon-outline"/>,
       label: "Support The Long Emergency on Patreon",
       name: "Support The Long Emergency on Patreon",
     },
     {
       href: "https://www.facebook.com/thelongemergencyband",
-      icon: <FiFacebook size={size} />,
+      icon: <FiFacebook size={size} className="icon-outline"/>,
       label: "Follow The Long Emergency on Facebook",
       name: "Follow The Long Emergency on Facebook",
     },

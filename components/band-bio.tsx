@@ -3,8 +3,8 @@ import Image from "next/image";
 
 export default function BandBio() {
   return (
-    <section className="max-w-800 flex flex-col justify-center items-center">
-      <div className="px-12 pb-3 lg:px-48 xl:px-64 2xl:px-96 font-mono">
+    <section className="max-w-800 flex flex-col justify-center items-center md:text-lg">
+      <div className="px-12 pb-3 lg:px-48 xl:px-64 2xl:px-96 font-mono ">
         <p className="text-outline">
           The Long Emergency is led by multi-instrumentalist and songwriter
           Kevin Long. From 2003 to 2013 Kevin was a mainstay on the Twin Cities

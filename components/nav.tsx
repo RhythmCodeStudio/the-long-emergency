@@ -20,8 +20,8 @@ export default function Nav() {
     { label: "Music", href: "/music" },
     { label: "Contact", href: "/contact" },
     { label: "Shows", href: "/shows" },
-    { label: "Merch", href: "/merch" },
-    { label: "Blog", href: "/blog" },
+    // { label: "Merch", href: "/merch" },
+    // { label: "Blog", href: "/blog" },
   ];
 
   const activeLink = navLinks.find((link) => link.href === pathname)?.label;

@@ -56,14 +56,14 @@ export default function MusicDisplay({
                   alt={album.title}
                   width={1423}
                   height={1411}
-                  className=" h-auto shadow-xl shadow-blue-300/50 border border-2-black"
+                  className=" h-auto shadow-xl shadow-blue-300/50 border-2 border-slate-400"
                 />
               </div>
               <div className="py-4 text-outline">
                 <div className="download-album-div ">
                   <p>Download {album.title}</p>
                   <div
-                    className="flex justify-center"
+                    className="flex justify-center icon-outline"
                     onClick={() => {
                       trackAlbumDownload(album);
                     }}>
@@ -78,7 +78,7 @@ export default function MusicDisplay({
                         <span className="mr-2">{index + 1}.</span>
                         <span className="">{song.title}</span>
                         <div className="ml-auto flex pr-2 ">
-                          <div className="mr-2">
+                          <div className="mr-2 icon-outline">
                             <PlayButton
                               song={song}
                               onPlay={() => {
@@ -88,7 +88,7 @@ export default function MusicDisplay({
                             />
                           </div>
                           <div
-                            className="ml-2"
+                            className="ml-2 icon-outline"
                             onClick={() => {
                               trackSongDownload(song);
                             }}>

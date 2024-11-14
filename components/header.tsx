@@ -19,7 +19,7 @@ export const Header = () => {
         </h1>
         <Nav />
         <h1
-          className={`text-outline p-4 pt-12 sm:hidden expand-on-load text-3xl 2xl:text-4xl ${
+          className={`text-outline p-2 pt-12 sm:hidden expand-on-load text-2xl md:text-3xl 2xl:text-4xl ${
             currentPath === "/" ? "hidden" : ""
           }`}>
           The Long Emergency

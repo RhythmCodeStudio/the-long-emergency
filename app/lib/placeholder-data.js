@@ -177,6 +177,17 @@ const songs = [
 
 const albums = [
   {
+    id: 3,
+    title: "Boxcutter",
+    artist: "The Long Emergency",
+    year: 2025,
+    genre: "Rock",
+    cover_image: "/music/starting-over/album-art/cover.jpg",
+    type: "album",
+    zip: "/music/starting-over/starting-over-full.zip"
+
+  },
+  {
     id: 2,
     title: "Starting Over",
     artist: "The Long Emergency",

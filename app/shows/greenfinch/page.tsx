@@ -3,16 +3,16 @@ import logo from "../../../public/images/graphics/the-long-emergency.png";
 
 export default async function BirthdayShow() {
   return (
-    <div className="relative font-emergency text-white">
-      <div className="border">
+    <div className="relative font-emergency ">
+      <div className="border-4 border-slate-400 shadow-2xl shadow-blue-300/50">
       {/* <Image
-        src="/images/show-posters/1-17-2025-bg-remove.png"
+        src="/images/show-posters/masks-no-text.png"
         alt="poster"
         width={953}
         height={1348}
       /> */}
       <Image
-        src="/images/show-posters/yellow.png"
+        src="/images/show-posters/yellow-no-text.png"
         alt="poster"
         width={953}
         height={1348}

@@ -5,9 +5,9 @@ import { Song } from '../app/lib/definitions';
 
 export default function MusicPlayer({ song }: { song: Song }) {
   return (
-    <div className="border border-2-black expand-on-load flex flex-col justify-center items-center shadow-xl shadow-blue-300/50">
+    <div className="border-4 border-slate-400 expand-on-load flex flex-col justify-center items-center shadow-xl shadow-blue-300/50">
       <AudioPlayer
-        className="border border-2-black h-36 text-center text-black outline-black"
+        className=" h-36 text-center text-black"
         src={song.src}
         onPlay={(e) => console.log(`Now playing ${song.title}`)}
         preload='auto'

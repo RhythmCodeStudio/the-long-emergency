@@ -56,7 +56,7 @@ export default function MusicDisplay({
                   alt={album.title}
                   width={1423}
                   height={1411}
-                  className=" h-auto shadow-xl shadow-blue-300/50 border-2 border-slate-400"
+                  className=" h-auto shadow-2xl shadow-blue-300/50 border-2 border-slate-400"
                 />
               </div>
               <div className="py-4 text-outline">

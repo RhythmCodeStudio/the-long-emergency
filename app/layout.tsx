@@ -1,3 +1,4 @@
+import Marquee from "react-fast-marquee";
 import localFont from "next/font/local";
 const emergency = localFont({
   src: "../public/fonts/emergency.ttf",
@@ -7,7 +8,7 @@ const emergency = localFont({
 // import from next
 import type { Metadata } from "next";
 // import analytics
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from "@vercel/analytics/react";
 //  import from upload thing
 import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import { extractRouterConfig } from "uploadthing/server";
@@ -26,23 +27,27 @@ const permanentMarker = Permanent_Marker({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "The Long Emergency",
-  description: "Official website for rock band, The Long Emergency, from St. Louis, Missouri.",
+  description:
+    "Official website for rock band, The Long Emergency, from St. Louis, Missouri.",
   metadataBase: new URL("http://localhost:3000/"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "The Long Emergency",
-    description: "Official website for The Long Emergency, a rock band from St. Louis, Missouri.",
+    description:
+      "Official website for The Long Emergency, a rock band from St. Louis, Missouri.",
     url: "https://www.thelongemergency.net/",
     siteName: "The Long Emergency",
     type: "website",
     locale: "en_US",
-    images: [{
-      url: "https://www.thelongemergency.net//opengraph-image.png",
-      width: 960,
-      height:691
-    }],
+    images: [
+      {
+        url: "https://www.thelongemergency.net//opengraph-image.png",
+        width: 960,
+        height: 691,
+      },
+    ],
   },
 };
 
@@ -52,13 +57,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html 
-      lang="en" 
-      className={`over ${emergency.variable}`} 
-      style={{ height: "100%" }}
-    >
-      <body
-        className={`font-emergency overflow-x-hidden flex flex-col`}>
+    <html
+      lang="en"
+      className={`over ${emergency.variable}`}
+      style={{ height: "100%" }}>
+      <body className={`font-emergency overflow-x-hidden flex flex-col`}>
         <div
           style={{
             backgroundImage: "url('/images/masks-no-text-4800x3190.png')",
@@ -78,9 +81,23 @@ export default function RootLayout({
           //   display: "flex",
           //   flexDirection: "column",
           // }}
-          >
+        >
           <Header />
           <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
+          <div className="m-10">
+            <Marquee speed={60}>
+              <span className="text-xl text-center text-outline font-mono">
+                New album "Boxcutter" - Available 1/17/2025. Release show @
+                Greenfinch Theater and Dive. 1/17/2025 - 7:00pm.&nbsp;
+                {/* <a
+                  href="https://www.greenfinchstl.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline"
+                >Tickets available soon.</a>&nbsp; */}
+              </span>
+            </Marquee>
+          </div>
           <main className="flex flex-grow items-center justify-center">
             {children}
           </main>

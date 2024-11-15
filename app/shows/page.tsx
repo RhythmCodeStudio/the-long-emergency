@@ -97,6 +97,7 @@ export default async function ShowsPage() {
                     alt="show poster"
                     width={300}
                     height={425}
+                    className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400"
                   />
                 </div>
                 <p className="font-mono text-center mt-6">{gig.date}</p>

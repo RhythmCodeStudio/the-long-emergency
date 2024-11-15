@@ -92,6 +92,7 @@ const songs = [
     genre: ["Rock", "Indie"],
     track_number: 1,
     src: "/music/i-35/mp3/i-35.mp3",
+    bandcamp_url: "https://thelongemergency.bandcamp.com/track/i-35"
   },
   {
     id: 2,
@@ -102,6 +103,7 @@ const songs = [
     genre: ["Rock", "Indie"],
     track_number: 2,
     src: "/music/i-35/mp3/sing-me-to-sleep.mp3",
+    bandcamp_url: "https://thelongemergency.bandcamp.com/track/sing-me-to-sleep"
   },
   {
     id: 3,
@@ -112,6 +114,7 @@ const songs = [
     genre: ["Rock", "Indie"],
     track_number: 1,
     src: "/music/starting-over/mp3/last-night.mp3",
+    bandcamp_url: "https://thelongemergency.bandcamp.com/track/last-night"
   },
   {
     id: 4,
@@ -122,6 +125,7 @@ const songs = [
     genre: ["Rock", "Indie"],
     track_number: 2,
     src: "/music/starting-over/mp3/snow-emergency.mp3",
+    bandcamp_url: "https://thelongemergency.bandcamp.com/track/snow-emergency"
   },
   {
     id: 5,
@@ -132,6 +136,7 @@ const songs = [
     genre: ["Rock", "Indie"],
     track_number: 3,
     src: "/music/starting-over/mp3/i-35.mp3",
+    bandcamp_url: "https://thelongemergency.bandcamp.com/track/i-35-2"
   },
   {
     id: 6,
@@ -142,6 +147,7 @@ const songs = [
     genre: ["Rock", "Indie"],
     track_number: 4,
     src: "/music/starting-over/mp3/i-am-not-sorry.mp3",
+    bandcamp_url: "https://thelongemergency.bandcamp.com/track/i-am-not-sorry"
   },
   {
     id: 7,
@@ -152,6 +158,7 @@ const songs = [
     genre: ["Rock", "Indie"],
     track_number: 5,
     src: "/music/starting-over/mp3/twist-the-knife.mp3",
+    bandcamp_url: "https://thelongemergency.bandcamp.com/track/twist-the-knife"
   },
   {
     id: 8,
@@ -162,6 +169,7 @@ const songs = [
     genre: ["Rock", "Indie"],
     track_number: 6,
     src: "/music/starting-over/mp3/starting-over.mp3",
+    bandcamp_url: "https://thelongemergency.bandcamp.com/track/starting-over"
   },
   {
     id: 9,
@@ -172,6 +180,7 @@ const songs = [
     genre: ["Rock", "Indie"],
     track_number: 7,
     src: "/music/starting-over/mp3/sing-me-to-sleep.mp3",
+    bandcamp_url: "https://thelongemergency.bandcamp.com/track/sing-me-to-sleep-2"
   },
 ];
 
@@ -185,7 +194,6 @@ const albums = [
     cover_image: "/music/starting-over/album-art/cover.jpg",
     type: "album",
     zip: "/music/starting-over/starting-over-full.zip"
-
   },
   {
     id: 2,

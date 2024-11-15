@@ -72,22 +72,13 @@ export default function RootLayout({
             display: "flex",
             flexDirection: "column",
           }}
-          // style={{
-          //   backgroundImage: "url('/images/masks-no-text-2048-rotate.png')",
-          //   backgroundPosition: "center center",
-          //   backgroundSize: "42%",
-          //   backgroundRepeat: "no-repeat",
-          //   minHeight: "100vh",
-          //   display: "flex",
-          //   flexDirection: "column",
-          // }}
         >
           <Header />
           <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
-          <div className="m-10">
+          <div className="mx-10 mt-8 mb-10">
             <Marquee speed={60}>
               <span className="text-xl text-center text-outline font-mono">
-                New album "Boxcutter" - Available 1/17/2025. Release show @
+                New album &quot;Boxcutter&quot; - Available 1/17/2025. Release show @
                 Greenfinch Theater and Dive. 1/17/2025 - 7:00pm.&nbsp;
                 {/* <a
                   href="https://www.greenfinchstl.com/"

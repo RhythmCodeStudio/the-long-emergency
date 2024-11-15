@@ -11,7 +11,7 @@ export default function BandBio() {
           independent music scene, performing as a solo artist and with several
           bands including Boxcutter, Sorry OK, and The Drug Budget. In 2013
           Kevin formed The Long Emergency as a vehicle for his songwriting.
-          "Starting Over" by The Long Emergency was released in May of 2013.
+          &quot;Starting Over&quot; by The Long Emergency was released in May of 2013.
         </p>
       </div>
       <div className="expand-on-load p-12">

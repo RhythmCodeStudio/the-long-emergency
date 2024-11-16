@@ -126,6 +126,7 @@ export default async function ShowsPage() {
           alt="Kevin Long playing guitar and singing into a microphone"
           width={870}
           height={320}
+          className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400"
         />
       </div>
     </div>

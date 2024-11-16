@@ -15,7 +15,7 @@ export default function Nav() {
   const closeMenu = () => setMenuOpen(false);
 
   const navLinks = [
-    { label: "Home", href: "/" },
+    // { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Music", href: "/music" },
     { label: "Contact", href: "/contact" },

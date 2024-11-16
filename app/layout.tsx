@@ -1,4 +1,3 @@
-import Marquee from "react-fast-marquee";
 import localFont from "next/font/local";
 const emergency = localFont({
   src: "../public/fonts/emergency.ttf",
@@ -15,15 +14,16 @@ import { extractRouterConfig } from "uploadthing/server";
 import { ourFileRouter } from "./api/uploadthing/core";
 
 // import fonts
-import { Permanent_Marker } from "next/font/google";
+// import { Permanent_Marker } from "next/font/google";
 // import components
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
+
 // import styles
 import "./globals.css";
 
 // define font
-const permanentMarker = Permanent_Marker({ weight: "400", subsets: ["latin"] });
+// const permanentMarker = Permanent_Marker({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "The Long Emergency",
@@ -75,20 +75,6 @@ export default function RootLayout({
         >
           <Header />
           <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
-          <div className="mx-10 mt-8 mb-10">
-            <Marquee speed={60}>
-              <span className="text-xl text-center text-outline font-mono">
-                New album &quot;Boxcutter&quot; - Available 1/17/2025. Release show @
-                Greenfinch Theater and Dive. 1/17/2025 - 7:00pm.&nbsp;
-                {/* <a
-                  href="https://www.greenfinchstl.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline"
-                >Tickets available soon.</a>&nbsp; */}
-              </span>
-            </Marquee>
-          </div>
           <main className="flex flex-grow items-center justify-center">
             {children}
           </main>

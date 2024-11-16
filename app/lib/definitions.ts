@@ -46,6 +46,7 @@ export type Song = {
   genre: string[];
   track_number: number;
   src: string;
+  bandcamp_url: string;
 };
 
 export type Album = {

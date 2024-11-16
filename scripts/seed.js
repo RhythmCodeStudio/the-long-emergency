@@ -24,6 +24,7 @@ async function seedSongs(client) {
         genre TEXT NOT NULL,
         track_number INT NOT NULL,
         src TEXT NOT NULL,
+        bandcamp_url TEXT NOT NULL,
         FOREIGN KEY (album) REFERENCES albums(id)
       );
     `;
@@ -33,8 +34,8 @@ async function seedSongs(client) {
     const insertedSongs = await Promise.all(
       songs.map(async (song) => {
         return client.sql`
-        INSERT INTO songs (id, title, artist, album, year, genre, track_number, src)
-        VALUES (${song.id}, ${song.title}, ${song.artist}, ${song.album}, ${song.year}, ${song.genre}, ${song.track_number}, ${song.src})
+        INSERT INTO songs (id, title, artist, album, year, genre, track_number, src, bandcamp_url)
+        VALUES (${song.id}, ${song.title}, ${song.artist}, ${song.album}, ${song.year}, ${song.genre}, ${song.track_number}, ${song.src}, ${song.bandcamp_url})
         ON CONFLICT (id) DO NOTHING;
       `;
       })

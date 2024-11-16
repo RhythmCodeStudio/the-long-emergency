@@ -5,9 +5,13 @@ import { useState } from "react";
 // import from next
 import Image from "next/image";
 // import components
+import IframeModal from "./iframe-modal";
 import MusicPlayer from "./music-player";
 import DownloadButton from "./download-button";
 import PlayButton from "./play-button";
+import { FiDownload } from "react-icons/fi";
+
+// import data
 import { Album, Song } from "../app/lib/definitions";
 
 export default function MusicDisplay({
@@ -17,6 +21,7 @@ export default function MusicDisplay({
   albums: Album[];
   songs: Song[];
 }) {
+  const [modalOpen, setModalOpen] = useState(false);
   const [currentSong, setCurrentSong] = useState<Song>({} as Song);
   const trackSongPlay = (song: Song) => {
     track("song-play", {
@@ -74,7 +79,7 @@ export default function MusicDisplay({
                   {songs
                     .filter((song) => song.album === album.id)
                     .map((song, index) => (
-                      <li key={song.id} className="flex items-center my-1">
+                      <li key={song.id} className="flex items-center my-1 z-0">
                         <span className="mr-2">{index + 1}.</span>
                         <span className="">{song.title}</span>
                         <div className="ml-auto flex pr-2 ">
@@ -87,12 +92,18 @@ export default function MusicDisplay({
                               }}
                             />
                           </div>
+                        
                           <div
                             className="ml-2 icon-outline"
-                            onClick={() => {
-                              trackSongDownload(song);
-                            }}>
-                            <DownloadButton src={song.src} />
+                            // onClick={() => {
+                            //   trackSongDownload(song);
+                            // }}
+                          >
+                            {/* <DownloadButton src={song.src} /> */}
+                            <IframeModal
+                              src={song.bandcamp_url}
+                              title={song.title}
+                            />
                           </div>
                         </div>
                       </li>

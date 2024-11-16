@@ -5,10 +5,11 @@ import { useState } from "react";
 // import from next
 import Image from "next/image";
 // import components
-import IframeModal from "./iframe-modal";
 import MusicPlayer from "./music-player";
 import DownloadButton from "./download-button";
 import PlayButton from "./play-button";
+import BandcampModal from "./bandcamp-modal";
+// import icons
 import { FiDownload } from "react-icons/fi";
 
 // import data
@@ -68,7 +69,7 @@ export default function MusicDisplay({
                 <div className="download-album-div ">
                   <p>Download {album.title}</p>
                   <div
-                    className="flex justify-center icon-outline"
+                    className="mb-6 flex justify-center icon-outline"
                     onClick={() => {
                       trackAlbumDownload(album);
                     }}>
@@ -100,7 +101,7 @@ export default function MusicDisplay({
                             // }}
                           >
                             {/* <DownloadButton src={song.src} /> */}
-                            <IframeModal
+                            <BandcampModal
                               src={song.bandcamp_url}
                               title={song.title}
                             />

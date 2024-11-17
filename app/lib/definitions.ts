@@ -59,6 +59,7 @@ export type Album = {
   type: string;
   songs: Song[];
   zip: string;
+  bandcamp_url: string;
 };
 
 export type MerchProduct = {

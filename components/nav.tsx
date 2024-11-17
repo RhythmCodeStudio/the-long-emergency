@@ -50,7 +50,9 @@ export default function Nav() {
             </button>
           </div>
           <div id="mobile-nav-link-container" className="font-bold">
-            <h1 className="text-center text-3xl m-2 m-2">The Long Emergency</h1>
+            <Link href="/">
+              <h1 className="text-center text-3xl m-2 m-2" onClick={() => setMenuOpen(false)}>The Long Emergency</h1>
+            </Link>
             <ul className=" text-2xl">
               {navLinks.map((link) => (
                 <li

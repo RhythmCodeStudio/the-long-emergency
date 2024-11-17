@@ -73,7 +73,11 @@ export default function MusicDisplay({
                     onClick={() => {
                       trackAlbumDownload(album);
                     }}>
-                    <DownloadButton src={album.zip} />
+                    {/* <DownloadButton src={album.zip} /> */}
+                    <BandcampModal
+                      src={album.bandcamp_url}
+                      title={album.title}
+                    />
                   </div>
                 </div>
                 <ol className="list-decimal list-inside pl-2 ">
@@ -93,13 +97,12 @@ export default function MusicDisplay({
                               }}
                             />
                           </div>
-                        
+
                           <div
                             className="ml-2 icon-outline"
-                            // onClick={() => {
-                            //   trackSongDownload(song);
-                            // }}
-                          >
+                            onClick={() => {
+                              trackSongDownload(song);
+                            }}>
                             {/* <DownloadButton src={song.src} /> */}
                             <BandcampModal
                               src={song.bandcamp_url}

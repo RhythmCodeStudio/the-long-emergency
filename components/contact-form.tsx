@@ -159,7 +159,7 @@ export default function ContactForm() {
             type="text"
             name="firstName"
             id="firstName"
-            className="border-2 border-gray-800 p-2 w-full"
+            className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 p-2 w-full"
           />
           {firstNameErrorMessage && (
             <div className="flex justify-center items-center mt-2 mb-4">
@@ -181,7 +181,7 @@ export default function ContactForm() {
             type="text"
             name="lastName"
             id="lastName"
-            className="border-2 border-gray-800 p-2 w-full"
+            className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 p-2 w-full"
           />
           {lastNameErrorMessage && (
             <div className="flex justify-center text-center text-balance items-center mt-2 mb-4">
@@ -202,7 +202,7 @@ export default function ContactForm() {
             type="email"
             name="email"
             id="email"
-            className="border-2 border-gray-800 p-2 w-full"
+            className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 p-2 w-full"
           />
           {emailErrorMessage && (
             <div className="flex justify-center items-center mt-2 mb-4">
@@ -243,7 +243,7 @@ export default function ContactForm() {
             required
             name="message"
             id="message"
-            className="text-black border-2 border-gray-800 p-2 h-60 w-60 resize-none w-full"
+            className="text-black shadow-2xl shadow-blue-300/50 border-2 border-slate-400 p-2 h-60 w-60 resize-none w-full"
           />
           {messageErrorMessage && (
             <div className="flex justify-center items-center mt-2 mb-4">

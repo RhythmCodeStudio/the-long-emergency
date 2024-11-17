@@ -23,6 +23,7 @@ export default async function ContactPage() {
           alt="guitar mask mound"
           width={4510}
           height={3205}
+          className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400"
         />
       </div>
     </div>

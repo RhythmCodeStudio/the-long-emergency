@@ -67,7 +67,8 @@ async function seedAlbums(client) {
         genre TEXT NOT NULL,
         cover_image TEXT NOT NULL,
         type TEXT NOT NULL,
-        zip TEXT NOT NULL
+        zip TEXT NOT NULL,
+        bandcamp_url TEXT NOT NULL
       );
     `;
     console.log(`Created "albums" table`);
@@ -76,8 +77,8 @@ async function seedAlbums(client) {
     const insertedAlbums = await Promise.all(
       albums.map(async (album) => {
         return client.sql`
-        INSERT INTO albums (id, title, artist, year, genre, cover_image, type, zip)
-        VALUES (${album.id}, ${album.title}, ${album.artist}, ${album.year}, ${album.genre}, ${album.cover_image}, ${album.type}, ${album.zip})
+        INSERT INTO albums (id, title, artist, year, genre, cover_image, type, zip, bandcamp_url)
+        VALUES (${album.id}, ${album.title}, ${album.artist}, ${album.year}, ${album.genre}, ${album.cover_image}, ${album.type}, ${album.zip}, ${album.bandcamp_url})
         ON CONFLICT (id) DO NOTHING;
       `;
       })

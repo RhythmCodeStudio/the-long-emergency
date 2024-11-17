@@ -203,7 +203,8 @@ const albums = [
     genre: "Rock",
     cover_image: "/music/starting-over/album-art/cover.jpg",
     type: "album",
-    zip: "/music/starting-over/starting-over-full.zip"
+    zip: "/music/starting-over/starting-over-full.zip",
+    bandcamp_url:"https://thelongemergency.bandcamp.com/album/starting-over"
   },
   {
     id: 1,
@@ -213,7 +214,8 @@ const albums = [
     genre: "Rock",
     cover_image: "/music/i-35/album-art/i-35-cover.jpg",
     type: "single",
-    zip: "/music/i-35/i-35-full.zip"
+    zip: "/music/i-35/i-35-full.zip",
+    bandcamp_url: "https://thelongemergency.bandcamp.com/album/i-35"
   },
 ];
 

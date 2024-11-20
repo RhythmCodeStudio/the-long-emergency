@@ -115,7 +115,7 @@ export default withUt({
         2000: "208rem", // 3328px
       },
       screens: {
-        xs: "400px",
+        'xs': "400px",
         "3xl": "1800px",
         "4xl": "2200px",
         "5xl": "2600px",

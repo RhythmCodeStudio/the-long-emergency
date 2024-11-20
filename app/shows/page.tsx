@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 // import data
 import { getPage } from "../lib/data";
+import GigDialog from "@/components/gig-dialog";
 // export metadata
 export const metadata = {
   title: "Shows",
@@ -19,7 +20,7 @@ export default async function ShowsPage() {
       country: "USA",
       other_info: "with Leaving Missouri and Random Fog",
       cost: "$5",
-      ticket_link: "https://www.greenfinchstl.com/tickets",
+      ticket_url: "https://www.purplepass.com/events/304686-the-long-emergency-%7C-album-release-show---featurin-jan-17th-2025",
       poster: "/images/show-posters/masks.png",
     },
     // {
@@ -63,20 +64,7 @@ export default async function ShowsPage() {
       <h3 className="expand-on-load text-xl font-mono p-6 text-outline">
         The Long Emergency is coming...
       </h3>
-
-      {/* <div className="expand-on-load w-full h-auto p-6">
-        <Image
-          priority
-          src="/images/banner.png"
-          alt="Kevin Long playing guitar and singing into a microphone"
-          width={870}
-          height={320}
-        />
-      </div> */}
       <div className="p-6 text-outline">
-        {/* <p className="expand-on-load text-center font-mono text-xl">
-          Upcoming Shows:
-        </p> */}
         {gigs.length === 0 ? (
           <div className="p-6 expand-on-load">
             <p className="text-center font-mono text-lg md:text-xl">
@@ -88,9 +76,9 @@ export default async function ShowsPage() {
             </p>
           </div>
         ) : (
-          gigs.map((gig) => (
-            <ul key={gig.index} className="p-2 md:text-lg md:text-xl">
-              <li className="py-2 expand-on-load ">
+          gigs.map((gig, index) => (
+            <ul key={index} className="p-2 md:text-lg md:text-xl">
+              <li key={gig.date} className="py-2 expand-on-load ">
                 <div className="flex justify-center items-center">
                   <Image
                     src={gig.poster}
@@ -107,13 +95,14 @@ export default async function ShowsPage() {
                 </p>
                 <p className="font-mono text-center">{gig.cost}</p>
                 <p className="font-mono text-center">{gig.other_info}</p>
-                <a
+                {/* <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  href={gig.ticket_link}
+                  href={gig.ticket_url}
                   className="font-mono text-center underline">
                   <p>Tickets</p>
-                </a>
+                </a> */}
+                <GigDialog />
               </li>
             </ul>
           ))

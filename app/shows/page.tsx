@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 // import data
 import { getPage } from "../lib/data";
-import GigDialog from "@/components/gig-dialog";
 // export metadata
 export const metadata = {
   title: "Shows",
@@ -102,7 +101,7 @@ export default async function ShowsPage() {
                   className="font-mono text-center underline">
                   <p>Tickets</p>
                 </a> */}
-                <GigDialog />
+                
               </li>
             </ul>
           ))

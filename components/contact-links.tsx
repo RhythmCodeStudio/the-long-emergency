@@ -9,12 +9,7 @@ import IconLink from "./iconLink";
 
 export default function ContactLinks({ size }: { size: number }) {
   const linkData = [
-    {
-      href: "https://www.instagram.com/longemergency/",
-      icon: <FiInstagram size={size} className="icon-outline"/>,
-      label: "Follow The Long Emergency on Instagram",
-      name: "Follow The Long Emergency on Instagram",
-    },
+   
     {
       href: "mailto:thelongemergencyband@gmail.com",
       icon: <FiMail size={size} className="icon-outline"/>,
@@ -27,11 +22,17 @@ export default function ContactLinks({ size }: { size: number }) {
       label: "Download music from The Long Emergency on Bandcamp",
       name: "Download music from The Long Emergency on Bandcamp",
     },
-    { 
-      href: "https://www.patreon.com",
-      icon: <PiPatreonLogoBold size={size} className="icon-outline"/>,
-      label: "Support The Long Emergency on Patreon",
-      name: "Support The Long Emergency on Patreon",
+    // { 
+    //   href: "https://www.patreon.com",
+    //   icon: <PiPatreonLogoBold size={size} className="icon-outline"/>,
+    //   label: "Support The Long Emergency on Patreon",
+    //   name: "Support The Long Emergency on Patreon",
+    // },
+    {
+      href: "https://www.instagram.com/longemergency/",
+      icon: <FiInstagram size={size} className="icon-outline"/>,
+      label: "Follow The Long Emergency on Instagram",
+      name: "Follow The Long Emergency on Instagram",
     },
     {
       href: "https://www.facebook.com/thelongemergencyband",

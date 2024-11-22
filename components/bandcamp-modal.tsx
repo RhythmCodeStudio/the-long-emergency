@@ -43,7 +43,7 @@ export default function BandcampModal({
                   <FiX />
                 </button>
                 <div className="flex-col justify-center text-center items-center w-full">
-                  <h6 className="mt-12 -mb-12 text-2xl sm:text-3xl xl:text-4xl 2xl:text-5xl">{title}</h6>
+                  <h6 className="mt-12 -mb-12 text-2xl">{title}</h6>
                 </div>
               </ModalHeader>
                 <ModalBody className="flex justify-center items-center h-full">
@@ -56,7 +56,7 @@ export default function BandcampModal({
                 </ModalBody>
                 <ModalFooter className="flex flex-col justify-center text-center items-center w-full ">
                   <div className="  ">
-                    <h6 className="-mt-12 mb-12 text-2xl sm:text-3xl xl:text-4xl 2xl:text-5xl">The Long Emergency</h6>
+                    <h6 className="-mt-12 mb-12 text-2xl">The Long Emergency</h6>
                   </div>
                   <button onClick={onClose} className="text-2xl md:text-3xl xl:text-4xl">
                     <FiX />

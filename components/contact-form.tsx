@@ -254,11 +254,11 @@ export default function ContactForm() {
         <div className="flex justify-center items-center p-6">
           <Button
             color="primary"
-            variant="shadow"
+            // variant="shadow"
             onClick={handleFormSubmit}
             // isSubmitted={buttonSubmitted}
             type="submit"
-            className="text-black outline">
+            className="text-outline font-emergency bg-blue-500 hover:bg-blue-700 rounded-full mt-2 border-2 border-black">
             Send
           </Button>
         </div>

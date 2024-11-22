@@ -6,12 +6,11 @@ import { useState } from "react";
 import Image from "next/image";
 // import components
 import MusicPlayer from "./music-player";
-import DownloadButton from "./download-button";
+// import DownloadButton from "./download-button";
 import PlayButton from "./play-button";
 import BandcampModal from "./bandcamp-modal";
 // import icons
-import { FiDownload } from "react-icons/fi";
-
+// import { FiDownload } from "react-icons/fi";
 // import data
 import { Album, Song } from "../app/lib/definitions";
 
@@ -22,7 +21,7 @@ export default function MusicDisplay({
   albums: Album[];
   songs: Song[];
 }) {
-  const [modalOpen, setModalOpen] = useState(false);
+  // const [modalOpen, setModalOpen] = useState(false);
   const [currentSong, setCurrentSong] = useState<Song>({} as Song);
   const trackSongPlay = (song: Song) => {
     track("song-play", {

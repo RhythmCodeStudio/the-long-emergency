@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 // import data
 import { getPage } from "../lib/data";
+import ShowDisplay from "@/components/show-display";
 // export metadata
 export const metadata = {
   title: "Shows",
@@ -63,50 +64,8 @@ export default async function ShowsPage() {
       <h3 className="expand-on-load text-xl font-mono p-6 text-outline">
         The Long Emergency is coming...
       </h3>
-      <div className="p-6 text-outline">
-        {gigs.length === 0 ? (
-          <div className="p-6 expand-on-load">
-            <p className="text-center font-mono text-lg md:text-xl">
-              No shows currently scheduled. Please{" "}
-              <span className="underline font-bold">
-                <Link href="/contact">contact</Link>
-              </span>{" "}
-              for booking.
-            </p>
-          </div>
-        ) : (
-          gigs.map((gig, index) => (
-            <ul key={index} className="p-2 md:text-lg md:text-xl">
-              <li key={gig.date} className="py-2 expand-on-load ">
-                <div className="flex justify-center items-center">
-                  <Image
-                    src={gig.poster}
-                    alt="show poster"
-                    width={300}
-                    height={425}
-                    className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400"
-                  />
-                </div>
-                <p className="font-mono text-center mt-6">{gig.date}</p>
-                <p className="font-mono text-center">{gig.venue}</p>
-                <p className="font-mono text-center">
-                  {gig.city}, {gig.state}
-                </p>
-                <p className="font-mono text-center">{gig.cost}</p>
-                <p className="font-mono text-center">{gig.other_info}</p>
-                {/* <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={gig.ticket_url}
-                  className="font-mono text-center underline">
-                  <p>Tickets</p>
-                </a> */}
-                
-              </li>
-            </ul>
-          ))
-        )}
-      </div>
+      <ShowDisplay gigs={gigs} />
+      
       <div className="expand-on-load w-full h-auto px-6">
         <Image
           priority

@@ -1,6 +1,5 @@
 // import from next
 import Image from "next/image";
-import Link from "next/link";
 // import data
 import { getPage } from "../lib/data";
 import ShowDisplay from "@/components/show-display";
@@ -20,7 +19,8 @@ export default async function ShowsPage() {
       country: "USA",
       other_info: "with Leaving Missouri and Random Fog",
       cost: "$5",
-      ticket_url: "https://www.purplepass.com/events/304686-the-long-emergency-%7C-album-release-show---featurin-jan-17th-2025",
+      ticket_url:
+        "https://www.purplepass.com/events/304686-the-long-emergency-%7C-album-release-show---featurin-jan-17th-2025",
       poster: "/images/show-posters/masks.png",
     },
     {
@@ -52,8 +52,8 @@ export default async function ShowsPage() {
       ticket_link: "https://www.offbroadwaystl.com/",
     },
   ];
-
   const showsPageData = await getPage("shows");
+
   return (
     <div className="flex justify-center items-center flex-col">
       <div className="expand-on-load">
@@ -65,8 +65,7 @@ export default async function ShowsPage() {
         The Long Emergency is coming...
       </h3>
       <ShowDisplay gigs={gigs} />
-      
-      <div className="expand-on-load w-full h-auto px-6">
+      <div className="expand-on-load w-full h-auto px-6 flex justify-center">
         <Image
           priority
           src="/images/banner.png"

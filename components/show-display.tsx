@@ -16,7 +16,7 @@ export default function ShowDisplay({ gigs }: { gigs: any[] }) {
           </p>
         </div>
       ) : (
-        <ul className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-28 p-2 md:text-lg md:text-xl">
+        <ul className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-9 lg:gap-20 xl:gap-28 p-2 md:text-lg md:text-xl">
           {gigs.map((gig, index) => (
             <li key={index} className="expand-on-load border">
               <div className="p-8 bg-black opacity-80">

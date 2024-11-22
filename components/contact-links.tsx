@@ -22,12 +22,12 @@ export default function ContactLinks({ size }: { size: number }) {
       label: "Download music from The Long Emergency on Bandcamp",
       name: "Download music from The Long Emergency on Bandcamp",
     },
-    // { 
-    //   href: "https://www.patreon.com",
-    //   icon: <PiPatreonLogoBold size={size} className="icon-outline"/>,
-    //   label: "Support The Long Emergency on Patreon",
-    //   name: "Support The Long Emergency on Patreon",
-    // },
+    { 
+      href: "https://www.patreon.com",
+      icon: <PiPatreonLogoBold size={size} className="icon-outline"/>,
+      label: "Support The Long Emergency on Patreon",
+      name: "Support The Long Emergency on Patreon",
+    },
     {
       href: "https://www.instagram.com/longemergency/",
       icon: <FiInstagram size={size} className="icon-outline"/>,
@@ -42,7 +42,7 @@ export default function ContactLinks({ size }: { size: number }) {
     },
   ];
   return (
-    <div className="flex justify-center items-center space-x-8 sm:space-x-12 md:space-x-24 lg:space-x-36 xl:space-x-52 2xl:space-x-72 m-4 p-2">
+    <div className="flex justify-center items-center space-x-10 sm:space-x-16 md:space-x-24 lg:space-x-36 xl:space-x-52 2xl:space-x-72 m-4 p-2">
       {linkData.map((link) => (
         <div key={link.href} className="sm:hover:transform hover:scale-125 transition-transform">
           <IconLink

@@ -14,7 +14,7 @@ export default function BandBio() {
           &quot;Starting Over&quot; by The Long Emergency was released in May of 2013.
         </p>
       </div>
-      <div className="expand-on-load p-12">
+      <div className="expand-on-load px-10 py-2 xl:py-6">
         <Image
           priority
           src="/images/kev-16-9.jpg"

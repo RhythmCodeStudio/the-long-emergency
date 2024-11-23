@@ -92,7 +92,8 @@ const songs = [
     genre: ["Rock", "Indie"],
     track_number: 1,
     src: "/music/i-35/mp3/i-35.mp3",
-    bandcamp_url: "https://thelongemergency.bandcamp.com/track/i-35"
+    bandcamp_url: "https://thelongemergency.bandcamp.com/track/i-35",
+    lyrics: "",
   },
   {
     id: 2,
@@ -103,7 +104,8 @@ const songs = [
     genre: ["Rock", "Indie"],
     track_number: 2,
     src: "/music/i-35/mp3/sing-me-to-sleep.mp3",
-    bandcamp_url: "https://thelongemergency.bandcamp.com/track/sing-me-to-sleep"
+    bandcamp_url: "https://thelongemergency.bandcamp.com/track/sing-me-to-sleep",
+    lyrics: "",
   },
   {
     id: 3,
@@ -114,7 +116,8 @@ const songs = [
     genre: ["Rock", "Indie"],
     track_number: 1,
     src: "/music/starting-over/mp3/last-night.mp3",
-    bandcamp_url: "https://thelongemergency.bandcamp.com/track/last-night"
+    bandcamp_url: "https://thelongemergency.bandcamp.com/track/last-night",
+    lyrics: "",
   },
   {
     id: 4,
@@ -125,7 +128,8 @@ const songs = [
     genre: ["Rock", "Indie"],
     track_number: 2,
     src: "/music/starting-over/mp3/snow-emergency.mp3",
-    bandcamp_url: "https://thelongemergency.bandcamp.com/track/snow-emergency"
+    bandcamp_url: "https://thelongemergency.bandcamp.com/track/snow-emergency",
+    lyrics: "",
   },
   {
     id: 5,
@@ -136,7 +140,8 @@ const songs = [
     genre: ["Rock", "Indie"],
     track_number: 3,
     src: "/music/starting-over/mp3/i-35.mp3",
-    bandcamp_url: "https://thelongemergency.bandcamp.com/track/i-35-2"
+    bandcamp_url: "https://thelongemergency.bandcamp.com/track/i-35-2",
+    lyrics: "",
   },
   {
     id: 6,
@@ -147,7 +152,8 @@ const songs = [
     genre: ["Rock", "Indie"],
     track_number: 4,
     src: "/music/starting-over/mp3/i-am-not-sorry.mp3",
-    bandcamp_url: "https://thelongemergency.bandcamp.com/track/i-am-not-sorry"
+    bandcamp_url: "https://thelongemergency.bandcamp.com/track/i-am-not-sorry",
+    lyrics: "",
   },
   {
     id: 7,
@@ -158,7 +164,8 @@ const songs = [
     genre: ["Rock", "Indie"],
     track_number: 5,
     src: "/music/starting-over/mp3/twist-the-knife.mp3",
-    bandcamp_url: "https://thelongemergency.bandcamp.com/track/twist-the-knife"
+    bandcamp_url: "https://thelongemergency.bandcamp.com/track/twist-the-knife",
+    lyrics: "",
   },
   {
     id: 8,
@@ -169,7 +176,8 @@ const songs = [
     genre: ["Rock", "Indie"],
     track_number: 6,
     src: "/music/starting-over/mp3/starting-over.mp3",
-    bandcamp_url: "https://thelongemergency.bandcamp.com/track/starting-over"
+    bandcamp_url: "https://thelongemergency.bandcamp.com/track/starting-over",
+    lyrics: "",
   },
   {
     id: 9,
@@ -180,7 +188,8 @@ const songs = [
     genre: ["Rock", "Indie"],
     track_number: 7,
     src: "/music/starting-over/mp3/sing-me-to-sleep.mp3",
-    bandcamp_url: "https://thelongemergency.bandcamp.com/track/sing-me-to-sleep-2"
+    bandcamp_url: "https://thelongemergency.bandcamp.com/track/sing-me-to-sleep-2",
+    lyrics: "",
   },
 ];
 

@@ -21,7 +21,12 @@ export default function BandcampModal({
   const { isOpen, onOpen, onClose, onOpenChange } = useDisclosure();
   return (
     <>
-      <button onClick={onOpen} className="text-2xl">
+      <button 
+        onClick={onOpen} 
+        className="text-2xl"
+        aria-label={`Download ${title} on Bandcamp`}
+        type="button"
+      >
         <FiDownload />
       </button>
       <Modal

@@ -7,6 +7,8 @@ export default function PlayButton({ song, onPlay }: { song: Song, onPlay: (song
   return (
     <div className="">
       <button
+        aria-label={`Play ${song.title}`}
+        type="button"
         onClick={() => onPlay(song)}
       >
         <FiPlay 

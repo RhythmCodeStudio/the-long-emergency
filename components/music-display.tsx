@@ -58,7 +58,7 @@ export default function MusicDisplay({
                 <Image
                   priority
                   src={album.cover_image}
-                  alt={album.title}
+                  alt={`${album.title} cover art`}
                   width={1423}
                   height={1411}
                   className=" h-auto shadow-2xl shadow-blue-300/50 border-2 border-slate-400"

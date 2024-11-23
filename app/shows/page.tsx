@@ -17,7 +17,8 @@ export default async function ShowsPage() {
       city: "St. Louis",
       state: "MO",
       country: "USA",
-      other_info: "Album release show with Leaving Missouri and Random Fog",
+      gig_info: "Album Release Show",
+      other_acts: "with Leaving Missouri and Random Fog",
       cost: "$5",
       ticket_url:
         "https://www.purplepass.com/events/304686-the-long-emergency-%7C-album-release-show---featurin-jan-17th-2025",
@@ -29,27 +30,38 @@ export default async function ShowsPage() {
     //   city: "St. Louis",
     //   state: "MO",
     //   country: "USA",
-    //   other_info: "with Uncle Tupelo",
+    //   gig_info: "Dream Show",
+    //   other_acts: "with Uncle Tupelo and Blind Melon",
     //   cost: "$5",
-    //   ticket_link: "https://www.offbroadwaystl.com/",
+    //   ticket_url:
+    //     "https://www.purplepass.com/events/304686-the-long-emergency-%7C-album-release-show---featurin-jan-17th-2025",
+    //   poster: "/images/show-posters/masks.png",
     // },
     // {
     //   date: "2/13/1992",
     //   venue: "The Blue Note",
     //   city: "Columbia",
     //   state: "MO",
-    //   other_info: "with Uncle Tupelo",
+    //   country: "USA",
+    //   gig_info: "Dream Show",
+    //   other_acts: "with Uncle Tupelo and Blind Melon",
     //   cost: "$5",
-    //   ticket_link: "https://www.offbroadwaystl.com/",
+    //   ticket_url:
+    //     "https://www.purplepass.com/events/304686-the-long-emergency-%7C-album-release-show---featurin-jan-17th-2025",
+    //   poster: "/images/show-posters/masks.png",
     // },
     // {
     //   date: "3/13/1992",
     //   venue: "Off Broadway",
     //   city: "St. Louis",
     //   state: "MO",
-    //   other_info: "with Uncle Tupelo",
+    //   country: "USA",
+    //   gig_info: "Dream Show",
+    //   other_acts: "with Uncle Tupelo and Blind Melon",
     //   cost: "$5",
-    //   ticket_link: "https://www.offbroadwaystl.com/",
+    //   ticket_url:
+    //     "https://www.purplepass.com/events/304686-the-long-emergency-%7C-album-release-show---featurin-jan-17th-2025",
+    //   poster: "/images/show-posters/yellow.png",
     // },
   ];
   const showsPageData = await getPage("shows");
@@ -65,7 +77,7 @@ export default async function ShowsPage() {
         The Long Emergency is coming...
       </h3>
       <ShowDisplay gigs={gigs} />
-      <div className="m-12 expand-on-load w-full h-auto px-6 flex justify-center">
+      <div className="lg:m-12 expand-on-load w-full h-auto px-6 flex justify-center">
         <Image
           priority
           src="/images/banner.png"

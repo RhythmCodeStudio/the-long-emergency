@@ -16,7 +16,13 @@ export default function ShowDisplay({ gigs }: { gigs: any[] }) {
           </p>
         </div>
       ) : (
-        <ul className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-9 lg:gap-20 xl:gap-28 p-2 md:text-lg md:text-xl">
+        <ul
+        className={`grid ${
+          gigs.length === 1
+            ? "justify-center"
+            : "grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-9 lg:gap-20 xl:gap-28"
+        } p-2 md:text-lg md:text-xl`}
+      >
           {gigs.map((gig, index) => (
             <li key={index} className="expand-on-load border">
               <div className="p-8 bg-black opacity-80">
@@ -35,7 +41,8 @@ export default function ShowDisplay({ gigs }: { gigs: any[] }) {
                   {gig.city}, {gig.state}
                 </p>
                 <p className="font-mono text-center">{gig.cost}</p>
-                <p className="font-mono text-center">{gig.other_info}</p>
+                <p className="font-mono text-center">{gig.gig_info}</p>
+                <p className="font-mono text-center">{gig.other_acts}</p>
                 <div className="flex justify-center">
                   <a
                     target="_blank"

@@ -23,7 +23,7 @@ export default function ContactLinks({ size }: { size: number }) {
       name: "Download music from The Long Emergency on Bandcamp",
     },
     { 
-      href: "https://www.patreon.com",
+      href: "https://patreon.com/TheLongEmergency",
       icon: <PiPatreonLogoBold size={size} className="icon-outline"/>,
       label: "Support The Long Emergency on Patreon",
       name: "Support The Long Emergency on Patreon",

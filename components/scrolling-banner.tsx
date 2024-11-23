@@ -6,7 +6,7 @@ import Marquee from "react-fast-marquee";
 export default function ScrollingBanner() {
   const currentPath = usePathname();
   return (
-    <div className={`m-6 mb-6 ${currentPath === "/" ? "hidden" : ""}`}>
+    <div className={`expand-on-load m-6 mb-6 ${currentPath === "/" ? "hidden" : ""}`}>
       <Marquee speed={60}>
         <span className="text-xl text-center text-outline font-mono">
           New album &quot;Boxcutter&quot; - Available 1/17/2025. Release show @

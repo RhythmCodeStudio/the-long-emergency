@@ -32,7 +32,7 @@ export default function ShowDisplay({ gigs }: { gigs: any[] }) {
                     alt="show poster"
                     width={300}
                     height={425}
-                    className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400"
+                    className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 expand-on-load"
                   />
                 </div>
                 <p className="font-mono text-center mt-6">{gig.date}</p>
@@ -43,7 +43,7 @@ export default function ShowDisplay({ gigs }: { gigs: any[] }) {
                 <p className="font-mono text-center">{gig.cost}</p>
                 <p className="font-mono text-center">{gig.gig_info}</p>
                 <p className="font-mono text-center">{gig.other_acts}</p>
-                <div className="flex justify-center">
+                <div className="flex justify-center expand-on-load">
                   <a
                     target="_blank"
                     rel="noopener noreferrer"

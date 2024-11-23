@@ -15,7 +15,7 @@ interface Url {
 
 const urlConfig: { [key: string]: UrlConfig } = {
   "": { changeFrequency: "yearly", priority: 1.0 },
-  '/shows': { changeFrequency: 'monthly', priority: 1.0 },
+  "/shows": { changeFrequency: "monthly", priority: 1.0 },
 };
 
 // Function to get the last modified date of a file
@@ -42,12 +42,25 @@ function generateUrls(directory: string, baseUrl: string = ""): Url[] {
         file === "page.tsx"
           ? baseUrl
           : `${baseUrl}/${file.replace("/page.tsx", "")}`;
+
+      if (
+        urlPath.includes("admin") ||
+        urlPath.includes("404") ||
+        urlPath.includes("blog") ||
+        urlPath.includes("sitemap") ||
+        urlPath.includes("login") ||
+        urlPath.includes("merch") ||
+        urlPath.includes("payment") ||
+        urlPath.includes("checkout")
+      ) {
+        return;
+      }
       const config = urlConfig[urlPath] || {
         changeFrequency: "yearly",
         priority: 0.8,
       }; // Default values
       urls.push({
-        url: `https://thelongemergency.net${urlPath}`,
+        url: `https://www.thelongemergency.net${urlPath}`,
         lastModified: getLastModified(filePath),
         changeFrequency: config.changeFrequency,
         priority: config.priority,
@@ -58,26 +71,26 @@ function generateUrls(directory: string, baseUrl: string = ""): Url[] {
   return urls;
 }
 
-// Function to generate the sitemap XML
-function generateSitemapXml(urls: Url[]): string {
-  const urlset = urls
-    .map(
-      (url) => `
-    <url>
-      <loc>${url.url}</loc>
-      <lastmod>${url.lastModified.toISOString()}</lastmod>
-      <changefreq>${url.changeFrequency}</changefreq>
-      <priority>${url.priority}</priority>
-    </url>
-  `
-    )
-    .join("");
+// // Function to generate the sitemap XML
+// function generateSitemapXml(urls: Url[]): string {
+//   const urlset = urls
+//     .map(
+//       (url) => `
+//     <url>
+//       <loc>${url.url}</loc>
+//       <lastmod>${url.lastModified.toISOString()}</lastmod>
+//       <changefreq>${url.changeFrequency}</changefreq>
+//       <priority>${url.priority}</priority>
+//     </url>
+//   `
+//     )
+//     .join("");
 
-  return `<?xml version="1.0" encoding="UTF-8"?>
-    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-      ${urlset}
-    </urlset>`;
-}
+//   return `<?xml version="1.0" encoding="UTF-8"?>
+//     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+//       ${urlset}
+//     </urlset>`;
+// }
 
 export default function sitemap(): Url[] {
   const appDirectory = path.join(process.cwd(), "app");

@@ -33,7 +33,9 @@ export const Header = () => {
           </Link>
         </h1>
       </div>
-      <ScrollingBanner />
+      <div className="expand-on-load">
+        <ScrollingBanner />
+      </div>
     </header>
   );
 };

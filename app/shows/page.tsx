@@ -14,9 +14,13 @@ export default async function ShowsPage() {
     {
       date: "1/17/2025",
       venue: "Greenfinch Theater & Dive",
+      venue_url: "https://www.greenfinchstl.com/",
       city: "St. Louis",
       state: "MO",
       country: "USA",
+      street_address: "2525 S Jefferson Ave",
+      zip_code: "63104",
+      google_maps_url: "https://maps.app.goo.gl/5AfvwCu6JxsyWoQo7",
       gig_info: "Album Release Show",
       other_acts: "with Leaving Missouri and Random Fog",
       cost: "$5",

@@ -17,12 +17,11 @@ export default function ShowDisplay({ gigs }: { gigs: any[] }) {
         </div>
       ) : (
         <ul
-        className={`grid ${
-          gigs.length === 1
-            ? "justify-center"
-            : "grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-9 lg:gap-20 xl:gap-28"
-        } p-2 md:text-lg md:text-xl`}
-      >
+          className={`grid ${
+            gigs.length === 1
+              ? "justify-center"
+              : "grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-9 lg:gap-20 xl:gap-28"
+          } p-2 md:text-lg md:text-xl`}>
           {gigs.map((gig, index) => (
             <li key={index} className="expand-on-load border">
               <div className="p-8 bg-black opacity-80">
@@ -36,7 +35,22 @@ export default function ShowDisplay({ gigs }: { gigs: any[] }) {
                   />
                 </div>
                 <p className="font-mono text-center mt-6">{gig.date}</p>
-                <p className="font-mono text-center">{gig.venue}</p>
+                <a
+                  href={gig.venue_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline"
+                >
+                  <p className="font-mono text-center">{gig.venue}</p>
+                </a>
+                <a
+                  href={gig.google_maps_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline"
+                >
+                  <p className="font-mono text-center">{gig.street_address}</p>
+                </a>
                 <p className="font-mono text-center">
                   {gig.city}, {gig.state}
                 </p>

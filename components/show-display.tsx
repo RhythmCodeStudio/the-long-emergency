@@ -63,7 +63,7 @@ export default function ShowDisplay({ gigs }: { gigs: any[] }) {
                     rel="noopener noreferrer"
                     href={gig.ticket_url}
                     className="inline-block bg-blue-500 hover:bg-blue-700 py-2 px-4 rounded-full mt-2 border-2 border-black">
-                    <p>Tickets</p>
+                    <p className="text-outline">Tickets</p>
                   </a>
                 </div>
               </div>

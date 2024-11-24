@@ -23,7 +23,7 @@ export default function LyricsModal({
     <>
       <button
         onClick={onOpen}
-        className="font-mono underline"
+        className="font-mono"
         aria-label={`Download ${title} on Bandcamp`}
         type="button">
         Lyrics
@@ -37,38 +37,55 @@ export default function LyricsModal({
         hideCloseButton={true}
         scrollBehavior="normal"
         backdrop="blur"
-        className="flex items-center justify-center max-w-200">
-        <ModalContent className="bg-black rounded-2xl max-h-[80vh]">
+        className="flex items-center justify-center max-w-[80vw] lg:max-w-[60vw] xl:max-w-[50vw] 3xl:max-w-[40vw]">
+        <ModalContent className="bg-black rounded-2xl max-h-[80vh] overflow-y-auto">
           {(onClose) => (
             <>
-              <ModalHeader >
+              <ModalHeader>
                 <button
+                  type="button"
+                  aria-label="Close window"
                   onClick={onClose}
                   className="absolute top-4 right-4 text-2xl md:text-3xl 2xl:text-4xl">
                   <FiX />
                 </button>
                 <div className="mt-2 flex-col justify-center text-center items-center w-full">
-                  <h6 className="text-2xl">{title}</h6>
+                  <h6 className="text-2xl text-white">{title}</h6>
                 </div>
               </ModalHeader>
-              <ModalBody className="flex justify-center items-center overflow-y-auto">
-                <div className="font-mono px-6 overflow-y-auto">
+              <ModalBody
+                className="relative flex justify-center items-center overflow-y-auto rounded-2xl"
+                style={{
+                  backgroundImage: "url(/images/masks-no-text-2048.png)",
+                  backgroundSize: "cover",
+                }}>
+                <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+                <div className="relative font-mono px-6 overflow-y-auto text-white hide-scrollbar">
                   <div className="text-center">
                     {lyrics.map((paragraph, index) => (
                       <div key={index} className="p-2">
-                      {paragraph.split('\n').map((line, lineIndex) => (
-                        <p key={lineIndex}>{line}</p>
-                      ))}
-                    </div>
+                        {paragraph.split("\n").map((line, lineIndex) => (
+                          <p key={lineIndex} className="">
+                            {line}
+                          </p>
+                        ))}
+                      </div>
                     ))}
                   </div>
                 </div>
               </ModalBody>
-              <ModalFooter className="flex flex-col justify-center text-center items-center w-full ">
+              <ModalFooter className="flex flex-col justify-center text-center items-center w-full">
                 <div className="mb-6">
-                  <h6 className=" text-2xl">The Long Emergency</h6>
+                  <h6 className="text-2xl mb-2 -mt-2">The Long Emergency</h6>
+                  <p className="font-mono">
+                    music and lyrics
+                    <br />
+                    by Kevin Long
+                  </p>
                 </div>
                 <button
+                  type="button"
+                  aria-label="Close window"
                   onClick={onClose}
                   className="text-2xl md:text-3xl xl:text-4xl">
                   <FiX />

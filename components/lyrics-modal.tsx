@@ -23,10 +23,13 @@ export default function LyricsModal({
     <>
       <button
         onClick={onOpen}
-        className="font-mono"
+        className="font-mono m-1 px-2 py-1  text-white rounded-full"
         aria-label={`Download ${title} on Bandcamp`}
-        type="button">
-        Lyrics
+        type="button"
+        style={{backgroundColor: "#868686"}}
+      >
+        <span className="text-black">Lyrics</span>
+        
       </button>
       <Modal
         placement="center"

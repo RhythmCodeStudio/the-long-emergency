@@ -44,11 +44,13 @@ export default function BandcampModal({
           {(onClose) => (
             <>
               <ModalHeader>
-                <button onClick={onClose} className="absolute top-4 right-4 text-2xl md:text-3xl 2xl:text-4xl">
+                <button onClick={onClose} className="absolute top-4 right-4 text-xl">
                   <FiX />
                 </button>
                 <div className="flex-col justify-center text-center items-center w-full">
+                <h6 className="-mb-12 font-mono ">download</h6>
                   <h6 className="mt-12 -mb-12 text-2xl">{title}</h6>
+                  <h6 className="mt-12 -mb-16 2xl:-mb-24 font-mono ">from bandcamp.com</h6>
                 </div>
               </ModalHeader>
                 <ModalBody className="flex justify-center items-center h-full">
@@ -63,7 +65,7 @@ export default function BandcampModal({
                   <div className="  ">
                     <h6 className="-mt-12 mb-12 text-2xl">The Long Emergency</h6>
                   </div>
-                  <button onClick={onClose} className="text-2xl md:text-3xl xl:text-4xl">
+                  <button onClick={onClose} className="text-xl">
                     <FiX />
                   </button>
                 </ModalFooter>

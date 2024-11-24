@@ -40,7 +40,7 @@ export default function LyricsModal({
         hideCloseButton={true}
         scrollBehavior="normal"
         backdrop="blur"
-        className="flex items-center justify-center max-w-[80vw] lg:max-w-[60vw] xl:max-w-[50vw] 3xl:max-w-[40vw]">
+        className="flex items-center justify-center max-w-[80vw] lg:max-w-[60vw] xl:max-w-[40vw] 2xl:max-w-[40vw] 3xl:max-w-[30vw]">
         <ModalContent className="bg-black rounded-2xl max-h-[80vh] overflow-y-auto">
           {(onClose) => (
             <>
@@ -49,7 +49,7 @@ export default function LyricsModal({
                   type="button"
                   aria-label="Close window"
                   onClick={onClose}
-                  className="absolute top-4 right-4 text-2xl md:text-3xl 2xl:text-4xl">
+                  className="absolute top-2 right-2 text-xl p-1">
                   <FiX />
                 </button>
                 <div className="mt-2 flex-col justify-center text-center items-center w-full">
@@ -57,7 +57,7 @@ export default function LyricsModal({
                 </div>
               </ModalHeader>
               <ModalBody
-                className="relative flex justify-center items-center overflow-y-auto rounded-2xl"
+                className="p-2 relative flex justify-center items-center overflow-y-auto rounded-2xl"
                 style={{
                   backgroundImage: "url(/images/masks-no-text-2048.png)",
                   backgroundSize: "cover",
@@ -78,7 +78,7 @@ export default function LyricsModal({
                 </div>
               </ModalBody>
               <ModalFooter className="flex flex-col justify-center text-center items-center w-full">
-                <div className="mb-6">
+                <div className="mb-6 mt-2">
                   <h6 className="text-2xl mb-2 -mt-2">The Long Emergency</h6>
                   <p className="font-mono">
                     music and lyrics
@@ -90,7 +90,7 @@ export default function LyricsModal({
                   type="button"
                   aria-label="Close window"
                   onClick={onClose}
-                  className="text-2xl md:text-3xl xl:text-4xl">
+                  className="text-xl absolute bottom-2 p-1">
                   <FiX />
                 </button>
               </ModalFooter>

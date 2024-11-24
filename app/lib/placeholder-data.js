@@ -94,9 +94,11 @@ const songs = [
     src: "/music/i-35/mp3/i-35.mp3",
     bandcamp_url: "https://thelongemergency.bandcamp.com/track/i-35",
     lyrics: [
-      "", 
-      "",
-      "",
+      "I have never written a happy love song\nAnd right now that's not what I'm about to do\nI'm tired of saying I love you through the telephone\nI wanna tell you every morning when I kiss you", 
+      "And I know that sun will be rising\nI know our day is coming soon\nUntil then ain't no use in me crying\n Until then I won't dwell on how much I miss you\nRight now there's work to be done\nAnd I know just what it is\nThat I've got to do",
+      "I have never written a happy love song\nAnd girl I want to sing one for you\nTired of saying I love you through the telephone\nI wanna tell you every night when I'm naked with you",
+      "And I know that sun will be rising\nI know our day is coming soon\nUntil then ain't no use in me crying\nUntil then I won't dwell on how much I miss you\nRight now there's work to be done\nAnd I know just what it is\nThat I've got to do",
+      "Packing up my life\nKissing Minnesota goodbye\nHeading south down I-35\nStraight home to you",
     ],
   },
   {
@@ -111,9 +113,9 @@ const songs = [
     bandcamp_url:
       "https://thelongemergency.bandcamp.com/track/sing-me-to-sleep",
     lyrics: [
-      "", 
-      "",
-      "",
+      "You sing like an angel\nAnd you will look sexy as hell\nWhen you decide not to run\nBut sometimes I'm afraid you might be a devil\nAnd you've come to claim my soul for the wrongs I've done", 
+      "Ever since you told me\nThat you were not going anywhere\nI hardly ever see you around\nThat means a little less music is in the air\nIt doesn't mean that I won't make a sound\nAnd it does not mean that I don't care\nWhen I said I feel lucky to know you\nI was trying to say I think that I could love you\nYou sing me to sleep\And you don't even know it do you",
+      "Sing me to sleep\nSing me to sleep\nSing me to sleep\nSing me to sleep",
     ],
   },
   {
@@ -173,11 +175,11 @@ const songs = [
     src: "/music/starting-over/mp3/i-35.mp3",
     bandcamp_url: "https://thelongemergency.bandcamp.com/track/i-35-2",
     lyrics: [
-      "I have never written a happy love song and right now that's not what I'm about to do. I'm tired of saying I love you through the telephone. I wanna tell you every morning when I kiss you.", 
-      "And I know that sun will be rising. I know our day is coming soon. Until then ain't no use in me crying. Until then I won't dwell on how much I miss you. Right now there's work to be done and I know just what it is that I've got to do",
-      "I have never written a happy love song and girl I want to sing one for you. Tired of saying I love you through the telephone. I wanna tell you every night when I'm naked with you",
-      "And I know that sun will be rising. I know our day is coming soon. Until then ain't no use in me crying. Until then I won't dwell on how much I miss you. Right now there's work to be done and I know just what it is that I've got to do",
-      "Packing up my life. Kissing Minnesota goodbye. Heading South down I-35 straight home to you",
+      "I have never written a happy love song\nAnd right now that's not what I'm about to do\nI'm tired of saying I love you through the telephone\nI wanna tell you every morning when I kiss you", 
+      "And I know that sun will be rising\nI know our day is coming soon\nUntil then ain't no use in me crying\n Until then I won't dwell on how much I miss you\nRight now there's work to be done\nAnd I know just what it is\nThat I've got to do",
+      "I have never written a happy love song\nAnd girl I want to sing one for you\nTired of saying I love you through the telephone\nI wanna tell you every night when I'm naked with you",
+      "And I know that sun will be rising\nI know our day is coming soon\nUntil then ain't no use in me crying\nUntil then I won't dwell on how much I miss you\nRight now there's work to be done\nAnd I know just what it is\nThat I've got to do",
+      "Packing up my life\nKissing Minnesota goodbye\nHeading south down I-35\nStraight home to you",
     ],
   },
   {
@@ -192,6 +194,13 @@ const songs = [
     bandcamp_url: "https://thelongemergency.bandcamp.com/track/i-am-not-sorry",
     lyrics: [
       "I keep spending money like I have it\nI am so used to spending time alone\nSometimes hobbies turn to habit\nI know such things are better left alone but\nI'm crawling again on the ground",
+      "I'm standing outside the door\nIn my head and my heart I hold the key\nI hesitate what for\nI don't understand why I won't set myself free and\nI'm crawling again on the ground",
+      "I am sorry\nBut I can't be what you need\nI am sorry\nBut I have to leave\nThe next time that love comes knocking\nI swear I'll be ready",
+      "I spent all my money on a habit\nIt seems I have not learned a goddamn thing\nSecret knowledge only I have it\nIn the dark no one has seen what I've been doing\nI've been planting seeds in the ground",
+      "And I am not sorry\nIf I don't believe what you believe\nI am not sorry\nI can't pretend I haven't seen what I've seen\nThe next time that love comes knocking\nI swear I'll be ready",
+      "I am kicking in this door\nMy head and my heart explode inside of me\nI hesitate no more\nOh I will finally set myself free\nAnd fly high above the ground",
+      "And I am not sorry\nIf I don't believe what you believe\nI am not sorry\nI can't pretend I haven't seen what I've seen\nRight now love is knocking\nI swear I am ready",
+      "I swear that I am ready\nI swear that I am ready\nI swear that I am ready\nI swear this time"
     ],
   },
   {
@@ -205,9 +214,13 @@ const songs = [
     src: "/music/starting-over/mp3/twist-the-knife.mp3",
     bandcamp_url: "https://thelongemergency.bandcamp.com/track/twist-the-knife",
     lyrics: [
-      "", 
-      "",
-      "",
+      "You used to say my eyes were kind and I was beautiful\nNow you treat me with scorn and I ain't saying it's undeserved\nBut I am trying to right my wrongs and live the way I should", 
+      "And it's hard to rise above the past when you keep pulling me down\nTime to abandon ship before I drown\nCan you tell me please what my life is worth to you\nIf it's really less than twenty dollars",
+      "I was standing on the roof of the van when you called out my name\nI jumped straight down and said hey later do you want to hang\nIf you knew on that day the path that was ahead\nWould you have still said yes or told me to drop dead",
+      "It's hard to rise above the past when you keep pulling me down\nTime to abandon ship before we both drown\nCan you tell me please what my life is worth to you\nIf it's really less than twenty dollars",
+      "I remember blanket beds and kissing in the rain\nI remember every lie I told with an avalanche of shame\nI left that all behind some time ago and found the courage to change\nSo tell me please what my life is worth to you\nIf it's really less than twenty dollars",
+      "But don't tell me that you dream about me\nWhile you're sleeping next to someone else\nDon't tell me that you dream about me\nWhile you're sleeping next to someone else",
+      "As long as I've known you\nI guess I never knew\nJust how much you like\nTo twist the knife\nWell go ahead and twist that knife\nI got nothing left to hide\nGo ahead and twist that knife\nWe are already dead inside\nGo ahead and twist that knife\nUntil the little hope we had left has died",
     ],
   },
   {
@@ -221,9 +234,12 @@ const songs = [
     src: "/music/starting-over/mp3/starting-over.mp3",
     bandcamp_url: "https://thelongemergency.bandcamp.com/track/starting-over",
     lyrics: [
-      "", 
-      "",
-      "",
+      "Everything I have\nIs broken\nMy house my bank account\nMy body my spirit\nMy car", 
+      "And do you wanna know\nThe really\nSad and nauseating part\nI broke it all\nOn purpose\nTrying to fill\nAn empty heart",
+      "Now being happy\nSounds scary\nI am used to things\nThe way they are",
+      "Here I stand\nNaked and broken\nWondering where to go\nAnd what for",
+      "I never thought\nAt this age\nThat I would be\nStarting over",
+      "I never thought\nAt this age\nThat I would be\nStarting over",
     ],
   },
   {
@@ -238,9 +254,9 @@ const songs = [
     bandcamp_url:
       "https://thelongemergency.bandcamp.com/track/sing-me-to-sleep-2",
     lyrics: [
-      "", 
-      "",
-      "",
+      "You sing like an angel\nAnd you will look sexy as hell\nWhen you decide not to run\nBut sometimes I'm afraid you might be a devil\nAnd you've come to claim my soul for the wrongs I've done", 
+      "Ever since you told me\nThat you were not going anywhere\nI hardly ever see you around\nThat means a little less music is in the air\nIt doesn't mean that I won't make a sound\nAnd it does not mean that I don't care\nWhen I said I feel lucky to know you\nI was trying to say I think that I could love you\nYou sing me to sleep\And you don't even know it do you",
+      "Sing me to sleep\nSing me to sleep\nSing me to sleep\nSing me to sleep",
     ],
   },
 ];

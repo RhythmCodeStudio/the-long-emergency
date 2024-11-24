@@ -28,7 +28,7 @@ export default function LyricsModal({
         type="button"
         style={{backgroundColor: "#868686"}}
       >
-        <span className="text-black">Lyrics</span>
+        <span className="text-black font-bold">Lyrics</span>
         
       </button>
       <Modal

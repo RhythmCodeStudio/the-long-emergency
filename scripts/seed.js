@@ -25,7 +25,7 @@ async function seedSongs(client) {
         track_number INT NOT NULL,
         src TEXT NOT NULL,
         bandcamp_url TEXT NOT NULL,
-        lyrics TEXT,
+        lyrics TEXT[],
         FOREIGN KEY (album) REFERENCES albums(id)
       );
     `;

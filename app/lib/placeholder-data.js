@@ -93,7 +93,7 @@ const songs = [
     track_number: 1,
     src: "/music/i-35/mp3/i-35.mp3",
     bandcamp_url: "https://thelongemergency.bandcamp.com/track/i-35",
-    lyrics: "",
+    lyrics: ["", ""],
   },
   {
     id: 2,
@@ -104,8 +104,9 @@ const songs = [
     genre: ["Rock", "Indie"],
     track_number: 2,
     src: "/music/i-35/mp3/sing-me-to-sleep.mp3",
-    bandcamp_url: "https://thelongemergency.bandcamp.com/track/sing-me-to-sleep",
-    lyrics: "",
+    bandcamp_url:
+      "https://thelongemergency.bandcamp.com/track/sing-me-to-sleep",
+    lyrics: ["", ""],
   },
   {
     id: 3,
@@ -118,7 +119,18 @@ const songs = [
     src: "/music/starting-over/mp3/last-night.mp3",
     bandcamp_url: "https://thelongemergency.bandcamp.com/track/last-night",
     lyrics: 
-      "Well I've got this little life and I've got a little bit of gasoline I just need a little spark to light a big fire for all to see so I've got one question have you got a match for me? Let's light up the night and burn this motherfucker clean",
+      [
+        "Well I've got this little life and I've got a little bit of gasoline. I just need a little spark to light a big fire for all to see. So I've got one question. Have you got a match for me?Let's light up the night and burn this motherfucker clean.",
+        "Tonight. Tonight. Tonight I'm gonna make everything right.",
+        "When I left your house this morning I felt more than a bit sad but more so I felt thankful for what we do still have. Last night I openend that old familiar door. The one I've closed so many times. Such solemn promisies I swore.",
+        "Last night last night last night I just couldn't sleep tight.",
+        "When I woke from sleep that morning I humbled myself and prayed. And yet still I felt the summons. Demons or I'm insane. Last night I opened that old familiar door. The one I've closed so many times. Such solemn promisies I swore.",
+        "Last night last night last night I just couldn't sleep tight.",
+        "When I woke from sleep this morning I humbled myself and prayed. And yet still I feel the summons. Demons or I'm insane. Tonight I'll knock upon that old familiar door. The one I closed just last night. Such solemn promisies I swore.",
+        "Last night last night last night I just couldn't sleep tight.",
+        "Sleep tight. Sleep tight. Sleep tight. This might be your last night.",
+        "I just want to sleep."
+      ]
   },
   {
     id: 4,
@@ -130,7 +142,10 @@ const songs = [
     track_number: 2,
     src: "/music/starting-over/mp3/snow-emergency.mp3",
     bandcamp_url: "https://thelongemergency.bandcamp.com/track/snow-emergency",
-    lyrics: "Do you think you could give me a push?",
+    lyrics: [
+      "Do you think you could give me a push?",
+      "Why yes of course I can give you a push.",
+    ]
   },
   {
     id: 5,
@@ -142,7 +157,7 @@ const songs = [
     track_number: 3,
     src: "/music/starting-over/mp3/i-35.mp3",
     bandcamp_url: "https://thelongemergency.bandcamp.com/track/i-35-2",
-    lyrics: "",
+    lyrics: ["", ""],
   },
   {
     id: 6,
@@ -154,7 +169,7 @@ const songs = [
     track_number: 4,
     src: "/music/starting-over/mp3/i-am-not-sorry.mp3",
     bandcamp_url: "https://thelongemergency.bandcamp.com/track/i-am-not-sorry",
-    lyrics: "",
+    lyrics: ["", ""],
   },
   {
     id: 7,
@@ -166,7 +181,7 @@ const songs = [
     track_number: 5,
     src: "/music/starting-over/mp3/twist-the-knife.mp3",
     bandcamp_url: "https://thelongemergency.bandcamp.com/track/twist-the-knife",
-    lyrics: "",
+    lyrics: ["", ""],
   },
   {
     id: 8,
@@ -178,7 +193,7 @@ const songs = [
     track_number: 6,
     src: "/music/starting-over/mp3/starting-over.mp3",
     bandcamp_url: "https://thelongemergency.bandcamp.com/track/starting-over",
-    lyrics: "",
+    lyrics: ["", ""],
   },
   {
     id: 9,
@@ -189,8 +204,9 @@ const songs = [
     genre: ["Rock", "Indie"],
     track_number: 7,
     src: "/music/starting-over/mp3/sing-me-to-sleep.mp3",
-    bandcamp_url: "https://thelongemergency.bandcamp.com/track/sing-me-to-sleep-2",
-    lyrics: "",
+    bandcamp_url:
+      "https://thelongemergency.bandcamp.com/track/sing-me-to-sleep-2",
+    lyrics: ["", ""],
   },
 ];
 
@@ -214,7 +230,7 @@ const albums = [
     cover_image: "/music/starting-over/album-art/cover.jpg",
     type: "album",
     zip: "/music/starting-over/starting-over-full.zip",
-    bandcamp_url:"https://thelongemergency.bandcamp.com/album/starting-over"
+    bandcamp_url: "https://thelongemergency.bandcamp.com/album/starting-over",
   },
   {
     id: 1,
@@ -225,7 +241,7 @@ const albums = [
     cover_image: "/music/i-35/album-art/i-35-cover.jpg",
     type: "single",
     zip: "/music/i-35/i-35-full.zip",
-    bandcamp_url: "https://thelongemergency.bandcamp.com/album/i-35"
+    bandcamp_url: "https://thelongemergency.bandcamp.com/album/i-35",
   },
 ];
 
@@ -235,7 +251,8 @@ const merch = [
     name: "Starting Over - CD",
     price: 10,
     image: "/images/starting-over.jpg",
-    description: "The debut album from The Long Emergency on CD. Includes digital download (MP3).",
+    description:
+      "The debut album from The Long Emergency on CD. Includes digital download (MP3).",
     stripe_url: "https://buy.stripe.com/test_14k9CVeHc33c1i0bIK",
   },
   {
@@ -243,7 +260,8 @@ const merch = [
     name: "Starting Over - MP3",
     price: 5,
     image: "/images/starting-over.jpg",
-    description: "Digital copy of the debut album from The Long Emergency. Includes album art.",
+    description:
+      "Digital copy of the debut album from The Long Emergency. Includes album art.",
     stripe_url: "https://buy.stripe.com/test_fZe8yRgPk6fof8QbIJ",
   },
   {
@@ -251,7 +269,8 @@ const merch = [
     name: "I-35 - MP3",
     price: 2,
     image: "/images/i-35.jpg",
-    description: "Digital copy of the single I-35 from The Long Emergency. Includes the B-side Sing Me To Sleep.",
+    description:
+      "Digital copy of the single I-35 from The Long Emergency. Includes the B-side Sing Me To Sleep.",
     stripe_url: "https://buy.stripe.com/test_9AQ3ex9mSavEf8Q8wz",
   },
 ];

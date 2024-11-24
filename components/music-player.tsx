@@ -2,34 +2,14 @@
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 import { Song } from "../app/lib/definitions";
+import LyricsModal from "./lyrics-modal";
 // import from react
-import { useState, useRef, useEffect } from "react";
+
 // import  Masks  from '../public/images/masks-no-text.png';
 
 export default function MusicPlayer({ song }: { song: Song }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const detailsRef = useRef<HTMLDetailsElement>(null);
-
-  useEffect(() => {
-    if (detailsRef.current) {
-      const details = detailsRef.current;
-      const summary = details.querySelector("summary");
-
-      const handleToggle = () => {
-        setIsOpen(details.open);
-      };
-
-      if (summary) {
-        summary.addEventListener("click", handleToggle);
-      }
-
-      return () => {
-        if (summary) {
-          summary.removeEventListener("click", handleToggle);
-        }
-      };
-    }
-  }, []);
+  
+  console.log('song.lyrics:', song.lyrics);
 
   return (
     <>
@@ -42,17 +22,7 @@ export default function MusicPlayer({ song }: { song: Song }) {
           header={song.title}
           footer="The Long Emergency"
         />
-        {song.lyrics && (
-        <details
-          ref={detailsRef}
-          className={`font-mono bg-black transition-all duration-500 ease-in-out ${
-            isOpen ? "max-h-96" : "max-h-0 overflow-hidden"
-          }`}
-        >
-          <summary>Lyrics</summary>
-          <p className="text-sm max-w-200">{song.lyrics}</p>
-        </details>
-      )}
+        {song && song.lyrics && <LyricsModal title={song.title} lyrics={song.lyrics} />}
       </div>
     </>
   );

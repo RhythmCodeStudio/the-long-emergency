@@ -21,12 +21,11 @@ export default function BandcampModal({
   const { isOpen, onOpen, onClose, onOpenChange } = useDisclosure();
   return (
     <>
-      <button 
-        onClick={onOpen} 
+      <button
+        onClick={onOpen}
         className="text-2xl"
         aria-label={`Download ${title} on Bandcamp`}
-        type="button"
-      >
+        type="button">
         <FiDownload />
       </button>
       <Modal
@@ -36,39 +35,46 @@ export default function BandcampModal({
         onOpenChange={onOpenChange}
         hideCloseButton={true}
         scrollBehavior="outside"
-        backdrop="blur"
-      >
-        <ModalContent
-          className="bg-black rounded-none"
-        >
+        backdrop="blur">
+        <ModalContent className="bg-black rounded-none">
           {(onClose) => (
             <>
-              <ModalHeader>
-                <button onClick={onClose} className="absolute top-4 right-4 text-xl">
+              <ModalHeader className="z-50">
+                <button
+                  onClick={onClose}
+                  className="absolute top-4 right-4 text-xl">
                   <FiX />
                 </button>
                 <div className="flex-col justify-center text-center items-center w-full">
-                <h6 className="-mb-12 font-mono ">download</h6>
+                  <h6 className="font-mono mt-6 -mb-12">download</h6>
                   <h6 className="mt-12 -mb-12 text-2xl">{title}</h6>
-                  <h6 className="mt-12 -mb-16 2xl:-mb-24 font-mono ">from bandcamp.com</h6>
+                  <h6 className="mt-12 -mb-16 2xl:-mb-24 font-mono z-50">
+                    <a
+                      href="https://thelongemergency.bandcamp.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline z-50">
+                      from bandcamp.com
+                    </a>
+                  </h6>
                 </div>
               </ModalHeader>
-                <ModalBody className="flex justify-center items-center h-full">
+              <ModalBody className="flex justify-center items-center h-full z-0">
                 <iframe
                   src={src}
                   width="80%"
                   height="80%"
                   className="rounded-2xl"
                 />
-                </ModalBody>
-                <ModalFooter className="flex flex-col justify-center text-center items-center w-full ">
-                  <div className="  ">
-                    <h6 className="-mt-12 mb-12 text-2xl">The Long Emergency</h6>
-                  </div>
-                  <button onClick={onClose} className="text-xl">
-                    <FiX />
-                  </button>
-                </ModalFooter>
+              </ModalBody>
+              <ModalFooter className="flex flex-col justify-center text-center items-center w-full ">
+                <div className="  ">
+                  <h6 className="-mt-12 mb-12 text-2xl">The Long Emergency</h6>
+                </div>
+                <button onClick={onClose} className="text-xl">
+                  <FiX />
+                </button>
+              </ModalFooter>
             </>
           )}
         </ModalContent>

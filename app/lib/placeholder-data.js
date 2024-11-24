@@ -117,7 +117,8 @@ const songs = [
     track_number: 1,
     src: "/music/starting-over/mp3/last-night.mp3",
     bandcamp_url: "https://thelongemergency.bandcamp.com/track/last-night",
-    lyrics: "",
+    lyrics: 
+      "Well I've got this little life and I've got a little bit of gasoline I just need a little spark to light a big fire for all to see so I've got one question have you got a match for me? Let's light up the night and burn this motherfucker clean",
   },
   {
     id: 4,
@@ -129,7 +130,7 @@ const songs = [
     track_number: 2,
     src: "/music/starting-over/mp3/snow-emergency.mp3",
     bandcamp_url: "https://thelongemergency.bandcamp.com/track/snow-emergency",
-    lyrics: "",
+    lyrics: "Do you think you could give me a push?",
   },
   {
     id: 5,

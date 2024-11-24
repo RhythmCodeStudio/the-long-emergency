@@ -143,8 +143,14 @@ const songs = [
     src: "/music/starting-over/mp3/snow-emergency.mp3",
     bandcamp_url: "https://thelongemergency.bandcamp.com/track/snow-emergency",
     lyrics: [
-      "Do you think you could give me a push?",
-      "Why yes of course I can give you a push.",
+      "Do you think you could give me a push? My beat up pickup truck don't go in reverse. It sucks being stuck in the snow but it's worse when your pickup truck don't go in reverse. In the morning the plows and tow trucks will come round",
+      "Why do I live in this town year round?",
+      "Do you think you could give me a push? Just a little jump start and I think I should be good. In the morning the plows and tow trucks will come round.",
+      "Why do I live in this town year round? This time of year the snow swallows all the sound. This time of year the sun barely comes around. This time of year I want to sleep beneath the ground.",
+      "Do you think you could give me a push? Right off of this ledge? I know you've had the urge and sometimes I swear I wish you would. In the morning the cops and tow trucks will come round",
+      "Why do I live in this town year round? This time of year the snow swallows all the sound. This time of year the sun barely comes around. This time of year I want to sleep beneath the ground.",
+      "Why do I live in this town year round? This time of year the snow swallows all the sound. This time of year the sun barely comes around. This time of year I want to sleep beneath the ground. This time of year I want to sleep beneath the ground. This time of year I want to sleep beneath the ground.",
+      "This time of year I want to sleep. Just close my eyes and dream. I sure could use some peace. I'll see you in the spring."
     ]
   },
   {

@@ -66,8 +66,8 @@ button {
 }
 
 .text-outline {
-  text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
-  /* text-shadow: 2px 2px 0 black; */
+  /* text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000; */
+  text-shadow: 2px 2px 0 black;
   /* top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); */

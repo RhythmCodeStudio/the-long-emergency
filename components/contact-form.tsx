@@ -112,8 +112,8 @@ export default function ContactForm() {
       try {
         emailjs
           .send(
-            process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
-            process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '',
+            process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
+            process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "",
             emailTemplateParams,
             process.env.NEXT_PUBLIC_EMAILJS_USER_ID
           )
@@ -251,24 +251,24 @@ export default function ContactForm() {
             </div>
           )}
         </div>
-        <div className="flex justify-center items-center p-6">
+        <div className="flex justify-center items-center p-6 ">
           <Button
-            color="primary"
-            // variant="shadow"
+            // color="primary"
+            variant="shadow"
             onClick={handleFormSubmit}
             // isSubmitted={buttonSubmitted}
             type="submit"
-            className="text-outline font-emergency bg-blue-500 hover:bg-blue-700 rounded-full mt-2 border-2 border-black">
-            Send
+            className=" bg-blue-500 hover:bg-blue-700 rounded-full border-2 border-black">
+            <span className="font-emergency text-white text-outline">Send</span>
           </Button>
         </div>
         {deliveryErrorMessage && (
           <div className="flex text-balance text-center justify-center items-center mt-2 mb-4">
             <a
-              href="mailto:mmmcontact@mikemartinmedia.com"
+              href="mailto:thelongemergencyband@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="email Mike Martin Media">
+              aria-label="email The Long Emergency">
               <p className="text-red-500 text-xs font-bold hover:transform hover:scale-105 transition-transform">
                 {deliveryErrorMessage}
               </p>

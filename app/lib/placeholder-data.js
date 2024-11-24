@@ -93,7 +93,11 @@ const songs = [
     track_number: 1,
     src: "/music/i-35/mp3/i-35.mp3",
     bandcamp_url: "https://thelongemergency.bandcamp.com/track/i-35",
-    lyrics: ["", ""],
+    lyrics: [
+      "", 
+      "",
+      "",
+    ],
   },
   {
     id: 2,
@@ -106,7 +110,11 @@ const songs = [
     src: "/music/i-35/mp3/sing-me-to-sleep.mp3",
     bandcamp_url:
       "https://thelongemergency.bandcamp.com/track/sing-me-to-sleep",
-    lyrics: ["", ""],
+    lyrics: [
+      "", 
+      "",
+      "",
+    ],
   },
   {
     id: 3,
@@ -120,16 +128,17 @@ const songs = [
     bandcamp_url: "https://thelongemergency.bandcamp.com/track/last-night",
     lyrics: 
       [
-        "Well I've got this little life and I've got a little bit of gasoline. I just need a little spark to light a big fire for all to see. So I've got one question. Have you got a match for me?Let's light up the night and burn this motherfucker clean.",
-        "Tonight. Tonight. Tonight I'm gonna make everything right.",
-        "When I left your house this morning I felt more than a bit sad but more so I felt thankful for what we do still have. Last night I openend that old familiar door. The one I've closed so many times. Such solemn promisies I swore.",
-        "Last night last night last night I just couldn't sleep tight.",
-        "When I woke from sleep that morning I humbled myself and prayed. And yet still I felt the summons. Demons or I'm insane. Last night I opened that old familiar door. The one I've closed so many times. Such solemn promisies I swore.",
-        "Last night last night last night I just couldn't sleep tight.",
-        "When I woke from sleep this morning I humbled myself and prayed. And yet still I feel the summons. Demons or I'm insane. Tonight I'll knock upon that old familiar door. The one I closed just last night. Such solemn promisies I swore.",
-        "Last night last night last night I just couldn't sleep tight.",
-        "Sleep tight. Sleep tight. Sleep tight. This might be your last night.",
-        "I just want to sleep."
+        "Well I've got this little life\nAnd I've got a little bit of gasoline\nI just need a little spark to\n Light a big fire for all to see\nSo I've got one question\nHave you got a match for me?\nLet's light up the night and\n Burn this motherfucker clean",
+        "Tonight\nTonight\nTonight I'm gonna make everything right",
+        "When I left your house this morning\nI felt more than a bit sad\nBut more so I felt thankful\nFor what we do still have\nLast night I openend that old familiar door\nThe one I've closed so many times\nSuch solemn promisies I swore",
+        "Last night\nLast night\nLast night I just couldn't sleep tight",
+        "When I woke from sleep that morning\nI humbled myself and prayed\nAnd yet still I felt the summons\nDemons or I'm insane\nLast night I opened that old familiar door\nThe one I've closed so many times\nSuch solemn promisies I swore",
+        "Last night\nLast night\nLast night I just couldn't sleep tight",
+        "When I woke from sleep this morning\nI humbled myself and prayed\nAnd yet still I feel the summons\nDemons or I'm insane\nTonight I'll knock upon that old familiar door\nThe one I closed just last night\nSuch a solemn promisie I swore",
+        "Last night\nLast night\nLast night I just couldn't sleep tight.",
+        "Sleep tight\nSleep tight\nSleep tight this might be your last night.",
+        "I\nI\nI\nI just want to sleep",
+        "I\nI\nI\nI just want to sleep\nI just want to sleep.\nI\nI just want to sleep",
       ]
   },
   {
@@ -163,7 +172,13 @@ const songs = [
     track_number: 3,
     src: "/music/starting-over/mp3/i-35.mp3",
     bandcamp_url: "https://thelongemergency.bandcamp.com/track/i-35-2",
-    lyrics: ["", ""],
+    lyrics: [
+      "I have never written a happy love song and right now that's not what I'm about to do. I'm tired of saying I love you through the telephone. I wanna tell you every morning when I kiss you.", 
+      "And I know that sun will be rising. I know our day is coming soon. Until then ain't no use in me crying. Until then I won't dwell on how much I miss you. Right now there's work to be done and I know just what it is that I've got to do",
+      "I have never written a happy love song and girl I want to sing one for you. Tired of saying I love you through the telephone. I wanna tell you every night when I'm naked with you",
+      "And I know that sun will be rising. I know our day is coming soon. Until then ain't no use in me crying. Until then I won't dwell on how much I miss you. Right now there's work to be done and I know just what it is that I've got to do",
+      "Packing up my life. Kissing Minnesota goodbye. Heading South down I-35 straight home to you",
+    ],
   },
   {
     id: 6,
@@ -175,7 +190,9 @@ const songs = [
     track_number: 4,
     src: "/music/starting-over/mp3/i-am-not-sorry.mp3",
     bandcamp_url: "https://thelongemergency.bandcamp.com/track/i-am-not-sorry",
-    lyrics: ["", ""],
+    lyrics: [
+      "I keep spending money like I have it\nI am so used to spending time alone\nSometimes hobbies turn to habit\nI know such things are better left alone but\nI'm crawling again on the ground",
+    ],
   },
   {
     id: 7,
@@ -187,7 +204,11 @@ const songs = [
     track_number: 5,
     src: "/music/starting-over/mp3/twist-the-knife.mp3",
     bandcamp_url: "https://thelongemergency.bandcamp.com/track/twist-the-knife",
-    lyrics: ["", ""],
+    lyrics: [
+      "", 
+      "",
+      "",
+    ],
   },
   {
     id: 8,
@@ -199,7 +220,11 @@ const songs = [
     track_number: 6,
     src: "/music/starting-over/mp3/starting-over.mp3",
     bandcamp_url: "https://thelongemergency.bandcamp.com/track/starting-over",
-    lyrics: ["", ""],
+    lyrics: [
+      "", 
+      "",
+      "",
+    ],
   },
   {
     id: 9,
@@ -212,7 +237,11 @@ const songs = [
     src: "/music/starting-over/mp3/sing-me-to-sleep.mp3",
     bandcamp_url:
       "https://thelongemergency.bandcamp.com/track/sing-me-to-sleep-2",
-    lyrics: ["", ""],
+    lyrics: [
+      "", 
+      "",
+      "",
+    ],
   },
 ];
 

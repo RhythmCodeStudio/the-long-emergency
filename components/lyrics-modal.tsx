@@ -19,13 +19,11 @@ export default function LyricsModal({
 }) {
   const { isOpen, onOpen, onClose, onOpenChange } = useDisclosure();
 
-  console.log("Lyrics in Modal:", lyrics); // Debugging line
-
   return (
     <>
       <button
         onClick={onOpen}
-        className="font-mono"
+        className="font-mono underline"
         aria-label={`Download ${title} on Bandcamp`}
         type="button">
         Lyrics
@@ -39,7 +37,7 @@ export default function LyricsModal({
         hideCloseButton={true}
         scrollBehavior="normal"
         backdrop="blur"
-        className="flex items-center justify-center max-w-200 ">
+        className="flex items-center justify-center max-w-200">
         <ModalContent className="bg-black rounded-2xl max-h-[80vh]">
           {(onClose) => (
             <>
@@ -57,9 +55,11 @@ export default function LyricsModal({
                 <div className="font-mono px-6 overflow-y-auto">
                   <div className="text-center">
                     {lyrics.map((paragraph, index) => (
-                      <p key={index} className="p-2">
-                        {paragraph}
-                      </p>
+                      <div key={index} className="p-2">
+                      {paragraph.split('\n').map((line, lineIndex) => (
+                        <p key={lineIndex}>{line}</p>
+                      ))}
+                    </div>
                     ))}
                   </div>
                 </div>

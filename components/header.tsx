@@ -25,7 +25,7 @@ export const Header = () => {
         <Nav />
         
         <h1
-          className={`text-outline p-2 pt-12 sm:hidden expand-on-load text-3xl xl:text-4xl 2xl:text-5xl ${
+          className={`text-outline mt-12 sm:hidden expand-on-load text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl ${
             currentPath === "/" ? "hidden" : ""
           }`}>
           <Link href="/">

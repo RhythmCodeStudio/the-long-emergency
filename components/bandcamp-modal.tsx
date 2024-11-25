@@ -47,9 +47,9 @@ export default function BandcampModal({
                   <FiX />
                 </button>
                 <div className="flex-col justify-center text-center items-center w-full">
-                  <h6 className="font-mono mt-6 -mb-12">download</h6>
-                  <h6 className="mt-12 -mb-12 text-2xl">{title}</h6>
-                  <h6 className="mt-12 -mb-16 2xl:-mb-24 font-mono z-50">
+                  {/* <h6 className="font-mono mt-6 ">download</h6> */}
+                  <h6 className="mt-12 text-2xl">{title}</h6>
+                  {/* <h6 className="mt-12  2xl:-mb-24 font-mono z-50">
                     <a
                       href="https://thelongemergency.bandcamp.com"
                       target="_blank"
@@ -57,7 +57,7 @@ export default function BandcampModal({
                       className="underline z-50">
                       from bandcamp.com
                     </a>
-                  </h6>
+                  </h6> */}
                 </div>
               </ModalHeader>
               <ModalBody className="flex justify-center items-center h-full z-0">
@@ -70,7 +70,7 @@ export default function BandcampModal({
               </ModalBody>
               <ModalFooter className="flex flex-col justify-center text-center items-center w-full ">
                 <div className="  ">
-                  <h6 className="-mt-12 mb-12 text-2xl">The Long Emergency</h6>
+                  <h6 className=" mb-12 text-2xl">The Long Emergency</h6>
                 </div>
                 <button onClick={onClose} className="text-xl">
                   <FiX />

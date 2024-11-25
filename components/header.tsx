@@ -10,7 +10,7 @@ import { usePathname } from "next/navigation";
 export const Header = () => {
   const currentPath = usePathname();
   return (
-    <header className="z-10 p-4">
+    <header className="p-4 pb-0">
       <div className="flex flex-col items-center w-full justify-center">
         {/* <h1 className={`text-4xl lg:text-6xl ${currentPath === "/" ? "hidden" : ""}`}> */}
         <h1
@@ -23,10 +23,10 @@ export const Header = () => {
           </Link>
         </h1>
         <Nav />
-        <div className="">
+        <div>
         <h1
           id="main-heading-most-pages"
-          className={`text-center text-outline mt-12 sm:hidden expand-on-load text-3xl md:text-3xl xl:text-4xl 2xl:text-5xl ${
+          className={`text-center text-outline mt-12 sm:hidden expand-on-load text-4xl md:text-3xl xl:text-4xl 2xl:text-5xl ${
             currentPath === "/" ? "hidden" : ""
           }`}>
           <Link href="/">

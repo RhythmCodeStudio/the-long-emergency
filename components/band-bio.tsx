@@ -7,7 +7,7 @@ export default function BandBio() {
       
       <div className="px-12 pb-3 lg:px-48 xl:px-64 2xl:px-96 font-mono ">
         <p className="text-outline">
-        I was active in the Twin Cities independent music scene from around 2003 through 2013 as a solo artist and with several different bands. In 2013 I formed The Long Emergency as a vehicle for my songwriting. "Starting Over" by The Long Emergency was independently released in May of 2013. That summer I moved to Austin, TX with plans to promote the new album and form a new version of The Long Emergency to continue recording and performing. After a year in Texas I came to terms with the fact that I had a drinking problem and mad up my mind to do something about it.
+        I was active in the Twin Cities independent music scene from around 2003 through 2013 as a solo artist and with several different bands. In 2013 I formed The Long Emergency as a vehicle for my songwriting. &quot;Starting Over&quot; by The Long Emergency was independently released in May of 2013. That summer I moved to Austin, TX with plans to promote the new album and form a new version of The Long Emergency to continue recording and performing. After a year in Texas I came to terms with the fact that I had a drinking problem and mad up my mind to do something about it.
           {/* The Long Emergency is led by multi-instrumentalist and songwriter
           Kevin Long. From 2003 to 2013 Kevin was active in the Twin Cities
           independent music scene, performing as a solo artist and with several
@@ -29,7 +29,7 @@ export default function BandBio() {
       <div className="px-12 py-3 lg:px-48 xl:px-64 2xl:px-96 font-mono">
         <p className="text-outline">
           {/* Later that year Kevin moved to Austin, TX with plans of forming a new version of The Long Emergency. After a year in Texas Kevin came to terms with the fact that he had a problem with alcohol.  */}
-          In those early days without alcohol playing music felt impossible. Just holding my guitar felt weird. I couldn't imagine performing sober. Playing gigs in bars and going to band practice seemed like asking for trouble. I decided to set music aside while I figured out this new way to live. I figured I would come back to it when I was ready. 
+          In those early days without alcohol playing music felt impossible. Just holding my guitar felt weird. I couldn&apos;t imagine performing sober. Playing gigs in bars and going to band practice seemed like asking for trouble. I decided to set music aside while I figured out this new way to live. I figured I would come back to it when I was ready. 
         </p>
       </div>
       <div className="px-12 py-3 lg:px-48 xl:px-64 2xl:px-96 font-mono">

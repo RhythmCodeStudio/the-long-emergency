@@ -77,7 +77,7 @@ export default async function ShowsPage() {
           {showsPageData.page_title}
         </h2>
       </div>
-      <h3 className="expand-on-load text-xl font-mono p-6 text-outline">
+      <h3 className="expand-on-load font-mono p-6 text-outline">
         The Long Emergency is coming...
       </h3>
       <ShowDisplay gigs={gigs} />

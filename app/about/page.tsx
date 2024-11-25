@@ -18,7 +18,7 @@ export default async function AboutPage() {
       <h2 className="text-outline expand-on-load text-center text-3xl lg:text-4xl">
         {aboutPageData.page_title}
       </h2>
-      <div className="pt-6 expand-on-load">
+      <div className="pt-2 expand-on-load">
       <BandBio />
       </div>
     </div>

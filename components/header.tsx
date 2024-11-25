@@ -23,15 +23,17 @@ export const Header = () => {
           </Link>
         </h1>
         <Nav />
-        
+        <div className="">
         <h1
-          className={`text-outline mt-12 sm:hidden expand-on-load text-3xl md:text-3xl xl:text-4xl 2xl:text-5xl ${
+          id="main-heading-most-pages"
+          className={`text-center text-outline mt-12 sm:hidden expand-on-load text-3xl md:text-3xl xl:text-4xl 2xl:text-5xl ${
             currentPath === "/" ? "hidden" : ""
           }`}>
           <Link href="/">
             The Long Emergency
           </Link>
         </h1>
+        </div>
       </div>
       <div className="expand-on-load">
         <ScrollingBanner />

@@ -8,7 +8,7 @@ export default function ScrollingBanner() {
   return (
     <div className={`m-6 mb-6 ${currentPath === "/" ? "hidden" : ""}`}>
       <Marquee speed={60}>
-        <span className="lg:text-xl text-center text-outline font-mono">
+        <span className="lg:text-xl text-outline font-mono">
           New album &quot;Boxcutter&quot; - Available 1/17/2025. Release show @&nbsp;
           <a
             href="https://maps.app.goo.gl/5AfvwCu6JxsyWoQo7"

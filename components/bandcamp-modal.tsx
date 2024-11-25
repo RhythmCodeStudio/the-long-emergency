@@ -29,6 +29,7 @@ export default function BandcampModal({
         <FiDownload />
       </button>
       <Modal
+        placement="center"
         size="3xl"
         isOpen={isOpen}
         onClose={onClose}
@@ -36,7 +37,7 @@ export default function BandcampModal({
         hideCloseButton={true}
         scrollBehavior="outside"
         backdrop="blur">
-        <ModalContent className="bg-black rounded-none">
+        <ModalContent className="bg-black rounded-none ">
           {(onClose) => (
             <>
               <ModalHeader className="z-50">

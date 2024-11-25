@@ -8,8 +8,6 @@ import LyricsModal from "./lyrics-modal";
 // import  Masks  from '../public/images/masks-no-text.png';
 
 export default function MusicPlayer({ song }: { song: Song }) {
-  
-  console.log('song.lyrics:', song.lyrics);
 
   return (
     <>

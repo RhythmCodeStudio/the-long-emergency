@@ -3,8 +3,8 @@ import Image from "next/image";
 
 export default function BandBio() {
   return (
-    <section className="p-2 max-w-800 flex flex-col md:text-lg">
-      <div className="px-6 pb-3 lg:px-48 xl:px-64 2xl:px-96 font-mono text-balance">
+    <section className="p-2 px-8 max-w-800 flex flex-col md:text-lg">
+      <div className="pb-3 lg:px-48 xl:px-64 2xl:px-96 font-mono text-balance">
         <p className="text-outline">
           I was active in the Twin Cities independent music scene from around
           2003 through 2013 as a solo artist and with several different bands.
@@ -33,7 +33,7 @@ export default function BandBio() {
           className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400"
         />
       </div>
-      <div className="px-10 py-3 lg:px-48 xl:px-64 2xl:px-96 font-mono">
+      <div className="py-3 lg:px-48 xl:px-64 2xl:px-96 font-mono">
         <p className="text-outline">
           {/* Later that year Kevin moved to Austin, TX with plans of forming a new version of The Long Emergency. After a year in Texas Kevin came to terms with the fact that he had a problem with alcohol.  */}
           In those early days without alcohol playing music felt impossible.
@@ -43,27 +43,27 @@ export default function BandBio() {
           without alcohol. I figured I would come back to it when I was ready.
         </p>
       </div>
-      <div className="px-10 py-3 lg:px-48 xl:px-64 2xl:px-96 font-mono">
+      <div className="py-3 lg:px-48 xl:px-64 2xl:px-96 font-mono">
         <p className="text-outline">
           Ten years later and still alcohol free I am ready to share my songs
           and my story.
         </p>
       </div>
-      <div className="px-10 py-3 lg:px-48 xl:px-64 2xl:px-96 font-mono">
+      <div className="py-3 lg:px-48 xl:px-64 2xl:px-96 font-mono">
         <p className="text-outline">
           Songwriting for me has always been a way of processing difficult
           things. I have danced with anxiety, depression, and addiction most of
           my life. In some way all of my songs are about these experiences.
         </p>
       </div>
-      <div className="px-10 py-3 lg:px-48 xl:px-64 2xl:px-96 font-mono">
+      <div className="py-3 lg:px-48 xl:px-64 2xl:px-96 font-mono">
         <p className="text-outline">
           These songs saved my life. If by sharing them with the world I can
           possibly help someone else then maybe it will have all been
           worthwhile.
         </p>
       </div>
-      <div className="px-10 py-3 lg:px-48 xl:px-64 2xl:px-96 font-mono">
+      <div className="py-3 lg:px-48 xl:px-64 2xl:px-96 font-mono">
         <p className="text-outline">Thank you for listening.</p>
         <p className="mt-6 text-outline text-right">
           -&nbsp;

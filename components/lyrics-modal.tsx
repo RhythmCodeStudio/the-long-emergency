@@ -53,7 +53,7 @@ export default function LyricsModal({
                   <FiX />
                 </button>
                 <div className="mt-2 flex-col justify-center text-center items-center w-full">
-                  <h6 className="text-2xl text-white">{title}</h6>
+                  <p className="text-xl md:text-2xl text-white">{title}</p>
                 </div>
               </ModalHeader>
               <ModalBody
@@ -78,9 +78,9 @@ export default function LyricsModal({
                 </div>
               </ModalBody>
               <ModalFooter className="flex flex-col justify-center text-center items-center w-full">
-                <div className="mb-6 mt-2">
-                  <h6 className="text-2xl ">The Long Emergency</h6>
-                  <p className="font-mono">
+                <div className="mb-6">
+                  <p className="text-xl md:text-2xl">The Long Emergency</p>
+                  <p className="font-mono mt-2">
                     music and lyrics
                     <br />
                     by Kevin Long

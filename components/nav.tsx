@@ -22,6 +22,7 @@ export default function Nav() {
     { label: "Music", href: "/music" },
     { label: "Contact", href: "/contact" },
     { label: "Shows", href: "/shows" },
+    // { label: "Support", href: "https://www.patreon.com/profile/creators?u=132202553" },
     // { label: "Merch", href: "/merch" },
     // { label: "Blog", href: "/blog" },
   ];

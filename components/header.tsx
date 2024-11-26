@@ -35,7 +35,7 @@ export const Header = () => {
           </div>
         </div>
       </div>
-      <div className={`${currentPath === "/" ? "hidden" : ""}`}>
+      {/* <div className={`${currentPath === "/" ? "hidden" : ""}`}>
         <div className={`block sm:hidden`}>
           <ContactLinks size={18} />
         </div>
@@ -45,7 +45,6 @@ export const Header = () => {
         <div className={`hidden lg:block`}>
           <ContactLinks size={28} />
         </div>
-       
         <div className={`block sm:hidden`}>
           <MusicLinks size={18} />
         </div>
@@ -55,7 +54,7 @@ export const Header = () => {
         <div className={`hidden lg:block`}>
           <MusicLinks size={28} />
         </div>
-      </div>
+      </div> */}
       <div>
         <ScrollingBanner />
       </div>

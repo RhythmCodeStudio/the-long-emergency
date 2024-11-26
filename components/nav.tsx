@@ -34,9 +34,9 @@ export default function Nav() {
       {/* mobile nav */}
       {menuOpen && (
         <div
-          className="invert flex fixed inset-0 bg-black z-50 justify-center items-center h-full"
+          className=" flex fixed inset-0 bg-black z-50 justify-center items-center h-full"
           style={{
-            backgroundImage: "url('/images/masks-no-text-2048-rotate.png')",
+            backgroundImage: "url('/images/masks-no-text-2048-rotate-crop.png')",
             backgroundPosition: "center center",
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
@@ -60,11 +60,11 @@ export default function Nav() {
                 The Long Emergency
               </h1>
             </Link>
-            <ul className="p-8 text-xl">
+            <ul className="p-6 text-xl">
               {navLinks.map((link) => (
                 <li
                   key={link.label}
-                  className={`font-bold text-center w-full py-8 ${
+                  className={`font-bold text-center w-full py-6 ${
                     pathname === link.href ? "hidden" : ""
                   }`}>
                   <Link href={link.href}>

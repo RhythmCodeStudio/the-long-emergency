@@ -24,13 +24,13 @@ export default function MusicLinks({ size }: { size: number }) {
       name: "Download music from The Long Emergency on Bandcamp",
     },
     { 
-      href: "https://patreon.com/TheLongEmergency",
+      href: "https://music.youtube.com/channel/UCijrNB6Yeh1PwY_7oYDXChw",
       icon: <SiYoutubemusic size={size} className="icon-outline"/>,
       label: "Listen to The Long Emergency on YouTube Music",
       name: "Listen to The Long Emergency on YouTube Music",
     },
     {
-      href: "https://www.instagram.com/longemergency/",
+      href: "https://www.youtube.com/@TheLongEmergency",
       icon: <FiYoutube size={size} className="icon-outline"/>,
       label: "Follow The Long Emergency on YouTube",
       name: "Follow The Long Emergency on YouTube",
@@ -49,7 +49,7 @@ export default function MusicLinks({ size }: { size: number }) {
     },
   ];
   return (
-    <div className="flex justify-center items-center space-x-10 sm:space-x-16 md:space-x-24 lg:space-x-36 xl:space-x-52 2xl:space-x-72 m-4 p-2">
+    <div className="flex justify-center items-center space-x-10 sm:space-x-16 md:space-x-24 m-4 p-2">
       {linkData.map((link) => (
         <div key={link.href} className="sm:hover:transform hover:scale-125 transition-transform">
           <IconLink

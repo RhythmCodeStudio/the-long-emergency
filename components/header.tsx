@@ -7,11 +7,10 @@ import ContactLinks from "./contact-links";
 import Link from "next/link";
 // import from react
 import { usePathname } from "next/navigation";
-// import MusicLinks from "./music-links";
+import MusicLinks from "./music-links";
 
 export const Header = () => {
   const currentPath = usePathname();
-  console.log("Current Path:", currentPath);
   return (
     <header className="p-4">
       <div className="flex flex-col items-center w-full justify-center">
@@ -36,17 +35,28 @@ export const Header = () => {
           </div>
         </div>
       </div>
-      <div className={` ${currentPath === "/" ? "hidden" : ""}`}>
-        <ContactLinks size={24} />
+      <div className={`${currentPath === "/" ? "hidden" : ""}`}>
+        <div className={`block sm:hidden`}>
+          <ContactLinks size={18} />
+        </div>
+        <div className={`hidden sm:block lg:hidden`}>
+          <ContactLinks size={22} />
+        </div>
+        <div className={`hidden lg:block`}>
+          <ContactLinks size={28} />
+        </div>
+       
+        <div className={`block sm:hidden`}>
+          <MusicLinks size={18} />
+        </div>
+        <div className={`hidden sm:block lg:hidden`}>
+          <MusicLinks size={22} />
+        </div>
+        <div className={`hidden lg:block`}>
+          <MusicLinks size={28} />
+        </div>
       </div>
-      {/* <div className={`hidden sm:block ${currentPath === "/" ? "hidden" : ""}`}>
-        <ContactLinks size={24} />
-      </div> */}
-      {/* <div className={`hidden lg:block ${currentPath === "/" ? "hidden" : ""}`}>
-        <ContactLinks size={30} />
-      </div> */}
-      {/* <MusicLinks size={18} /> */}
-      <div className="">
+      <div>
         <ScrollingBanner />
       </div>
     </header>

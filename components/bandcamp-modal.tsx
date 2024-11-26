@@ -47,9 +47,9 @@ export default function BandcampModal({
                   <FiX />
                 </button>
                 <div className="flex-col justify-center text-center items-center w-full">
-                  {/* <h6 className="font-mono mt-6 ">download</h6> */}
-                  <h6 className="mt-12 text-2xl">{title}</h6>
-                  {/* <h6 className="mt-12  2xl:-mb-24 font-mono z-50">
+                  <p className="font-mono  ">download</p>
+                  <p className=" text-2xl">{title}</p>
+                  <p className=" font-mono z-50">
                     <a
                       href="https://thelongemergency.bandcamp.com"
                       target="_blank"
@@ -57,14 +57,14 @@ export default function BandcampModal({
                       className="underline z-50">
                       from bandcamp.com
                     </a>
-                  </h6> */}
+                  </p>
                 </div>
               </ModalHeader>
               <ModalBody className="flex justify-center items-center h-full z-0">
                 <iframe
                   src={src}
-                  width="80%"
-                  height="80%"
+                  width="90%"
+                  height="90%"
                   className="rounded-2xl"
                 />
               </ModalBody>

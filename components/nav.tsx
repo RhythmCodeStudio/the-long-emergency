@@ -8,6 +8,7 @@ import { useState } from "react";
 import { FiX } from "react-icons/fi";
 import { FiMenu } from "react-icons/fi";
 import ContactLinks from "./contact-links";
+import MusicLinks from "./music-links";
 
 export default function Nav() {
   const pathname = usePathname();
@@ -72,6 +73,7 @@ export default function Nav() {
               ))}
             </ul>
             <ContactLinks size={20} />
+            <MusicLinks size={20} />
           </div>
         </div>
       )}

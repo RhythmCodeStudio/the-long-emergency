@@ -2,6 +2,7 @@
 import Image from "next/image";
 // import components
 import ContactLinks from "./contact-links";
+import MusicLinks from "./music-links";
 
 export const Footer = () => {
   return (
@@ -9,14 +10,23 @@ export const Footer = () => {
       <div className="m-2 expand-on-load">
         {/* <ContactLinks size={20} /> */}
         <div className={`block sm:hidden`}>
-        <ContactLinks size={18} />
-      </div>
-      <div className={`hidden sm:block lg:hidden`}>
-        <ContactLinks size={24} />
-      </div>
-      <div className={`hidden lg:block`}>
-        <ContactLinks size={30} />
-      </div>
+          <ContactLinks size={18} />
+        </div>
+        <div className={`hidden sm:block lg:hidden`}>
+          <ContactLinks size={22} />
+        </div>
+        <div className={`hidden lg:block`}>
+          <ContactLinks size={28} />
+        </div>
+        <div className={`block sm:hidden`}>
+          <MusicLinks size={18} />
+        </div>
+        <div className={`hidden sm:block lg:hidden`}>
+          <MusicLinks size={22} />
+        </div>
+        <div className={`hidden lg:block`}>
+          <MusicLinks size={28} />
+        </div>
       </div>
       <span className="expand-on-load text-sm p-2 text-center text-outline">
         <span className="font-mono">©</span> 2024 The Long Emergency
@@ -26,7 +36,9 @@ export const Footer = () => {
         href="https://rhythmcodestudio.tech"
         target="_blank"
         rel="noopener noreferrer">
-        <span className="expand-on-load text-sm p-2 text-outline font-mono">Website by Rhythm Code Studio LLC</span>
+        <span className="expand-on-load text-sm p-2 text-outline font-mono">
+          Website by Rhythm Code Studio LLC
+        </span>
         <Image
           src="/logos/rcs-mark-only-light-outline-6.png"
           alt="Rhythm Code Studio Logo"

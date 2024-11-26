@@ -80,11 +80,11 @@ export default function LyricsModal({
               <ModalFooter className="flex flex-col justify-center text-center items-center w-full">
                 <div className="mb-6 mt-2">
                   <h6 className="text-2xl ">The Long Emergency</h6>
-                  {/* <p className="font-mono">
+                  <p className="font-mono">
                     music and lyrics
                     <br />
                     by Kevin Long
-                  </p> */}
+                  </p>
                 </div>
                 <button
                   type="button"

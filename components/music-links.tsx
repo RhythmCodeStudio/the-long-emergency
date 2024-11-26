@@ -30,13 +30,13 @@ export default function MusicLinks({ size }: { size: number }) {
       name: "Listen to The Long Emergency on YouTube Music",
     },
     {
-      href: "https://www.youtube.com/@TheLongEmergency",
+      href: "https://www.youtube.com/@TheLongEmergency/videos",
       icon: <FiYoutube size={size} className="icon-outline"/>,
       label: "Follow The Long Emergency on YouTube",
       name: "Follow The Long Emergency on YouTube",
     },
     {
-      href: "https://www.facebook.com/thelongemergencyband",
+      href: "https://music.apple.com/us/artist/the-long-emergency/1777877942",
       icon: <SiApplemusic size={size} className="icon-outline"/>,
       label: "Listen to The Long Emergency on Apple Music",
       name: "Listen to The Long Emergency on Apple Music",

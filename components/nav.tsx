@@ -36,7 +36,7 @@ export default function Nav() {
         <div
           className=" flex fixed inset-0 bg-black z-50 justify-center items-center h-full"
           style={{
-            backgroundImage: "url('/images/masks-no-text-2048-rotate-crop.png')",
+            backgroundImage: "url('/images/masks-no-text-2048-rotate.png')",
             backgroundPosition: "center center",
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",

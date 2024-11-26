@@ -7,7 +7,16 @@ export const Footer = () => {
   return (
     <footer className=" flex flex-col items-center justify-center w-full mb-4">
       <div className="m-2 expand-on-load">
+        {/* <ContactLinks size={20} /> */}
+        <div className={`block sm:hidden`}>
+        <ContactLinks size={18} />
+      </div>
+      <div className={`hidden sm:block lg:hidden`}>
+        <ContactLinks size={24} />
+      </div>
+      <div className={`hidden lg:block`}>
         <ContactLinks size={30} />
+      </div>
       </div>
       <span className="expand-on-load text-sm p-2 text-center text-outline">
         <span className="font-mono">©</span> 2024 The Long Emergency

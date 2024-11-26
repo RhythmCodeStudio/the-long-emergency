@@ -7,6 +7,7 @@ import { useState } from "react";
 // import icons
 import { FiX } from "react-icons/fi";
 import { FiMenu } from "react-icons/fi";
+import ContactLinks from "./contact-links";
 
 export default function Nav() {
   const pathname = usePathname();
@@ -43,7 +44,7 @@ export default function Nav() {
           }}>
           <div className="flex justify-end">
             <button
-              className="p-4 top-0 right-0 absolute"
+              className="top-4 right-4 absolute"
               onClick={closeMenu}
               aria-label="Close Menu">
               <FiX className="text-2xl" />
@@ -51,9 +52,9 @@ export default function Nav() {
           </div>
           <div id="mobile-nav-link-container" className="font-bold">
             <Link href="/">
-              <h1 className="text-center text-3xl m-2 m-2" onClick={() => setMenuOpen(false)}>The Long Emergency</h1>
+              <h1 className="text-center text-2xl m-2" onClick={() => setMenuOpen(false)}>The Long Emergency</h1>
             </Link>
-            <ul className=" text-2xl">
+            <ul className=" text-xl">
               {navLinks.map((link) => (
                 <li
                   key={link.label}
@@ -70,6 +71,7 @@ export default function Nav() {
                 </li>
               ))}
             </ul>
+            <ContactLinks size={20} />
           </div>
         </div>
       )}
@@ -85,9 +87,9 @@ export default function Nav() {
           </li>
         ))}
       </ul>
-      <div className="p-4 absolute top-0 right-0 md:hidden">
+      <div className="absolute top-4 right-4 md:hidden">
         <button onClick={openMenu} aria-label="Open Menu">
-          <FiMenu className=" expand-on-load h-6 w-6" />
+          <FiMenu className=" expand-on-load h-5 w-5" />
         </button>
       </div>
     </nav>

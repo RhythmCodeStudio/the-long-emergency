@@ -77,7 +77,6 @@ button {
   -moz-background-clip: text;
 }
 
-/* styles.css or a similar CSS file */
 .icon-outline {
   filter: drop-shadow(1px 1px 0 #000) drop-shadow(-1px -1px 0 #000) drop-shadow(1px -1px 0 #000) drop-shadow(-1px 1px 0 #000);
 }

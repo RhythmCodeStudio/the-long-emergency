@@ -73,7 +73,9 @@ export default function RootLayout({
             flexDirection: "column",
           }}
         >
+          <div className="mb-2">
           <Header />
+          </div>
           <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
           <main className="flex flex-grow items-center justify-center">
             {children}

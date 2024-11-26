@@ -36,7 +36,7 @@ export default function Nav() {
         <div
           className="invert flex fixed inset-0 bg-black z-50 justify-center items-center h-full"
           style={{
-            backgroundImage: "url('/images/masks-no-text-4800x3190.png')",
+            backgroundImage: "url('/images/masks-no-text-2048-rotate.png')",
             backgroundPosition: "center center",
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
@@ -52,15 +52,19 @@ export default function Nav() {
               <FiX className="text-2xl" />
             </button>
           </div>
-          <div id="mobile-nav-link-container" className="font-bold">
+          <div id="mobile-nav-link-container" className="font-bold relative">
             <Link href="/">
-              <h1 className="text-center text-2xl m-2" onClick={() => setMenuOpen(false)}>The Long Emergency</h1>
+              <h1
+                className="text-center text-2xl m-6"
+                onClick={() => setMenuOpen(false)}>
+                The Long Emergency
+              </h1>
             </Link>
-            <ul className=" text-xl">
+            <ul className="p-8 text-xl">
               {navLinks.map((link) => (
                 <li
                   key={link.label}
-                  className={`font-bold text-center w-full py-6 ${
+                  className={`font-bold text-center w-full py-8 ${
                     pathname === link.href ? "hidden" : ""
                   }`}>
                   <Link href={link.href}>
@@ -79,7 +83,8 @@ export default function Nav() {
         </div>
       )}
       {/* desktop nav */}
-      <ul className={`expand-on-load w-full hidden md:flex items-center justify-between mt-6 lg:mt-0`}>
+      <ul
+        className={`expand-on-load w-full hidden md:flex items-center justify-between mt-6 lg:mt-0`}>
         {navLinks.map((link) => (
           <li
             className={`px-8 md:px-8 lg:px-14 xl:px-20 lg:py-8 flex hover:scale-110 transition transition-transform duration-300 ease-in-out ${

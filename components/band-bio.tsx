@@ -40,7 +40,7 @@ export default function BandBio() {
           Just holding my guitar felt weird. I couldn&apos;t imagine performing
           sober. Playing gigs in bars and going to rehearsals seemed like asking
           for trouble. I no longer felt the joy and excitement I once did when I picked up the guitar. I felt empty inside. I decided to set music aside while I adjusted to life
-          without alcohol. I figured I would come back to it when I was ready. I just didn't expect it to take so long.
+          without alcohol. I figured I would come back to it when I was ready. I just didn&apos;t expect it to take so long.
         </p>
       </div>
       <div className="py-3 lg:px-48 xl:px-64 2xl:px-96 font-mono">

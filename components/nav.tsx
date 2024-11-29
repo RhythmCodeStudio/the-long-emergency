@@ -34,9 +34,10 @@ export default function Nav() {
       {/* mobile nav */}
       {menuOpen && (
         <div
-          className=" flex fixed inset-0 bg-black z-50 justify-center items-center h-full"
+          className="flex fixed inset-0 bg-black z-50 justify-center items-center h-full"
           style={{
-            backgroundImage: "url('/images/masks-no-text-2048-rotate-crop.png')",
+            // backgroundImage: "url('/images/masks-no-text-2048-rotate-crop.png')",
+            backgroundImage: "url('/images/background-images/masks-no-text-4800x3190-gaps-filled.png')",
             backgroundPosition: "center center",
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
@@ -60,7 +61,7 @@ export default function Nav() {
                 The Long Emergency
               </h1>
             </Link>
-            <ul className="p-6 text-xl">
+            <ul className="text-xl">
               {navLinks.map((link) => (
                 <li
                   key={link.label}

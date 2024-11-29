@@ -18,6 +18,7 @@ import { ourFileRouter } from "./api/uploadthing/core";
 // import components
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
+import ScrollToTopButton from "../components/scroll-to-top-button";
 
 // import styles
 import "./globals.css";
@@ -63,15 +64,17 @@ export default function RootLayout({
       style={{ height: "100%" }}>
       <body className={`font-emergency overflow-x-hidden flex flex-col`}>
         <div
-          style={{
-            backgroundImage: "url('/images/masks-no-text-4800x3190.png')",
-            backgroundPosition: "center center",
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-            minHeight: "100vh",
-            display: "flex",
-            flexDirection: "column",
-          }}
+          className="flex flex-col min-h-screen bg-cover bg-center bg-no-repeat bg-fixed bg-[url('/images/background-images/masks-no-text-4800x3190-gaps-filled.png')] lg:bg-[url('/images/background-images/masks-no-text-4800x3190-gaps-filled-horizontal.png')]"
+        //  className="flex flex-col "
+          // style={{
+            // backgroundImage: "url('/images/masks-no-text-4800x3190.png')",
+            // backgroundPosition: "center center",
+            // backgroundSize: "cover",
+            // backgroundRepeat: "no-repeat",
+            // minHeight: "100vh",
+            // display: "flex",
+            // flexDirection: "column",
+          // }}
         >
           <div className="mb-2">
           <Header />
@@ -80,13 +83,14 @@ export default function RootLayout({
           <main className="flex flex-grow items-center justify-center">
             {children}
           </main>
+          <ScrollToTopButton />
           <Footer />
         </div>
         <Analytics />
       </body>
     </html>
   );
-}
+};
 
 // export default function RootLayout({
 //   children,

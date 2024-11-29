@@ -7,7 +7,7 @@ import ContactLinks from "./contact-links";
 import Link from "next/link";
 // import from react
 import { usePathname } from "next/navigation";
-import MusicLinks from "./music-links";
+// import MusicLinks from "./music-links";
 
 export const Header = () => {
   const currentPath = usePathname();

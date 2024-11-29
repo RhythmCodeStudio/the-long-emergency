@@ -101,3 +101,15 @@ button {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+@media (max-width: 640px) {
+  .bg-mobile {
+    background-image: url('/images/masks-no-text-2048-rotate-crop.png');
+  }
+}
+
+@media (min-width: 641px) {
+  .bg-desktop {
+    background-image: url('/images/masks-no-text-4800x3190.png');
+  }
+}

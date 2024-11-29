@@ -12,11 +12,11 @@ export default async function MusicPage() {
   const songs = await getSongs();
 
   return (
-    <div className="flex justify-center items-center flex-col">
+    <div className="flex flex-col justify-center items-center">
       <h2 className=" text-center text-2xl lg:text-3xl xl:text-4xl text-outline">
         {musicPageData.page_title}
       </h2>
       <MusicDisplay albums={albums} songs={songs} />
     </div>
   );
-}
+};

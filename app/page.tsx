@@ -9,7 +9,7 @@ export default async function Home() {
 
   return (
     <section className="flex flex-col items-center justify-content">
-      <div className="flex flex-col justify-center items-center ">
+      <div className="flex flex-col justify-center items-center">
         <h1 className="p-4 expand-on-load text-4xl md:text-6xl lg:text-6xl xl:text-6xl 2xl:text-7xl 3xl:text-8xl font-emergency text-center text-outline">
           {pageData.page_title}
         </h1>

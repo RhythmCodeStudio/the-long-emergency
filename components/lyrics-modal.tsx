@@ -26,10 +26,8 @@ export default function LyricsModal({
         className="font-mono m-1 px-2 py-1  text-white rounded-full"
         aria-label={`Download ${title} on Bandcamp`}
         type="button"
-        style={{backgroundColor: "#868686"}}
-      >
+        style={{ backgroundColor: "#868686" }}>
         <span className="text-black font-bold">Lyrics</span>
-        
       </button>
       <Modal
         placement="center"
@@ -83,7 +81,13 @@ export default function LyricsModal({
                   <p className="font-mono mt-2">
                     music and lyrics
                     <br />
-                    by Kevin Long
+                    by&nbsp;
+                    <a
+                      href="https://www.discogs.com/artist/3655286-Kevin-Long-5"
+                      target="_blank"
+                      rel="noopener noreferrer">
+                      Kevin Long
+                    </a>
                   </p>
                 </div>
                 <button

@@ -47,8 +47,8 @@ export default function MusicDisplay({
         {albums.map((album) => (
           <div
             key={album.id}
-            className="m-4 expand-on-load font-mono text- md:text-2xl">
-            <div className="text-outline">
+            className="m-4 font-mono text- md:text-2xl">
+            <div className="text-outline expand-on-load ">
               <h3 className="text-xl">{album.title}</h3>
               <p>{album.type}</p>
               <p>{album.year}</p>
@@ -61,10 +61,10 @@ export default function MusicDisplay({
                   alt={`${album.title} cover art`}
                   width={1423}
                   height={1411}
-                  className="h-auto shadow-2xl shadow-blue-300/50 border-2 border-slate-400"
+                  className="expand-on-load h-auto shadow-2xl shadow-blue-300/50 border-2 border-slate-400"
                 />
               </div>
-              <div className="text-outline">
+              <div className="text-outline expand-on-load ">
                 <div className="download-album-div ">
                   <p>Download {album.title}</p>
                   <div
@@ -79,7 +79,7 @@ export default function MusicDisplay({
                     />
                   </div>
                 </div>
-                <ol className="list-decimal list-inside pl-2 ">
+                <ol className="list-decimal list-inside pl-2 expand-on-load">
                   {songs
                     .filter((song) => song.album === album.id)
                     .map((song, index) => (

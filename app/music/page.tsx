@@ -15,7 +15,7 @@ export default async function MusicPage() {
     <div 
       className="flex flex-col justify-center items-center bg-[rgba(0,0,0,0.5)] sm:bg-transparent"
     >
-      <h2 className="mt-4 text-center text-2xl lg:text-3xl xl:text-4xl text-outline">
+      <h2 className="mt-4 text-center text-2xl lg:text-3xl xl:text-4xl text-outline expand-on-load">
         {musicPageData.page_title}
       </h2>
       <MusicDisplay albums={albums} songs={songs} />

@@ -12,8 +12,8 @@ export const Footer = () => {
     <footer 
       // className=" flex flex-col items-center justify-center w-full mb-4" 
 
-      className={`flex flex-col items-center justify-center w-full ${currentPath!=="/" ? "bg-[url('/images/background-images/masks-no-text-4800x3190-gaps-filled-horizontal-25per.png')] bg-no-repeat bg-cover bg-bottom xl:bg-none" : " "}`}
-    
+      // className={`flex flex-col items-center justify-center w-full ${currentPath!=="/" ? "bg-[url('/images/background-images/masks-no-text-4800x3190-gaps-filled-horizontal-25per.png')] bg-no-repeat bg-cover bg-bottom xl:bg-none" : " "}`}
+      className={`flex flex-col items-center justify-center w-full ${currentPath!=="/" ? "bg-black xl:bg-transparent" : " "}`}
     >
       <div className="m-2 expand-on-load">
         <div className={`block sm:hidden`}>
@@ -47,9 +47,9 @@ export const Footer = () => {
           Website by Rhythm Code Studio LLC
         </span>
         <Image
-          src="/logos/rcs-mark-only-light-outline-6.png"
+          src="/logos/rcs-mark-only-light.png"
           alt="Rhythm Code Studio Logo"
-          className="expand-on-load w-8 h-auto mb-2"
+          className="expand-on-load w-8 h-auto mb-2 invert"
           width={796}
           height={816}
         />

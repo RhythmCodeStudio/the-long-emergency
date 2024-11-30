@@ -10,7 +10,6 @@ export const metadata  = {
   description: "About The Long Emergency",
 };
 
-
 export default async function AboutPage() {
   const aboutPageData = await getPage("about");
   return (

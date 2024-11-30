@@ -9,7 +9,6 @@ export const metadata  = {
   description: "Contact The Long Emergency",
 };
 
-
 export default async function ContactPage() {
   const contactPageData = await getPage("contact");
   return (
@@ -32,4 +31,4 @@ export default async function ContactPage() {
     </div>
     </div>
   );
-}
+};

@@ -15,7 +15,7 @@ export default function BandBio() {
       </div>
       <div className="pb-3 lg:px-48 xl:px-64 2xl:px-96 font-mono rounded-2xl" >
         <p className="text-outline" style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}>
-          That summer I moved to Austin, TX with plans to promote the new album and form a new version of The Long Emergency to continue recording and performing. After a year in Texas I came to
+          That summer I moved to Austin, TX with plans to promote the new album and form a new version of The Long Emergency to continue performing and recording. After a year in Texas I came to
           terms with the fact that I had a drinking problem and made up my mind to do something about it.
         </p>
       </div>
@@ -47,13 +47,18 @@ export default function BandBio() {
         <p className="text-outline">
           Songwriting for me has always been a way of processing difficult
           things. I have danced with anxiety, depression, and addiction most of
-          my life. All of my songs are in some way about these experiences. My first attempt to quit drinking came during the recording of Starting Over. There was something about hearing these songs over and over throughout the recording process that made reality of my situation start to sink in. That first attempt didn&apos;t stick but the seed had been planted. A year later that seed sprouted. It is still growing ten years later. 
+          my life. All of my songs are in some way about these experiences. 
+        </p>
+      </div>
+      <div className="py-3 lg:px-48 xl:px-64 2xl:px-96 font-mono">
+        <p className="text-outline">
+           My first attempt to quit drinking came during the recording of Starting Over. There was something about hearing these songs over and over throughout the recording process that made the reality of my situation start to sink in. That first attempt didn&apos;t stick but the seed had been planted. A year or so later that seed sprouted. It is still growing today. 
         </p>
       </div>
       <div className="py-3 lg:px-48 xl:px-64 2xl:px-96 font-mono">
         <p className="text-outline">
           {/* I used to beat myself up for not putting more of an effort into pursuing music as a career. I used to think that I had wasted my talent and not much of anything with my music. With the wisdom of hindsight I can see that this is not true.  */}
-          These songs saved my life. I&apos;ve never really shared them in the way that they deserve. I offer them now in the hope that they might help someone else. Maybe that&apos;s silly. I don&apos;t know. But these songs aren&apos;t doing anything for anyone if no one can hear them. If by sharing my songs and my story I can help someone else even just a little bit then maybe it will have all been worthwhile.
+          These songs saved my life. I&apos;ve never really shared them in the way that they deserve. I offer them now in the hope that they might help someone else. Maybe that&apos;s silly. I don&apos;t know. I do know that these songs are not doing much of anything locked in my head or saved on my computer. If by sharing my songs and my story I can help someone else even just a little bit then maybe it will have all been worthwhile.
         </p>
       </div>
       <div className="py-3 lg:px-48 xl:px-64 2xl:px-96 font-mono">

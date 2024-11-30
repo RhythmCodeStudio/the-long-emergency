@@ -3,7 +3,7 @@ import { FiFacebook } from "react-icons/fi";
 import { FiInstagram } from "react-icons/fi";
 import { FiMail } from "react-icons/fi";
 import { PiPatreonLogoBold } from "react-icons/pi";
-import { TbBrandBandcamp } from "react-icons/tb";
+// import { TbBrandBandcamp } from "react-icons/tb";
 // import components
 import IconLink from "./iconLink";
 

@@ -1,20 +1,30 @@
+import localFont from "next/font/local";
+const emergency = localFont({
+  src: "../public/fonts/emergency.ttf",
+  display: "swap",
+  variable: "--font-emergency",
+});
 // import from next
 import type { Metadata } from "next";
 // import analytics
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from "@vercel/analytics/react";
 //  import from upload thing
 import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import { extractRouterConfig } from "uploadthing/server";
 import { ourFileRouter } from "./api/uploadthing/core";
+
 // import fonts
-import { Permanent_Marker } from "next/font/google";
+// import { Permanent_Marker } from "next/font/google";
 // import components
-import { Header } from "./components/header";
-import { Footer } from "./components/footer";
+import { Header } from "../components/header";
+import { Footer } from "../components/footer";
+import ScrollToTopButton from "../components/scroll-to-top-button";
+
 // import styles
 import "./globals.css";
 
-const permanentMarker = Permanent_Marker({ weight: "400", subsets: ["latin"] });
+// define font
+// const permanentMarker = Permanent_Marker({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
@@ -28,16 +38,19 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "The Long Emergency",
-    description: "Official website for The Long Emergency, a rock band from St. Louis, Missouri.",
-    url: "https://www.thelongemergency.net",
+    description:
+      "Official website for The Long Emergency, a rock band from St. Louis, Missouri.",
+    url: "https://www.thelongemergency.net/",
     siteName: "The Long Emergency",
     type: "website",
     locale: "en_US",
-    images: [{
-      url: "https://www.thelongemergency.net//opengraph-image.png",
-      width: 960,
-      height:691
-    }],
+    images: [
+      {
+        url: "https://www.thelongemergency.net//opengraph-image.png",
+        width: 960,
+        height: 691,
+      },
+    ],
   },
 };
 
@@ -47,30 +60,83 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="over" style={{ height: "100%" }}>
-      <body
-        className={`${permanentMarker.className} overflow-x-hidden flex flex-col`}>
+    <html
+      lang="en"
+      className={`over ${emergency.variable}`}
+      style={{ height: "100%" }}>
+      <body className={`font-emergency overflow-x-hidden flex flex-col`}>
         <div
-          style={{
-            backgroundImage: "url('/images/masks-no-text-4800x3190.png')",
-            backgroundPosition: "center center",
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-            minHeight: "100vh",
-            display: "flex",
-            flexDirection: "column",
-          }}>
-          {/* <Header /> */}
+          className="flex flex-col min-h-screen bg-cover bg-center bg-no-repeat bg-[url('/images/background-images/768x1156.png')] xl:bg-[url('/images/background-images/masks-no-text-4800x3190-gaps-filled-horizontal.png')] md:bg-fixed"
+        >
+          <div>
+          <Header />
+          </div>
           <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
           <main className="flex flex-grow items-center justify-center">
             {children}
           </main>
+          <ScrollToTopButton />
           <Footer />
         </div>
+        <Analytics />
       </body>
     </html>
   );
-}
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ //  className="flex flex-col "
+          // style={{
+            // backgroundImage: "url('/images/masks-no-text-4800x3190.png')",
+            // backgroundPosition: "center center",
+            // backgroundSize: "cover",
+            // backgroundRepeat: "no-repeat",
+            // minHeight: "100vh",
+            // display: "flex",
+            // flexDirection: "column",
+          // }}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // export default function RootLayout({
 //   children,

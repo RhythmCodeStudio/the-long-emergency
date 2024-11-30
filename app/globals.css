@@ -21,14 +21,19 @@ html {
   height: 100% ;
 }
 
+.white-text-black-outline {
+  color: white;
+  text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
+  /* background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--background-start-rgb)); */
 }
 
 @layer utilities {
@@ -60,7 +65,51 @@ button {
   cursor: url("/cursor/devil-horns.cur"), auto;
 }
 
+.text-outline {
+  /* text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000; */
+  text-shadow: 2px 2px 0 black;
+  /* top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  background-color: rgba(0, 0, 0, 1);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+}
+
+.icon-outline {
+  filter: drop-shadow(1px 1px 0 #000) drop-shadow(-1px -1px 0 #000) drop-shadow(1px -1px 0 #000) drop-shadow(-1px 1px 0 #000);
+}
+
 .expand-on-load {
   @apply animate-expand;
 }
 
+/* .rhap_container {
+  background-image: url('/images/masks-no-text.png');
+  background-size: cover;
+  background-position: center;
+  color: white;
+} */
+
+/* Add this to your global CSS file or a CSS module */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+@media (max-width: 640px) {
+  .bg-mobile {
+    background-image: url('/images/masks-no-text-2048-rotate-crop.png');
+  }
+}
+
+@media (min-width: 641px) {
+  .bg-desktop {
+    background-image: url('/images/masks-no-text-4800x3190.png');
+  }
+}

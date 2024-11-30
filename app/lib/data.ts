@@ -1,5 +1,5 @@
 import { sql } from "@vercel/postgres";
-import { User, Section, Page, TextBlock, Image, Album, Song } from "./definitions";
+import { User, Section, Page, TextBlock, Image, Album, Song, MerchProduct } from "./definitions";
 import { unstable_noStore as noStore } from 'next/cache';
 
 
@@ -40,6 +40,16 @@ export async function getSongs() {
   } catch (error) {
     console.error('Failed to fetch songs:', error);
     throw new Error('Failed to fetch songs.');
+  }
+};
+
+export async function getMerch() {
+  try {
+    const merch = await sql`SELECT * FROM merch`;
+    return merch.rows as MerchProduct[];
+  } catch (error) {
+    console.error('Failed to fetch merch:', error);
+    throw new Error('Failed to fetch merch.');
   }
 };
 

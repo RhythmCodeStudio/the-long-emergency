@@ -46,6 +46,8 @@ export type Song = {
   genre: string[];
   track_number: number;
   src: string;
+  bandcamp_url: string;
+  lyrics: string[];
 };
 
 export type Album = {
@@ -58,4 +60,14 @@ export type Album = {
   type: string;
   songs: Song[];
   zip: string;
+  bandcamp_url: string;
+};
+
+export type MerchProduct = {
+  id: number;
+  name: string;
+  price: number;
+  image: string;
+  description: string;
+  stripe_url: string;
 };

@@ -92,6 +92,14 @@ const songs = [
     genre: ["Rock", "Indie"],
     track_number: 1,
     src: "/music/i-35/mp3/i-35.mp3",
+    bandcamp_url: "https://thelongemergency.bandcamp.com/track/i-35",
+    lyrics: [
+      "I have never written a happy love song\nAnd right now that's not what I'm about to do\nI'm tired of saying I love you through the telephone\nI wanna tell you every morning when I kiss you", 
+      "And I know that sun will be rising\nI know our day is coming soon\nUntil then ain't no use in me crying\n Until then I won't dwell on how much I miss you\nRight now there's work to be done\nAnd I know just what it is\nThat I've got to do",
+      "I have never written a happy love song\nAnd girl I want to sing one for you\nTired of saying I love you through the telephone\nI wanna tell you every night when I'm naked with you",
+      "And I know that sun will be rising\nI know our day is coming soon\nUntil then ain't no use in me crying\nUntil then I won't dwell on how much I miss you\nRight now there's work to be done\nAnd I know just what it is\nThat I've got to do",
+      "Packing up my life\nKissing Minnesota goodbye\nHeading south down I-35\nStraight home to you",
+    ],
   },
   {
     id: 2,
@@ -102,6 +110,13 @@ const songs = [
     genre: ["Rock", "Indie"],
     track_number: 2,
     src: "/music/i-35/mp3/sing-me-to-sleep.mp3",
+    bandcamp_url:
+      "https://thelongemergency.bandcamp.com/track/sing-me-to-sleep",
+    lyrics: [
+      "You sing like an angel\nAnd you will look sexy as hell\nWhen you decide not to run\nBut sometimes I'm afraid you might be a devil\nAnd you've come to claim my soul for the wrongs I've done", 
+      "Ever since you told me\nThat you were not going anywhere\nI hardly ever see you around\nThat means a little less music is in the air\nIt doesn't mean that I won't make a sound\nAnd it does not mean that I don't care\nWhen I said I feel lucky to know you\nI was trying to say I think that I could love you\nYou sing me to sleep\And you don't even know it do you",
+      "Sing me to sleep\nSing me to sleep\nSing me to sleep\nSing me to sleep",
+    ],
   },
   {
     id: 3,
@@ -112,6 +127,21 @@ const songs = [
     genre: ["Rock", "Indie"],
     track_number: 1,
     src: "/music/starting-over/mp3/last-night.mp3",
+    bandcamp_url: "https://thelongemergency.bandcamp.com/track/last-night",
+    lyrics: 
+      [
+        "Well I've got this little life\nAnd I've got a little bit of gasoline\nI just need a little spark to\n Light a big fire for all to see\nSo I've got one question\nHave you got a match for me?\nLet's light up the night and\n Burn this motherfucker clean",
+        "Tonight\nTonight\nTonight I'm gonna make everything right",
+        "When I left your house this morning\nI felt more than a bit sad\nBut more so I felt thankful\nFor what we do still have\nLast night I openend that old familiar door\nThe one I've closed so many times\nSuch solemn promisies I swore",
+        "Last night\nLast night\nLast night I just couldn't sleep tight",
+        "When I woke from sleep that morning\nI humbled myself and prayed\nAnd yet still I felt the summons\nDemons or I'm insane\nLast night I opened that old familiar door\nThe one I've closed so many times\nSuch solemn promisies I swore",
+        "Last night\nLast night\nLast night I just couldn't sleep tight",
+        "When I woke from sleep this morning\nI humbled myself and prayed\nAnd yet still I feel the summons\nDemons or I'm insane\nTonight I'll knock upon that old familiar door\nThe one I closed just last night\nSuch a solemn promisie I swore",
+        "Last night\nLast night\nLast night I just couldn't sleep tight.",
+        "Sleep tight\nSleep tight\nSleep tight this might be your last night.",
+        "I\nI\nI\nI just want to sleep",
+        "I\nI\nI\nI just want to sleep\nI just want to sleep.\nI\nI just want to sleep",
+      ]
   },
   {
     id: 4,
@@ -122,6 +152,17 @@ const songs = [
     genre: ["Rock", "Indie"],
     track_number: 2,
     src: "/music/starting-over/mp3/snow-emergency.mp3",
+    bandcamp_url: "https://thelongemergency.bandcamp.com/track/snow-emergency",
+    lyrics: [
+      "Do you think you could give me a push?\nMy beat up pickup truck don't go in reverse\nIt sucks being stuck in the snow but it's worse\n When your pickup truck don't go in reverse\nIn the morning the plows and tow trucks will come round",
+      "Why do I live in this town year round?",
+      "Do you think you could give me a push?\nJust a little jump start and I think I should be good\nIn the morning the plows and tow trucks will come round",
+      "Why do I live in this town year round?\nThis time of year the snow swallows all the sound\nThis time of year the sun barely comes around\nThis time of year I want to sleep beneath the ground",
+      "Do you think you could give me a push?\nRight off of this ledge I know you've had the urge\nSometimes I swear I wish you would\nIn the morning the cops and tow trucks will come round",
+      "Why do I live in this town year round?\nThis time of year the snow swallows all the sound\nThis time of year the sun barely comes around\nThis time of year I want to sleep beneath the ground",
+      "Why do I live in this town year round?\nThis time of year the snow swallows all the sound\nThis time of year the sun barely comes around\nThis time of year I want to sleep beneath the ground\nThis time of year I want to sleep beneath the ground\nThis time of year I want to sleep beneath the ground.",
+      "This time of year I want to sleep\nJust close my eyes and dream\nI sure could use some peace\nI'll see you in the spring"
+    ]
   },
   {
     id: 5,
@@ -132,6 +173,14 @@ const songs = [
     genre: ["Rock", "Indie"],
     track_number: 3,
     src: "/music/starting-over/mp3/i-35.mp3",
+    bandcamp_url: "https://thelongemergency.bandcamp.com/track/i-35-2",
+    lyrics: [
+      "I have never written a happy love song\nAnd right now that's not what I'm about to do\nI'm tired of saying I love you through the telephone\nI wanna tell you every morning when I kiss you", 
+      "And I know that sun will be rising\nI know our day is coming soon\nUntil then ain't no use in me crying\n Until then I won't dwell on how much I miss you\nRight now there's work to be done\nAnd I know just what it is\nThat I've got to do",
+      "I have never written a happy love song\nAnd girl I want to sing one for you\nTired of saying I love you through the telephone\nI wanna tell you every night when I'm naked with you",
+      "And I know that sun will be rising\nI know our day is coming soon\nUntil then ain't no use in me crying\nUntil then I won't dwell on how much I miss you\nRight now there's work to be done\nAnd I know just what it is\nThat I've got to do",
+      "Packing up my life\nKissing Minnesota goodbye\nHeading south down I-35\nStraight home to you",
+    ],
   },
   {
     id: 6,
@@ -142,6 +191,17 @@ const songs = [
     genre: ["Rock", "Indie"],
     track_number: 4,
     src: "/music/starting-over/mp3/i-am-not-sorry.mp3",
+    bandcamp_url: "https://thelongemergency.bandcamp.com/track/i-am-not-sorry",
+    lyrics: [
+      "I keep spending money like I have it\nI am so used to spending time alone\nSometimes hobbies turn to habit\nI know such things are better left alone but\nI'm crawling again on the ground",
+      "I'm standing outside the door\nIn my head and my heart I hold the key\nI hesitate what for\nI don't understand why I won't set myself free and\nI'm crawling again on the ground",
+      "I am sorry\nBut I can't be what you need\nI am sorry\nBut I have to leave\nThe next time that love comes knocking\nI swear I'll be ready",
+      "I spent all my money on a habit\nIt seems I have not learned a goddamn thing\nSecret knowledge only I have it\nIn the dark no one has seen what I've been doing\nI've been planting seeds in the ground",
+      "And I am not sorry\nIf I don't believe what you believe\nI am not sorry\nI can't pretend I haven't seen what I've seen\nThe next time that love comes knocking\nI swear I'll be ready",
+      "I am kicking in this door\nMy head and my heart explode inside of me\nI hesitate no more\nOh I will finally set myself free\nAnd fly high above the ground",
+      "And I am not sorry\nIf I don't believe what you believe\nI am not sorry\nI can't pretend I haven't seen what I've seen\nRight now love is knocking\nI swear I am ready",
+      "I swear that I am ready\nI swear that I am ready\nI swear that I am ready\nI swear this time"
+    ],
   },
   {
     id: 7,
@@ -152,6 +212,16 @@ const songs = [
     genre: ["Rock", "Indie"],
     track_number: 5,
     src: "/music/starting-over/mp3/twist-the-knife.mp3",
+    bandcamp_url: "https://thelongemergency.bandcamp.com/track/twist-the-knife",
+    lyrics: [
+      "You used to say my eyes were kind and I was beautiful\nNow you treat me with scorn and I ain't saying it's undeserved\nBut I am trying to right my wrongs and live the way I should", 
+      "And it's hard to rise above the past when you keep pulling me down\nTime to abandon ship before I drown\nCan you tell me please what my life is worth to you\nIf it's really less than twenty dollars",
+      "I was standing on the roof of the van when you called out my name\nI jumped straight down and said hey later do you want to hang\nIf you knew on that day the path that was ahead\nWould you have still said yes or told me to drop dead",
+      "It's hard to rise above the past when you keep pulling me down\nTime to abandon ship before we both drown\nCan you tell me please what my life is worth to you\nIf it's really less than twenty dollars",
+      "I remember blanket beds and kissing in the rain\nI remember every lie I told with an avalanche of shame\nI left that all behind some time ago and found the courage to change\nSo tell me please what my life is worth to you\nIf it's really less than twenty dollars",
+      "But don't tell me that you dream about me\nWhile you're sleeping next to someone else\nDon't tell me that you dream about me\nWhile you're sleeping next to someone else",
+      "As long as I've known you\nI guess I never knew\nJust how much you like\nTo twist the knife\nWell go ahead and twist that knife\nI got nothing left to hide\nGo ahead and twist that knife\nWe are already dead inside\nGo ahead and twist that knife\nUntil the little hope we had left has died",
+    ],
   },
   {
     id: 8,
@@ -162,6 +232,15 @@ const songs = [
     genre: ["Rock", "Indie"],
     track_number: 6,
     src: "/music/starting-over/mp3/starting-over.mp3",
+    bandcamp_url: "https://thelongemergency.bandcamp.com/track/starting-over",
+    lyrics: [
+      "Everything I have\nIs broken\nMy house my bank account\nMy body my spirit\nMy car", 
+      "And do you wanna know\nThe really\nSad and nauseating part\nI broke it all\nOn purpose\nTrying to fill\nAn empty heart",
+      "Now being happy\nSounds scary\nI am used to things\nThe way they are",
+      "Here I stand\nNaked and broken\nWondering where to go\nAnd what for",
+      "I never thought\nAt this age\nThat I would be\nStarting over",
+      "I never thought\nAt this age\nThat I would be\nStarting over",
+    ],
   },
   {
     id: 9,
@@ -172,10 +251,27 @@ const songs = [
     genre: ["Rock", "Indie"],
     track_number: 7,
     src: "/music/starting-over/mp3/sing-me-to-sleep.mp3",
+    bandcamp_url:
+      "https://thelongemergency.bandcamp.com/track/sing-me-to-sleep-2",
+    lyrics: [
+      "You sing like an angel\nAnd you will look sexy as hell\nWhen you decide not to run\nBut sometimes I'm afraid you might be a devil\nAnd you've come to claim my soul for the wrongs I've done", 
+      "Ever since you told me\nThat you were not going anywhere\nI hardly ever see you around\nThat means a little less music is in the air\nIt doesn't mean that I won't make a sound\nAnd it does not mean that I don't care\nWhen I said I feel lucky to know you\nI was trying to say I think that I could love you\nYou sing me to sleep\And you don't even know it do you",
+      "Sing me to sleep\nSing me to sleep\nSing me to sleep\nSing me to sleep",
+    ],
   },
 ];
 
 const albums = [
+  // {
+  //   id: 3,
+  //   title: "Boxcutter",
+  //   artist: "The Long Emergency",
+  //   year: 2025,
+  //   genre: "Rock",
+  //   cover_image: "/music/starting-over/album-art/cover.jpg",
+  //   type: "album",
+  //   zip: "/music/starting-over/starting-over-full.zip"
+  // },
   {
     id: 2,
     title: "Starting Over",
@@ -184,7 +280,8 @@ const albums = [
     genre: "Rock",
     cover_image: "/music/starting-over/album-art/cover.jpg",
     type: "album",
-    zip: "/music/starting-over/starting-over-full.zip"
+    zip: "/music/starting-over/starting-over-full.zip",
+    bandcamp_url: "https://thelongemergency.bandcamp.com/album/starting-over",
   },
   {
     id: 1,
@@ -194,7 +291,38 @@ const albums = [
     genre: "Rock",
     cover_image: "/music/i-35/album-art/i-35-cover.jpg",
     type: "single",
-    zip: "/music/i-35/i-35-full.zip"
+    zip: "/music/i-35/i-35-full.zip",
+    bandcamp_url: "https://thelongemergency.bandcamp.com/album/i-35",
+  },
+];
+
+const merch = [
+  {
+    id: 1,
+    name: "Starting Over - CD",
+    price: 10,
+    image: "/images/starting-over.jpg",
+    description:
+      "The debut album from The Long Emergency on CD. Includes digital download (MP3).",
+    stripe_url: "https://buy.stripe.com/test_14k9CVeHc33c1i0bIK",
+  },
+  {
+    id: 2,
+    name: "Starting Over - MP3",
+    price: 5,
+    image: "/images/starting-over.jpg",
+    description:
+      "Digital copy of the debut album from The Long Emergency. Includes album art.",
+    stripe_url: "https://buy.stripe.com/test_fZe8yRgPk6fof8QbIJ",
+  },
+  {
+    id: 3,
+    name: "I-35 - MP3",
+    price: 2,
+    image: "/images/i-35.jpg",
+    description:
+      "Digital copy of the single I-35 from The Long Emergency. Includes the B-side Sing Me To Sleep.",
+    stripe_url: "https://buy.stripe.com/test_9AQ3ex9mSavEf8Q8wz",
   },
 ];
 
@@ -203,4 +331,5 @@ module.exports = {
   pages,
   albums,
   songs,
+  merch,
 };

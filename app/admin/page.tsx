@@ -1,8 +1,8 @@
 // "use client";
 import { signOut } from '@/auth';
 import { UploadButton } from "../utils/uploadthing";
-import { Button } from "../components/button";
-import AdminNavLinks from "../components/admin/admin-nav-links";
+import { Button } from "../../components/button";
+import AdminNavLinks from "../../components/admin/admin-nav-links";
 import { PowerIcon } from '@heroicons/react/24/outline';
 // import SideNav from "../components/dashboard/sidenav";
 

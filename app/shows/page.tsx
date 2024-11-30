@@ -1,22 +1,98 @@
 // import from next
 import Image from "next/image";
-
+// import data
 import { getPage } from "../lib/data";
+import ShowDisplay from "@/components/show-display";
+// export metadata
+export const metadata = {
+  title: "Shows",
+  description: "Shows by The Long Emergency",
+};
 
 export default async function ShowsPage() {
+  const gigs: any[] = [
+    {
+      date: "1/17/2025",
+      venue: "Greenfinch Theater & Dive",
+      venue_url: "https://www.greenfinchstl.com/",
+      city: "St. Louis",
+      state: "MO",
+      country: "USA",
+      street_address: "2525 S Jefferson Ave",
+      zip_code: "63104",
+      google_maps_url: "https://maps.app.goo.gl/5AfvwCu6JxsyWoQo7",
+      gig_info: "Album Release Show",
+      other_acts: "with Leaving Missouri and Random Fog",
+      cost: "$5",
+      ticket_url:
+        "https://www.purplepass.com/events/304686-the-long-emergency-%7C-album-release-show---featurin-jan-17th-2025",
+      poster: "/images/show-posters/masks.png",
+    },
+    // {
+    //   date: "1/13/1992",
+    //   venue: "Mississippi Nights",
+    //   city: "St. Louis",
+    //   state: "MO",
+    //   country: "USA",
+    //   gig_info: "Dream Show",
+    //   other_acts: "with Uncle Tupelo and Blind Melon",
+    //   cost: "$5",
+    //   ticket_url:
+    //     "https://www.purplepass.com/events/304686-the-long-emergency-%7C-album-release-show---featurin-jan-17th-2025",
+    //   poster: "/images/show-posters/masks.png",
+    // },
+    // {
+    //   date: "2/13/1992",
+    //   venue: "The Blue Note",
+    //   city: "Columbia",
+    //   state: "MO",
+    //   country: "USA",
+    //   gig_info: "Dream Show",
+    //   other_acts: "with Uncle Tupelo and Blind Melon",
+    //   cost: "$5",
+    //   ticket_url:
+    //     "https://www.purplepass.com/events/304686-the-long-emergency-%7C-album-release-show---featurin-jan-17th-2025",
+    //   poster: "/images/show-posters/masks.png",
+    // },
+    // {
+    //   date: "3/13/1992",
+    //   venue: "Off Broadway",
+    //   city: "St. Louis",
+    //   state: "MO",
+    //   country: "USA",
+    //   gig_info: "Dream Show",
+    //   other_acts: "with Uncle Tupelo and Blind Melon",
+    //   cost: "$5",
+    //   ticket_url:
+    //     "https://www.purplepass.com/events/304686-the-long-emergency-%7C-album-release-show---featurin-jan-17th-2025",
+    //   poster: "/images/show-posters/yellow.png",
+    // },
+  ];
   const showsPageData = await getPage("shows");
+
   return (
-    <div className="flex justify-center items-center flex-col">
-      <h2>{showsPageData.page_title}</h2>
-      <div className="w-full h-auto">
+    <div className="bg-[rgba(0,0,0,0.5)] xl:bg-transparent">
+    <div className="relative flex flex-col justify-center items-center">
+      <div className="expand-on-load">
+        <h2 className="text-2xl lg:text-3xl xl:text-4xl text-outline mt-4">
+          {showsPageData.page_title}
+        </h2>
+      </div>
+      <h3 className="expand-on-load font-mono pt-2 text-outline">
+        The Long Emergency is coming...
+      </h3>
+      <ShowDisplay gigs={gigs} />
+      <div className="lg:m-12 expand-on-load w-full h-auto px-6 flex justify-center">
         <Image
           priority
           src="/images/banner.png"
-          alt="guitar mask mound"
+          alt="Kevin Long playing guitar and singing into a microphone"
           width={870}
           height={320}
+          className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 mb-12 xl:mb-0"
         />
       </div>
+    </div>
     </div>
   );
 }

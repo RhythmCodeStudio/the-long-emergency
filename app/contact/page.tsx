@@ -12,7 +12,7 @@ export const metadata  = {
 export default async function ContactPage() {
   const contactPageData = await getPage("contact");
   return (
-    <div className="bg-[rgba(0,0,0,0.5)] xl:bg-transparent rounded">
+    <div className="bg-[rgba(0,0,0,0.5)] md:bg-transparent">
     <div 
       className="flex justify-center items-center flex-col text-outline mt-4"
     >

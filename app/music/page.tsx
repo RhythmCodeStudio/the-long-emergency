@@ -13,7 +13,7 @@ export default async function MusicPage() {
 
   return (
     <div 
-      className="flex flex-col justify-center items-center bg-[rgba(0,0,0,0.5)] xl:bg-transparent"
+      className="flex flex-col justify-center items-center bg-[rgba(0,0,0,0.5)] lg:bg-transparent"
     >
       <h2 className="mt-4 text-center text-2xl lg:text-3xl xl:text-4xl text-outline">
         {musicPageData.page_title}

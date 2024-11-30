@@ -1,14 +1,21 @@
+"use client";
 // import from next
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 // import components
 import ContactLinks from "./contact-links";
 import MusicLinks from "./music-links";
 
 export const Footer = () => {
+  const currentPath = usePathname();
   return (
-    <footer className=" flex flex-col items-center justify-center w-full mb-4">
+    <footer 
+      // className=" flex flex-col items-center justify-center w-full mb-4" 
+
+      className={`flex flex-col items-center justify-center w-full ${currentPath!=="/" ? "bg-[url('/images/background-images/masks-no-text-4800x3190-gaps-filled-horizontal-25per.png')] bg-no-repeat bg-cover bg-bottom xl:bg-none" : " "}`}
+    
+    >
       <div className="m-2 expand-on-load">
-        {/* <ContactLinks size={20} /> */}
         <div className={`block sm:hidden`}>
           <ContactLinks size={18} />
         </div>
@@ -42,7 +49,7 @@ export const Footer = () => {
         <Image
           src="/logos/rcs-mark-only-light-outline-6.png"
           alt="Rhythm Code Studio Logo"
-          className="expand-on-load w-8 h-auto"
+          className="expand-on-load w-8 h-auto mb-2"
           width={796}
           height={816}
         />

@@ -24,7 +24,8 @@ export default function ShowDisplay({ gigs }: { gigs: any[] }) {
           } p-2 md:text-lg md:text-xl`}>
           {gigs.map((gig, index) => (
             <li key={index} className="expand-on-load border">
-              <div className="p-8 bg-black opacity-80">
+              
+              <div className="p-8">
                 <div className="flex justify-center items-center">
                   <Image
                     src={gig.poster}
@@ -34,12 +35,13 @@ export default function ShowDisplay({ gigs }: { gigs: any[] }) {
                     className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 expand-on-load"
                   />
                 </div>
-                <p className="font-mono text-center mt-6">{gig.date}</p>
+                <div className="z-50">
+                <p className="font-mono text-center mt-6 z-50">{gig.date}</p>
                 <a
                   href={gig.venue_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline"
+                  className="underline z-10"
                 >
                   <p className="font-mono text-center">{gig.venue}</p>
                 </a>
@@ -65,6 +67,7 @@ export default function ShowDisplay({ gigs }: { gigs: any[] }) {
                     className="inline-block bg-blue-500 hover:bg-blue-700 py-2 px-4 rounded-full mt-2 border-2 border-black">
                     <p className="text-outline">Tickets</p>
                   </a>
+                </div>
                 </div>
               </div>
             </li>

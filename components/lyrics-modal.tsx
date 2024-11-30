@@ -39,7 +39,7 @@ export default function LyricsModal({
         scrollBehavior="normal"
         backdrop="blur"
         className="flex items-center justify-center max-w-[80vw] lg:max-w-[60vw] xl:max-w-[40vw] 2xl:max-w-[40vw] 3xl:max-w-[30vw]">
-        <ModalContent className="bg-black rounded-2xl max-h-[80vh] overflow-y-auto">
+        <ModalContent className="bg-black rounded-2xl max-h-[80vh] overflow-y-auto shadow-blue-300/50 border-2 border-slate-400">
           {(onClose) => (
             <>
               <ModalHeader>

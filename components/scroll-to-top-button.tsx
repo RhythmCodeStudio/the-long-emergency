@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { FiArrowUp } from "react-icons/fi";
+import { MdOutlineKeyboardDoubleArrowUp } from "react-icons/md";
 
 export default function ScrollToTopButton() {
   const [scrollToTopButtonVisible, setScrollToTopButtonVisible] = useState<boolean>(false);
@@ -48,7 +48,7 @@ export default function ScrollToTopButton() {
   };
 
   return (
-    <div className="flex ml-auto z-50">
+    <div className="flex ml-auto z-50 text-outline">
       <button
         aria-label="scroll to top button"
         name="scroll to top button"
@@ -59,7 +59,7 @@ export default function ScrollToTopButton() {
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
       >
-        <FiArrowUp size={24} className="h-8 w-8 " />
+        <MdOutlineKeyboardDoubleArrowUp size={24} className="h-8 w-8 text-outline" />
       </button>
     </div>
   );

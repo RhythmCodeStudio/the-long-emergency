@@ -13,9 +13,9 @@ export const metadata  = {
 export default async function ContactPage() {
   const contactPageData = await getPage("contact");
   return (
+    <div className="bg-[rgba(0,0,0,0.5)] xl:bg-transparent rounded">
     <div 
       className="flex justify-center items-center flex-col text-outline mt-4"
-      style={{backgroundColor: "rgba(0, 0, 0, 0.5)"}}
     >
       <h2 className="expand-on-load text-2xl lg:text-3xl xl:text-4xl">{contactPageData.page_title}</h2>
       <ContactForm />
@@ -29,6 +29,7 @@ export default async function ContactPage() {
           className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400"
         />
       </div>
+    </div>
     </div>
   );
 }

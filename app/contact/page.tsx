@@ -13,7 +13,10 @@ export const metadata  = {
 export default async function ContactPage() {
   const contactPageData = await getPage("contact");
   return (
-    <div className="flex justify-center items-center flex-col text-outline">
+    <div 
+      className="flex justify-center items-center flex-col text-outline mt-4"
+      style={{backgroundColor: "rgba(0, 0, 0, 0.5)"}}
+    >
       <h2 className="expand-on-load text-2xl lg:text-3xl xl:text-4xl">{contactPageData.page_title}</h2>
       <ContactForm />
       <div className="w-full h-auto px-12 max-w-200 expand-on-load mb-12 ">

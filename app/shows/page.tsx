@@ -71,9 +71,10 @@ export default async function ShowsPage() {
   const showsPageData = await getPage("shows");
 
   return (
+    <div className="bg-[rgba(0,0,0,0.5)] xl:bg-transparent">
     <div className="relative flex flex-col justify-center items-center">
       <div className="expand-on-load">
-        <h2 className="text-2xl lg:text-3xl xl:text-4xl text-outline mt-5">
+        <h2 className="text-2xl lg:text-3xl xl:text-4xl text-outline mt-4">
           {showsPageData.page_title}
         </h2>
       </div>
@@ -91,6 +92,7 @@ export default async function ShowsPage() {
           className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 mb-12 xl:mb-0"
         />
       </div>
+    </div>
     </div>
   );
 }

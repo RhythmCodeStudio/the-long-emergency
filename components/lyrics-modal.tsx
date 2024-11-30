@@ -60,7 +60,9 @@ export default function LyricsModal({
                   backgroundImage: "url(/images/masks-no-text-2048.png)",
                   backgroundSize: "cover",
                 }}>
-                <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+                <div className="absolute inset-0 "
+                  style={{ backgroundColor: "rgba(0, 0, 0, 0.4)" }}
+                ></div>
                 <div className="relative font-mono px-6 overflow-y-auto text-white hide-scrollbar">
                   <div className="text-center">
                     {lyrics.map((paragraph, index) => (

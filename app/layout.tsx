@@ -64,9 +64,9 @@ export default function RootLayout({
       style={{ height: "100%" }}>
       <body className={`font-emergency overflow-x-hidden flex flex-col`}>
         <div
-          className=" flex flex-col min-h-screen bg-cover bg-center bg-no-repeat bg-black xl:bg-[url('/images/background-images/masks-no-text-4800x3190-gaps-filled-horizontal.png')] md:bg-fixed"
+          className="flex flex-col min-h-screen bg-cover bg-center bg-no-repeat bg-[url('/images/background-images/768x1156.png')] xl:bg-[url('/images/background-images/masks-no-text-4800x3190-gaps-filled-horizontal.png')] md:bg-fixed"
         >
-          <div className="mb-2">
+          <div>
           <Header />
           </div>
           <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />

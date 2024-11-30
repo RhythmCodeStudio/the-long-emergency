@@ -11,7 +11,7 @@ export const Header = () => {
   const currentPath = usePathname();
   return (
     <header 
-      className={`p-4 ${currentPath!=="/" ? "bg-[url('/images/background-images/masks-no-text-4800x3190-gaps-filled-horizontal-25per.png')] bg-no-repeat bg-cover bg-top xl:bg-none" : " "}`}
+      className={`p-4 ${currentPath!=="/" ? "bg-[url('/images/background-images/masks-no-text-4800x3190-gaps-filled-horizontal-25per.png')] bg-no-repeat bg-cover bg-center xl:bg-none" : " "}`}
     >
       <div className="flex flex-col items-center w-full justify-center">
       <h1

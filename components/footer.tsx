@@ -13,7 +13,7 @@ export const Footer = () => {
       // className=" flex flex-col items-center justify-center w-full mb-4" 
 
       // className={`flex flex-col items-center justify-center w-full ${currentPath!=="/" ? "bg-[url('/images/background-images/masks-no-text-4800x3190-gaps-filled-horizontal-25per.png')] bg-no-repeat bg-cover bg-bottom xl:bg-none" : " "}`}
-      className={`flex flex-col items-center justify-center w-full ${currentPath!=="/" ? "bg-black xl:bg-transparent" : " "}`}
+      className={`flex flex-col items-center justify-center w-full ${currentPath!=="/" ? "bg-black md:bg-transparent" : " "}`}
     >
       <div className="m-2 expand-on-load">
         <div className={`block sm:hidden`}>

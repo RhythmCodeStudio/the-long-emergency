@@ -12,7 +12,7 @@ export const Header = () => {
   return (
     <header 
       // className={`p-4 ${currentPath!=="/" ? "bg-[url('/images/background-images/masks-no-text-4800x3190-gaps-filled-horizontal-25per.png')] bg-no-repeat bg-cover bg-center xl:bg-none" : " "}`}
-      className={`p-4 ${currentPath!=="/" ? "bg-black bg-no-repeat bg-cover bg-center xl:bg-transparent" : " "}`}
+      className={`p-4 ${currentPath!=="/" ? "bg-black bg-no-repeat bg-cover bg-center md:bg-transparent" : " "}`}
     >
       <div className="flex flex-col items-center w-full justify-center">
       <h1

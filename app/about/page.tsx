@@ -14,7 +14,7 @@ export default async function AboutPage() {
   const aboutPageData = await getPage("about");
   return (
     <div 
-      className="flex flex-col items-center bg-[rgba(0,0,0,0.5)] xl:bg-transparent"
+      className="flex flex-col items-center bg-[rgba(0,0,0,0.5)] md:bg-transparent"
     >
       <h2 className="text-outline expand-on-load text-center text-2xl lg:text-3xl xl:text-4xl mt-4">
       {aboutPageData.page_title}

@@ -69,9 +69,6 @@ button {
   /* text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000; */
   /* text-shadow: 2px 2px 0 rgb(82, 124, 248); */
   text-shadow: 2px 2px 0 black;
-  /* top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
   background-color: rgba(0, 0, 0, 1);
   background-clip: text;
   -webkit-background-clip: text;
@@ -81,9 +78,6 @@ button {
 .text-outline-gray {
   /* text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000; */
   text-shadow: 2px 2px 0 #868686;
-  /* top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
   background-color: rgba(0, 0, 0, 1);
   background-clip: text;
   -webkit-background-clip: text;
@@ -93,9 +87,6 @@ button {
 .text-outline-desktop {
   /* text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000; */
   text-shadow: 2px 2px 0 #000;
-  /* top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
   background-color: rgba(0, 0, 0, 1);
   background-clip: text;
   -webkit-background-clip: text;

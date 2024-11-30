@@ -47,10 +47,10 @@ export default function Nav() {
           }}>
           <div className="flex justify-end">
             <button
-              className="top-4 right-4 absolute"
+              className="top-4 right-4 absolute "
               onClick={closeMenu}
               aria-label="Close Menu">
-              <FiX className="text-2xl" />
+              <FiX className="text-2xl"/>
             </button>
           </div>
           <div id="mobile-nav-link-container" className="font-bold relative">
@@ -98,7 +98,7 @@ export default function Nav() {
       </ul>
       <div className="absolute top-4 right-4 md:hidden">
         <button onClick={openMenu} aria-label="Open Menu">
-          <FiMenu className=" expand-on-load h-5 w-5" />
+          <FiMenu className="expand-on-load text-2xl" />
         </button>
       </div>
     </nav>

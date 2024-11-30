@@ -4,21 +4,19 @@ import Image from "next/image";
 export default function BandBio() {
   return (
     <section className="p-2 px-8 max-w-800 flex flex-col md:text-lg">
-      <div className="pb-3 lg:px-48 xl:px-64 2xl:px-96 font-mono text-balance rounded-2xl" >
+      <div className="pb-3 lg:px-48 xl:px-64 2xl:px-96 font-mono rounded-2xl" >
         <p className="text-outline" style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}>
           I was active in the Twin Cities independent music scene from around
           2003 through 2013 as a solo artist and with several different bands.
           In 2013 I formed The Long Emergency as a vehicle for my songwriting.
+          &quot;Starting Over&quot; by The Long Emergency was independently
+          released in May of 2013. 
         </p>
       </div>
-      <div className="pb-3 lg:px-48 xl:px-64 2xl:px-96 font-mono text-balance rounded-2xl" >
+      <div className="pb-3 lg:px-48 xl:px-64 2xl:px-96 font-mono rounded-2xl" >
         <p className="text-outline" style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}>
-          &quot;Starting Over&quot; by The Long Emergency was independently
-          released in May of 2013. That summer I moved to Austin, TX with plans
-          to promote the new album and form a new version of The Long Emergency
-          to continue recording and performing. After a year in Texas I came to
-          terms with the fact that I had a drinking problem and made up my mind
-          to do something about it.
+          That summer I moved to Austin, TX with plans to promote the new album and form a new version of The Long Emergency to continue recording and performing. After a year in Texas I came to
+          terms with the fact that I had a drinking problem and made up my mind to do something about it.
         </p>
       </div>
       <div className="expand-on-load px-10 py-2 xl:py-6 flex justify-center items-center">

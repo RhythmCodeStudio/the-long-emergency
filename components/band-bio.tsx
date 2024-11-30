@@ -9,7 +9,7 @@ export default function BandBio() {
           I was active in the Twin Cities independent music scene from around
           2003 through 2013 as a solo artist and with several different bands.
           In 2013 I formed The Long Emergency as a vehicle for my songwriting.
-          &quot;Starting Over&quot; by The Long Emergency was independently
+          Starting Over by The Long Emergency was independently
           released in May of 2013. 
         </p>
       </div>

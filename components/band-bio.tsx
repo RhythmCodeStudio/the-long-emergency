@@ -49,13 +49,13 @@ export default function BandBio() {
         <p className="text-outline">
           Songwriting for me has always been a way of processing difficult
           things. I have danced with anxiety, depression, and addiction most of
-          my life. All of my songs are in some way about these experiences. My first attempt to quit drinking came during the recording of Starting Over. There was something about hearing these songs over and over throughout the recording process that made reality of my situation start to sink in. That first attempt didn't stick but the seed had been planted. A year later that seed sprouted. It is still growing ten years later. 
+          my life. All of my songs are in some way about these experiences. My first attempt to quit drinking came during the recording of Starting Over. There was something about hearing these songs over and over throughout the recording process that made reality of my situation start to sink in. That first attempt didn&apos;t stick but the seed had been planted. A year later that seed sprouted. It is still growing ten years later. 
         </p>
       </div>
       <div className="py-3 lg:px-48 xl:px-64 2xl:px-96 font-mono">
         <p className="text-outline">
           {/* I used to beat myself up for not putting more of an effort into pursuing music as a career. I used to think that I had wasted my talent and not much of anything with my music. With the wisdom of hindsight I can see that this is not true.  */}
-          These songs saved my life. I've never really shared them in the way that they deserve. I offer them now in the hope that they might help someone else. Maybe that's silly. I don't know. But these songs aren't doing anything for anyone if no one can hear them. If by sharing my songs and my story I can help someone else even just a little bit then maybe it will have all been worthwhile.
+          These songs saved my life. I&apos;ve never really shared them in the way that they deserve. I offer them now in the hope that they might help someone else. Maybe that&apos;s silly. I don&apos;t know. But these songs aren&apos;t doing anything for anyone if no one can hear them. If by sharing my songs and my story I can help someone else even just a little bit then maybe it will have all been worthwhile.
         </p>
       </div>
       <div className="py-3 lg:px-48 xl:px-64 2xl:px-96 font-mono">

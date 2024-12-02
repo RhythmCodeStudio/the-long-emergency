@@ -3,9 +3,11 @@
 import { track } from "@vercel/analytics";
 // import from react
 import { ChangeEvent, SetStateAction, useState } from "react";
-
+//import from nextui
 import { Button, ButtonGroup } from "@nextui-org/button";
-// import components
+// import from toastify
+import { Bounce, ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // import from utils
 import {
@@ -30,6 +32,15 @@ export default function ContactForm() {
   const [messageErrorMessage, setMessageErrorMessage] = useState("");
   const [deliveryErrorMessage, setDeliveryErrorMessage] = useState("");
   const [buttonSubmitted, setButtonSubmitted] = useState(false);
+
+  const notify = () => toast.info("Thanks for reaching out. I will be in touch soon!",{
+    transition: Bounce,
+    position: "top-center",
+    icon: <img src="/logos/long-emergency/32x32.png" alt="The Long Emergency icon" />,
+    closeOnClick: true,
+    pauseOnHover: true,
+    className: "border-2 border-slate-400 font-emergency text-outline-none text-black",
+  });
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>,
@@ -129,6 +140,7 @@ export default function ContactForm() {
             setTimeout(() => {
               setButtonSubmitted(false);
             }, 5000);
+            notify();
           });
       } catch (error) {
         setDeliveryErrorMessage(
@@ -139,7 +151,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full black">
       {/* <h3 className="text-center text-xl text-2xl xl:text-3xl font-bold">Get In Touch</h3> */}
       <form
         onSubmit={handleFormSubmit}
@@ -159,7 +171,7 @@ export default function ContactForm() {
             type="text"
             name="firstName"
             id="firstName"
-            className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 p-2 w-full"
+            className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 p-2 w-full text-black"
           />
           {firstNameErrorMessage && (
             <div className="flex justify-center items-center mt-2 mb-4">
@@ -181,7 +193,7 @@ export default function ContactForm() {
             type="text"
             name="lastName"
             id="lastName"
-            className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 p-2 w-full"
+            className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 p-2 w-full text-black"
           />
           {lastNameErrorMessage && (
             <div className="flex justify-center text-center text-balance items-center mt-2 mb-4">
@@ -202,7 +214,7 @@ export default function ContactForm() {
             type="email"
             name="email"
             id="email"
-            className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 p-2 w-full"
+            className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 p-2 w-full text-black"
           />
           {emailErrorMessage && (
             <div className="flex justify-center items-center mt-2 mb-4">
@@ -276,6 +288,16 @@ export default function ContactForm() {
           </div>
         )}
       </form>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        closeOnClick
+        pauseOnFocusLoss
+        pauseOnHover
+        theme="light"
+        transition={Bounce}
+      />
     </div>
   );
 }

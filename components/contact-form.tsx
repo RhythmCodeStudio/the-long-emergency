@@ -132,7 +132,7 @@ export default function ContactForm() {
           });
       } catch (error) {
         setDeliveryErrorMessage(
-          "There was an error delivering your message. Please click to email us at thelongemergencyband@gmail.com. Sorry for the trouble."
+          "There was an error delivering your message. Please email us at thelongemergencyband@gmail.com. Sorry for the trouble."
         );
       }
     }

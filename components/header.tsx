@@ -1,7 +1,7 @@
 "use client";
 //import components
 import Nav from "./nav";
-import ScrollingBanner from "./scrolling-banner";
+// import ScrollingBanner from "./scrolling-banner";
 //import from next
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -36,7 +36,7 @@ export const Header = () => {
       </div>
       </div>
       <div>
-      <ScrollingBanner />
+      {/* <ScrollingBanner /> */}
       </div>
     </header>
   );

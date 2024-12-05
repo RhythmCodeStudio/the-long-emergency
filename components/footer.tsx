@@ -1,6 +1,6 @@
 "use client";
 // import from next
-import Image from "next/image";
+import Image from "./image";
 import { usePathname } from "next/navigation";
 // import components
 import ContactLinks from "./contact-links";

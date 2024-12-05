@@ -63,7 +63,8 @@ export default function RootLayout({
     <html
       lang="en"
       className={`over ${emergency.variable}`}
-      style={{ height: "100%" }}>
+      // style={{ height: "100%" }}
+    >
       <body className={`font-emergency overflow-x-hidden flex flex-col`}>
         <div
           className="flex flex-col min-h-screen bg-cover bg-center bg-no-repeat bg-[url('/images/background-images/768x1156.png')] xl:bg-[url('/images/background-images/masks-no-text-4800x3190-gaps-filled-horizontal.png')] md:bg-fixed"
@@ -83,92 +84,3 @@ export default function RootLayout({
     </html>
   );
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- //  className="flex flex-col "
-          // style={{
-            // backgroundImage: "url('/images/masks-no-text-4800x3190.png')",
-            // backgroundPosition: "center center",
-            // backgroundSize: "cover",
-            // backgroundRepeat: "no-repeat",
-            // minHeight: "100vh",
-            // display: "flex",
-            // flexDirection: "column",
-          // }}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// export default function RootLayout({
-//   children,
-// }: Readonly<{
-//   children: React.ReactNode;
-// }>) {
-//   return (
-//     <html lang="en" className="over" style={{ height: "100%" }}>
-//       <body
-//         className={`${permanentMarker.className}  flex flex-col`}
-//         style={{
-//           backgroundImage: "url('/images/masks-no-text-4800x3190.png')",
-//           backgroundPosition: "center center",
-//           backgroundSize: "cover",
-//           backgroundRepeat: "no-repeat",
-//           minHeight: "100%",
-//         }}>
-//         <Header />
-//         <NextSSRPlugin
-//           /**
-//            * The `extractRouterConfig` will extract **only** the route configs
-//            * from the router to prevent additional information from being
-//            * leaked to the client. The data passed to the client is the same
-//            * as if you were to fetch `/api/uploadthing` directly.
-//            */
-//           routerConfig={extractRouterConfig(ourFileRouter)}
-//         />
-//         <main className="flex flex-grow items-center justify-center">
-//           {children}
-//         </main>
-//         <Footer />
-//       </body>
-//     </html>
-//   );
-// }

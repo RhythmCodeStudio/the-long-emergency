@@ -23,8 +23,8 @@ export default function ShowDisplay({ gigs }: { gigs: any[] }) {
               : "grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-9 lg:gap-20 xl:gap-28"
           } p-2 md:text-lg md:text-xl`}>
           {gigs.map((gig, index) => (
-            <li key={index} className="expand-on-load border-2 border-slate-400"
-              style={{backgroundColor: "rgba(0, 0, 0, 0.6)"}}
+            <li key={index} className="expand-on-load border-2 border-slate-400 bg-[rgba(0,0,0,0.6)]"
+              // style={{backgroundColor: "rgba(0, 0, 0, 0.6)"}}
             >
               <div className="p-8">
                 <div className="flex justify-center items-center">

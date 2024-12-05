@@ -34,18 +34,8 @@ export default function Nav() {
       {/* mobile nav */}
       {menuOpen && (
         <div
-          className="flex fixed inset-0 bg-black z-50 justify-center items-center h-full"
-          style={{
-            // backgroundImage: "url('/images/masks-no-text-2048-rotate-crop.png')",
-            backgroundImage:
-              "url('/images/background-images/masks-no-text-4800x3190-gaps-filled.png')",
-            backgroundPosition: "center center",
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-            minHeight: "100vh",
-            display: "flex",
-            flexDirection: "column",
-          }}>
+          className="flex flex-col fixed inset-0 bg-black z-50 justify-center items-center h-full min-h-screen bg-cover bg-center bg-no-repeat bg-[url('/images/background-images/masks-no-text-4800x3190-gaps-filled.png')]"
+        >
           <div className="flex justify-end">
             <button
               className="top-4 right-4 absolute "

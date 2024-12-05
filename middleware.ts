@@ -1,10 +1,10 @@
 import NextAuth from 'next-auth';
 import { authConfig } from './auth.config';
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
  
 export default NextAuth(authConfig).auth;
 
-import { NextRequest } from 'next/server';
+// import { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
   let cspHeader = "";
@@ -16,20 +16,27 @@ export function middleware(request: NextRequest) {
 
   const developmentCspHeader = `
     default-src 'self';
-    script-src 'self' 'nonce-${nonce}' 'strict-dynamic';
-    style-src 'self' 'nonce-${nonce}';
+    connect-src 'self' https://api.emailjs.com/;
+    script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com;
+    style-src 'self' 'unsafe-inline';
     img-src 'self' blob: data:;
     font-src 'self';
     object-src 'none';
     base-uri 'self';
     form-action 'self';
+    frame-src 'self' https://thelongemergency.bandcamp.com/;
     frame-ancestors 'none';
     upgrade-insecure-requests;
   `;
 
+//   const developmentCspHeader = `
+
+// `;
+
   const previewCspHeader = `
-   default-src 'self';
-    script-src 'self' 'nonce-${nonce}' 'strict-dynamic';
+    default-src 'self';
+    connect-src 'self' https://api.emailjs.com/;
+    script-src 'self' 'nonce-${nonce}' 'strict-dynamic' https://va.vercel-scripts.com;
     style-src 'self' 'nonce-${nonce}';
     img-src 'self' blob: data:;
     font-src 'self';
@@ -37,12 +44,14 @@ export function middleware(request: NextRequest) {
     base-uri 'self';
     form-action 'self';
     frame-ancestors 'none';
+    frame-src 'self' https://thelongemergency.bandcamp.com/;
     upgrade-insecure-requests;
   `;
 
   const productionCspHeader = `
     default-src 'self';
-    script-src 'self' 'nonce-${nonce}' 'strict-dynamic';
+    connect-src 'self' https://api.emailjs.com/;
+    script-src 'self' 'nonce-${nonce}' 'strict-dynamic' https://va.vercel-scripts.com;
     style-src 'self' 'nonce-${nonce}';
     img-src 'self' blob: data:;
     font-src 'self';
@@ -50,6 +59,7 @@ export function middleware(request: NextRequest) {
     base-uri 'self';
     form-action 'self';
     frame-ancestors 'none';
+    frame-src 'self' https://thelongemergency.bandcamp.com/;
     upgrade-insecure-requests;
   `;
 
@@ -93,5 +103,6 @@ export function middleware(request: NextRequest) {
  
 export const config = {
   // https://nextjs.org/docs/app/building-your-application/routing/middleware#matcher
-  matcher: ['/login/:path*', '/admin/:path*'],
+  // matcher: ['/login/:path*', '/admin/:path*'],
+  matcher: "/:path*",
 };

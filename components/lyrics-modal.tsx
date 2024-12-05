@@ -23,10 +23,10 @@ export default function LyricsModal({
     <>
       <button
         onClick={onOpen}
-        className="font-mono m-1 px-2 py-1  text-white rounded-full"
+        className="font-mono m-1 px-2 py-1 text-white rounded-full bg-customGray" 
         aria-label={`Download ${title} on Bandcamp`}
         type="button"
-        style={{ backgroundColor: "#868686" }}>
+      >
         <span className="text-black font-bold">Lyrics</span>
       </button>
       <Modal
@@ -55,14 +55,14 @@ export default function LyricsModal({
                 </div>
               </ModalHeader>
               <ModalBody
-                className="p-2 relative flex justify-center items-center overflow-y-auto rounded-2xl"
-                style={{
-                  backgroundImage: "url(/images/masks-no-text-2048.png)",
-                  backgroundSize: "cover",
-                }}>
-                <div className="absolute inset-0 "
-                  style={{ backgroundColor: "rgba(0, 0, 0, 0.4)" }}
-                ></div>
+                className="p-2 relative flex justify-center items-center overflow-y-auto rounded-2xl bg-[url('/images/masks-no-text-2048.png')] bg-cover"
+                // style={{
+                //   backgroundImage: "url(/images/masks-no-text-2048.png)",
+                //   backgroundSize: "cover",
+                // }}
+              >
+                <div className="absolute inset-0 bg-[rgba(0,0,0,0.4)] rounded-2xl">
+                </div>
                 <div className="relative font-mono px-6 overflow-y-auto text-white hide-scrollbar">
                   <div className="text-center">
                     {lyrics.map((paragraph, index) => (

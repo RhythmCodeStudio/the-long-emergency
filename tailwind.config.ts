@@ -10,6 +10,9 @@ export default withUt({
   ],
   theme: {
     extend: {
+      colors:{
+        customGray: '#868686',
+      },
       animation: {
         expand: "expand 1s ease-out",
       },

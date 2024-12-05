@@ -7,7 +7,8 @@ export default function BandBio() {
       <div className="pb-3 lg:px-48 xl:px-64 2xl:px-96 font-mono rounded-2xl">
         <p
           className="text-outline"
-          style={{ backgroundColor: "rgba(0, 0, 0, 0.6)" }}>
+          // style={{ backgroundColor: "rgba(0, 0, 0, 0.6)" }}
+        >
           I was active in the Twin Cities independent music scene from around
           2003 through 2013 as a solo artist and with several different bands.
           In 2013 I formed The Long Emergency as a vehicle for my songwriting.
@@ -18,7 +19,8 @@ export default function BandBio() {
       <div className="pb-3 lg:px-48 xl:px-64 2xl:px-96 font-mono rounded-2xl">
         <p
           className="text-outline"
-          style={{ backgroundColor: "rgba(0, 0, 0, 0.6)" }}>
+          // style={{ backgroundColor: "rgba(0, 0, 0, 0.6)" }}
+        >
           That summer I moved to Austin, TX with plans to promote the new album
           and form a new version of The Long Emergency to continue performing
           and recording. After about a year in Texas I came to terms with the

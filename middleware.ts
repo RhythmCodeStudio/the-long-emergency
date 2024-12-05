@@ -16,15 +16,15 @@ export function middleware(request: NextRequest) {
 
   const developmentCspHeader = `
     default-src 'self';
-    connect-src 'self' https://api.emailjs.com/;
+    connect-src 'self' https://api.emailjs.com/ https://vercel.live wss://ws-us3.pusher.com;
     script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com;
-    style-src 'self' 'unsafe-inline';
-    img-src 'self' blob: data:;
-    font-src 'self';
+    style-src 'self' https://vercel.live 'unsafe-inline';
+    img-src 'self' https://vercel.live https://vercel.com blob: data:;
+    font-src 'self' https://vercel.live https://assets.vercel.com;
     object-src 'none';
     base-uri 'self';
     form-action 'self';
-    frame-src 'self' https://thelongemergency.bandcamp.com/;
+    frame-src 'self' https://thelongemergency.bandcamp.com/ https://vercel.live;
     frame-ancestors 'none';
     upgrade-insecure-requests;
   `;
@@ -35,25 +35,25 @@ export function middleware(request: NextRequest) {
 
   const previewCspHeader = `
     default-src 'self';
-    connect-src 'self' https://api.emailjs.com/;
-    script-src 'self' 'nonce-${nonce}' 'strict-dynamic' https://va.vercel-scripts.com;
-    style-src 'self' 'nonce-${nonce}';
-    img-src 'self' blob: data:;
-    font-src 'self';
+    connect-src 'self' https://api.emailjs.com/ https://vercel.live wss://ws-us3.pusher.com;
+    script-src 'self' 'nonce-${nonce}' 'strict-dynamic' https://va.vercel-scripts.com https://vcercel.live/;
+    style-src 'self' 'nonce-${nonce}' https://vercel.live;
+    img-src 'self' https://vercel.live https://vercel.com blob: data:;
+    font-src 'self' https://vercel.live https://assets.vercel.com;
     object-src 'none';
     base-uri 'self';
     form-action 'self';
     frame-ancestors 'none';
-    frame-src 'self' https://thelongemergency.bandcamp.com/;
+    frame-src 'self' https://thelongemergency.bandcamp.com/ https://vercel.live;
     upgrade-insecure-requests;
   `;
 
   const productionCspHeader = `
     default-src 'self';
-    connect-src 'self' https://api.emailjs.com/;
+    connect-src 'self' https://api.emailjs.com/ https://vercel.live wss://ws-us3.pusher.com;
     script-src 'self' 'nonce-${nonce}' 'strict-dynamic' https://va.vercel-scripts.com;
     style-src 'self' 'nonce-${nonce}';
-    img-src 'self' blob: data:;
+    img-src 'self' https://vercel.live https://vercel.com blob: data:;
     font-src 'self';
     object-src 'none';
     base-uri 'self';

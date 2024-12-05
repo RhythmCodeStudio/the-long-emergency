@@ -1,7 +1,6 @@
 import { nextui } from "@nextui-org/theme";
-import { withUt } from "uploadthing/tw";
 
-export default withUt({
+export default {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -129,4 +128,4 @@ export default withUt({
     },
   },
   plugins: [nextui()],
-});
+};

@@ -16,7 +16,9 @@ export function middleware(request: NextRequest) {
 
   const developmentCspHeader = `
     default-src 'self';
-    connect-src 'self' https://api.emailjs.com/ https://vercel.live wss://ws-us3.pusher.com;
+    connect-src 'self' https://api.emailjs.com/ https://vercel.live wss://ws-us3.pusher.com
+    https://api.iconify.design/
+    ;
     script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com;
     style-src 'self' https://vercel.live 'unsafe-inline';
     img-src 'self' https://vercel.live https://vercel.com blob: data:;
@@ -35,7 +37,10 @@ export function middleware(request: NextRequest) {
 
   const previewCspHeader = `
     default-src 'self';
-    connect-src 'self' https://api.emailjs.com/ https://vercel.live wss://ws-us3.pusher.com;
+    connect-src 'self' https://api.emailjs.com/ https://vercel.live
+    wss://ws-us3.pusher.com
+    https://api.iconify.design/
+    ;
     script-src 'self' 'nonce-${nonce}' https://va.vercel-scripts.com https://vercel.live/;
     style-src 'self' 'unsafe-inline' 'nonce-${nonce}' https://vercel.live;
     img-src 'self' https://vercel.live https://vercel.com blob: data:;
@@ -50,7 +55,10 @@ export function middleware(request: NextRequest) {
 
   const productionCspHeader = `
     default-src 'self';
-    connect-src 'self' https://api.emailjs.com/ https://vercel.live wss://ws-us3.pusher.com;
+    connect-src 'self' https://api.emailjs.com/ https://vercel.live/
+    wss://ws-us3.pusher.com
+    https://api.iconify.design/
+    ;
     script-src 'self' 'nonce-${nonce}' https://va.vercel-scripts.com https://vercel.live/;
     style-src 'self' 'nonce-${nonce}';
     img-src 'self' https://vercel.live https://vercel.com blob: data:;

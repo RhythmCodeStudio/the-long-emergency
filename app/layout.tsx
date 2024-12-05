@@ -8,11 +8,6 @@ const emergency = localFont({
 import type { Metadata } from "next";
 // import analytics
 import { Analytics } from "@vercel/analytics/react";
-//  import from upload thing
-import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
-import { extractRouterConfig } from "uploadthing/server";
-import { ourFileRouter } from "./api/uploadthing/core";
-
 // import fonts
 // import { Permanent_Marker } from "next/font/google";
 // import components
@@ -56,8 +51,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  nonce,
 }: Readonly<{
   children: React.ReactNode;
+  nonce: string;
 }>) {
   return (
     <html
@@ -72,7 +69,6 @@ export default function RootLayout({
           <div>
           <Header />
           </div>
-          <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
           <main className="flex flex-grow items-center justify-center">
             {children}
           </main>

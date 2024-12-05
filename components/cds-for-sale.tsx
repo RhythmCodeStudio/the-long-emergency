@@ -1,5 +1,5 @@
 // import from next
-import Image from "next/image";
+import Image from "./image";
 
 export default async function CdsForSale() {
 // title: string,

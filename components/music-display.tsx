@@ -3,7 +3,7 @@ import { track } from "@vercel/analytics";
 // import from react
 import { useState } from "react";
 // import from next
-import Image from "next/image";
+import Image from "./image";
 // import components
 import MusicPlayer from "./music-player";
 // import DownloadButton from "./download-button";

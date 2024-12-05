@@ -1,6 +1,6 @@
 "use client";
 // import from next
-import Image from "next/image";
+import Image from "./image";
 import Link from "next/link";
 // import { useRouter } from 'next/navigation'
 

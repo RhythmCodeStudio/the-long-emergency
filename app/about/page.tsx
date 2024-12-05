@@ -1,5 +1,5 @@
 // import from next
-import Image from "next/image";
+import Image from "../../components/image";
 // import data
 import { getPage } from "../lib/data";
 // import components

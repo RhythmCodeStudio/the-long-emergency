@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import Image from 'next/image';
+import Image from './image';
 import { MerchProduct } from '../app/lib/definitions';
 import { LuShoppingBag } from 'react-icons/lu';
 // import components

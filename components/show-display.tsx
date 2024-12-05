@@ -1,5 +1,5 @@
 // import from next
-import Image from "next/image";
+import Image from "./image";
 import Link from "next/link";
 
 export default function ShowDisplay({ gigs }: { gigs: any[] }) {

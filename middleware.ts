@@ -42,7 +42,7 @@ export function middleware(request: NextRequest) {
     https://api.iconify.design/
     ;
     script-src 'self' 'nonce-${nonce}' https://va.vercel-scripts.com https://vercel.live/;
-    style-src 'self' 'unsafe-inline' 'nonce-${nonce}' https://vercel.live;
+    style-src 'self' 'unsafe-inline' https://vercel.live;
     img-src 'self' https://vercel.live https://vercel.com blob: data:;
     font-src 'self' https://vercel.live https://assets.vercel.com;
     object-src 'none';

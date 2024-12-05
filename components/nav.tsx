@@ -22,7 +22,7 @@ export default function Nav() {
     { label: "Music", href: "/music" },
     { label: "Contact", href: "/contact" },
     { label: "Shows", href: "/shows" },
-    // { label: "Support", href: "https://www.patreon.com/profile/creators?u=132202553" },
+    { label: "Support", href: "https://www.patreon.com/TheLongEmergency" },
     // { label: "Merch", href: "/merch" },
     // { label: "Blog", href: "/blog" },
   ];
@@ -37,7 +37,8 @@ export default function Nav() {
           className="flex fixed inset-0 bg-black z-50 justify-center items-center h-full"
           style={{
             // backgroundImage: "url('/images/masks-no-text-2048-rotate-crop.png')",
-            backgroundImage: "url('/images/background-images/masks-no-text-4800x3190-gaps-filled.png')",
+            backgroundImage:
+              "url('/images/background-images/masks-no-text-4800x3190-gaps-filled.png')",
             backgroundPosition: "center center",
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
@@ -50,7 +51,7 @@ export default function Nav() {
               className="top-4 right-4 absolute "
               onClick={closeMenu}
               aria-label="Close Menu">
-              <FiX className="text-2xl"/>
+              <FiX className="text-2xl" />
             </button>
           </div>
           <div id="mobile-nav-link-container" className="font-bold relative">
@@ -68,13 +69,24 @@ export default function Nav() {
                   className={`font-bold text-center w-full py-6 ${
                     pathname === link.href ? "hidden" : ""
                   }`}>
-                  <Link href={link.href}>
-                    <div
+                  {link.label === "Support" ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="flex flex-col items-center justify-center"
                       onClick={() => setMenuOpen(false)}>
                       <span>{link.label}</span>
-                    </div>
-                  </Link>
+                    </a>
+                  ) : (
+                    <Link href={link.href}>
+                      <div
+                        className="flex flex-col items-center justify-center"
+                        onClick={() => setMenuOpen(false)}>
+                        <span>{link.label}</span>
+                      </div>
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -92,7 +104,18 @@ export default function Nav() {
               link.label === activeLink ? "hidden" : "font-mono"
             }`}
             key={link.href}>
-            <Link href={link.href}>{link.label}</Link>
+            {link.label === "Support" ? (
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col items-center justify-center"
+                onClick={() => setMenuOpen(false)}>
+                <span>{link.label}</span>
+              </a>
+            ) : (
+              <Link href={link.href}>{link.label}</Link>
+            )}
           </li>
         ))}
       </ul>

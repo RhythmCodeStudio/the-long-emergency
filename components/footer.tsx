@@ -40,17 +40,17 @@ export const Footer = () => {
         <span className="font-mono">©</span> 2024 The Long Emergency
       </span>
       <a
-        className="flex flex-col items-center justify-center text-center md:hover:transform hover:scale-110 transition-transform"
+        className="flex flex-col items-center justify-center text-center "
         href="https://rhythmcodestudio.tech"
         target="_blank"
         rel="noopener noreferrer">
-        <span className="expand-on-load text-sm p-2 text-outline font-mono">
+        <span className="expand-on-load text-sm p-2 text-outline font-mono ">
           Website by Rhythm Code Studio LLC
         </span>
         <Image
           src="/logos/rcs-mark-only-light.png"
           alt="Rhythm Code Studio Logo"
-          className="expand-on-load w-8 h-auto mb-2 invert"
+          className="expand-on-load w-8 h-auto mb-2 invert md:hover:transform hover:scale-110 transition-transform"
           width={796}
           height={816}
         />

@@ -1,13 +1,14 @@
 'use client';
 import { usePathname } from "next/navigation";
 import Marquee from "react-fast-marquee";
-
+import { headers } from "next/headers";
 
 export default function ScrollingBanner() {
+  const nonce = headers().get("x-nonce") || undefined;
   const currentPath = usePathname();
   return (
-    <div className={`m-6 mb-6 ${currentPath === "/" ? "hidden" : ""}`}>
-      <Marquee speed={60}>
+    <div className={`m-6 mb-6 ${currentPath === "/" ? "hidden" : ""}`} nonce={nonce}>
+      <Marquee speed={60} >
         <span className="lg:text-xl text-outline font-mono">
           New album coming 1/17/2025. Release show @&nbsp;
           <a

@@ -74,7 +74,7 @@ export default function BandBio() {
           These songs saved my life. I&apos;ve never really shared them in the
           way that they deserve. I offer them now in the hope that they might
           help someone else. Maybe that&apos;s silly. I don&apos;t know. I do
-          know that songs are meant to be heard and this music isn't doing much
+          know that songs are meant to be heard and this music isn&apos;t doing much
           of anything locked in my head or saved on my computer. If by sharing
           my songs and my story I can help someone else even just a little bit
           then maybe it will have all been worthwhile.

@@ -82,7 +82,7 @@ export default async function ShowsPage() {
         The Long Emergency is coming...
       </h3>
       <ShowDisplay gigs={gigs} />
-      <div className="lg:m-12 expand-on-load w-full h-auto px-6 flex justify-center">
+      <div className="lg:m-12 expand-on-load w-full h-auto px-8 flex justify-center">
         <Image
           priority
           src="/images/banner.png"

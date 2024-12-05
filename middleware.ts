@@ -55,13 +55,13 @@ export function middleware(request: NextRequest) {
 
   const productionCspHeader = `
     default-src 'self';
-    connect-src 'self' https://api.emailjs.com/ https://vercel.live/
-    wss://ws-us3.pusher.com
+    connect-src 'self' 
+    https://api.emailjs.com/ 
     https://api.iconify.design/
     ;
-    script-src 'self' 'nonce-${nonce}' https://va.vercel-scripts.com https://vercel.live/;
+    script-src 'self' 'nonce-${nonce}';
     style-src 'self' 'nonce-${nonce}';
-    img-src 'self' https://vercel.live https://vercel.com blob: data:;
+    img-src 'self';
     font-src 'self';
     object-src 'none';
     base-uri 'self';

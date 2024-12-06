@@ -41,7 +41,7 @@ function generateUrls(directory: string, baseUrl: string = ""): Url[] {
       const urlPath =
         file === "page.tsx"
           ? baseUrl
-          : `${baseUrl}/${file.replace("page.tsx", "")}`;
+          : `${baseUrl}/${file.replace("/page.tsx", "")}`;
 
       if (
         urlPath.includes("admin") ||
@@ -71,37 +71,31 @@ function generateUrls(directory: string, baseUrl: string = ""): Url[] {
   return urls;
 }
 
-// Function to generate the sitemap XML
-function generateSitemapXml(urls: Url[]): string {
-  const urlset = urls
-    .map(
-      (url) => `
-    <url>
-      <loc>${url.url}</loc>
-      <lastmod>${url.lastModified.toISOString()}</lastmod>
-      <changefreq>${url.changeFrequency}</changefreq>
-      <priority>${url.priority}</priority>
-    </url>
-  `
-    )
-    .join("");
+// // Function to generate the sitemap XML
+// function generateSitemapXml(urls: Url[]): string {
+//   const urlset = urls
+//     .map(
+//       (url) => `
+//     <url>
+//       <loc>${url.url}</loc>
+//       <lastmod>${url.lastModified.toISOString()}</lastmod>
+//       <changefreq>${url.changeFrequency}</changefreq>
+//       <priority>${url.priority}</priority>
+//     </url>
+//   `
+//     )
+//     .join("");
 
-  return `<?xml version="1.0" encoding="UTF-8"?>
-    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-      ${urlset}
-    </urlset>`;
-}
+//   return `<?xml version="1.0" encoding="UTF-8"?>
+//     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+//       ${urlset}
+//     </urlset>`;
+// }
 
-export default function sitemap(): string {
+export default function sitemap(): Url[] {
   const appDirectory = path.join(process.cwd(), "app");
   // Generate URLs from the app directory
   let urls = generateUrls(appDirectory);
 
-  // Ensure that urls is an array
-  if (!Array.isArray(urls)) {
-    throw new Error("Expected urls to be an array");
-  }
-
-  // Generate the sitemap XML
-  return generateSitemapXml(urls);
+  return urls;
 }

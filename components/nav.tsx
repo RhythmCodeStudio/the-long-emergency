@@ -17,14 +17,14 @@ export default function Nav() {
   const closeMenu = () => setMenuOpen(false);
 
   const navLinks = [
-    // { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Music", href: "/music" },
-    { label: "Contact", href: "/contact" },
     { label: "Shows", href: "/shows" },
-    { label: "Support", href: "https://www.patreon.com/TheLongEmergency" },
+    // {label: "News", href: "/news"},
     // { label: "Merch", href: "/merch" },
     // { label: "Blog", href: "/blog" },
+    { label: "Contact", href: "/contact" },
+    { label: "Support", href: "https://www.patreon.com/TheLongEmergency" },
   ];
 
   const activeLink = navLinks.find((link) => link.href === pathname)?.label;

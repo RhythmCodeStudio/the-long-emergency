@@ -196,7 +196,7 @@ export default function ContactForm() {
             className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 p-2 w-full text-black"
           />
           {lastNameErrorMessage && (
-            <div className="flex justify-center text-center text-balance items-center mt-2 mb-4">
+            <div className="flex justify-center text-center items-center mt-2 mb-4">
               <p className="text-red-500 text-xs">{lastNameErrorMessage}</p>
             </div>
           )}
@@ -275,7 +275,7 @@ export default function ContactForm() {
           </Button>
         </div>
         {deliveryErrorMessage && (
-          <div className="flex text-balance text-center justify-center items-center mt-2 mb-4">
+          <div className="flex text-center justify-center items-center mt-2 mb-4">
             <a
               href="mailto:thelongemergencyband@gmail.com"
               target="_blank"

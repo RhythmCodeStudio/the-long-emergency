@@ -97,6 +97,6 @@ export default function sitemap(): string {
   // Generate URLs from the app directory
   let urls = generateUrls(appDirectory);
 
-   // Generate the sitemap XML
-   return generateSitemapXml(urls);
+  // Generate the sitemap XML
+  return generateSitemapXml(urls);
 }

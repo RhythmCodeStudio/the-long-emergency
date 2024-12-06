@@ -97,6 +97,11 @@ export default function sitemap(): string {
   // Generate URLs from the app directory
   let urls = generateUrls(appDirectory);
 
+  // Ensure that urls is an array
+  if (!Array.isArray(urls)) {
+    throw new Error("Expected urls to be an array");
+  }
+
   // Generate the sitemap XML
   return generateSitemapXml(urls);
 }

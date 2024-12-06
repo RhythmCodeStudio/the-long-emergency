@@ -1,7 +1,7 @@
-import NextAuth from 'next-auth';
-import { authConfig } from './auth.config';
+import NextAuth from "next-auth";
+import { authConfig } from "./auth.config";
 import { NextResponse, NextRequest } from "next/server";
- 
+
 export default NextAuth(authConfig).auth;
 
 // import { NextRequest } from 'next/server';
@@ -31,9 +31,9 @@ export function middleware(request: NextRequest) {
     upgrade-insecure-requests;
   `;
 
-//   const developmentCspHeader = `
+  //   const developmentCspHeader = `
 
-// `;
+  // `;
 
   const previewCspHeader = `
     default-src 'self';
@@ -108,11 +108,9 @@ export function middleware(request: NextRequest) {
 
   return response;
 }
- 
+
 export const config = {
-  matcher: [
-    "/((?!sitemap.xml).)*",
-  ],
+  matcher: ["/((?!sitemap.xml).)*"],
 };
 
 // export const config = {

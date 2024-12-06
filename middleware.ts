@@ -60,7 +60,7 @@ export function middleware(request: NextRequest) {
     https://api.iconify.design/
     ;
     script-src 'self' 'nonce-${nonce}';
-    style-src 'self' 'nonce-${nonce}' http://www.sitemaps.org/;
+    style-src 'self' 'nonce-${nonce}';
     img-src 'self';
     font-src 'self';
     object-src 'none';

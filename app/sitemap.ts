@@ -118,13 +118,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: 'https://www.thelongemergency.net/music',
+      url: 'https://www.thelongemergency.net/contact',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 1,
     },
     {
-      url: 'https://www.thelongemergency.net/contact',
+      url: 'https://www.thelongemergency.net/music',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 1,

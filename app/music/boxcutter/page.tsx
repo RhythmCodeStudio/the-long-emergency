@@ -43,16 +43,16 @@ export default async function Page() {
       </div>
       <div className="relative flex flex-col justify-center items-center">
 
-      <div className="relative w-[500px] h-[500px] mt-28">
-        {songs.map((song, index) => (
-          <h3 key={index} className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xl font-mono text-outline z-50 mb-3">{song}</h3>
-        ))}
-
-        {/* <h3 className="absolute top-12 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl font-mono text-outline z-50 mb-3">fall</h3>
-        <h3 className="absolute top-28 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl font-mono text-outline z-50 mb-3">i am not sorry</h3>
-        <h3 className="absolute top-44 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl font-mono text-outline z-50 mb-3">snow emergency</h3>
-        <h3 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl font-mono text-outline z-50 mb-3">snow emergency</h3>
-        <h3 className="absolute top-56 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl font-mono text-outline z-50 mb-3">snow emergency</h3> */}
+      <div className="relative w-[500px] h-[500px] mt-28 flex items-center">
+        
+        <ul className="absolute top-6 z-50 flex flex-col justify-center text-center ">
+        {/* <h2 className="z-50 text-xl text-outline font-mono mb-6">I spent all my money on a habit</h2> */}
+          {songs.map((song, index) => (
+            <li key={index} className="p-2 text-xl font-mono text-outline">{song}</li>
+          ))}
+          <h2 className="z-50 text-2xl text-outline mt-6">The Long Emergency</h2>
+          <p className="font-mono text-outline">© 2025 The Long Emergency</p>
+        </ul>
         <Image
           className="absolute z-0"
           src="/images/misc/cardboard.jpg"
@@ -65,4 +65,4 @@ export default async function Page() {
       </div>
     </div>
   );
-}
+};

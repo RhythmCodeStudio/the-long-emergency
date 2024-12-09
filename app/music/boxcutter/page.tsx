@@ -45,13 +45,14 @@ export default async function Page() {
 
       <div className="relative w-[500px] h-[500px] mt-28 flex items-center">
         
-        <ul className="absolute top-6 z-50 flex flex-col justify-center text-center ">
+        <ul className="absolute top-2 z-50 flex flex-col justify-center text-center ">
         {/* <h2 className="z-50 text-xl text-outline font-mono mb-6">I spent all my money on a habit</h2> */}
           {songs.map((song, index) => (
             <li key={index} className="p-2 text-xl font-mono text-outline">{song}</li>
           ))}
-          <h2 className="z-50 text-2xl text-outline mt-6">The Long Emergency</h2>
-          <p className="font-mono text-outline">© 2025 The Long Emergency</p>
+          <h2 className="z-50 text-2xl text-outline mt-4">The Long Emergency</h2>
+          <p className="font-mono text-outline">© 2025</p>
+          <p className="font-mono text-outline text-lg">www.thelongemergency.net</p>
         </ul>
         <Image
           className="absolute z-0"

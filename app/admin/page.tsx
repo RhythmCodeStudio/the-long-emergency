@@ -27,7 +27,7 @@ export default function Admin() {
       <div className=" text-black flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">
         <AdminNavLinks />
         {/* <div className="hidden h-auto w-full grow rounded-md bg-gray-50 md:block"></div> */}
-        <form
+        {/* <form
            action={async () => {
             'use server';
             await signOut();
@@ -37,7 +37,7 @@ export default function Admin() {
             <PowerIcon className="w-6" />
             <div className=" md:block">Sign Out</div>
           </button>
-        </form>
+        </form> */}
       </div>
     </div>
     // </div>

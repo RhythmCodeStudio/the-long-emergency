@@ -118,6 +118,11 @@ button {
   color: white;
 } */
 
+.rhap_header {
+  @apply font-emergency;
+  @apply text-outline-gray
+}
+
 .rhap_footer {
   @apply font-emergency;
   @apply text-outline-gray

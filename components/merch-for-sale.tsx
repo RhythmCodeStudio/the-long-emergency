@@ -1,13 +1,11 @@
 "use client";
 
-import { useState } from 'react';
-import Image from './image';
-import { MerchProduct } from '../app/lib/definitions';
-import { LuShoppingBag } from 'react-icons/lu';
+import { useState } from "react";
+import Image from "./image";
+import { MerchProduct } from "../app/lib/definitions";
+import { LuShoppingBag } from "react-icons/lu";
 // import components
-import CartModal from './shopping-cart-modal';
-
-
+import CartModal from "./shopping-cart-modal";
 
 export default function MerchForSale({ merch }: { merch: MerchProduct[] }) {
   const [selectedItems, setSelectedItems] = useState<MerchProduct[]>([]);
@@ -31,7 +29,13 @@ export default function MerchForSale({ merch }: { merch: MerchProduct[] }) {
 
   return (
     <>
-      {isModalOpen && <CartModal items={selectedItems} onClose={toggleModal} onRemove={removeFromCart} />}
+      {isModalOpen && (
+        <CartModal
+          items={selectedItems}
+          onClose={toggleModal}
+          onRemove={removeFromCart}
+        />
+      )}
       {selectedItems.length > 0 && (
         <div>
           <button id="shopping-bag-button" onClick={toggleModal}>
@@ -41,7 +45,9 @@ export default function MerchForSale({ merch }: { merch: MerchProduct[] }) {
       )}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-12">
         {merch.map((product) => (
-          <div className="flex flex-col justify-center expand-on-load font-mono p-6 w-72 " key={product.id}>
+          <div
+            className="flex flex-col justify-center expand-on-load  p-6 w-72 "
+            key={product.id}>
             <div className="p-2 text-center text-outline">
               <h3>{product.name} </h3>
               <p className="">${product.price}</p>
@@ -58,7 +64,7 @@ export default function MerchForSale({ merch }: { merch: MerchProduct[] }) {
               <p>{product.description}</p>
             </div>
             <div className="p-2 flex justify-center">
-              <a 
+              <a
                 rel="noopener noreferrer"
                 target="_blank"
                 href={product.stripe_url}
@@ -67,7 +73,7 @@ export default function MerchForSale({ merch }: { merch: MerchProduct[] }) {
               </a>
             </div>
             <div className="p-2 flex justify-center">
-              <button 
+              <button
                 onClick={() => addToCart(product)}
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                 Add to Cart

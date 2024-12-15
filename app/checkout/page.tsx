@@ -19,7 +19,7 @@ export default  function CheckoutPage() {
   return (
     <div className="flex flex-col justify-center items-center">
       <div className="p-2">
-        <h2 className="text-center text-2xl lg:text-4xl">Checkout</h2>
+        <h2 className="font-emergency text-center text-2xl lg:text-4xl">Checkout</h2>
       </div>
       <Elements
         stripe={stripePromise}

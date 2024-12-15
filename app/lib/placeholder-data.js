@@ -255,8 +255,7 @@ const songs = [
       "https://thelongemergency.bandcamp.com/track/sing-me-to-sleep-2",
     lyrics: [
       "You sing like an angel\nAnd you will look sexy as hell\nWhen you decide not to run\nBut sometimes I'm afraid you might be a devil\nAnd you've come to claim my soul for the wrongs I've done", 
-      "Ever since you told me\nThat you were not going anywhere\nI hardly ever see you around\nThat means a little less music is in the air\nIt doesn't mean that I won't make a sound\nAnd it does not mean that I don't care\nWhen I said I feel lucky to know you\nI was trying to say I think that I could love you\nYou sing me to sleep\And you don't even know it do you",
-      "Sing me to sleep\nSing me to sleep\nSing me to sleep\nSing me to sleep",
+      "Ever since you told me\nThat you were not going anywhere\nI hardly ever see you around\nThat means a little less music is in the air\nIt doesn't mean that I won't make a sound\nAnd it does not mean that I don't care\nWhen I said I feel lucky to know you\nI was trying to say I think that I could love you\nYou sing me to sleep\nAnd you don't even know it do you\nSing me to sleep\nSing me to sleep\nSing me to sleep\nSing me to sleep",
     ],
   },
 ];

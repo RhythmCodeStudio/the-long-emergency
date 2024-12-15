@@ -118,6 +118,11 @@ button {
   color: white;
 } */
 
+.rhap_footer {
+  @apply font-emergency;
+  @apply text-outline-gray
+}
+
 /* Add this to your global CSS file or a CSS module */
 .hide-scrollbar::-webkit-scrollbar {
   display: none;

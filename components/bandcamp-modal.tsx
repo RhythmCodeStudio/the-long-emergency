@@ -47,10 +47,10 @@ export default function BandcampModal({
                   <FiX />
                 </button>
                 <div className="mt-2 flex-col justify-center text-center items-center w-full">
-                  <p className="font-mono  ">download</p>
+                  <p className="  ">download</p>
                   <p className=" text-2xl">{title}</p>
-                  <p className=" font-mono z-50">
-                    from&nbsp; 
+                  <p className="  z-50">
+                    from&nbsp;
                     <a
                       href="https://thelongemergency.bandcamp.com"
                       target="_blank"

@@ -23,6 +23,7 @@ export default {
       },
       fontFamily: {
         emergency: ["var(--font-emergency)"],
+        specialElite: ["var(--font-special-elite)"],
       },
       textShadow: {
         "outline-black":

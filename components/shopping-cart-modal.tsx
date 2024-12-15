@@ -9,7 +9,6 @@ import { MerchProduct } from "../app/lib/definitions";
 // import icons
 import { FiX } from "react-icons/fi";
 
-
 export default function CartModal({
   items,
   onClose,
@@ -21,7 +20,7 @@ export default function CartModal({
 }) {
   // const router = useRouter();
   const cartTotal = items.reduce((acc, item) => acc + item.price, 0);
-  
+
   // const handleCheckout = () => {
   //   router.push('/checkout');
 
@@ -35,9 +34,7 @@ export default function CartModal({
         </button>
         <h2 className="mx-6 mt-6">Your Cart</h2>
         {items.map((item) => (
-          <div
-            key={item.id}
-            className="font-mono flex flex-col items-center py-4">
+          <div key={item.id} className=" flex flex-col items-center py-4">
             <h3>{item.name}</h3>
             <p>${item.price}</p>
             <div className="w-28 h-auto">

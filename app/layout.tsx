@@ -1,15 +1,16 @@
+// import from next
+import type { Metadata } from "next";
+// import analytics
+import { Analytics } from "@vercel/analytics/react";
+// import fonts
 import localFont from "next/font/local";
 const emergency = localFont({
   src: "../public/fonts/emergency.ttf",
   display: "swap",
   variable: "--font-emergency",
 });
-// import from next
-import type { Metadata } from "next";
-// import analytics
-import { Analytics } from "@vercel/analytics/react";
-// import fonts
 // import { Permanent_Marker } from "next/font/google";
+import { Special_Elite } from "next/font/google";
 // import components
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
@@ -20,6 +21,12 @@ import "./globals.css";
 
 // define font
 // const permanentMarker = Permanent_Marker({ weight: "400", subsets: ["latin"] });
+const special_elite = Special_Elite({ 
+  weight: "400", 
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-special-elite",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -57,10 +64,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`over ${emergency.variable}`}
+      className={`${emergency.variable} ${special_elite.variable}`}
       // style={{ height: "100%" }}
     >
-      <body className={`font-emergency overflow-x-hidden flex flex-col`}>
+      <body className={`font-specialElite overflow-x-hidden flex flex-col`}>
         <div
           className="flex flex-col min-h-screen bg-cover bg-center bg-no-repeat bg-[url('/images/background-images/768x1156.png')] xl:bg-[url('/images/background-images/masks-no-text-4800x3190-gaps-filled-horizontal.png')] md:bg-fixed"
         >

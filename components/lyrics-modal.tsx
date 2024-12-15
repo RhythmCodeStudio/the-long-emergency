@@ -23,10 +23,9 @@ export default function LyricsModal({
     <>
       <button
         onClick={onOpen}
-        className="font-mono m-1 px-2 py-1 text-white rounded-full bg-customGray" 
+        className=" m-1 px-2 py-1 text-white rounded-full bg-customGray"
         aria-label={`Download ${title} on Bandcamp`}
-        type="button"
-      >
+        type="button">
         <span className="text-black font-bold">Lyrics</span>
       </button>
       <Modal
@@ -51,7 +50,7 @@ export default function LyricsModal({
                   <FiX />
                 </button>
                 <div className="mt-2 flex-col justify-center text-center items-center w-full">
-                  <p className="text-xl md:text-2xl text-white">{title}</p>
+                  <p className="font-emergency text-xl md:text-2xl text-white text-outline-gray">{title}</p>
                 </div>
               </ModalHeader>
               <ModalBody
@@ -61,10 +60,9 @@ export default function LyricsModal({
                 //   backgroundSize: "cover",
                 // }}
               >
-                <div className="absolute inset-0 bg-[rgba(0,0,0,0.4)] rounded-2xl">
-                </div>
-                <div className="relative font-mono px-6 overflow-y-auto text-white hide-scrollbar">
-                  <div className="text-center">
+                <div className="absolute inset-0 bg-[rgba(0,0,0,0.4)] rounded-2xl"></div>
+                <div className="relative px-6 overflow-y-auto text-white hide-scrollbar">
+                  <div className="text-center text-outline">
                     {lyrics.map((paragraph, index) => (
                       <div key={index} className="p-2">
                         {paragraph.split("\n").map((line, lineIndex) => (
@@ -78,9 +76,9 @@ export default function LyricsModal({
                 </div>
               </ModalBody>
               <ModalFooter className="flex flex-col justify-center text-center items-center w-full">
-                <div className="mb-6">
-                  <p className="text-xl md:text-2xl">The Long Emergency</p>
-                  <p className="font-mono mt-2">
+                <div className="text-outline-gray mb-6">
+                  <p className="font-emergency  text-xl md:text-2xl">The Long Emergency</p>
+                  <p className=" mt-2">
                     music and lyrics
                     <br />
                     by&nbsp;

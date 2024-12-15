@@ -17,7 +17,7 @@ export const Header = () => {
       <div className="flex flex-col items-center w-full justify-center">
       <h1
         className={`
-        text-outline expand-on-load text-4xl xl:text-5xl 2xl:text-6xl m-2 p-2 
+        font-emergency text-outline expand-on-load text-4xl xl:text-5xl 2xl:text-6xl m-2 p-2 
         ${currentPath === "/" ? "hidden" : "hidden sm:flex"}
       `}>
         <Link href="/">The Long Emergency</Link>
@@ -25,7 +25,7 @@ export const Header = () => {
       <div className="flex items-center w-full">
         <h1
         id="main-heading-most-pages"
-        className={`px-2 text-outline expand-on-load text-xl xs:text-2xl   ${
+        className={`font-emergency px-2 text-outline expand-on-load text-xl xs:text-2xl   ${
           currentPath === "/" ? "hidden" : "sm:hidden"
         }`}>
         <Link href="/">The Long Emergency</Link>

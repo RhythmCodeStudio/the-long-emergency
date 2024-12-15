@@ -7,7 +7,7 @@ export default function ShowDisplay({ gigs }: { gigs: any[] }) {
     <div className="p-6 text-outline">
       {gigs.length === 0 ? (
         <div className="p-6 expand-on-load">
-          <p className="text-center font-mono text-lg md:text-xl">
+          <p className="text-center  text-lg md:text-xl">
             No shows currently scheduled. Please{" "}
             <span className="underline font-bold">
               <Link href="/contact">contact</Link>
@@ -23,8 +23,9 @@ export default function ShowDisplay({ gigs }: { gigs: any[] }) {
               : "grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-9 lg:gap-20 xl:gap-28"
           } p-2 md:text-lg md:text-xl`}>
           {gigs.map((gig, index) => (
-            <li key={index} className="expand-on-load border-2 border-slate-400 bg-[rgba(0,0,0,0.6)]"
-            >
+            <li
+              key={index}
+              className="expand-on-load border-2 border-slate-400 bg-[rgba(0,0,0,0.6)]">
               <div className="p-8">
                 <div className="flex justify-center items-center">
                   <Image
@@ -36,38 +37,36 @@ export default function ShowDisplay({ gigs }: { gigs: any[] }) {
                   />
                 </div>
                 <div className="z-50">
-                <p className="font-mono text-center mt-6 z-50">{gig.date}</p>
-                <a
-                  href={gig.venue_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline z-10"
-                >
-                  <p className="font-mono text-center">{gig.venue}</p>
-                </a>
-                <a
-                  href={gig.google_maps_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline"
-                >
-                  <p className="font-mono text-center">{gig.street_address}</p>
-                </a>
-                <p className="font-mono text-center">
-                  {gig.city}, {gig.state}
-                </p>
-                <p className="font-mono text-center">{gig.cost}</p>
-                <p className="font-mono text-center">{gig.gig_info}</p>
-                <p className="font-mono text-center">{gig.other_acts}</p>
-                <div className="flex justify-center expand-on-load">
+                  <p className=" text-center mt-6 z-50">{gig.date}</p>
                   <a
+                    href={gig.venue_url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    href={gig.ticket_url}
-                    className="inline-block bg-blue-500 hover:bg-blue-700 py-2 px-4 rounded-full mt-2 border-2 border-black">
-                    <p className="text-outline">Tickets</p>
+                    className="underline z-10">
+                    <p className=" text-center">{gig.venue}</p>
                   </a>
-                </div>
+                  <a
+                    href={gig.google_maps_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline">
+                    <p className=" text-center">{gig.street_address}</p>
+                  </a>
+                  <p className=" text-center">
+                    {gig.city}, {gig.state}
+                  </p>
+                  <p className=" text-center">{gig.cost}</p>
+                  <p className=" text-center">{gig.gig_info}</p>
+                  <p className=" text-center">{gig.other_acts}</p>
+                  <div className="flex justify-center expand-on-load">
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href={gig.ticket_url}
+                      className="inline-block bg-blue-500 hover:bg-blue-700 py-2 px-4 rounded-full mt-2 border-2 border-black">
+                      <p className="text-outline">Tickets</p>
+                    </a>
+                  </div>
                 </div>
               </div>
             </li>
@@ -76,4 +75,4 @@ export default function ShowDisplay({ gigs }: { gigs: any[] }) {
       )}
     </div>
   );
-};
+}

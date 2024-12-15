@@ -6,8 +6,8 @@ import { ChangeEvent, SetStateAction, useState } from "react";
 //import from nextui
 import { Button, ButtonGroup } from "@nextui-org/button";
 // import from toastify
-import { Bounce, ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { Bounce, ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // import from utils
 import {
@@ -33,14 +33,21 @@ export default function ContactForm() {
   const [deliveryErrorMessage, setDeliveryErrorMessage] = useState("");
   const [buttonSubmitted, setButtonSubmitted] = useState(false);
 
-  const notify = () => toast.info("Thanks for reaching out. I will be in touch soon!",{
-    transition: Bounce,
-    position: "top-center",
-    icon: <img src="/logos/long-emergency/32x32.png" alt="The Long Emergency icon" />,
-    closeOnClick: true,
-    pauseOnHover: true,
-    className: "border-2 border-slate-400 font-emergency text-outline-none text-black",
-  });
+  const notify = () =>
+    toast.info("Thanks for reaching out. I will be in touch soon!", {
+      transition: Bounce,
+      position: "top-center",
+      icon: (
+        <img
+          src="/logos/long-emergency/32x32.png"
+          alt="The Long Emergency icon"
+        />
+      ),
+      closeOnClick: true,
+      pauseOnHover: true,
+      className:
+        "border-2 border-slate-400 font-emergency text-outline-none text-black",
+    });
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>,
@@ -155,7 +162,7 @@ export default function ContactForm() {
       {/* <h3 className="text-center text-xl text-2xl xl:text-3xl font-bold">Get In Touch</h3> */}
       <form
         onSubmit={handleFormSubmit}
-        className="expand-on-load px-12 py-6 max-w-200 mx-auto relative font-mono">
+        className="expand-on-load px-12 py-6 max-w-200 mx-auto relative ">
         {/* <h3 className="text-center text-xl text-2xl xl:text-3xl font-bold">Get In Touch</h3> */}
         <div className="flex flex-col justify-center">
           <label htmlFor="firstName">

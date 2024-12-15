@@ -17,7 +17,7 @@ export default async function MerchPage() {
 
   return (
     <section className="flex justify-center items-center flex-col">
-      <h2 className="expand-on-load text-2xl lg:text-4xl pb-6 text-outline">{merchPageData.page_title}</h2>
+      <h2 className="font-emergency expand-on-load text-2xl lg:text-4xl pb-6 text-outline">{merchPageData.page_title}</h2>
       <MerchForSale merch={merch} />
     </section>
   );

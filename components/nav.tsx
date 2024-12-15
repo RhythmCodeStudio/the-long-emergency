@@ -33,9 +33,7 @@ export default function Nav() {
     <nav className="text-2xl 3xl:text-3xl flex justify-center items-center text-center text-outline">
       {/* mobile nav */}
       {menuOpen && (
-        <div
-          className="flex flex-col fixed inset-0 bg-black z-50 justify-center items-center h-full min-h-screen bg-cover bg-center bg-no-repeat bg-[url('/images/background-images/masks-no-text-4800x3190-gaps-filled.png')]"
-        >
+        <div className="flex flex-col fixed inset-0 bg-black z-50 justify-center items-center h-full min-h-screen bg-cover bg-center bg-no-repeat bg-[url('/images/background-images/masks-no-text-4800x3190-gaps-filled.png')]">
           <div className="flex justify-end">
             <button
               className="top-4 right-4 absolute "
@@ -47,7 +45,7 @@ export default function Nav() {
           <div id="mobile-nav-link-container" className="font-bold relative">
             <Link href="/">
               <h1
-                className="text-center text-2xl m-6"
+                className="font-emergency text-center text-2xl m-6"
                 onClick={() => setMenuOpen(false)}>
                 The Long Emergency
               </h1>
@@ -91,7 +89,7 @@ export default function Nav() {
         {navLinks.map((link) => (
           <li
             className={`px-8 md:px-8 lg:px-14 xl:px-20 lg:py-8 flex hover:scale-110 transition transition-transform duration-300 ease-in-out ${
-              link.label === activeLink ? "hidden" : "font-mono"
+              link.label === activeLink ? "hidden" : ""
             }`}
             key={link.href}>
             {link.label === "Support" ? (

@@ -45,9 +45,7 @@ export default function MusicDisplay({
     <div className="flex justify-center items center flex-col">
       <div className="px-10 grid grid-cols-1 lg:grid-cols-2 lg:gap-24 flex justify-center items center text-center">
         {albums.map((album) => (
-          <div
-            key={album.id}
-            className="m-4 font-mono text- md:text-2xl">
+          <div key={album.id} className="m-4  text- md:text-2xl">
             <div className="text-outline expand-on-load ">
               <h3 className="text-xl">{album.title}</h3>
               <p>{album.type}</p>

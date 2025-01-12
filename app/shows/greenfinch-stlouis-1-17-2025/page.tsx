@@ -42,7 +42,8 @@ export default async function AlbumReleaseShow() {
           <p>
             In celebration of my 50th birthday please consider supporting
             <br />
-            <span className="text-2xl">HOPE CREATES</span>, <br />a St Louis nonprofit that uses art to help folks get sober and stay sober.
+            <span className="text-2xl">HOPE CREATES</span>, <br />a St Louis
+            nonprofit that uses art to help folks get sober and stay sober.
           </p>
           <div className="justify-center m-4">
             <a

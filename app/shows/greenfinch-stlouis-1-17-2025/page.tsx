@@ -18,7 +18,7 @@ export default async function AlbumReleaseShow() {
           <br />
           and
           <br />
-          Kevin's Birthday
+          Kevin&apos;s Birthday
         </h2>
         <h3 className="text-outline text-sm m-2">
           Friday January 17th, 2025 <br /> Greenfinch Theater & Dive <br />
@@ -27,7 +27,7 @@ export default async function AlbumReleaseShow() {
         <h4 className="text-outline mt-4">
           The Long Emergency presents the new album:
         </h4>
-        <h5>"I spent all my money on a habit"</h5>
+        <h5>&quot;I spent all my money on a habit&quot;</h5>
         <Link href="/music">
           <Image
             className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 m-2"

@@ -18,7 +18,7 @@ export default async function AlbumReleaseShow() {
           <br />
           and
           <br />
-          Kevin's Birthday
+          Kevin&apos;s Birthday
         </h2>
         <h3 className="text-outline text-sm m-2">
           Friday January 17th, 2025 <br /> Greenfinch Theater & Dive <br />
@@ -42,8 +42,7 @@ export default async function AlbumReleaseShow() {
           <p>
             In celebration of my 50th birthday please consider supporting
             <br />
-            <span className="text-2xl">HOPE CREATES</span>, <br />a St Louis non
-            profit that uses art to help folks get sober and stay sober.
+            <span className="text-2xl">HOPE CREATES</span>, <br />a St Louis nonprofit that uses art to help folks get sober and stay sober.
           </p>
           <div className="justify-center m-4">
             <a

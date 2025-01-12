@@ -18,7 +18,7 @@ export default async function AlbumReleaseShow() {
           <br />
           and
           <br />
-          Kevin&apos;s Birthday
+          Kevin's Birthday
         </h2>
         <h3 className="text-outline text-sm m-2">
           Friday January 17th, 2025 <br /> Greenfinch Theater & Dive <br />
@@ -34,7 +34,7 @@ export default async function AlbumReleaseShow() {
             width={213}
             height={211}
             src="/images/music/habit/front-cover.png"
-            alt="Album Cover"
+            alt="I spent all my money on a habit album cover"
           />
           <h6 className="text-center">Available Now</h6>
         </Link>

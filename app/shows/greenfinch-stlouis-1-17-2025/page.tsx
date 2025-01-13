@@ -38,7 +38,7 @@ export default async function AlbumReleaseShow() {
           The Long Emergency proudly presents the new album:
         </h4>
         <h5 className="text-xl">&quot;I spent all my money on a habit&quot;</h5>
-        <Link href="/music">
+        {/* <Link href="/music"> */}
           <Image
             className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 m-2"
             width={213}
@@ -46,10 +46,11 @@ export default async function AlbumReleaseShow() {
             src="/music/habit/album-art/front-cover.png"
             alt="I spent all my money on a habit album cover"
           />
-          <h6 className="text-center text-2xl text-blue-300 hover:text-blue-400 underline">
-            Available Now
+          {/* <h6 className="text-center text-2xl text-blue-300 hover:text-blue-400 underline"> */}
+          <h6 className="text-center text-2xl ">
+            Available 1/17/2025
           </h6>
-        </Link>
+        {/* </Link> */}
         <div className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 p-6 m-12 relative flex flex-col justify-center items-center text-outline text-center">
           <p className="text-lg">
             In celebration of my birthday please consider supporting

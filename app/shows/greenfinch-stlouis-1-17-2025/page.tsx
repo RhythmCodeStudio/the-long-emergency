@@ -193,10 +193,7 @@ export default async function AlbumReleaseShow() {
             </a>
           </div>
         </div>
-        <Link href="/">
-          <h6>www.thelongemergency.net</h6>
-        </Link>
-        <div className="lg:m-12 w-full h-auto p-8 flex justify-center">
+        <div className="lg:m-12 w-full h-auto px-8 flex justify-center">
           <Image
             priority
             src="/images/banner.png"
@@ -206,6 +203,9 @@ export default async function AlbumReleaseShow() {
             className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 mb-12 xl:mb-0"
           />
         </div>
+        <Link href="/">
+          <h6 className="mb-12 -mt-4 text-lg text-blue-300 hover:text-blue-400 underline">www.thelongemergency.net</h6>
+        </Link>
       </div>
     </div>
   );

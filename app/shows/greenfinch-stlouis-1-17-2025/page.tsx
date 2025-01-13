@@ -39,7 +39,7 @@ export default async function AlbumReleaseShow() {
             src="/music/habit/album-art/front-cover.png"
             alt="I spent all my money on a habit album cover"
           />
-          <h6 className="text-center text-2xl">Available Now</h6>
+          <h6 className="text-center text-2xl text-blue-300 hover:text-blue-400 underline">Available Now</h6>
         </Link>
         <div className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 p-6 m-12 relative flex flex-col justify-center items-center text-outline text-center">
           <p className="text-lg">

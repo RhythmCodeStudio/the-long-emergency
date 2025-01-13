@@ -77,7 +77,7 @@ button {
 
 .text-outline-gray {
   /* text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000; */
-  text-shadow: 2px 2px 0 #868686;
+  text-shadow: 1.25px 1.25px 0 #868686;
   background-color: rgba(0, 0, 0, 1);
   background-clip: text;
   -webkit-background-clip: text;

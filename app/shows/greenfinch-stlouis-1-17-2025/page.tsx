@@ -12,38 +12,43 @@ export const metadata = {
 export default async function AlbumReleaseShow() {
   return (
     <div className="bg-[rgba(0,0,0,0.5)] md:bg-transparent ">
-      <div className="relative flex flex-col justify-center items-center text-outline">
-        <h2 className="font-emergency text-2xl lg:text-3xl xl:text-4xl mt-4 text-center">
+      <div className="relative flex flex-col justify-center items-center text-outline text-center">
+        <h2 className="font-emergency text-2xl lg:text-3xl xl:text-4xl m-4 text-center">
           Album Release Show
           <br />
-          and
+          <span className="text-lg">and</span>
           <br />
           Kevin&apos;s Birthday
         </h2>
-        <h3 className="text-outline text-sm m-2">
+        <h3 className="text-outline text-sm lg:text-base m-2">
           Friday January 17th, 2025 <br /> Greenfinch Theater & Dive <br />
           St. Louis, MO
         </h3>
-        <h4 className="text-outline mt-4">
-          The Long Emergency presents the new album:
+        <p className="p-2 m-2 text-center lg:text-lg">
+          Thank you for choosing to spend your time with us this evening.
+        </p>
+        <h4 className="text-outline mt-4 text-lg lg:text-2xl p-2">
+          The Long Emergency proudly presents the new album:
         </h4>
-        <h5>&quot;I spent all my money on a habit&quot;</h5>
+        <h5 className="text-xl">&quot;I spent all my money on a habit&quot;</h5>
         <Link href="/music">
           <Image
             className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 m-2"
             width={213}
             height={211}
-            src="/music/habit/artwork/front-cover.png"
+            src="/music/habit/album-art/front-cover.png"
             alt="I spent all my money on a habit album cover"
           />
-          <h6 className="text-center">Available Now</h6>
+          <h6 className="text-center text-2xl">Available Now</h6>
         </Link>
-        <div className="m-6 relative flex flex-col justify-center items-center text-outline text-center">
-          <p>
-            In celebration of my 50th birthday please consider supporting
-            <br />
-            <span className="text-2xl">HOPE CREATES</span>, <br />a St Louis
-            nonprofit that uses art to help folks get sober and stay sober.
+        <div className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 p-6 m-12 relative flex flex-col justify-center items-center text-outline text-center">
+          <p className="text-lg">
+            In celebration of my birthday please consider supporting
+          </p>
+          <span className="text-3xl mt-2">HOPE CREATES</span>
+          <p className="text-lg">
+            a St Louis nonprofit that uses art to help folks get sober and stay
+            sober.
           </p>
           <div className="justify-center m-4">
             <a
@@ -179,6 +184,9 @@ export default async function AlbumReleaseShow() {
             </a>
           </div>
         </div>
+        <Link href="/">
+          <h6>www.thelongemergency.net</h6>
+        </Link>
         <div className="lg:m-12 w-full h-auto p-8 flex justify-center">
           <Image
             priority
@@ -189,6 +197,7 @@ export default async function AlbumReleaseShow() {
             className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 mb-12 xl:mb-0"
           />
         </div>
+        <h6>Thank you for coming!</h6>
       </div>
     </div>
   );

@@ -27,6 +27,7 @@ export default async function ShowsPage() {
       ticket_url:
         "https://www.purplepass.com/events/304686-the-long-emergency-%7C-album-release-show---featurin-jan-17th-2025",
       poster: "/images/show-posters/masks.png",
+      show_page: "/shows/greenfinch-stlouis-1-17-2025",
     },
     // {
     //   date: "1/13/1992",

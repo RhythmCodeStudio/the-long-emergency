@@ -28,13 +28,15 @@ export default function ShowDisplay({ gigs }: { gigs: any[] }) {
               className="expand-on-load border-2 border-slate-400 bg-[rgba(0,0,0,0.6)]">
               <div className="p-8">
                 <div className="flex justify-center items-center">
-                  <Image
-                    src={gig.poster}
-                    alt="show poster"
-                    width={300}
-                    height={425}
-                    className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 expand-on-load"
-                  />
+                  <Link href={gig.show_page} passHref>
+                    <Image
+                      src={gig.poster}
+                      alt="show poster"
+                      width={300}
+                      height={425}
+                      className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 expand-on-load"
+                    />
+                  </Link>
                 </div>
                 <div className="z-50">
                   <p className=" text-center mt-6 z-50">{gig.date}</p>

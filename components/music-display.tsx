@@ -14,6 +14,13 @@ import BandcampModal from "./bandcamp-modal";
 // import data
 import { Album, Song } from "../app/lib/definitions";
 
+const truncateTitle = (title: string, maxLength: number) => {
+  if (title.length > maxLength) {
+    return title.substring(0, maxLength) + '...';
+  }
+  return title;
+};
+
 export default function MusicDisplay({
   albums,
   songs,
@@ -64,7 +71,7 @@ export default function MusicDisplay({
               </div>
               <div className="text-outline expand-on-load ">
                 <div className="download-album-div ">
-                  <p>Download {album.title}</p>
+                  <p>Download <br />{album.title}</p>
                   <div
                     className="mb-6 flex justify-center icon-outline"
                     onClick={() => {
@@ -83,7 +90,7 @@ export default function MusicDisplay({
                     .map((song, index) => (
                       <li key={song.id} className="flex items-center my-1 z-0">
                         <span className="mr-2">{index + 1}.</span>
-                        <span className="">{song.title}</span>
+                        <span className="">{truncateTitle(song.title, 18)}</span>
                         <div className="ml-auto flex pr-2 ">
                           <div className="mr-2 icon-outline">
                             <PlayButton

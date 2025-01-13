@@ -33,7 +33,7 @@ export default async function AlbumReleaseShow() {
             className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 m-2"
             width={213}
             height={211}
-            src="/images/music/habit/front-cover.png"
+            src="/music/habit/artwork/front-cover.png"
             alt="I spent all my money on a habit album cover"
           />
           <h6 className="text-center">Available Now</h6>
@@ -83,7 +83,7 @@ export default async function AlbumReleaseShow() {
           </div>
         </div>
         <div className="mt-6 relative flex flex-col justify-center items-center  text-center">
-          <h4 className="text-3xl mb-2">The Bands</h4>
+          <h4 className="text-3xl mb-2">Tonight&apos;s Bands</h4>
           <div className="m-4">
             <h5 className="text-2xl">Leaving Missouri</h5>
             <a
@@ -94,11 +94,11 @@ export default async function AlbumReleaseShow() {
               <h6 className="text-xl">Website</h6>
             </a>
             <a
-              href="https://open.spotify.com/artist/6ccBaxBBCefMLqkUEmosdt"
+              href="https://leavingmissouri.bandcamp.com"
               target="_blank"
               rel="noreferrer noopener"
               className="text-2xl text-blue-300 hover:text-blue-400 underline">
-              <h6 className="text-xl">Spotify</h6>
+              <h6 className="text-xl">Bandcamp</h6>
             </a>
             <a
               href="https://www.instagram.com/leavingmissouri/"
@@ -106,6 +106,13 @@ export default async function AlbumReleaseShow() {
               rel="noreferrer noopener"
               className="text-2xl text-blue-300 hover:text-blue-400 underline">
               <h6 className="text-xl">Instagram</h6>
+            </a>
+            <a
+              href="https://open.spotify.com/artist/6ccBaxBBCefMLqkUEmosdt"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="text-2xl text-blue-300 hover:text-blue-400 underline">
+              <h6 className="text-xl">Spotify</h6>
             </a>
           </div>
           <div className="m-4">
@@ -118,18 +125,26 @@ export default async function AlbumReleaseShow() {
               <h6 className="text-xl">Website</h6>
             </a>
             <a
-              href="https://open.spotify.com/artist/1ZhBqLOcchDBuvBOqWoA8w"
+              href="https://randomfog.bandcamp.com/"
               target="_blank"
               rel="noreferrer noopener"
               className="text-2xl text-blue-300 hover:text-blue-400 underline">
-              <h6 className="text-xl">Spotify</h6>
+              <h6 className="text-xl">Bandcamp</h6>
             </a>
+
             <a
               href="https://www.instagram.com/randomfogband/"
               target="_blank"
               rel="noreferrer noopener"
               className="text-2xl text-blue-300 hover:text-blue-400 underline">
               <h6 className="text-xl">Instagram</h6>
+            </a>
+            <a
+              href="https://open.spotify.com/artist/1ZhBqLOcchDBuvBOqWoA8w"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="text-2xl text-blue-300 hover:text-blue-400 underline">
+              <h6 className="text-xl">Spotify</h6>
             </a>
           </div>
           <div className="m-4">
@@ -142,11 +157,11 @@ export default async function AlbumReleaseShow() {
               <h6 className="text-xl">Website</h6>
             </Link>
             <a
-              href="https://open.spotify.com/artist/337ssIYmyo5p8gCv8v5X1z"
+              href="https://thelongemergency.bandcamp.com/"
               target="_blank"
               rel="noreferrer noopener"
               className="text-2xl text-blue-300 hover:text-blue-400 underline">
-              <h6 className="text-xl">Spotify</h6>
+              <h6 className="text-xl">Bandcamp</h6>
             </a>
             <a
               href="https://www.instagram.com/longemergency/"
@@ -154,6 +169,13 @@ export default async function AlbumReleaseShow() {
               rel="noreferrer noopener"
               className="text-2xl text-blue-300 hover:text-blue-400 underline">
               <h6 className="text-xl">Instagram</h6>
+            </a>
+            <a
+              href="https://open.spotify.com/artist/337ssIYmyo5p8gCv8v5X1z"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="text-2xl text-blue-300 hover:text-blue-400 underline">
+              <h6 className="text-xl">Spotify</h6>
             </a>
           </div>
         </div>

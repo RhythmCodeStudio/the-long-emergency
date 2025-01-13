@@ -303,7 +303,7 @@ const songs = [
     year: 2025,
     genre: ["Rock", "Indie"],
     track_number: 4,
-    src: "/music/habit/mp3/04-standing-on-a-tree-stump-with-a-bunch-of-buttons-in-my-hand.mp3",
+    src: "/music/habit/mp3/04-standing-on-a-tree-stump.mp3",
     bandcamp_url:
       "https://thelongemergency.bandcamp.com/track/standing-on-a-tree-stump-with-a-bunch-of-buttons-in-my-hand",
     lyrics: [""],

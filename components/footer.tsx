@@ -37,7 +37,7 @@ export const Footer = () => {
         </div>
       </div>
       <span className="expand-on-load text-sm p-2 text-center text-outline">
-        <span className="">©</span> 2024 The Long Emergency
+        <span className="">©</span> 2025
       </span>
       <a
         className="flex flex-col items-center justify-center text-center "

@@ -24,9 +24,16 @@ export default async function AlbumReleaseShow() {
           Friday January 17th, 2025 <br /> Greenfinch Theater & Dive <br />
           St. Louis, MO
         </h3>
-        <p className="p-2 m-2 text-center lg:text-lg">
+        {/* <p className="p-2 m-2 text-center lg:text-lg">
           Thank you for choosing to spend your time with us this evening.
-        </p>
+        </p> */}
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.purplepass.com/events/304686-the-long-emergency-%7C-album-release-show---featurin-jan-17th-2025"
+          className="bg-blue-500 hover:bg-blue-700 py-2 px-4 rounded-full mt-2 border-2 border-black">
+          <p className="text-outline">Tickets</p>
+        </a>
         <h4 className="text-outline mt-4 text-lg lg:text-2xl p-2">
           The Long Emergency proudly presents the new album:
         </h4>
@@ -39,7 +46,9 @@ export default async function AlbumReleaseShow() {
             src="/music/habit/album-art/front-cover.png"
             alt="I spent all my money on a habit album cover"
           />
-          <h6 className="text-center text-2xl text-blue-300 hover:text-blue-400 underline">Available Now</h6>
+          <h6 className="text-center text-2xl text-blue-300 hover:text-blue-400 underline">
+            Available Now
+          </h6>
         </Link>
         <div className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 p-6 m-12 relative flex flex-col justify-center items-center text-outline text-center">
           <p className="text-lg">
@@ -197,7 +206,6 @@ export default async function AlbumReleaseShow() {
             className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 mb-12 xl:mb-0"
           />
         </div>
-        <h6>Thank you for coming!</h6>
       </div>
     </div>
   );

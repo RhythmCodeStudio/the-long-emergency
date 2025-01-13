@@ -34,7 +34,7 @@ export default function ShowDisplay({ gigs }: { gigs: any[] }) {
                       alt="show poster"
                       width={300}
                       height={425}
-                      className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 expand-on-load"
+                      className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 expand-on-load hover:scale-105 transform transition-transform duration-500 ease-in-out"
                     />
                   </Link>
                 </div>

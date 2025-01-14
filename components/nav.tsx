@@ -109,7 +109,7 @@ export default function Nav() {
       </ul>
       <div className="absolute top-4 right-4 md:hidden">
         <button onClick={openMenu} aria-label="Open Menu">
-          <FiMenu className="expand-on-load text-2xl" />
+          <FiMenu className="z-50 expand-on-load text-2xl" />
         </button>
       </div>
     </nav>

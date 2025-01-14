@@ -4,9 +4,9 @@ import Image from "../../../components/image";
 
 // export metadata
 export const metadata = {
-  title: "Album Release Show",
+  title: "The Long Emergency | Album Release Show",
   description:
-    "The Long Emergency Album Release Show at Greenfinch Theater & Dive in St. Louis, MO",
+    "The Long Emergency album release show at Greenfinch Theater & Dive in St. Louis, Missouri. January 17th, 2025",
 };
 
 export default async function AlbumReleaseShow() {
@@ -212,7 +212,9 @@ export default async function AlbumReleaseShow() {
           />
         </div>
         <Link href="/">
-          <h6 className="mb-12 -mt-4 text-lg text-blue-300 hover:text-blue-400 underline">www.thelongemergency.net</h6>
+          <h6 className="mb-12 -mt-4 text-lg text-blue-300 hover:text-blue-400 underline">
+            www.thelongemergency.net
+          </h6>
         </Link>
       </div>
     </div>

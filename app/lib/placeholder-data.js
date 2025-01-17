@@ -376,7 +376,7 @@ const songs = [
     bandcamp_url: "https://thelongemergency.bandcamp.com/track/last-night-2",
     lyrics: [
       "Well I've got this little life\nAnd I've got a little bit of gasoline\nI just need a little spark to\n Light a big fire for all to see\nSo I've got one question\nHave you got a match for me?\nLet's light up the night and\n Burn this motherfucker clean",
-      "Tonight\nTonight\nTonight I'm gonna make everything right",
+      "Cause last night\nLast night\nLast night I just couldn't sleep tight",
       "When I left your house this morning\nI felt more than a bit sad\nBut more so I felt thankful\nFor what we do still have\nLast night I openend that old familiar door\nThe one I've closed so many times\nSuch solemn promisies I swore",
       "Last night\nLast night\nLast night I just couldn't sleep tight",
       "When I woke from sleep that morning\nI humbled myself and prayed\nAnd yet still I felt the summons\nDemons or I'm insane\nLast night I opened that old familiar door\nThe one I've closed so many times\nSuch solemn promisies I swore",

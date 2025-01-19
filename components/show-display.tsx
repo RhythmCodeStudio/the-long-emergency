@@ -104,14 +104,14 @@ export default function ShowDisplay({}: { gigs: any[] }) {
           onClick={() => setGigState("upcoming")}
           className={`${
             gigState === "upcoming" ? "bg-blue-300 text-lg" : "bg-white"
-          } hover:scale-110 transition transition-transform duration-300 ease-in-out hover:bg-blue-500 hover:text-white p-2 m-2 rounded-full border-2 border-black shadow-blue-300/50 text-black`}>
+          } hover:scale-110 transition transition-transform duration-300 ease-in-out md:hover:bg-blue-500 md:hover:text-white p-2 m-2 rounded-full border-2 border-black shadow-blue-300/50 text-black`}>
           Future
         </button>
         <button
           onClick={() => setGigState("past")}
           className={`${
             gigState === "past" ? "bg-blue-300 text-lg" : "bg-white"
-          } hover:scale-110 transition transition-transform duration-300 ease-in-out hover:bg-blue-500 hover:text-white p-2 px-5 m-2 rounded-full border-2 border-black shadow-blue-300/50 text-black`}>
+          } hover:scale-110 transition transition-transform duration-300 ease-in-out md:hover:bg-blue-500 md:hover:text-white p-2 px-5 m-2 rounded-full border-2 border-black shadow-blue-300/50 text-black`}>
           Past
         </button>
       </div>

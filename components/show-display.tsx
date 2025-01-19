@@ -89,16 +89,14 @@ export default function ShowDisplay({}: { gigs: any[] }) {
     const gigDate = new Date(gig.date);
     return gigDate < today;
   });
-  console.log("past", pastGigs);
 
   const upcomingGigs = gigs.filter((gig) => {
     const gigDate = new Date(gig.date);
     return gigDate >= today;
   });
-  console.log("future", upcomingGigs);
 
   const filteredGigs = gigState === "upcoming" ? upcomingGigs : pastGigs;
-  console.log("filtered", filteredGigs);
+  
   return (
     <>
       <div className="flex justify-center items-center">

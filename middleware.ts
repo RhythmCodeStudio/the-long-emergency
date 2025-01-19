@@ -26,7 +26,7 @@ export function middleware(request: NextRequest) {
     object-src 'none';
     base-uri 'self';
     form-action 'self';
-    frame-src 'self' https://thelongemergency.bandcamp.com/ https://vercel.live;
+    frame-src 'self' https://thelongemergency.bandcamp.com/ https://vercel.live https://bandcamp.com/;
     frame-ancestors 'none';
     upgrade-insecure-requests;
   `;

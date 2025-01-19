@@ -82,6 +82,7 @@ export default function ShowDisplay({  }: { gigs: any[] }) {
     return gigDate < today;
   });
   console.log('pastGigs',pastGigs);
+
   const upcomingGigs = gigs.filter((gig) => {
     const gigDate = new Date(gig.date).toLocaleDateString("en-US", {
       day: "2-digit",
@@ -91,19 +92,51 @@ export default function ShowDisplay({  }: { gigs: any[] }) {
     return gigDate >= today;
   });
   console.log(upcomingGigs);
+
+  const filteredGigs = gigState === "upcoming" ? upcomingGigs : pastGigs;
+  console.log('filteredGigs',filteredGigs);
+
   return (
+    <>
+    <div className="flex justify-center items-center">
+      <button
+        onClick={() => setGigState("upcoming")}
+        className={`${
+          gigState === "upcoming"
+            ? "bg-blue-300 text-black"
+            : "bg-white text-black"
+        } p-2 m-2 rounded-full border-2 border-black`}>
+        Future
+      </button>
+      <button
+        onClick={() => setGigState("past")}
+        className={`${
+          gigState === "past"
+            ? "bg-blue-300 text-black"
+            : "bg-white text-black"
+        } p-2 m-2 rounded-full border-2 border-black`}>
+        Past
+      </button>
+    </div>
     <div className="p-6 text-outline">
-      {gigs.length === 0 ? (
-        <div className="p-6 expand-on-load">
-          <p className="text-center  text-lg md:text-xl">
-            No shows currently scheduled. Please{" "}
-            <span className="underline font-bold">
+    
+      {filteredGigs.length === 0 ? (
+        <div className="p-6">
+          <p className="text-center  text-lg md:text-xl text-balance">
+            No upcoming shows currently scheduled.<br /> Please{" "}
+            <span className="text-blue-300 hover:text-blue-400 underline">
               <Link href="/contact">contact</Link>
             </span>{" "}
             for booking.
           </p>
         </div>
       ) : (
+        <>
+        {gigState === "upcoming" && (
+          <h3 className="expand-on-load pt-2 text-outline text-center">
+            The Long Emergency is coming...
+          </h3>
+        )}
         <ul
           className={`grid ${
             gigs.length === 1
@@ -148,21 +181,25 @@ export default function ShowDisplay({  }: { gigs: any[] }) {
                   <p className=" text-center">{gig.cost}</p>
                   <p className=" text-center">{gig.gig_info}</p>
                   <p className=" text-center">{gig.other_acts}</p>
-                  <div className="flex justify-center expand-on-load">
-                    <a
+                    {gigState === "upcoming" && (
+                    <div className="flex justify-center expand-on-load">
+                      <a
                       target="_blank"
                       rel="noopener noreferrer"
                       href={gig.ticket_url}
                       className="inline-block bg-blue-500 hover:bg-blue-700 py-2 px-4 rounded-full mt-2 border-2 border-black">
                       <p className="text-outline">Tickets</p>
-                    </a>
-                  </div>
+                      </a>
+                    </div>
+                    )}
                 </div>
               </div>
             </li>
           ))}
         </ul>
+        </>
       )}
     </div>
+    </>
   );
 }

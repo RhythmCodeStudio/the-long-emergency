@@ -11,7 +11,7 @@ export const metadata = {
 
 export default async function AlbumReleaseShow() {
   return (
-    <div className="bg-[rgba(0,0,0,0.5)] md:bg-transparent ">
+    <div>
       <div className="relative flex flex-col justify-center items-center text-outline text-center">
         <h2 className="font-emergency text-2xl lg:text-3xl xl:text-4xl m-4 text-center">
           Album Release Show

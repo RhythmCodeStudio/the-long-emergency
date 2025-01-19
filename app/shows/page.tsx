@@ -10,67 +10,9 @@ export const metadata = {
 };
 
 export default async function ShowsPage() {
-  const gigs: any[] = [
-    {
-      date: "1/17/2025",
-      venue: "Greenfinch Theater & Dive",
-      venue_url: "https://www.greenfinchstl.com/",
-      city: "St. Louis",
-      state: "MO",
-      country: "USA",
-      street_address: "2525 S Jefferson Ave",
-      zip_code: "63104",
-      google_maps_url: "https://maps.app.goo.gl/5AfvwCu6JxsyWoQo7",
-      gig_info: "Album Release Show",
-      other_acts: "with Leaving Missouri and Random Fog",
-      cost: "$5",
-      ticket_url:
-        "https://www.purplepass.com/events/304686-the-long-emergency-%7C-album-release-show---featurin-jan-17th-2025",
-      poster: "/images/show-posters/masks.png",
-      show_page: "/shows/greenfinch-stlouis-1-17-2025",
-    },
-    // {
-    //   date: "1/13/1992",
-    //   venue: "Mississippi Nights",
-    //   city: "St. Louis",
-    //   state: "MO",
-    //   country: "USA",
-    //   gig_info: "Dream Show",
-    //   other_acts: "with Uncle Tupelo and Blind Melon",
-    //   cost: "$5",
-    //   ticket_url:
-    //     "https://www.purplepass.com/events/304686-the-long-emergency-%7C-album-release-show---featurin-jan-17th-2025",
-    //   poster: "/images/show-posters/masks.png",
-    // },
-    // {
-    //   date: "2/13/1992",
-    //   venue: "The Blue Note",
-    //   city: "Columbia",
-    //   state: "MO",
-    //   country: "USA",
-    //   gig_info: "Dream Show",
-    //   other_acts: "with Uncle Tupelo and Blind Melon",
-    //   cost: "$5",
-    //   ticket_url:
-    //     "https://www.purplepass.com/events/304686-the-long-emergency-%7C-album-release-show---featurin-jan-17th-2025",
-    //   poster: "/images/show-posters/masks.png",
-    // },
-    // {
-    //   date: "3/13/1992",
-    //   venue: "Off Broadway",
-    //   city: "St. Louis",
-    //   state: "MO",
-    //   country: "USA",
-    //   gig_info: "Dream Show",
-    //   other_acts: "with Uncle Tupelo and Blind Melon",
-    //   cost: "$5",
-    //   ticket_url:
-    //     "https://www.purplepass.com/events/304686-the-long-emergency-%7C-album-release-show---featurin-jan-17th-2025",
-    //   poster: "/images/show-posters/yellow.png",
-    // },
-  ];
-  const showsPageData = await getPage("shows");
 
+  const showsPageData = await getPage("shows");
+  
   return (
     <div className="bg-[rgba(0,0,0,0.5)] md:bg-transparent">
       <div className="relative flex flex-col justify-center items-center">
@@ -82,7 +24,7 @@ export default async function ShowsPage() {
         <h3 className="expand-on-load  pt-2 text-outline">
           The Long Emergency is coming...
         </h3>
-        <ShowDisplay gigs={gigs} />
+        <ShowDisplay gigs={[]} />
         <div className="lg:m-12 expand-on-load w-full h-auto px-8 flex justify-center">
           <Image
             priority

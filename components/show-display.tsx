@@ -71,7 +71,6 @@ export default function ShowDisplay({  }: { gigs: any[] }) {
     month: "2-digit",
     year: "numeric",
   });
-  console.log(today);
 
   const pastGigs = gigs.filter((gig) => {
     const gigDate = new Date(gig.date).toLocaleDateString("en-US", {
@@ -81,7 +80,6 @@ export default function ShowDisplay({  }: { gigs: any[] }) {
     });
     return gigDate < today;
   });
-  console.log('pastGigs',pastGigs);
 
   const upcomingGigs = gigs.filter((gig) => {
     const gigDate = new Date(gig.date).toLocaleDateString("en-US", {
@@ -91,10 +89,8 @@ export default function ShowDisplay({  }: { gigs: any[] }) {
     });
     return gigDate >= today;
   });
-  console.log(upcomingGigs);
 
   const filteredGigs = gigState === "upcoming" ? upcomingGigs : pastGigs;
-  console.log('filteredGigs',filteredGigs);
 
   return (
     <>
@@ -103,18 +99,18 @@ export default function ShowDisplay({  }: { gigs: any[] }) {
         onClick={() => setGigState("upcoming")}
         className={`${
           gigState === "upcoming"
-            ? "bg-blue-300 text-black"
-            : "bg-white text-black"
-        } p-2 m-2 rounded-full border-2 border-black`}>
+            ? "bg-blue-300 text-lg"
+            : "bg-white"
+        } hover:bg-blue-500 hover:text-white p-2 m-2 rounded-full border-2 border-black shadow-blue-300/50 text-black`}>
         Future
       </button>
       <button
         onClick={() => setGigState("past")}
         className={`${
           gigState === "past"
-            ? "bg-blue-300 text-black"
-            : "bg-white text-black"
-        } p-2 m-2 rounded-full border-2 border-black`}>
+            ? "bg-blue-300 text-lg"
+            : "bg-white"
+        } hover:bg-blue-500 hover:text-white p-2 px-5 m-2 rounded-full border-2 border-black shadow-blue-300/50 text-black`}>
         Past
       </button>
     </div>

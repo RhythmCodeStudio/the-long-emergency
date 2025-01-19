@@ -29,6 +29,7 @@ export default function ShowDisplay({}: { gigs: any[] }) {
     {
       date: "05/11/2013",
       venue: "The Nomad World Pub",
+      venue_url: "https://www.startribune.com/minneapolis-soccer-bocce-and-music-bar-part-wolf-ex-nomad-pub-to-close-jan-28/600137435",
       city: "Minneapolis",
       state: "MN",
       country: "USA",

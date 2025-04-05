@@ -7,6 +7,9 @@ import Image from "../../components/image";
 export const metadata  = {
   title: "Contact",
   description: "Contact The Long Emergency",
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
 export default async function ContactPage() {

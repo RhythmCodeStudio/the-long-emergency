@@ -7,6 +7,9 @@ import MerchForSale from "../../components/merch-for-sale";
 export const metadata  = {
   title: "Merch",
   description: "Buy cool stuff from The Long Emergency",
+  alternates: {
+    canonical: "/merch",
+  },
 };
 
 export default async function MerchPage() {

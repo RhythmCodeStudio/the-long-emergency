@@ -8,6 +8,9 @@ import ShowDisplay from "@/components/show-display";
 export const metadata = {
   title: "Shows",
   description: "Shows by The Long Emergency",
+  alternates: {
+    canonical: "/shows",
+  },
 };
 
 export default async function ShowsPage() {

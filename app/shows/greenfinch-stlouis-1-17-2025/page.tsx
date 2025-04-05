@@ -7,6 +7,9 @@ export const metadata = {
   title: "The Long Emergency | Album Release Show",
   description:
     "The Long Emergency album release show at Greenfinch Theater & Dive in St. Louis, Missouri. January 17th, 2025",
+  alternates: {
+    canonical: "/shows/greenfinch-stlouis-1-17-2025",
+  },
 };
 
 export default async function AlbumReleaseShow() {

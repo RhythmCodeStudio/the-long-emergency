@@ -8,6 +8,9 @@ import Image from "../../components/image";
 export const metadata = {
   title: "Blog",
   description: "Blog posts by The Long Emergency",
+  alternates: {
+    canonical: "/blog",
+  },
 };
 
 export default async function BlogPage() {

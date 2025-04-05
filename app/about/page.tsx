@@ -8,6 +8,9 @@ import BandBio from "../../components/band-bio";
 export const metadata  = {
   title: "About",
   description: "About The Long Emergency",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 export default async function AboutPage() {

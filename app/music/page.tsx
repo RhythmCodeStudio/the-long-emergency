@@ -4,6 +4,9 @@ import MusicDisplay from "../../components/music-display";
 export const metadata = {
   title: "Music",
   description: "Music by The Long Emergency",
+  alternates: {
+    canonical: "/music",
+  },
 };
 
 export default async function MusicPage() {

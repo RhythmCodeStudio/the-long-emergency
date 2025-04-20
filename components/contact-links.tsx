@@ -33,13 +33,7 @@ export default function ContactLinks({ size }: { size: number }) {
       icon: <FiInstagram size={size} className="icon-outline"/>,
       label: "Follow The Long Emergency on Instagram",
       name: "Follow The Long Emergency on Instagram",
-    },
-    {
-      href: "https://www.facebook.com/thelongemergencyband",
-      icon: <FiFacebook size={size} className="icon-outline"/>,
-      label: "Follow The Long Emergency on Facebook",
-      name: "Follow The Long Emergency on Facebook",
-    },
+    }
   ];
   return (
     <div className="flex justify-center items-center space-x-10 sm:space-x-16 md:space-x-24  m-4 p-2">

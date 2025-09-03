@@ -3,8 +3,8 @@ import { usePathname } from "next/navigation";
 import Marquee from "react-fast-marquee";
 import { headers } from "next/headers";
 
-export default function ScrollingBanner() {
-  const nonce = headers().get("x-nonce") || undefined;
+export default async function ScrollingBanner() {
+  const nonce = (await headers()).get("x-nonce") || undefined;
   const currentPath = usePathname();
   return (
     <div

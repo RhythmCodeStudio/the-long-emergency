@@ -5,8 +5,8 @@ import {
   ModalBody,
   ModalFooter,
   useDisclosure,
-} from "@nextui-org/react";
-import { on } from "events";
+} from "@heroui/react";
+// import { on } from "events";
 // import icons
 import { FiX } from "react-icons/fi";
 

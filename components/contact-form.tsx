@@ -4,7 +4,7 @@ import { track } from "@vercel/analytics";
 // import from react
 import { ChangeEvent, SetStateAction, useState } from "react";
 //import from nextui
-import { Button, ButtonGroup } from "@nextui-org/button";
+import { Button, ButtonGroup } from "@heroui/react";
 // import from toastify
 import { Bounce, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

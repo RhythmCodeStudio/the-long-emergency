@@ -67,7 +67,7 @@ export default function MerchForSale({ merch }: { merch: MerchProduct[] }) {
               <a
                 rel="noopener noreferrer"
                 target="_blank"
-                href={product.stripe_url}
+                href=""
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                 Buy
               </a>

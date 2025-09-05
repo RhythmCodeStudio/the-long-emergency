@@ -5,10 +5,7 @@ export default function BandBio() {
   return (
     <section className=" p-2 px-8 max-w-800 flex flex-col md:text-lg">
       <div className="pb-3 lg:px-48 xl:px-64 2xl:px-96  rounded-2xl">
-        <p
-          className="text-outline"
-          // style={{ backgroundColor: "rgba(0, 0, 0, 0.6)" }}
-        >
+        <p className="text-outline">
           I was active in the Twin Cities independent music scene from around
           2003 through 2013 as a solo artist and with several different bands.
           In 2013 I formed The Long Emergency as a vehicle for my songwriting.
@@ -17,10 +14,7 @@ export default function BandBio() {
         </p>
       </div>
       <div className="pb-3 lg:px-48 xl:px-64 2xl:px-96  rounded-2xl">
-        <p
-          className="text-outline"
-          // style={{ backgroundColor: "rgba(0, 0, 0, 0.6)" }}
-        >
+        <p className="text-outline">
           That summer I moved to Austin, TX with plans to promote the new album
           and form a new version of The Long Emergency to continue performing
           and recording. After about a year in Texas I came to terms with the
@@ -72,7 +66,6 @@ export default function BandBio() {
       </div>
       <div className="py-3 lg:px-48 xl:px-64 2xl:px-96 ">
         <p className="text-outline">
-          {/* I used to beat myself up for not putting more of an effort into pursuing music as a career. I used to think that I had wasted my talent and not much of anything with my music. With the wisdom of hindsight I can see that this is not true.  */}
           These songs saved my life. I&apos;ve never really shared them in the
           way that they deserve. I offer them now in the hope that they might
           help someone else. Maybe that&apos;s silly. I don&apos;t know. I do
@@ -85,11 +78,6 @@ export default function BandBio() {
       <div className="py-3 lg:px-48 xl:px-64 2xl:px-96 ">
         <p className="text-outline">Thank you for listening.</p>
       </div>
-      {/* <div className="py-3 lg:px-48 xl:px-64 2xl:px-96 ">
-        <p className="text-outline">
-          If you are struggling with addiction please know that it is not your fault. You are not a bad person. Feel free to reach out and say hi.
-        </p>
-      </div> */}
       <div className="py-3 lg:px-48 xl:px-64 2xl:px-96 ">
         <p className="mt-6 text-outline text-right">
           -&nbsp;
@@ -97,7 +85,7 @@ export default function BandBio() {
             href="https://www.discogs.com/artist/3655286-Kevin-Long-5"
             target="_blank"
             rel="noopener noreferrer">
-            Kevin Long
+            Kevin
           </a>
         </p>
       </div>

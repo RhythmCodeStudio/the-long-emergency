@@ -41,7 +41,7 @@ export const Footer = () => {
         href="https://rhythmcodestudio.tech"
         target="_blank"
         rel="noopener noreferrer">
-        <span className="expand-on-load text-sm p-2 text-outline  ">
+        <span className="expand-on-load text-sm p-2 text-outline">
           Website by Rhythm Code Studio LLC
         </span>
         <Image

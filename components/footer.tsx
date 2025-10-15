@@ -26,7 +26,7 @@ export const Footer = () => {
         <div className={`hidden lg:block`}>
           <ContactLinks size={28} />
         </div>
-        <div className={`block sm:hidden`}>
+        {/* <div className={`block sm:hidden`}>
           <MusicLinks size={18} />
         </div>
         <div className={`hidden sm:block lg:hidden`}>
@@ -34,7 +34,7 @@ export const Footer = () => {
         </div>
         <div className={`hidden lg:block`}>
           <MusicLinks size={28} />
-        </div>
+        </div> */}
       </div>
       <span className="expand-on-load text-sm p-2 text-center text-outline">
         <span className="">©</span> 2025

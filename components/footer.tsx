@@ -4,15 +4,12 @@ import Image from "./image";
 import { usePathname } from "next/navigation";
 // import components
 import ContactLinks from "./contact-links";
-import MusicLinks from "./music-links";
+// import MusicLinks from "./music-links";
 
 export const Footer = () => {
   const currentPath = usePathname();
   return (
     <footer
-      // className=" flex flex-col items-center justify-center w-full mb-4"
-
-      // className={`flex flex-col items-center justify-center w-full ${currentPath!=="/" ? "bg-[url('/images/background-images/masks-no-text-4800x3190-gaps-filled-horizontal-25per.png')] bg-no-repeat bg-cover bg-bottom xl:bg-none" : " "}`}
       className={`flex flex-col items-center justify-center w-full ${
         currentPath !== "/" ? "bg-[rgba(0,0,0,0.5)] md:bg-transparent" : " "
       }`}>

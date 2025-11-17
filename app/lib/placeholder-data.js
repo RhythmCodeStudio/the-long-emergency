@@ -1,9 +1,9 @@
 const users = [
   {
-    id: "410544b2-4001-4271-9855-fec4b6a6442a",
+    id: "",
     name: "Kevin",
     email: "kevin@rhythmcodestudio.tech",
-    password: "password",
+    password: "",
   },
 ];
 
@@ -399,8 +399,8 @@ const songs = [
     src: "/music/habit/mp3/07-like-breathing.mp3",
     bandcamp_url: "https://thelongemergency.bandcamp.com/track/like-breathing",
     lyrics: [
-      "Who’s gonna dry my back\nWhen i get out of the shower\nYou know i always miss that spot just below my neck\nYou’re always there with a towel",
-      "Who’s gonna scratch your back\nWhen you get that itch\nJust a little higher\nNo a little lower\nTo the left\nDown just a little more\nJust a little more\nRight there\nYeah",
+      "Who's gonna dry my back\nWhen i get out of the shower\nYou know i always miss that spot just below my neck\nYou're always there with a towel",
+      "Who's gonna scratch your back\nWhen you get that itch\nJust a little higher\nNo a little lower\nTo the left\nDown just a little more\nJust a little more\nRight there\nYeah",
       "Who will run laps to keep you warm\nWho will put up with my snoring\nWhen you have a problem who will help you process\nAnd who's gonna paint my puppets",
       "Who will cut my hair\nWho will tell you when meat is done\nWho will call me on my bullshit\nAnd who will pitch you batting practice",
       "Who will grow my food\nWhen you are sick who will take care of you\nWho will take care of me when i am sick\nWho will have your back when your best friend's husband is a dick\nWho will make fun of how i brush my teeth\nWho will help you plant seeds\nWho will help me eat healthy\nWho will chime the bell before you eat\nWho will share your life\nAnd who will teach Walt to ride a bike\nI must be drowning\nOr this Battlestar is losing life support\nWithout you I cannot catch my breath\nCause being with you has always been",

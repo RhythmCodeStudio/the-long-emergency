@@ -40,3 +40,6 @@ next-env.d.ts
 
 .vercel
 .env*.local
+
+# Ignore placeholder data file
+/app/lib/placeholder-data.js

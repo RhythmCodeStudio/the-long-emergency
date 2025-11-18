@@ -16,7 +16,7 @@ export default function MerchForSale({ merch }: { merch: MerchProduct[] }) {
     // localStorage.setItem('selectedItems', JSON.stringify([...selectedItems, product]));
   };
 
-  const removeFromCart = (id: number) => {
+  const removeFromCart = (id: string) => {
     setSelectedItems((prevItems) => prevItems.filter((item) => item.id !== id));
     if (selectedItems.length === 1) {
       setIsModalOpen(false);

@@ -16,7 +16,7 @@ export default function CartModal({
 }: {
   items: MerchProduct[];
   onClose: () => void;
-  onRemove: (id: number) => void;
+  onRemove: (id: string) => void;
 }) {
   // const router = useRouter();
   const cartTotal = items.reduce((acc, item) => acc + item.price, 0);

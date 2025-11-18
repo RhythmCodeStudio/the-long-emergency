@@ -22,7 +22,7 @@ export default async function ShowsPage() {
       <div className="relative flex flex-col justify-center items-center">
         <div className="expand-on-load">
           <h2 className="font-emergency text-2xl lg:text-3xl xl:text-4xl text-outline mt-8 mb-4">
-            {showsPageData.page_title}
+            {showsPageData?.page_title}
           </h2>
         </div>
         <ShowDisplay gigs={[]} />

@@ -1,10 +1,12 @@
 "use client";
 // import from vercel
 import { track } from "@vercel/analytics";
+// import from next
+import Image from "next/image";
 // import from react
 import { ChangeEvent, SetStateAction, useState } from "react";
 //import from nextui
-import { Button, ButtonGroup } from "@heroui/react";
+import { Button } from "@heroui/react";
 // import from toastify
 import { Bounce, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -38,9 +40,11 @@ export default function ContactForm() {
       transition: Bounce,
       position: "top-center",
       icon: (
-        <img
+        <Image
           src="/logos/long-emergency/32x32.png"
           alt="The Long Emergency icon"
+          width={32}
+          height={32}
         />
       ),
       closeOnClick: true,

@@ -52,6 +52,7 @@ export default function MusicDisplay({
     <div className="flex justify-center items center flex-col">
       <div className="px-10 grid grid-cols-1 lg:grid-cols-2 lg:gap-24 flex justify-center items center text-center">
         {albums.map((album) => (
+          console.log(album),
           <div key={album.id} className="m-4  text- md:text-2xl">
             <div className="text-outline expand-on-load ">
               <h3 className="text-xl">{album.title}</h3>
@@ -87,7 +88,9 @@ export default function MusicDisplay({
                 <ol className="list-decimal list-inside pl-2 expand-on-load">
                   {songs
                     .filter((song) => song.album === album.id)
+                    .sort((a, b) => a.track_number - b.track_number)
                     .map((song, index) => (
+                      // console.log(song, index),
                       <li key={song.id} className="flex items-center my-1 z-0">
                         <span className="mr-2">{index + 1}.</span>
                         <span className="">{truncateTitle(song.title, 18)}</span>

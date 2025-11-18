@@ -1,25 +1,37 @@
-const { db } = require("@vercel/postgres");
-const { users } = require("../app/lib/placeholder-data.js");
-const { pages } = require("../app/lib/placeholder-data.js");
-const { albums } = require("../app/lib/placeholder-data.js");
-const { songs } = require("../app/lib/placeholder-data.js");
-const { merch } = require("../app/lib/placeholder-data.js");
+// const { db } = require("@vercel/postgres");
+// const { users } = require("../app/lib/placeholder-data.js");
+// const { pages } = require("../app/lib/placeholder-data.js");
+// const { albums } = require("../app/lib/placeholder-data.js");
+// const { songs } = require("../app/lib/placeholder-data.js");
+// const { merch } = require("../app/lib/placeholder-data.js");
+import postgres from "postgres";
+import bcrypt from "bcrypt";
+import 'dotenv/config'; // or require('dotenv').config({ path: '.env.local' });
+import { 
+  users,
+  pages,
+  albums,
+  songs,
+  merch 
+} from "../app/lib/initial-site-data.js";
 
-const bcrypt = require("bcrypt");
+const sql = postgres(process.env.DATABASE_URL, { ssl: "require" });
+console.log('Connecting to:', process.env.DATABASE_URL);
+// const bcrypt = require("bcrypt");
 
-async function seedSongs(client) {
+async function seedSongs() {
   try {
-    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
-    await client.sql`
+    await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+    await sql`
      DROP TABLE IF EXISTS songs;
    `;
     // Create the "songs" table if it doesn't exist
-    const createTable = await client.sql`
+    const createTable = await sql`
       CREATE TABLE IF NOT EXISTS songs (
-        id INT PRIMARY KEY,
+        id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
         title TEXT NOT NULL,
         artist TEXT NOT NULL,
-        album INT NOT NULL,
+        album UUID NOT NULL,
         year INT NOT NULL,
         genre TEXT NOT NULL,
         track_number INT NOT NULL,
@@ -34,7 +46,7 @@ async function seedSongs(client) {
     // Insert data into the "songs" table
     const insertedSongs = await Promise.all(
       songs.map(async (song) => {
-        return client.sql`
+        return sql`
         INSERT INTO songs (id, title, artist, album, year, genre, track_number, src, bandcamp_url, lyrics)
         VALUES (${song.id}, ${song.title}, ${song.artist}, ${song.album}, ${song.year}, ${song.genre}, ${song.track_number}, ${song.src}, ${song.bandcamp_url}, ${song.lyrics})
         ON CONFLICT (id) DO NOTHING;
@@ -52,16 +64,16 @@ async function seedSongs(client) {
   }
 }
 
-async function seedAlbums(client) {
+async function seedAlbums() {
   try {
-    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
-    await client.sql`
+    await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+    await sql`
     DROP TABLE IF EXISTS albums CASCADE;
     `;
     // Create the "albums" table if it doesn't exist
-    const createTable = await client.sql`
+    const createTable = await sql`
       CREATE TABLE IF NOT EXISTS albums (
-        id INT PRIMARY KEY,
+        id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
         title TEXT NOT NULL,
         artist TEXT NOT NULL,
         year INT NOT NULL,
@@ -77,7 +89,7 @@ async function seedAlbums(client) {
     // Insert data into the "albums" table
     const insertedAlbums = await Promise.all(
       albums.map(async (album) => {
-        return client.sql`
+        return sql`
         INSERT INTO albums (id, title, artist, year, genre, cover_image, type, zip, bandcamp_url)
         VALUES (${album.id}, ${album.title}, ${album.artist}, ${album.year}, ${album.genre}, ${album.cover_image}, ${album.type}, ${album.zip}, ${album.bandcamp_url})
         ON CONFLICT (id) DO NOTHING;
@@ -95,13 +107,13 @@ async function seedAlbums(client) {
   }
 }
 
-async function seedUsers(client) {
+async function seedUsers() {
   try {
-    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+    await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
     // Create the "users" table if it doesn't exist
-    const createTable = await client.sql`
+    const createTable = await sql`
       CREATE TABLE IF NOT EXISTS users (
-        id INT PRIMARY KEY,
+        id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
         name VARCHAR(255) NOT NULL,
         email TEXT NOT NULL UNIQUE,
         password TEXT NOT NULL
@@ -114,10 +126,10 @@ async function seedUsers(client) {
     const insertedUsers = await Promise.all(
       users.map(async (user) => {
         const hashedPassword = await bcrypt.hash(user.password, 10);
-        return client.sql`
+        return sql`
         INSERT INTO users (id, name, email, password)
         VALUES (${user.id}, ${user.name}, ${user.email}, ${hashedPassword})
-        ON CONFLICT (id) DO NOTHING;
+        ON CONFLICT (email) DO NOTHING;
       `;
       })
     );
@@ -134,17 +146,17 @@ async function seedUsers(client) {
   }
 }
 
-async function seedPages(client) {
+async function seedPages() {
   try {
-    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+    await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
     // Drop the "pages" table if it exists
-    await client.sql`
+    await sql`
      DROP TABLE IF EXISTS pages;
    `;
     // Create the "pages" table if it doesn't exist
-    const createTable = await client.sql`
+    const createTable = await sql`
       CREATE TABLE IF NOT EXISTS pages (
-        id INT PRIMARY KEY,
+        id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
         url TEXT NOT NULL,
         name TEXT NOT NULL,
         slug TEXT NOT NULL,
@@ -158,7 +170,7 @@ async function seedPages(client) {
     // Insert data into the "pages" table
     const insertedPages = await Promise.all(
       pages.map(async (page) => {
-        return client.sql`
+        return sql`
         INSERT INTO pages (id, url, name, slug, page_title, sections)
         VALUES (${page.id}, ${page.url}, ${page.name}, ${page.slug}, ${page.page_title}, ${page.sections})
         ON CONFLICT (id) DO UPDATE SET url = EXCLUDED.url, name = EXCLUDED.name, slug = EXCLUDED.slug, page_title = EXCLUDED.page_title, sections = EXCLUDED.sections;
@@ -178,21 +190,21 @@ async function seedPages(client) {
   }
 }
 
-async function seedMerch(client) {
+async function seedMerch() {
   try {
-    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+    await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
     // Drop the "merch" table if it exists
-    await client.sql`
+    await sql`
     DROP TABLE IF EXISTS merch;
   `;
     // Create the "merch" table if it doesn't exist
-    const createTable = await client.sql`
+    const createTable = await sql`
       CREATE TABLE IF NOT EXISTS merch (
-        id INT PRIMARY KEY,
+        id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
         name TEXT NOT NULL,
         price INT NOT NULL,
         image TEXT NOT NULL,
-        description TEXT NOT NULL,
+        description TEXT NOT NULL
       );
     `;
 
@@ -201,7 +213,7 @@ async function seedMerch(client) {
     // Insert data into the "merch" table
     const insertedMerch = await Promise.all(
       merch.map(async (item) => {
-        return client.sql`
+        return sql`
         INSERT INTO merch (id, name, price, description, image)
         VALUES (${item.id}, ${item.name}, ${item.price}, ${item.description}, ${item.image})
         ON CONFLICT (id) DO NOTHING;
@@ -222,15 +234,12 @@ async function seedMerch(client) {
 }
 
 async function main() {
-  const client = await db.connect();
-
-  await seedUsers(client);
-  await seedPages(client);
-  await seedAlbums(client);
-  await seedSongs(client);
-  await seedMerch(client);
-
-  await client.end();
+  await seedUsers();
+  await seedPages();
+  await seedAlbums();
+  await seedSongs();
+  await seedMerch();
+  await sql.end();
 }
 
 main().catch((err) => {

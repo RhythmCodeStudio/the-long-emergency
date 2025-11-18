@@ -17,8 +17,7 @@ export function middleware(request: NextRequest) {
   const developmentCspHeader = `
     default-src 'self';
     connect-src 'self' https://api.emailjs.com/ https://vercel.live wss://ws-us3.pusher.com
-    https://api.iconify.design/
-    ;
+    https://api.iconify.design;
     script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com;
     style-src 'self' https://vercel.live 'unsafe-inline';
     img-src 'self' https://vercel.live https://vercel.com blob: data:;

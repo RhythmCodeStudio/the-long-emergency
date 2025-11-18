@@ -42,4 +42,4 @@ next-env.d.ts
 .env*.local
 
 # Ignore placeholder data file
-/app/lib/placeholder-data.js
+/app/lib/initial-site-data.js

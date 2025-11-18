@@ -20,14 +20,14 @@
     "paths": {
       "@/*": ["./*"]
     },
-    "target": "ES2017",
+    "target": "ES2017"
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/lib/placeholder-data.js",
+    "app/lib/initial-site-data.js",
     "scripts/seed.js"
   ],
   "exclude": ["node_modules"]

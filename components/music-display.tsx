@@ -6,9 +6,9 @@ import { useState } from "react";
 import Image from "./image";
 // import components
 import MusicPlayer from "./music-player";
-// import DownloadButton from "./download-button";
+import DownloadButton from "./download-button";
 import PlayButton from "./play-button";
-import BandcampModal from "./bandcamp-modal";
+// import BandcampModal from "./bandcamp-modal";
 // import icons
 // import { FiDownload } from "react-icons/fi";
 // import data
@@ -77,11 +77,11 @@ export default function MusicDisplay({
                     onClick={() => {
                       trackAlbumDownload(album);
                     }}>
-                    {/* <DownloadButton src={album.zip} /> */}
-                    <BandcampModal
+                    <DownloadButton src={album.zip} />
+                    {/* <BandcampModal
                       src={album.bandcamp_url}
                       title={album.title}
-                    />
+                    /> */}
                   </div>
                 </div>
                 <ol className="list-decimal list-inside pl-2 expand-on-load">
@@ -107,11 +107,11 @@ export default function MusicDisplay({
                             onClick={() => {
                               trackSongDownload(song);
                             }}>
-                            {/* <DownloadButton src={song.src} /> */}
-                            <BandcampModal
+                            <DownloadButton src={song.src} />
+                            {/* <BandcampModal
                               src={song.bandcamp_url}
                               title={song.title}
-                            />
+                            /> */}
                           </div>
                         </div>
                       </li>

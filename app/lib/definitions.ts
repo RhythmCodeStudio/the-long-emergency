@@ -38,10 +38,10 @@ export type Image = {
 };
 
 export type Song = {
-  id: number;
+  id: string;
   title: string;
   artist: string;
-  album: number;
+  album: string;
   year: number;
   genre: string[];
   track_number: number;
@@ -51,7 +51,7 @@ export type Song = {
 };
 
 export type Album = {
-  id: number;
+  id: string;
   title: string;
   artist: string;
   year: number;
@@ -64,7 +64,7 @@ export type Album = {
 };
 
 export type MerchProduct = {
-  id: number;
+  id: string;
   name: string;
   price: number;
   image: string;

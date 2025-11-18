@@ -15,6 +15,17 @@ export const metadata = {
 
 export default async function BlogPage() {
   const blogPageData = await getPage("blog");
+  if (!blogPageData) {
+    return (
+      <div className="flex flex-col justify-center items-center">
+        <div className="p-2">
+          <h2 className="font-emergency text-center text-2xl lg:text-4xl text-outline">
+            Blog page not found
+          </h2>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="flex flex-col justify-center items-center">
       <div className="p-2">

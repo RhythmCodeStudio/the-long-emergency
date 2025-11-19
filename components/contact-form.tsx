@@ -6,7 +6,7 @@ import Image from "next/image";
 // import from react
 import { ChangeEvent, SetStateAction, useState } from "react";
 //import from nextui
-import { Button } from "@heroui/react";
+// import { Button } from "@heroui/react";
 // import from toastify
 import { Bounce, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -275,15 +275,15 @@ export default function ContactForm() {
           )}
         </div>
         <div className="flex justify-center items-center p-6 ">
-          <Button
+          <button
             // color="primary"
-            variant="shadow"
+            // variant="shadow"
             onClick={handleFormSubmit}
             // isSubmitted={buttonSubmitted}
             type="submit"
-            className=" bg-blue-500 hover:bg-blue-700 rounded-full border-2 border-black">
+            className="px-6 py-1 bg-blue-500 hover:bg-blue-700 rounded-full border-2 border-black">
             <span className="font-emergency text-white text-outline">Send</span>
-          </Button>
+          </button>
         </div>
         {deliveryErrorMessage && (
           <div className="flex text-center justify-center items-center mt-2 mb-4">

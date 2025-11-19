@@ -21,8 +21,8 @@ import "./globals.css";
 
 // define font
 // const permanentMarker = Permanent_Marker({ weight: "400", subsets: ["latin"] });
-const special_elite = Special_Elite({ 
-  weight: "400", 
+const special_elite = Special_Elite({
+  weight: "400",
   subsets: ["latin"],
   display: "swap",
   variable: "--font-special-elite",
@@ -30,10 +30,11 @@ const special_elite = Special_Elite({
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | The Long Emergency | St. Louis, Missouri',
-    default: 'The Long Emergency | St. Louis, Missouri',
+    template: "%s | The Long Emergency | St. Louis, Missouri",
+    default: "The Long Emergency | St. Louis, Missouri",
   },
-  description: "Official website for rock band, The Long Emergency, from St. Louis, Missouri.",
+  description:
+    "Official website for rock band, The Long Emergency, from St. Louis, Missouri.",
   metadataBase: new URL("https://www.thelongemergency.net/"),
   alternates: {
     canonical: "/",
@@ -68,16 +69,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${emergency.variable} ${special_elite.variable}`}
-      // style={{ height: "100%" }}
-    >
+      className={`${emergency.variable} ${special_elite.variable}`}>
       <body className={`font-specialElite overflow-x-hidden flex flex-col`}>
-        <div
-          className="flex flex-col min-h-screen bg-cover bg-center bg-no-repeat bg-[url('/images/background-images/768x1156.png')] xl:bg-[url('/images/background-images/masks-no-text-4800x3190-gaps-filled-horizontal.png')] md:bg-fixed"
-        >
-          <div>
+        <div className="flex flex-col min-h-screen bg-cover bg-center bg-no-repeat bg-[url('/images/background-images/768x1156.png')] xl:bg-[url('/images/background-images/masks-no-text-4800x3190-gaps-filled-horizontal.png')] md:bg-fixed">
           <Header />
-          </div>
           <main className="flex flex-grow items-center justify-center">
             {children}
           </main>
@@ -88,4 +83,4 @@ export default function RootLayout({
       </body>
     </html>
   );
-};
+}

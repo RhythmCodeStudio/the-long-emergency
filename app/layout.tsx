@@ -12,7 +12,7 @@ const emergency = localFont({
 // import { Permanent_Marker } from "next/font/google";
 import { Special_Elite } from "next/font/google";
 // import components
-import { Header } from "../components/header";
+// import { Header } from "../components/header";
 import { Footer } from "../components/footer";
 import ScrollToTopButton from "../components/scroll-to-top-button";
 
@@ -72,7 +72,7 @@ export default function RootLayout({
       className={`${emergency.variable} ${special_elite.variable}`}>
       <body className={`font-specialElite overflow-x-hidden flex flex-col`}>
         <div className="flex flex-col min-h-screen bg-cover bg-center bg-no-repeat bg-[url('/images/background-images/768x1156.png')] xl:bg-[url('/images/background-images/masks-no-text-4800x3190-gaps-filled-horizontal.png')] md:bg-fixed">
-          <Header />
+          {/* <Header /> */}
           <main className="flex flex-grow items-center justify-center">
             {children}
           </main>

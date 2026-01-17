@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "https://www.thelongemergency.net//opengraph-image.png",
+        url: "https://www.thelongemergency.net/opengraph-image.png",
         width: 960,
         height: 691,
       },

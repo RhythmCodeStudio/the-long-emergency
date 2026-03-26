@@ -141,7 +141,7 @@ button {
   color: white;
 } */
 
-.rhap_header {
+/* .rhap_header {
   @apply font-emergency;
   @apply text-outline-gray;
 }
@@ -149,7 +149,7 @@ button {
 .rhap_footer {
   @apply font-emergency;
   @apply text-outline-gray;
-}
+} */
 
 /* Add this to your global CSS file or a CSS module */
 .hide-scrollbar::-webkit-scrollbar {

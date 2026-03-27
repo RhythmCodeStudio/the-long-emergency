@@ -73,7 +73,7 @@ export default function RootLayout({
       <body className={`font-specialElite overflow-x-hidden flex flex-col`}>
         <div className="flex flex-col min-h-screen bg-cover bg-center bg-no-repeat bg-[url('/images/background-images/768x1156.png')] xl:bg-[url('/images/background-images/masks-no-text-4800x3190-gaps-filled-horizontal.png')] md:bg-fixed">
           <Header />
-          <main className="flex flex-grow items-center justify-center">
+          <main className="flex grow items-center justify-center">
             {children}
           </main>
           <ScrollToTopButton />

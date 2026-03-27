@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* @config '../tailwind.config.ts'; */
+@config '../tailwind.config.ts';
 
 /*
   The default border color has changed to `currentcolor` in Tailwind CSS v4,
@@ -87,6 +87,7 @@ button {
   cursor: url("/cursor/devil-horns.cur"), auto;
 }
 
+@layer components {
   .text-outline {
     /* text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000; */
     /* text-shadow: 2px 2px 0 rgb(82, 124, 248); */
@@ -96,7 +97,6 @@ button {
     -webkit-background-clip: text;
     -moz-background-clip: text;
   }
-
   .text-outline-gray {
     /* text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000; */
     text-shadow: 1.25px 1.25px 0 #868686;
@@ -130,26 +130,37 @@ button {
       drop-shadow(1px -1px 0 #000) drop-shadow(-1px 1px 0 #000);
   }
 
-/* .expand-on-load {
-  @apply animate-expand;
-} */
+  .expand-on-load {
+    @apply animate-expand;
+  }
 
-/* .rhap_container {
+  /* .rhap_container {
   background-image: url('/images/masks-no-text.png');
   background-size: cover;
   background-position: center;
   color: white;
 } */
 
-/* .rhap_header {
-  @apply font-emergency;
-  @apply text-outline-gray;
+  
+}
+
+.rhap_header {
+  font-family: var(--font-emergency);
+  text-shadow: 1.25px 1.25px 0 #868686;
+  background-color: rgba(0, 0, 0, 1);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
 }
 
 .rhap_footer {
-  @apply font-emergency;
-  @apply text-outline-gray;
-} */
+  font-family: var(--font-emergency);
+  text-shadow: 1.25px 1.25px 0 #868686;
+  background-color: rgba(0, 0, 0, 1);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+}
 
 /* Add this to your global CSS file or a CSS module */
 .hide-scrollbar::-webkit-scrollbar {

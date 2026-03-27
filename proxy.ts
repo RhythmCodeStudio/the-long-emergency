@@ -4,7 +4,7 @@ import { NextResponse, NextRequest } from "next/server";
 
 export default NextAuth(authConfig).auth;
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   let cspHeader = "";
   const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
   const environment = process.env.NEXT_PUBLIC_ENV || process.env.NODE_ENV;

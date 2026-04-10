@@ -182,7 +182,7 @@ export default function ContactForm() {
             type="text"
             name="firstName"
             id="firstName"
-            className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 p-2 w-full text-black"
+            className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 p-2 w-full text-white bg-black/60 tracking-widest"
           />
           {firstNameErrorMessage && (
             <div className="flex justify-center items-center mt-2 mb-4">
@@ -204,7 +204,7 @@ export default function ContactForm() {
             type="text"
             name="lastName"
             id="lastName"
-            className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 p-2 w-full text-black"
+            className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 p-2 w-full text-white bg-black/60 tracking-widest"
           />
           {lastNameErrorMessage && (
             <div className="flex justify-center text-center items-center mt-2 mb-4">
@@ -225,7 +225,7 @@ export default function ContactForm() {
             type="email"
             name="email"
             id="email"
-            className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 p-2 w-full text-black"
+            className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 p-2 w-full text-white bg-black/60 tracking-widest"
           />
           {emailErrorMessage && (
             <div className="flex justify-center items-center mt-2 mb-4">
@@ -245,7 +245,7 @@ export default function ContactForm() {
             type="tel"
             name="phone"
             id="phone"
-            className="border-2 border-gray-800 p-2 w-full"
+            className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 p-2 w-full text-white bg-black/60 tracking-widest"
           />
           {phoneErrorMessage && (
             <div className="flex justify-center items-center mt-2 mb-4">
@@ -266,7 +266,7 @@ export default function ContactForm() {
             required
             name="message"
             id="message"
-            className="text-black shadow-2xl shadow-blue-300/50 border-2 border-slate-400 p-2 h-60 w-60 resize-none w-full"
+            className="text-white shadow-2xl shadow-blue-300/50 border-2 border-slate-400 bg-black/60 p-2 h-60 resize-none w-full tracking-widest"
           />
           {messageErrorMessage && (
             <div className="flex justify-center items-center mt-2 mb-4">

@@ -5,9 +5,27 @@ import { useState } from "react";
 import Image from "./image";
 import Link from "next/link";
 
-export default function ShowDisplay({}: { gigs: any[] }) {
+export default function ShowDisplay() {
   const [gigState, setGigState] = useState("upcoming");
   const gigs: any[] = [
+    {
+      date: "05/28/2026",
+      venue: "LB",
+      venue_url: "https://www.instagram.com/lb.stl/",
+      city: "St. Louis",
+      state: "MO",
+      country: "USA",
+      street_address: "Message me for the address",
+      zip_code: "63104",
+      google_maps_url: "/contact",
+      // gig_info: "Album Release Show",
+      other_acts: "with Rob Abels, Leech, and Ignoramous",
+      cost: "PWYC",
+      // ticket_url:
+        // "https://www.purplepass.com/events/304686-the-long-emergency-%7C-album-release-show---featurin-jan-17th-2025",
+      poster: "/images/show-posters/5-28-2026-lb.jpg",
+      show_page: "/shows/lb-stlouis-5-28-2026",
+    },
     {
       date: "01/17/2025",
       venue: "Greenfinch Theater & Dive",
@@ -104,14 +122,14 @@ export default function ShowDisplay({}: { gigs: any[] }) {
           onClick={() => setGigState("upcoming")}
           className={`${
             gigState === "upcoming" ? "bg-blue-300 text-lg" : "bg-white"
-          } hover:scale-110 transition transition-transform duration-300 ease-in-out md:hover:bg-blue-500 md:hover:text-white p-2 m-2 rounded-full border-2 border-black shadow-blue-300/50 text-black`}>
+          } hover:scale-110 transition duration-300 ease-in-out md:hover:bg-blue-500 md:hover:text-white p-2 m-2 rounded-full border-2 border-black shadow-blue-300/50 text-black`}>
           Future
         </button>
         <button
           onClick={() => setGigState("past")}
           className={`${
             gigState === "past" ? "bg-blue-300 text-lg" : "bg-white"
-          } hover:scale-110 transition transition-transform duration-300 ease-in-out md:hover:bg-blue-500 md:hover:text-white p-2 px-5 m-2 rounded-full border-2 border-black shadow-blue-300/50 text-black`}>
+          } hover:scale-110 transition duration-300 ease-in-out md:hover:bg-blue-500 md:hover:text-white p-2 px-5 m-2 rounded-full border-2 border-black shadow-blue-300/50 text-black`}>
           Past
         </button>
       </div>
@@ -136,11 +154,11 @@ export default function ShowDisplay({}: { gigs: any[] }) {
             )}
             <ul
               className={`grid ${
-                gigs.length === 1
+                filteredGigs.length === 1
                   ? "justify-center"
                   : "grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-9 lg:gap-20 xl:gap-28"
-              } p-2 md:text-lg md:text-xl`}>
-              {gigs.map((gig, index) => (
+              } p-2 md:text-lg`}>
+              {filteredGigs.map((gig, index) => (
                 <li
                   key={index}
                   className="expand-on-load border-2 border-slate-400 bg-[rgba(0,0,0,0.6)]">
@@ -188,7 +206,7 @@ export default function ShowDisplay({}: { gigs: any[] }) {
                       <p className=" text-center">{gig.cost}</p>
                       <p className=" text-center">{gig.gig_info}</p>
                       <p className=" text-center">{gig.other_acts}</p>
-                      {gigState === "upcoming" && (
+                      {gigState === "upcoming" && gig.ticket_url &&  (
                         <div className="flex justify-center expand-on-load">
                           <a
                             target="_blank"

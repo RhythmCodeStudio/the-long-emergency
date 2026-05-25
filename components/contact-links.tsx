@@ -36,7 +36,7 @@ export default function ContactLinks({ size }: { size: number }) {
     // }
   ];
   return (
-    <div className="flex justify-center items-center space-x-10 sm:space-x-16 md:space-x-24  m-4 p-2">
+    <div className="flex justify-center items-center space-x-10 sm:space-x-16 md:space-x-24">
       {linkData.map((link) => (
         <div key={link.href} className="sm:hover:transform hover:scale-125 transition-transform">
           <IconLink

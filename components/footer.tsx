@@ -10,10 +10,10 @@ export const Footer = () => {
   const currentPath = usePathname();
   return (
     <footer
-      className={`flex flex-col items-center justify-center w-full ${
+      className={`flex flex-col space-y-2 items-center justify-center w-full pt-2 ${
         currentPath !== "/" ? "bg-[rgba(0,0,0,0.5)] md:bg-transparent" : " "
       }`}>
-      <div className="m-2 expand-on-load">
+      <div className="expand-on-load">
         <div className={`block sm:hidden`}>
           <ContactLinks size={18} />
         </div>
@@ -23,34 +23,18 @@ export const Footer = () => {
         <div className={`hidden lg:block`}>
           <ContactLinks size={28} />
         </div>
-        {/* <div className={`block sm:hidden`}>
-          <MusicLinks size={18} />
-        </div>
-        <div className={`hidden sm:block lg:hidden`}>
-          <MusicLinks size={22} />
-        </div>
-        <div className={`hidden lg:block`}>
-          <MusicLinks size={28} />
-        </div> */}
       </div>
-      <span className="expand-on-load text-sm p-2 text-center text-outline">
-        <span className="">©</span> 2025
-      </span>
+      <p className="expand-on-load text-sm text-center text-outline pt-1">
+        <span className="">©</span> 2026
+      </p>
       <a
         className="flex flex-col items-center justify-center text-center "
         href="https://rhythmcodestudio.tech"
         target="_blank"
         rel="noopener noreferrer">
-        <span className="expand-on-load text-sm p-2 text-outline">
+        <span className="expand-on-load text-sm text-outline">
           Website by Rhythm Code Studio LLC
         </span>
-        <Image
-          src="/logos/rcs-mark-only-light.png"
-          alt="Rhythm Code Studio Logo"
-          className="expand-on-load w-8 h-auto mb-2 invert md:hover:transform hover:scale-110 transition-transform"
-          width={796}
-          height={816}
-        />
       </a>
     </footer>
   );

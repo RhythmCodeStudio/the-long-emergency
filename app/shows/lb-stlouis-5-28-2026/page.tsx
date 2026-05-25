@@ -17,123 +17,35 @@ export default async function AlbumReleaseShow() {
     <div className="bg-[rgba(0,0,0,0.5)] md:bg-transparent">
       <div className="relative flex flex-col justify-center items-center text-outline text-center">
         <h2 className="font-emergency text-2xl lg:text-3xl xl:text-4xl m-4 text-center">
-          Album Release Show
-          <br />
-          <span className="text-lg">and</span>
-          <br />
-          Kevin&apos;s Birthday
+          Celebrating 12 Years of Being Alcohol Free
         </h2>
         <h3 className="text-outline lg:text-base m-2">
-          Friday January 17th, 2025 <br /> Greenfinch Theater & Dive <br />
+          Thursday, May 28th, 2026 <br /> LB <br />
           St. Louis, MO
         </h3>
-        <h4 className="text-outline mt-4 text-lg lg:text-2xl p-2">
-          The Long Emergency proudly presents the new album:
-        </h4>
-        <h5 className="text-xl">&quot;I spent all my money on a habit&quot;</h5>
-        <Link href="/music">
-          <Image
-            className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 m-2"
-            width={213}
-            height={211}
-            src="/music/habit/album-art/front-cover.png"
-            alt="I spent all my money on a habit album cover"
-          />
-          <h6 className="text-center text-2xl text-blue-300 hover:text-blue-400 underline">
-            Available Now
-          </h6>
-        </Link>
-        
-        <div className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 p-6 m-12 relative flex flex-col justify-center items-center text-outline text-center">
-          <p className="text-lg">
-            In celebration of my birthday please consider supporting
-          </p>
-          <span className="text-3xl mt-2">HOPE CREATES</span>
-          <p className="text-lg">
-            a St Louis nonprofit that uses art to help folks get sober and stay
-            sober.
-          </p>
-          <div className="justify-center m-4">
-            <a
-              href="https://www.hopecreates.org/"
-              target="_blank"
-              rel="noreferrer noopener"
-              className="text-2xl text-blue-300 hover:text-blue-400">
-              <Image
-                src="/images/hope-creates-logo.png"
-                alt="Hope Creates Logo"
-                width={200}
-                height={163}
-              />
-            </a>
-          </div>
-          <div>
-            <p className="mt-2">Support Hope Creates with a donation:</p>
-            <a
-              href="https://www.hopecreates.org/give-today"
-              target="_blank"
-              rel="noreferrer noopener"
-              className="text-2xl text-blue-300 hover:text-blue-400 underline">
-              DONATE TO HOPE CREATES
-            </a>
-          </div>
-          <div>
-            <p className="mt-2">
-              Support Hope Creates by buying art from their gallery:
-            </p>
-            <a
-              href="https://www.hopecreates.org/aart"
-              target="_blank"
-              rel="noreferrer noopener"
-              className="text-2xl text-blue-300 hover:text-blue-400 underline">
-              BUY ART FROM HOPE CREATES
-            </a>
-          </div>
-        </div>
         <div className="mt-6 relative flex flex-col justify-center items-center  text-center">
           <h4 className="text-3xl mb-2">Tonight&apos;s Bands</h4>
           <div className="m-4">
-            <h5 className="text-2xl">Leaving Missouri</h5>
+            <h5 className="text-2xl">Rob Abels</h5>
             <a
-              href="https://beacons.ai/leavingmissouri"
-              target="_blank"
-              rel="noreferrer noopener"
-              className="text-2xl text-blue-300 hover:text-blue-400 underline">
-              <h6 className="text-xl">Website</h6>
-            </a>
-            <a
-              href="https://leavingmissouri.bandcamp.com"
-              target="_blank"
-              rel="noreferrer noopener"
-              className="text-2xl text-blue-300 hover:text-blue-400 underline">
-              <h6 className="text-xl">Bandcamp</h6>
-            </a>
-            <a
-              href="https://www.instagram.com/leavingmissouri/"
+              href="https://www.instagram.com/robcannonthunderbolt/"
               target="_blank"
               rel="noreferrer noopener"
               className="text-2xl text-blue-300 hover:text-blue-400 underline">
               <h6 className="text-xl">Instagram</h6>
             </a>
-            <a
-              href="https://open.spotify.com/artist/6ccBaxBBCefMLqkUEmosdt"
-              target="_blank"
-              rel="noreferrer noopener"
-              className="text-2xl text-blue-300 hover:text-blue-400 underline">
-              <h6 className="text-xl">Spotify</h6>
-            </a>
           </div>
           <div className="m-4">
-            <h5 className="text-2xl">Random Fog</h5>
+            <h5 className="text-2xl">Leech</h5>
             <a
-              href="https://randomfog.com/"
+              href="https://linktr.ee/leechbandstl"
               target="_blank"
               rel="noreferrer noopener"
               className="text-2xl text-blue-300 hover:text-blue-400 underline">
               <h6 className="text-xl">Website</h6>
             </a>
             <a
-              href="https://randomfog.bandcamp.com/"
+              href="https://leechbandstl.bandcamp.com/"
               target="_blank"
               rel="noreferrer noopener"
               className="text-2xl text-blue-300 hover:text-blue-400 underline">
@@ -141,7 +53,39 @@ export default async function AlbumReleaseShow() {
             </a>
 
             <a
-              href="https://www.instagram.com/randomfogband/"
+              href="https://www.instagram.com/leechbandstl/"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="text-2xl text-blue-300 hover:text-blue-400 underline">
+              <h6 className="text-xl">Instagram</h6>
+            </a>
+            <a
+              href="https://open.spotify.com/artist/2vccfLFGRVbZRXFV4GpAyc"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="text-2xl text-blue-300 hover:text-blue-400 underline">
+              <h6 className="text-xl">Spotify</h6>
+            </a>
+          </div>
+           <div className="m-4">
+            <h5 className="text-2xl">Ignoramous</h5>
+            <a
+              href="https://linktr.ee/ignoramusband"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="text-2xl text-blue-300 hover:text-blue-400 underline">
+              <h6 className="text-xl">Website</h6>
+            </a>
+            <a
+              href="https://ignoramus.bandcamp.com/album/ignoramus"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="text-2xl text-blue-300 hover:text-blue-400 underline">
+              <h6 className="text-xl">Bandcamp</h6>
+            </a>
+
+            <a
+              href="https://www.instagram.com/ignoramus_band/"
               target="_blank"
               rel="noreferrer noopener"
               className="text-2xl text-blue-300 hover:text-blue-400 underline">
@@ -165,25 +109,11 @@ export default async function AlbumReleaseShow() {
               <h6 className="text-xl">Website</h6>
             </Link>
             <a
-              href="https://thelongemergency.bandcamp.com/"
-              target="_blank"
-              rel="noreferrer noopener"
-              className="text-2xl text-blue-300 hover:text-blue-400 underline">
-              <h6 className="text-xl">Bandcamp</h6>
-            </a>
-            <a
               href="https://www.instagram.com/longemergency/"
               target="_blank"
               rel="noreferrer noopener"
               className="text-2xl text-blue-300 hover:text-blue-400 underline">
               <h6 className="text-xl">Instagram</h6>
-            </a>
-            <a
-              href="https://open.spotify.com/artist/337ssIYmyo5p8gCv8v5X1z"
-              target="_blank"
-              rel="noreferrer noopener"
-              className="text-2xl text-blue-300 hover:text-blue-400 underline">
-              <h6 className="text-xl">Spotify</h6>
             </a>
           </div>
         </div>

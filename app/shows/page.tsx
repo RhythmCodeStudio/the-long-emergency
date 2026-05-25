@@ -25,7 +25,7 @@ export default async function ShowsPage() {
             {showsPageData?.page_title}
           </h2>
         </div>
-        <ShowDisplay gigs={[]} />
+        <ShowDisplay />
         <div className="lg:m-12 expand-on-load w-full h-auto px-8 flex justify-center">
           <Image
             priority

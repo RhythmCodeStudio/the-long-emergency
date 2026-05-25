@@ -4,11 +4,11 @@ import Image from "../../../components/image";
 
 // export metadata
 export const metadata = {
-  title: "The Long Emergency | Album Release Show",
+  title: "The Long Emergency | May 28, 2026 - LB - St. Louis, MO",
   description:
-    "The Long Emergency album release show at Greenfinch Theater & Dive in St. Louis, Missouri. January 17th, 2025",
+    "The Long Emergency plays at LB in St. Louis, MO on May 28th, 2026 with Rob Abels, Leech, and Ignoramous. Pay what you can.",
   alternates: {
-    canonical: "/shows/greenfinch-stlouis-1-17-2025",
+    canonical: "/shows/lb-stlouis-5-28-2026",
   },
 };
 
@@ -17,14 +17,20 @@ export default async function AlbumReleaseShow() {
     <div className="bg-[rgba(0,0,0,0.5)] md:bg-transparent">
       <div className="relative flex flex-col justify-center items-center text-outline text-center">
         <h2 className="font-emergency text-2xl lg:text-3xl xl:text-4xl m-4 text-center">
-          Celebrating 12 Years of Being Alcohol Free
+          Thursday, May 28th, 2026
         </h2>
-        <h3 className="text-outline lg:text-base m-2">
-          Thursday, May 28th, 2026 <br /> LB <br />
-          St. Louis, MO
-        </h3>
+        <h3 className="text-outline m-2 text-xl lg:text-2xl xl:text-3xl">LB</h3>
+        <h4 className="text-outline m-2 text-lg lg:text-xl xl:text-2xl">
+          Dutchtown - St. Louis, MO
+        </h4>
+        <Image
+          src="/images/show-posters/5-28-2026-lb.jpg"
+          alt="show poster"
+          width={300}
+          height={425}
+          className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 expand-on-load "
+        />
         <div className="mt-6 relative flex flex-col justify-center items-center  text-center">
-          <h4 className="text-3xl mb-2">Tonight&apos;s Bands</h4>
           <div className="m-4">
             <h5 className="text-2xl">Rob Abels</h5>
             <a
@@ -67,7 +73,7 @@ export default async function AlbumReleaseShow() {
               <h6 className="text-xl">Spotify</h6>
             </a>
           </div>
-           <div className="m-4">
+          <div className="m-4">
             <h5 className="text-2xl">Ignoramous</h5>
             <a
               href="https://linktr.ee/ignoramusband"
@@ -128,9 +134,9 @@ export default async function AlbumReleaseShow() {
           />
         </div>
         <Link href="/">
-          <h6 className="mb-12 -mt-4 text-lg text-blue-300 hover:text-blue-400 underline">
+          <span className="mb-12 -mt-4 text-lg text-blue-300 hover:text-blue-400 underline">
             www.thelongemergency.net
-          </h6>
+          </span>
         </Link>
       </div>
     </div>

@@ -1,6 +1,6 @@
 # The Long Emergency
 
-[www.thelongemergency.net](https://www.thelongemergency.net)
+[www.thelongemergency.com](https://www.thelongemergency.com)
 
 ## Built With
 
@@ -12,10 +12,15 @@
 
 ### Mobile
 
-![thelongemergency.net home page mobile version](home.jpg)
+![thelongemergency.com home page mobile version](home.jpg)
 
 ### Desktop
 
-![thelongemergency.net home page desktop version](home.png)
+![thelongemergency.com home page desktop version](home.png)
+
+### Contact
+
+- Email The Long Emergency: [info@thelongemergency.com](mailto:info@thelongemergency.com)
+- Email Rhythm Code Studio: [info@rhythmcodestudio.tech](mailto:info@rhythmcodestudio.tech)
 
 ### by [Rhythm Code Studio](https://rhythmcodestudio.tech)

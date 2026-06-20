@@ -57,6 +57,7 @@ export default function MusicLinks({ size }: { size: number }) {
             icon={link.icon}
             label={link.label}
             name={link.name}
+            title={link.label}
           />
         </div>
       ))}

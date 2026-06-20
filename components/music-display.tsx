@@ -77,7 +77,7 @@ export default function MusicDisplay({
                     onClick={() => {
                       trackAlbumDownload(album);
                     }}>
-                    <DownloadButton src={album.zip} />
+                    <DownloadButton src={album.zip} label={`Download ${album.title}`} />
                     {/* <BandcampModal
                       src={album.bandcamp_url}
                       title={album.title}
@@ -109,7 +109,7 @@ export default function MusicDisplay({
                             onClick={() => {
                               trackSongDownload(song);
                             }}>
-                            <DownloadButton src={song.src} />
+                            <DownloadButton src={song.src} label={`Download ${song.title}`} />
                             {/* <BandcampModal
                               src={song.bandcamp_url}
                               title={song.title}

@@ -78,8 +78,8 @@ export default function Nav() {
                 </li>
               ))}
             </ul>
-            <ContactLinks size={20} />
-            <MusicLinks size={20} />
+            {/* <ContactLinks size={20} /> */}
+            {/* <MusicLinks size={20} /> */}
           </div>
         </div>
       )}
@@ -88,7 +88,7 @@ export default function Nav() {
         className={`expand-on-load w-full hidden md:flex items-center justify-between mt-6 lg:mt-0`}>
         {navLinks.map((link) => (
           <li
-            className={`px-8 md:px-8 lg:px-14 xl:px-20 lg:py-8 flex hover:scale-110 transition transition-transform duration-300 ease-in-out ${
+            className={`px-8 md:px-8 lg:px-14 xl:px-20 lg:py-8 flex hover:scale-110 transition duration-300 ease-in-out ${
               link.label === activeLink ? "hidden" : ""
             }`}
             key={link.href}>

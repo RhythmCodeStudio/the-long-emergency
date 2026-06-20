@@ -11,7 +11,7 @@ export default function ContactLinks({ size }: { size: number }) {
   const linkData = [
    
     {
-      href: "mailto:thelongemergencyband@gmail.com",
+      href: "mailto:info@thelongemergency.com",
       icon: <FiMail size={size} className="icon-outline"/>,
       label: "Email The Long Emergency",
       name: "Email The Long Emergency",

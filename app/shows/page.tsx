@@ -36,7 +36,7 @@ export default async function ShowsPage() {
             className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 mb-12 xl:mb-0"
           />
         </div>
-        <h3 className="text-lg">&quot;I spent all my money on a habit&quot;</h3>
+        <h3 className="text-lg text-outline">&quot;I spent all my money on a habit&quot;</h3>
         <Link href="/music">
           <Image
             className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 m-2"

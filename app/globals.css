@@ -147,7 +147,7 @@ button {
 .rhap_header {
   font-family: var(--font-emergency);
   text-shadow: 1.25px 1.25px 0 #868686;
-  background-color: rgba(0, 0, 0, 1);
+  /* background-color: rgba(0, 0, 0, 1); */
   background-clip: text;
   -webkit-background-clip: text;
   -moz-background-clip: text;
@@ -156,7 +156,7 @@ button {
 .rhap_footer {
   font-family: var(--font-emergency);
   text-shadow: 1.25px 1.25px 0 #868686;
-  background-color: rgba(0, 0, 0, 1);
+  /* background-color: rgba(0, 0, 0, 1); */
   background-clip: text;
   -webkit-background-clip: text;
   -moz-background-clip: text;

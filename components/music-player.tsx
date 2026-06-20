@@ -11,9 +11,9 @@ export default function MusicPlayer({ song }: { song: Song }) {
 
   return (
     <>
-      <div className="border-2 border-slate-400 expand-on-load flex flex-col justify-center items-center shadow-xl shadow-blue-300/50 bg-black">
+      <div className="border-2 border-slate-400 expand-on-load flex flex-col justify-center items-center shadow-xl shadow-blue-300/50">
         <AudioPlayer
-          className=" h-36 text-center text-black"
+          className="h-36 text-center text-black"
           src={song.src}
           // onPlay={(e) => console.log(`Now playing ${song.title}`)}
           preload="auto"

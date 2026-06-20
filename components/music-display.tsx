@@ -55,8 +55,8 @@ export default function MusicDisplay({
           <div key={album.id} className="m-4  text- md:text-2xl">
             <div className="text-outline expand-on-load ">
               <h3 className="text-xl">{album.title}</h3>
-              <p>{album.type}</p>
-              <p>{album.year}</p>
+              <h4>{album.type}</h4>
+              <h5>{album.year}</h5>
             </div>
             <div className="relative">
               <div className=" max-w-96 p-6">
@@ -71,7 +71,7 @@ export default function MusicDisplay({
               </div>
               <div className="text-outline expand-on-load ">
                 <div className="download-album-div ">
-                  <p>Download <br />{album.title}</p>
+                  <h6>Download <br />{album.title}</h6>
                   <div
                     className="mb-6 flex justify-center icon-outline"
                     onClick={() => {

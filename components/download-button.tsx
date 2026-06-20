@@ -24,7 +24,7 @@ export default function DownloadButton({
 }: DownloadButtonProps) {
   return (
     <div>
-      <a download href={src} aria-label={label} title={label}>
+      <a download href={src} aria-label={label}>
         <FiDownload className="text-lg xl:text-2xl" aria-hidden="true" />
         <span className="sr-only">{label}</span>
       </a>

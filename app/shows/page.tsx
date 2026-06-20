@@ -45,9 +45,9 @@ export default async function ShowsPage() {
             src="/music/habit/album-art/front-cover.png"
             alt="I spent all my money on a habit album cover"
           />
-          <h6 className="text-center text-xl text-blue-300 hover:text-blue-400 underline">
+          <h4 className="text-center text-xl text-blue-300 hover:text-blue-400 underline">
             Available Now
-          </h6>
+          </h4>
         </Link>
       </div>
     </div>

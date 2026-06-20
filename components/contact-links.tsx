@@ -15,6 +15,7 @@ export default function ContactLinks({ size }: { size: number }) {
       icon: <FiMail size={size} className="icon-outline"/>,
       label: "Email The Long Emergency",
       name: "Email The Long Emergency",
+      title: "Email The Long Emergency",
     },
     // {
     //   href: "https://thelongemergency.bandcamp.com",
@@ -27,12 +28,14 @@ export default function ContactLinks({ size }: { size: number }) {
       icon: <PiPatreonLogoBold size={size} className="icon-outline"/>,
       label: "Support The Long Emergency on Patreon",
       name: "Support The Long Emergency on Patreon",
+      title: "Support The Long Emergency on Patreon",
     },
     // {
     //   href: "https://www.instagram.com/longemergency/",
     //   icon: <FiInstagram size={size} className="icon-outline"/>,
     //   label: "Follow The Long Emergency on Instagram",
     //   name: "Follow The Long Emergency on Instagram",
+    //   title: "Follow The Long Emergency on Instagram",
     // }
   ];
   return (
@@ -44,6 +47,7 @@ export default function ContactLinks({ size }: { size: number }) {
             icon={link.icon}
             label={link.label}
             name={link.name}
+            title={link.label}
           />
         </div>
       ))}

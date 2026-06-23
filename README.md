@@ -21,6 +21,7 @@
 ### Contact
 
 - Email The Long Emergency: [info@thelongemergency.com](mailto:info@thelongemergency.com)
-- Email Rhythm Code Studio: [info@rhythmcodestudio.tech](mailto:info@rhythmcodestudio.tech)
 
 ### by [Rhythm Code Studio](https://rhythmcodestudio.tech)
+
+- Email Rhythm Code Studio: [info@rhythmcodestudio.tech](mailto:info@rhythmcodestudio.tech)

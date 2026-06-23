@@ -136,16 +136,18 @@ export default function ShowDisplay() {
       <div className="p-6 text-outline">
         {filteredGigs.length === 0 ? (
           <div className="p-6">
-            <p className="text-center  text-lg md:text-xl text-balance">
+            <p className="text-center text-lg md:text-xl text-balance">
               No upcoming shows currently scheduled.
-              <br /> Please email{" "}
+              <br />
+              <span>
+                For booking please email{" "}
+              </span>
               {/* <span className="text-blue-300 hover:text-blue-400 underline">
                 <Link href="/contact">contact</Link>
               </span>{" "} */}
               <span>
                 <a href="mailto:booking@thelongemergency.com" className="text-blue-300 hover:text-blue-400 underline">booking@thelongemergency.com</a>
               </span>
-              {" "}for booking.
             </p>
           </div>
         ) : (

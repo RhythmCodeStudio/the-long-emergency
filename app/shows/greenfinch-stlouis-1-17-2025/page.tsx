@@ -1,6 +1,6 @@
 // import from next
 import Link from "next/link";
-import Image from "../../../components/image";
+import Image from "../../../ui/image";
 
 // export metadata
 export const metadata = {
@@ -43,7 +43,7 @@ export default async function AlbumReleaseShow() {
             Available Now
           </h6>
         </Link>
-        
+
         <div className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 p-6 m-12 relative flex flex-col justify-center items-center text-outline text-center">
           <p className="text-lg">
             In celebration of my birthday please consider supporting

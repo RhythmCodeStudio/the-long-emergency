@@ -12,9 +12,9 @@ const emergency = localFont({
 // import { Permanent_Marker } from "next/font/google";
 import { Special_Elite } from "next/font/google";
 // import components
-import { Header } from "../components/header";
-import { Footer } from "../components/footer";
-import ScrollToTopButton from "../components/scroll-to-top-button";
+import { Header } from "../ui/header";
+import { Footer } from "../ui/footer";
+import ScrollToTopButton from "../ui/scroll-to-top-button";
 
 // import styles
 import "./globals.css";

@@ -1,10 +1,10 @@
 // import data
 import { getPage, getMerch } from "../lib/data";
 // import components
-import MerchForSale from "../../components/merch-for-sale";
+import MerchForSale from "../../ui/merch-for-sale";
 
 //export metadata
-export const metadata  = {
+export const metadata = {
   title: "Merch",
   description: "Buy cool stuff from The Long Emergency",
   alternates: {
@@ -15,8 +15,6 @@ export const metadata  = {
 export default async function MerchPage() {
   const merchPageData = await getPage("merch");
   const merch = await getMerch();
-
-
 
   return (
     <section className="flex justify-center items-center flex-col">

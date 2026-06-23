@@ -1,9 +1,9 @@
 // import data
 import { getPage } from "../lib/data";
 // import components
-import BlogPost from "../../components/blog-post";
+import BlogPost from "../../ui/blog-post";
 // import from next
-import Image from "../../components/image";
+import Image from "../../ui/image";
 // export metadata
 export const metadata = {
   title: "Blog",

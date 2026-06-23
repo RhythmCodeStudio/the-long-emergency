@@ -1,5 +1,5 @@
 import { getPage, getAlbums, getSongs } from "../lib/data";
-import MusicDisplay from "../../components/music-display";
+import MusicDisplay from "../../ui/music-display";
 
 export const metadata = {
   title: "Music",

@@ -1,9 +1,9 @@
 // import from next
 import Link from "next/link";
-import Image from "../../components/image";
+import Image from "../../ui/image";
 // import data
 import { getPage } from "../lib/data";
-import ShowDisplay from "@/components/show-display";
+import ShowDisplay from "@/ui/show-display";
 // export metadata
 export const metadata = {
   title: "Shows",
@@ -14,9 +14,8 @@ export const metadata = {
 };
 
 export default async function ShowsPage() {
-
   const showsPageData = await getPage("shows");
-  
+
   return (
     <div className="bg-[rgba(0,0,0,0.5)] md:bg-transparent">
       <div className="relative flex flex-col justify-center items-center">
@@ -36,7 +35,9 @@ export default async function ShowsPage() {
             className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 mb-12 xl:mb-0"
           />
         </div>
-        <h3 className="text-lg text-outline">&quot;I spent all my money on a habit&quot;</h3>
+        <h3 className="text-lg text-outline">
+          &quot;I spent all my money on a habit&quot;
+        </h3>
         <Link href="/music">
           <Image
             className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 m-2"

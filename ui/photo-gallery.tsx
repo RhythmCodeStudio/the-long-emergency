@@ -1,5 +1,3 @@
-//
-
 "use client";
 // import from vercel
 import { track } from "@vercel/analytics/react";
@@ -33,7 +31,6 @@ interface PhotoGalleryProps {
   showCaption?: boolean; // Whether to show image captions
 }
 
-// CHANGED: Added default value for showPagination prop
 export default function PhotoGallery({
   showOptions,
   showPagination = true,
@@ -44,11 +41,7 @@ export default function PhotoGallery({
     typeof promoPics | typeof bandPics | typeof soloPics | typeof headshots
   >(bandPics);
   const [fullScreenImage, setFullScreenImage] = useState<
-    | (typeof promoPics)[number]
-    | (typeof bandPics)[number]
-    | (typeof soloPics)[number]
-    | (typeof headshots)[number]
-    | null
+    ((typeof promoPics)[number] | (typeof bandPics)[number] | (typeof soloPics)[number] | (typeof headshots)[number]) | null
   >(null);
   const [activeCategory, setActiveCategory] = useState<
     "band" | "solo" | "headshots" | "promo"
@@ -82,7 +75,7 @@ export default function PhotoGallery({
   return (
     <>
       {showOptions && (
-        <div className="flex flex-row justify-center items-center rounded-4xl shadow-white shadow-lg border-2 border-border-default bg-black/50 w-full max-w-[90vw] sm:w-7/12 md:w-6/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12 5xl:w-2/12 xl:max-w-[24rem] mx-auto text-sm md:text-base mt-4 mb-8">
+        <div className="flex flex-row justify-center items-center rounded-4xl shadow-white shadow-lg border-2 border-border-default bg-black/50 w-full max-w-[90vw] sm:w-7/12 md:w-6/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12 5xl:w-2/12 xl:max-w-sm mx-auto text-sm md:text-base mt-4 mb-8">
           <Button
             label="band"
             onClick={() => {
@@ -159,8 +152,8 @@ export default function PhotoGallery({
             // if (!isPortrait && !isLandscape && !isSquare) {
             //   return null; // Skip images with unknown orientation
             // }
-            let imageWidth = pic.width;
-            let imageHeight = pic.height;
+            let imageWidth = (pic as any).width;
+            let imageHeight = (pic as any).height;
             // if (isSquare) {
             //   imageWidth = 1000;
             //   imageHeight = 1000;
@@ -177,11 +170,11 @@ export default function PhotoGallery({
                   className="w-full max-w-3xl mx-auto flex flex-col items-center justify-center bg-transparent aspect-3/2"
                   onClick={() => {
                     setFullScreenImage(pic);
-                    track("image_view", { image: pic.alt });
+                    track("image_view", { image: (pic as any).alt });
                   }}>
                   <Image
-                    src={pic.src}
-                    alt={pic.alt || "po mia gallery image"}
+                    src={(pic as any).src}
+                    alt={(pic as any).alt || "po mia gallery image"}
                     width={imageWidth}
                     height={imageHeight}
                     priority
@@ -202,10 +195,10 @@ export default function PhotoGallery({
             className="fixed inset-0 bg-black bg-opacity-100 flex items-center justify-center z-50"
             onClick={() => setFullScreenImage(null)}>
             <Image
-              src={fullScreenImage.src}
-              alt={fullScreenImage.alt || "Gallery image"}
-              width={fullScreenImage.width}
-              height={fullScreenImage.height}
+              src={(fullScreenImage as any).src}
+              alt={(fullScreenImage as any).alt || "Gallery image"}
+              width={(fullScreenImage as any).width}
+              height={(fullScreenImage as any).height}
               priority
               // className="max-w-[90vw] max-h-[90vh] w-auto h-auto"
               className="w-full h-full"

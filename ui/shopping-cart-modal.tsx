@@ -5,7 +5,7 @@ import Link from "next/link";
 // import { useRouter } from 'next/navigation'
 
 // import definitions
-import { MerchProduct } from "../app/lib/definitions";
+import { MerchProduct } from "@/definitions/definitions";
 // import icons
 import { FiX } from "react-icons/fi";
 

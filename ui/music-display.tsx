@@ -12,7 +12,7 @@ import PlayButton from "./play-button";
 // import icons
 // import { FiDownload } from "react-icons/fi";
 // import data
-import { Album, Song } from "../app/lib/definitions";
+import { Album, Song } from "@/definitions/definitions";
 
 const truncateTitle = (title: string, maxLength: number) => {
   if (title.length > maxLength) {

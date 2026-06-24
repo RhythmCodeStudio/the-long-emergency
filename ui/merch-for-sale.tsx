@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { MerchProduct } from "../app/lib/definitions";
+import { MerchProduct } from "@/definitions/definitions";
 import { LuShoppingBag } from "react-icons/lu";
 // import components
 import CartModal from "./shopping-cart-modal";

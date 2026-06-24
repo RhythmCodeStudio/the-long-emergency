@@ -1,6 +1,6 @@
 // import { sql } from "@vercel/postgres";
 import postgres from 'postgres';
-import { User, Section, Page, TextBlock, Image, Album, Song, MerchProduct } from "./definitions";
+import { User, Section, Page, TextBlock, Image, Album, Song, MerchProduct } from "@/definitions/definitions";
 import { unstable_noStore as noStore } from 'next/cache';
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });

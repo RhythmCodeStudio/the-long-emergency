@@ -1,7 +1,7 @@
 "use client";
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
-import { Song } from "../app/lib/definitions";
+import { Song } from "@/definitions/definitions";
 import LyricsModal from "./lyrics-modal";
 // import from react
 

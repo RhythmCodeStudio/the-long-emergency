@@ -3,30 +3,35 @@ import type { Metadata } from "next";
 // import analytics
 import { Analytics } from "@vercel/analytics/react";
 // import fonts
-import localFont from "next/font/local";
-const emergency = localFont({
-  src: "../public/fonts/emergency.ttf",
-  display: "swap",
-  variable: "--font-emergency",
-});
+// import localFont from "next/font/local";
+// const emergency = localFont({
+//   src: "../public/fonts/emergency.ttf",
+//   display: "swap",
+//   variable: "--font-emergency",
+// });
 // import { Permanent_Marker } from "next/font/google";
-import { Special_Elite } from "next/font/google";
+import { emergency, special_elite } from "@/fonts";
+// import { Special_Elite } from "next/font/google";
 // import components
 import { Header } from "../ui/header";
 import { Footer } from "../ui/footer";
 import ScrollToTopButton from "../ui/scroll-to-top-button";
-
 // import styles
 import "./globals.css";
+// import context providers
+import { PushNotificationContextProvider } from "@/context/push-notification-context-provider";
+import { DismissedToastsProvider } from "@/context/dismissed-toasts-context-provider";
+// import actions
+import { getSession } from "../actions/actions";
 
 // define font
 // const permanentMarker = Permanent_Marker({ weight: "400", subsets: ["latin"] });
-const special_elite = Special_Elite({
-  weight: "400",
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-special-elite",
-});
+// const special_elite = Special_Elite({
+//   weight: "400",
+//   subsets: ["latin"],
+//   display: "swap",
+//   variable: "--font-special-elite",
+// });
 
 export const metadata: Metadata = {
   title: {
@@ -71,15 +76,19 @@ export default function RootLayout({
       lang="en"
       className={`${emergency.variable} ${special_elite.variable}`}>
       <body className={`font-specialElite overflow-x-hidden flex flex-col`}>
-        <div className="flex flex-col min-h-screen bg-cover bg-center bg-no-repeat bg-[url('/images/background-images/768x1156.png')] xl:bg-[url('/images/background-images/masks-no-text-4800x3190-gaps-filled-horizontal.png')] md:bg-fixed">
-          <Header />
-          <main className="flex grow items-center justify-center">
-            {children}
-          </main>
-          <ScrollToTopButton />
-          <Footer />
-        </div>
-        <Analytics />
+        <PushNotificationContextProvider>
+          <DismissedToastsProvider>
+            <div className="flex flex-col min-h-screen bg-cover bg-center bg-no-repeat bg-[url('/images/background-images/768x1156.png')] xl:bg-[url('/images/background-images/masks-no-text-4800x3190-gaps-filled-horizontal.png')] md:bg-fixed">
+              <Header />
+              <main className="flex grow items-center justify-center">
+                {children}
+              </main>
+              <ScrollToTopButton />
+              <Footer />
+            </div>
+            <Analytics />
+          </DismissedToastsProvider>
+        </PushNotificationContextProvider>
       </body>
     </html>
   );

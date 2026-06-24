@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { sendNotification } from "../../app/actions/actions";
+import { sendNotification } from "@/actions/push-notifications/actions";
 
 export default function AdminNotificationPanel({
   numberOfSubscriptions,

@@ -1,17 +1,51 @@
-export type User = {
+export type Album = {
   id: string;
-  name: string;
-  email: string;
-  password: string;
+  title: string;
+  artist: string;
+  year: number;
+  genre: string[];
+  cover_image: string;
+  type: string;
+  songs: Song[];
+  zip: string;
+  bandcamp_url: string;
 };
 
-export type Section = {
+export type CalendarEvent = {
+  id: number;
+  title: string;
+  startDate: Date;
+  endDate?: Date;
+  startTime: string;
+  endTime?: string;
+  allDay?: boolean;
+  cost?: string;
+  locationName: string;
+  locationStreetAddress: string;
+  locationCity: string;
+  locationState: string;
+  locationZip: string;
+  description?: string;
+  image?: string;
+  ticketLink?: string;
+  eventLink?: string;
+  venueLink?: string;
+  moreInfoLink?: string;
+};
+
+export type Image = {
+  url: string;
+  alt: string;
+  width: number;
+  height: number;
+};
+
+export type MerchProduct = {
   id: string;
-  page: string;
   name: string;
-  type: 'text' | 'image';
-  order: number;
-  content: TextBlock | Image;
+  price: number;
+  image: string;
+  description: string;
 };
 
 export type Page = {
@@ -23,18 +57,27 @@ export type Page = {
   url: string;
 };
 
-export type TextBlock = {
+export type Release = {
   id: string;
-  page: string;
-  section: string;
-  text: string;
+  title: string;
+  artist: string;
+  year: number;
+  release_date: Date;
+  genre: string[];
+  cover_image: string;
+  type: string;
+  description: string;
+  links: StreamingLink[];
+  tracks: Song[];
 };
 
-export type Image = {
-  url: string;
-  alt: string;
-  width: number;
-  height: number;
+export type Section = {
+  id: string;
+  page: string;
+  name: string;
+  type: 'text' | 'image';
+  order: number;
+  content: TextBlock | Image;
 };
 
 export type Song = {
@@ -50,23 +93,23 @@ export type Song = {
   lyrics: string[];
 };
 
-export type Album = {
-  id: string;
-  title: string;
-  artist: string;
-  year: number;
-  genre: string;
-  cover_image: string;
-  type: string;
-  songs: Song[];
-  zip: string;
-  bandcamp_url: string;
+export type StreamingLink = {
+  name: string;
+  label: string;
+  url: string;
+  icon: string;
 };
 
-export type MerchProduct = {
+export type TextBlock = {
+  id: string;
+  page: string;
+  section: string;
+  text: string;
+};
+
+export type User = {
   id: string;
   name: string;
-  price: number;
-  image: string;
-  description: string;
+  email: string;
+  password: string;
 };

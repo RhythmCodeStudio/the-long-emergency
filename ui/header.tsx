@@ -48,7 +48,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-export const Header = () => {
+interface HeaderProps {
+  isAuthenticated: boolean;
+}
+
+export const Header = ({ isAuthenticated }: HeaderProps) => {
   const currentPath = usePathname();
   const [isSmUp, setIsSmUp] = useState<boolean | null>(null);
 
@@ -91,7 +95,7 @@ export const Header = () => {
           )}
 
           <div className="sm:flex sm:justify-center sm:w-full">
-            <Nav />
+            <Nav isAuthenticated={isAuthenticated} />
           </div>
         </div>
       </div>

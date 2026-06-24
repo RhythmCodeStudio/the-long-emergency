@@ -7,10 +7,23 @@ import { useState } from "react";
 // import icons
 import { FiX } from "react-icons/fi";
 import { FiMenu } from "react-icons/fi";
-import ContactLinks from "./contact-links";
-import MusicLinks from "./music-links";
+// import components
+import SignOutButton from "./sign-out-button";
+// import ContactLinks from "./contact-links";
+// import MusicLinks from "./music-links";
 
-export default function Nav() {
+interface NavProps {
+  isAuthenticated: boolean;
+  // navListItems: {
+  //   label: string;
+  //   href: string;
+  //   htmlElement: string;
+  //   category?: string;
+  //   onClick?: () => void;
+  // }[];
+}
+
+export default function Nav({ isAuthenticated }: NavProps) {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const openMenu = () => setMenuOpen(true);
@@ -77,6 +90,11 @@ export default function Nav() {
                   )}
                 </li>
               ))}
+              {isAuthenticated && (
+                <li className="px-8 md:px-8 lg:px-14 xl:px-20 lg:py-8 flex hover:scale-110 transition duration-300 ease-in-out">
+                  <SignOutButton />
+                </li>
+              )}
             </ul>
             {/* <ContactLinks size={20} /> */}
             {/* <MusicLinks size={20} /> */}

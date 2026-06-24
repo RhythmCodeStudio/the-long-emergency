@@ -4,7 +4,7 @@ import { Special_Elite } from "next/font/google";
 
 // export fonts
 export const emergency = localFont({
-  src: "../public/fonts/emergency.ttf",
+  src: "./public/fonts/emergency.ttf",
   display: "swap",
   variable: "--font-emergency",
 });

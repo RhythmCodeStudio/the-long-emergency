@@ -72,9 +72,9 @@ export default function SignUpForm() {
         onSubmit={handleSubmit}
         className="flex flex-col gap-5 items-center justify-center bg-black/50 border-border-default border-2 shadow-white shadow-lg rounded-4xl p-6 w-full max-w-md">
         <div className="md:w-sm">
-          <h1 className="text-center text-2xl/9 font-bold text-shadow-black-background-black">
-            create new account
-          </h1>
+          <h2 className="text-center text-2xl font-bold text-shadow-black-background-black">
+            Create New Account
+          </h2>
         </div>
 
         <div className="flex flex-col gap-1.5 w-xs sm:w-sm">

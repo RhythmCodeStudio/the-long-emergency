@@ -2,7 +2,7 @@
 import ContactForm from "../../ui/contact-form";
 import { getPage } from "../lib/data";
 // import from next
-import Image from "../../ui/image";
+import Image from "next/image";
 // export metadata
 export const metadata = {
   title: "Contact",

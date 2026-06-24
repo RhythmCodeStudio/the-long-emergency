@@ -2,7 +2,7 @@
 //import from react
 import { useState } from "react";
 // import from next
-import Image from "./image";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function ShowDisplay() {

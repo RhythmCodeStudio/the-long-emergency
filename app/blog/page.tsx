@@ -3,7 +3,7 @@ import { getPage } from "../lib/data";
 // import components
 import BlogPost from "../../ui/blog-post";
 // import from next
-import Image from "../../ui/image";
+import Image from "next/image";
 // export metadata
 export const metadata = {
   title: "Blog",

@@ -1,6 +1,6 @@
 // import from next
 import Link from "next/link";
-import Image from "../../ui/image";
+import Image from "next/image";
 // import data
 import { getPage } from "../lib/data";
 import ShowDisplay from "@/ui/show-display";

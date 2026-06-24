@@ -1,6 +1,6 @@
 // import from next
 import Link from "next/link";
-import Image from "../../../ui/image";
+import Image from "next/image";
 
 // export metadata
 export const metadata = {

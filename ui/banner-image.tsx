@@ -1,4 +1,4 @@
-import Image from "./image";
+import Image from "next/image";
 
 export default function BannerImage({ src, alt, width, height, className }: { src: string, alt: string, width: number, height: number, className?: string}) {
   return (

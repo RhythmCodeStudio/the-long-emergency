@@ -52,9 +52,9 @@ export default function SignInForm() {
         action={formAction}
         className="flex flex-col gap-5 items-center justify-center bg-black/50 border-border-default border-2 shadow-white shadow-lg rounded-4xl p-6 w-full max-w-md">
         <div className="w-xs sm:w-sm">
-          <h1 className="text-center text-2xl/9  text-shadow-black-background-black">
-            sign in
-          </h1>
+          <h2 className="text-center text-2xl text-shadow-black-background-black">
+            Sign In
+          </h2>
         </div>
 
         <div className="flex flex-col gap-1.5 w-xs sm:w-sm">

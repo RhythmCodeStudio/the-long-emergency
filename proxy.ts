@@ -1,10 +1,24 @@
-import NextAuth from "next-auth";
-import { authConfig } from "./auth.config";
-import { NextResponse, NextRequest } from "next/server";
 
-export default NextAuth(authConfig).auth;
+import { NextResponse, NextRequest } from "next/server";
+import { auth } from "@/auth/server";
 
 export function proxy(request: NextRequest) {
+
+  const protectedRoutes = ["/admin"];
+  const isProtected = protectedRoutes.some(route => request.nextUrl.pathname.startsWith(route));
+
+  // Only apply auth middleware to protected routes
+  if (isProtected) {
+    const middleware = auth.middleware({
+      loginUrl: '/auth/sign-in',
+    });
+    
+    const authResponse = middleware(request);
+    if (authResponse) {
+      return authResponse;
+    }
+  }
+  
   let cspHeader = "";
   const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
   const environment = process.env.NEXT_PUBLIC_ENV || process.env.NODE_ENV;

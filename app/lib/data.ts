@@ -1,3 +1,6 @@
+// refactor all paths to this file to use the actions directory. then delete this file
+
+
 // import { sql } from "@vercel/postgres";
 import postgres from 'postgres';
 import { User, Section, Page, TextBlock, Image, Album, Song, MerchProduct } from "@/definitions/definitions";

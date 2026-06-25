@@ -1,5 +1,5 @@
 // import from lib
-import { getPage } from "./lib/data";
+import { getPage } from "@/actions/actions";
 
 export default async function Home() {
   const pageData = await getPage("home");

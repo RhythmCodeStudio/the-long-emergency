@@ -2,6 +2,18 @@ import { neon } from "@neondatabase/serverless";
 
 const sql = neon(`${process.env.DATABASE_URL}`);
 
+export async function initializeDB() {
+  await sql`
+    CREATE TABLE IF NOT EXISTS push_subscriptions (
+      id SERIAL PRIMARY KEY,
+      endpoint TEXT UNIQUE NOT NULL,
+      expiration_time BIGINT,
+      keys JSONB NOT NULL,
+      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    )
+  `;
+}
+
 export async function saveSubscriptionToDB(sub: any) {
   await sql`
     INSERT INTO push_subscriptions (endpoint, expiration_time, keys)

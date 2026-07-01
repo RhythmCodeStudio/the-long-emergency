@@ -4,6 +4,7 @@ import Image from "next/image";
 // import data
 import { getPage } from "../lib/data";
 import ShowDisplay from "@/ui/show-display";
+import Toaster from "@/ui/toaster";
 // export metadata
 export const metadata = {
   title: "Shows",
@@ -51,6 +52,7 @@ export default async function ShowsPage() {
           </h4>
         </Link>
       </div>
+      <Toaster toastId="default" />
     </div>
   );
 }

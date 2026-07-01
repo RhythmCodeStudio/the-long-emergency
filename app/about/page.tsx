@@ -4,6 +4,7 @@
 import { getPage } from "../lib/data";
 // import components
 import BandBio from "../../ui/band-bio";
+import Toaster from "@/ui/toaster";
 // export metadata
 export const metadata = {
   title: "About",
@@ -23,6 +24,7 @@ export default async function AboutPage() {
       <div className="pt-2">
         <BandBio />
       </div>
+      <Toaster toastId="default"/>
     </div>
   );
 }

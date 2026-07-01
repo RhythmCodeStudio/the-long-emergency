@@ -3,10 +3,10 @@ const ASSETS_TO_CACHE = [
   // "/",
   // "/manifest.webmanifest",
   // "/icons/favicon.ico",
-  "/icons/web-app-manifest-192x192.png",
-  "/icons/web-app-manifest-512x512.png",
-  "/icons/96x96.png",
-  "/icons/favicon.ico",
+  // "/icons/web-app-manifest-192x192.png",
+  // "/icons/web-app-manifest-512x512.png",
+  // "/icons/96x96.png",
+  // "/icons/favicon.ico",
   "/sw.js",
   // add other assets from 'public' when finalized
 ]

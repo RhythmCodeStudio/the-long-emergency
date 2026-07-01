@@ -8,7 +8,7 @@ import { IoIosNotifications, IoIosNotificationsOff } from "react-icons/io";
 import { usePushNotification } from "../context/push-notification-context-provider";
 
 async function subscribeUser(sub: any) {
-  await fetch("/api/subscribe", {
+  await fetch("/api/push-notifications/subscribe", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(sub),
@@ -16,7 +16,7 @@ async function subscribeUser(sub: any) {
 }
 
 async function unsubscribeUser(endpoint: string) {
-  await fetch("/api/unsubscribe", {
+  await fetch("/api/push-notifications/unsubscribe", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ endpoint }),
@@ -78,13 +78,13 @@ export default function PushNotificationSubscriptionManager({
     setSubscription(sub);
     setIsSubscribed(true);
     const serializedSub = JSON.parse(JSON.stringify(sub));
-    // console.log("Subscribing to push notifications:", serializedSub);
+    console.log("Subscribing to push notifications:", serializedSub);
     await subscribeUser(serializedSub);
   }
 
   async function unsubscribeFromPush() {
     if (subscription) {
-      // console.log("Unsubscribing from push notifications:", subscription);
+      console.log("Unsubscribing from push notifications:", subscription);
       await subscription.unsubscribe();
     }
     setSubscription(null);
@@ -135,7 +135,7 @@ export default function PushNotificationSubscriptionManager({
         <button
           onClick={subscribeToPush}
           className="cursor-pointer border-2 border-border-default p-1 px-4 rounded-full rainbow-gradient text-shadow-black-background-black w-full shadow-white shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] transform transition-transform duration-200 active:scale-95">
-          <span className=" font-medium tracking-wider z-50">subscribe to notifications</span>
+          <span className=" font-medium tracking-wider z-50">Subscribe to Notifications</span>
         </button>
       )}
     </>

@@ -1,9 +1,11 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
+import Image from "next/image";
 import { ToastContainer, toast, Slide } from "react-toastify";
 import ToastContent from "./toast-content";
 import { usePushNotification } from "../context/push-notification-context-provider";
 import { useDismissedToasts } from "../context/dismissed-toasts-context-provider";
+import { useInstallContext } from "@/context/install-context-provider";
 
 interface ToasterProps {
   toastId: string;
@@ -11,70 +13,86 @@ interface ToasterProps {
   component?: React.ReactNode;
 }
 
-const toastMessage = (toastId: string, message?: string, component?: React.ReactNode, onDismiss?: () => void) => {
-  toast(<ToastContent message={message} component={component} />, {
-    toastId: toastId,
+const toastMessage = (
+  toastId: string,
+  message?: string,
+  component?: React.ReactNode,
+  onDismiss?: () => void,
+) => {
+  toast.info(<ToastContent message={message} component={component} />, {
+    toastId,
     position: "bottom-center",
     autoClose: 7000,
     hideProgressBar: false,
+    icon: (
+      <Image
+        src="/logos/long-emergency/32x32.png"
+        alt="The Long Emergency icon"
+        width={32}
+        height={32}
+      />
+    ),
     closeOnClick: false,
     pauseOnHover: true,
-    draggable: true,
     closeButton: false,
     progress: undefined,
     transition: Slide,
     onClose: () => {
       onDismiss?.();
     },
-    style: {
-      borderRadius: "1rem 1rem 1rem 1rem",
-      background:
-        "linear-gradient(135deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff, #ff0000)",
-      color: "#fff",
-      boxShadow: "0 4px 24px rgba(0,0,0,0.18)",
-      fontSize: "1rem",
-      minWidth: "260px",
-      maxWidth: "90vw",
-      padding: "1rem",
-      border: "2px solid rgba(255, 255, 255, 0.3)",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      textAlign: "center",
-    },
+    className:
+      "border-2 border-slate-400 font-emergency text-outline-none text-black flex flex-col items-center justify-center text-center rounded-2xl shadow-lg shadow-white/50",
+    theme: "dark",
   });
 };
 
 export default function Toaster({ toastId, message, component }: ToasterProps) {
   const { isSubscribed } = usePushNotification();
   const { dismissedToasts, addDismissedToast } = useDismissedToasts();
+  const { canInstall } = useInstallContext();
+
   const shownRef = useRef(false);
+  const interactedRef = useRef(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const maybeShowToast = useCallback(() => {
+    if (shownRef.current) return;
+    if (!interactedRef.current) return;
+    if (isSubscribed !== false) return;
+    if (!canInstall) return;
+    if (dismissedToasts.has(toastId)) return;
+
+    shownRef.current = true;
+    timeoutRef.current = setTimeout(() => {
+      toastMessage(toastId, message, component, () =>
+        addDismissedToast(toastId),
+      );
+    }, 1500);
+  }, [
+    isSubscribed,
+    canInstall,
+    dismissedToasts,
+    toastId,
+    message,
+    component,
+    addDismissedToast,
+  ]);
 
   useEffect(() => {
     if (isSubscribed !== false) return;
 
-    const handler = () => {
-      if (shownRef.current) return;
-
-      // Check if already dismissed THIS SESSION
-      if (dismissedToasts.has(toastId)) {
-        return;
-      }
-
-      shownRef.current = true;
-      timeoutRef.current = setTimeout(() => {
-        if (isSubscribed === false) {
-          toastMessage(toastId, message, component, () =>
-            addDismissedToast(toastId),
-          );
-        }
-      }, 1500);
+    const onFirstPointerDown = () => {
+      interactedRef.current = true;
+      maybeShowToast();
     };
 
-    window.addEventListener("pointerdown", handler, { once: true });
-    return () => window.removeEventListener("pointerdown", handler);
-  }, [isSubscribed, message, component, toastId, dismissedToasts, addDismissedToast]);
+    window.addEventListener("pointerdown", onFirstPointerDown, { once: true });
+    return () => window.removeEventListener("pointerdown", onFirstPointerDown);
+  }, [isSubscribed, maybeShowToast]);
+
+  useEffect(() => {
+    maybeShowToast();
+  }, [maybeShowToast]);
 
   useEffect(() => {
     if (isSubscribed && timeoutRef.current) {
@@ -92,6 +110,7 @@ export default function Toaster({ toastId, message, component }: ToasterProps) {
       toastStyle={{
         transition: "all 0.6s cubic-bezier(.4,0,.2,1)",
       }}
+      theme="dark"
     />
   );
 }

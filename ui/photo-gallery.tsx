@@ -174,7 +174,7 @@ export default function PhotoGallery({
                   }}>
                   <Image
                     src={(pic as any).src}
-                    alt={(pic as any).alt || "po mia gallery image"}
+                    alt={(pic as any).alt || "The Long Emergency gallery image"}
                     width={imageWidth}
                     height={imageHeight}
                     priority

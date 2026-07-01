@@ -21,6 +21,7 @@ import "./globals.css";
 // import context providers
 import { PushNotificationContextProvider } from "@/context/push-notification-context-provider";
 import { DismissedToastsProvider } from "@/context/dismissed-toasts-context-provider";
+import { InstallContextProvider } from "@/context/install-context-provider";
 // import actions
 import { getSession } from "../actions/actions";
 
@@ -79,19 +80,19 @@ export default async function RootLayout({
       className={`${emergency.variable} ${special_elite.variable}`}>
       <body className={`font-specialElite overflow-x-hidden flex flex-col`}>
         <PushNotificationContextProvider>
-          <DismissedToastsProvider>
-            <div className="flex flex-col min-h-screen bg-cover bg-center bg-no-repeat bg-[url('/images/background-images/768x1156.png')] xl:bg-[url('/images/background-images/masks-no-text-4800x3190-gaps-filled-horizontal.png')] md:bg-fixed">
-              <Header
-                isAuthenticated={isAuthenticated}
-              />
-              <main className="flex grow items-center justify-center">
-                {children}
-              </main>
-              <ScrollToTopButton />
-              <Footer />
-            </div>
-            <Analytics />
-          </DismissedToastsProvider>
+          <InstallContextProvider>
+            <DismissedToastsProvider>
+              <div className="flex flex-col min-h-screen bg-cover bg-center bg-no-repeat bg-[url('/images/background-images/768x1156.png')] xl:bg-[url('/images/background-images/masks-no-text-4800x3190-gaps-filled-horizontal.png')] md:bg-fixed">
+                <Header isAuthenticated={isAuthenticated} />
+                <main className="flex grow items-center justify-center">
+                  {children}
+                </main>
+                <ScrollToTopButton />
+                <Footer />
+              </div>
+              <Analytics />
+            </DismissedToastsProvider>
+          </InstallContextProvider>
         </PushNotificationContextProvider>
       </body>
     </html>

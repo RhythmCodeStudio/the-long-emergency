@@ -6,7 +6,7 @@ import type { PushSubscription } from "web-push";
 import { getSubscriptionsFromDB } from "./notification-subscriptions-db";
 
 webpush.setVapidDetails(
-  "mailto:pomiamusic@gmail.com",
+  "mailto:info@thelongemergency.com",
   process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY!,
   process.env.VAPID_PRIVATE_KEY!
 );

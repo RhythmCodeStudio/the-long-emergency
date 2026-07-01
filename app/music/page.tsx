@@ -1,5 +1,8 @@
 import { getPage, getAlbums, getSongs } from "../lib/data";
-import MusicDisplay from "../../ui/music-display";
+// import components
+import MusicDisplay from "@/ui/music-display";
+import Toaster from "@/ui/toaster";
+import InstallAppButton from "@/ui/install-app-button";
 
 export const metadata = {
   title: "Music",
@@ -35,6 +38,11 @@ export default async function MusicPage() {
         </h2>
         <MusicDisplay albums={chronologicalAlbums} songs={songs} />
       </div>
+      <Toaster
+              toastId="install-app-toast"
+              message="Install thelongemergency.com"
+              component={<InstallAppButton />}
+            />
     </div>
   );
 }

@@ -88,7 +88,7 @@ export default function SignUpForm() {
             name="name"
             type="text"
             required
-            placeholder="po mia"
+            placeholder="The Long Emergency"
             autoComplete="username"
             disabled={isPending}
             className="shadow-md shadow-black border-2 border-border-default p-2 w-full text-black placeholder-neutral-800 rounded-4xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"

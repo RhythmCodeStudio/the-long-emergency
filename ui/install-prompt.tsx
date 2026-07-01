@@ -58,14 +58,14 @@ export default function InstallPrompt() {
         x
       </button>
       <div className="text-shadow-black-background-black">
-        <h2 className="text-xl font-semibold mb-2">install po mia music</h2>
-        <p className="mb-4">install on your device for the best experience.</p>
+        <h2 className="text-xl font-semibold mb-2">Install thelongemergency.com</h2>
+        <p className="mb-4">Install on your device for the best experience.</p>
       </div>
       {deferredPrompt && (
         <button
           onClick={handleInstallClick}
           className="rainbow-gradient p-1 rounded-full  border-2 border-border-default text-sm shadow-black/50 shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full max-w-xs hover:scale-105 transform transition-transform duration-600 active:scale-95 text-shadow-black-background-black">
-          install app
+          Install App
         </button>
       )}
       {!deferredPrompt && !isStandalone && (

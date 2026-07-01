@@ -21,9 +21,15 @@ export async function signUpWithEmail(
     return { error: "Email address must be provided." };
   }
 
-  const allowedEmails = ["kevin@rhythmcodestudio.tech", "pomiamusic@gmail.com"];
-  if (!allowedEmails.includes(email.trim().toLowerCase())) {
-    return { error: "This email address is not allowed to sign up." };
+  // const allowedEmails = ["kevin@rhythmcodestudio.tech", "info@thelongemergency.com", "admin@thelongemergency.com"];
+  // if (!allowedEmails.includes(email.trim().toLowerCase())) {
+  //   return { error: "This email address is not allowed to sign up." };
+  // }
+
+  const allowedDomains = ["thelongemergency.com", "rhythmcodestudio.tech"];
+  const emailDomain = email.split("@")[1];
+  if (!allowedDomains.includes(emailDomain)) {
+    return { error: "This email domain is not allowed to sign up." };
   }
 
   // CHANGED: Added server-side password validation as backup

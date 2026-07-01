@@ -14,7 +14,7 @@ interface ToastContentProps {
 
 export default function ToastContent({ message, component }: ToastContentProps) {
   return (
-    <div>
+    <div className="w-full">
       <Button
         onClick={() => toast.dismiss()}
         className="absolute top-2 right-2 p-1"
@@ -22,9 +22,9 @@ export default function ToastContent({ message, component }: ToastContentProps) 
         icon={<RiCloseCircleFill size={18} className="icon-shadow" />}
       />
 
-      <div className="mt-6 flex flex-col items-center text-center text-shadow-black-background-black rounded-2xl">
+      <div className="mt-6 flex flex-col items-center text-center rounded-2xl">
         <p>
-          {message || "subscribe to notifications to stay up to date with the latest from po mia!"}
+          {message || "Subscribe to notifications to stay up to date with the latest from The Long Emergency!"}
         </p>
         <div className="my-2 flex flex-col justify-center items-center">
           {component || <PushNotificationSubscriptionManager renderedAs="button" />}

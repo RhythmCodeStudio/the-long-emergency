@@ -4,13 +4,13 @@ import { track } from "@vercel/analytics";
 // import from next
 import Image from "next/image";
 // import from react
-import { ChangeEvent, SetStateAction, useState } from "react";
-//import from nextui
-// import { Button } from "@heroui/react";
+import { useState } from "react";
 // import from toastify
 import { Bounce, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+// import from components
+import FormInput from "./form-input";
+import FormCheckbox from "./form-checkbox";
 // import from utils
 import {
   validateEmail,
@@ -18,6 +18,10 @@ import {
   validatePhone,
   validateMessage,
 } from "../app/utils/utils";
+// import actions
+import {
+  signUpForMailingList,
+} from "../actions/actions";
 // import from emailjs
 import emailjs from "@emailjs/browser";
 
@@ -27,6 +31,9 @@ export default function ContactForm() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+
+  const [checked, setChecked] = useState(true);
+
   const [emailErrorMessage, setEmailErrorMessage] = useState("");
   const [phoneErrorMessage, setPhoneErrorMessage] = useState("");
   const [firstNameErrorMessage, setFirstNameErrorMessage] = useState("");
@@ -53,19 +60,16 @@ export default function ContactForm() {
         "border-2 border-slate-400 font-emergency text-outline-none text-black",
     });
 
+  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked(e.target.checked);
+  };
+
   const handleChange = (
-    e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>,
-    setState: {
-      (value: SetStateAction<string>): void;
-      (value: SetStateAction<string>): void;
-      (value: SetStateAction<string>): void;
-      (value: SetStateAction<string>): void;
-      (value: SetStateAction<string>): void;
-      (arg0: any): void;
-    }
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    setState: React.Dispatch<React.SetStateAction<any>>,
   ) => {
     setState(e.target.value);
-    // Check if the email is being updated and is valid
+
     if (e.target.name === "email" && validateEmail(e.target.value)) {
       setEmailErrorMessage("");
     }
@@ -85,17 +89,18 @@ export default function ContactForm() {
 
   const handleFormSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    // trim form data
+
     const trimmedFirstName = firstName.trim();
     const trimmedLastName = lastName.trim();
     const trimmedEmail = email.trim();
     const trimmedPhone = phone.trim();
-    // validation  for inputs, handle errors accordingly
+
     const isEmailValid = validateEmail(trimmedEmail);
     const isPhoneValid = validatePhone(trimmedPhone);
     const isFirstNameValid = validateName(trimmedFirstName);
     const isLastNameValid = validateName(trimmedLastName);
     const isMessageValid = validateMessage(message);
+
     if (!isEmailValid) {
       setEmailErrorMessage("Please enter a valid email address.");
       return;
@@ -116,6 +121,7 @@ export default function ContactForm() {
       setMessageErrorMessage("Please enter a message.");
       return;
     }
+
     if (
       isEmailValid &&
       isPhoneValid &&
@@ -137,9 +143,9 @@ export default function ContactForm() {
             process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
             process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "",
             emailTemplateParams,
-            process.env.NEXT_PUBLIC_EMAILJS_USER_ID
+            process.env.NEXT_PUBLIC_EMAILJS_USER_ID,
           )
-          .then((result) => {
+          .then(() => {
             track("Contact form submission");
             setButtonSubmitted(true);
             setFirstName("");
@@ -147,151 +153,134 @@ export default function ContactForm() {
             setEmail("");
             setPhone("");
             setMessage("");
-            // Reset the button's submitted state after 5 seconds
+
             setTimeout(() => {
               setButtonSubmitted(false);
             }, 5000);
+
             notify();
           });
       } catch (error) {
         setDeliveryErrorMessage(
-          "There was an error delivering your message. Please email us at thelongemergencyband@gmail.com. Sorry for the trouble."
+          "There was an error delivering your message. Please email us at thelongemergencyband@gmail.com. Sorry for the trouble.",
         );
       }
+    }
+    if (checked && isEmailValid) {
+      signUpForMailingList(trimmedEmail);
     }
   };
 
   return (
     <div className="w-full black">
-      {/* <h3 className="text-center text-xl text-2xl xl:text-3xl font-bold">Get In Touch</h3> */}
       <form
         onSubmit={handleFormSubmit}
-        className="expand-on-load px-12 py-6 max-w-200 mx-auto relative ">
-        {/* <h3 className="text-center text-xl text-2xl xl:text-3xl font-bold">Get In Touch</h3> */}
-        <div className="flex flex-col justify-center">
-          <label htmlFor="firstName">
-            First Name
-            {/* <span className="text-xs">(required)</span> */}
-          </label>
-          <input
-            autoComplete="given-name"
-            placeholder="First Name"
-            onChange={(e) => handleChange(e, setFirstName)}
-            value={firstName}
-            // required
-            type="text"
-            name="firstName"
-            id="firstName"
-            className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 p-2 w-full text-white bg-black/60 tracking-widest"
-          />
-          {firstNameErrorMessage && (
-            <div className="flex justify-center items-center mt-2 mb-4">
-              <p className="text-red-500 text-xs">{firstNameErrorMessage}</p>
-            </div>
-          )}
-        </div>
-        <div className="flex flex-col justify-center ">
-          <label htmlFor="lastName">
-            Last Name
-            {/* <span className="text-xs"> (required)</span> */}
-          </label>
-          <input
-            autoComplete="family-name"
-            placeholder="Last Name"
-            onChange={(e) => handleChange(e, setLastName)}
-            value={lastName}
-            // required
-            type="text"
-            name="lastName"
-            id="lastName"
-            className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 p-2 w-full text-white bg-black/60 tracking-widest"
-          />
-          {lastNameErrorMessage && (
-            <div className="flex justify-center text-center items-center mt-2 mb-4">
-              <p className="text-red-500 text-xs">{lastNameErrorMessage}</p>
-            </div>
-          )}
-        </div>
-        <div className="flex flex-col justify-center">
-          <label htmlFor="email">
-            Email*<span className="text-xs"> (required)</span>
-          </label>
-          <input
-            autoComplete="email"
-            placeholder="Email"
-            onChange={(e) => handleChange(e, setEmail)}
-            value={email}
-            required
-            type="email"
-            name="email"
-            id="email"
-            className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 p-2 w-full text-white bg-black/60 tracking-widest"
-          />
-          {emailErrorMessage && (
-            <div className="flex justify-center items-center mt-2 mb-4">
-              <p className="text-red-500 text-xs">{emailErrorMessage}</p>
-            </div>
-          )}
-        </div>
-        {/* <div className="flex flex-col justify-center">
-          <label htmlFor="phone">
-            Phone Number<span className="text-xs"> (optional)</span>
-          </label>
-          <input
-            autoComplete="tel"
-            placeholder="Phone Number"
-            onChange={(e) => handleChange(e, setPhone)}
-            value={phone}
-            type="tel"
-            name="phone"
-            id="phone"
-            className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 p-2 w-full text-white bg-black/60 tracking-widest"
-          />
-          {phoneErrorMessage && (
-            <div className="flex justify-center items-center mt-2 mb-4">
-              <p className="text-red-500 text-xs">{phoneErrorMessage}</p>
-            </div>
-          )}
-        </div> */}
-        <div className="flex flex-col justify-center">
-          <label htmlFor="message">
-            Message*<span className="text-xs"> (required)</span>
-          </label>
-          <textarea
-            autoComplete="off"
-            maxLength={1000}
-            placeholder="Let's rock"
-            onChange={(e) => handleChange(e, setMessage)}
-            value={message}
-            required
-            name="message"
-            id="message"
-            className="text-white shadow-2xl shadow-blue-300/50 border-2 border-slate-400 bg-black/60 p-2 h-60 resize-none w-full tracking-widest"
-          />
-          {messageErrorMessage && (
-            <div className="flex justify-center items-center mt-2 mb-4">
-              <p className="text-red-500 text-xs">{messageErrorMessage}</p>
-            </div>
-          )}
-        </div>
+        className="expand-on-load px-12 py-6 max-w-200 mx-auto relative "
+      >
+        <FormInput
+          idPrefix="contact-form"
+          inputType="input"
+          label="First Name"
+          type="text"
+          name="firstName"
+          value={firstName}
+          handleChange={handleChange}
+          placeholder="First Name"
+          required={false}
+          autoComplete="given-name"
+          errorMessage={firstNameErrorMessage}
+          setStateVariable={setFirstName}
+        />
+
+        <FormInput
+          idPrefix="contact-form"
+          inputType="input"
+          label="Last Name"
+          type="text"
+          name="lastName"
+          value={lastName}
+          handleChange={handleChange}
+          placeholder="Last Name"
+          required={false}
+          autoComplete="family-name"
+          errorMessage={lastNameErrorMessage}
+          setStateVariable={setLastName}
+        />
+
+        <FormInput
+          idPrefix="contact-form"
+          inputType="input"
+          label="Email"
+          type="email"
+          name="email"
+          value={email}
+          handleChange={handleChange}
+          placeholder="Email"
+          required={true}
+          autoComplete="email"
+          errorMessage={emailErrorMessage}
+          setStateVariable={setEmail}
+        />
+
+        {/* Keep phone state/validation behavior unchanged even though field is hidden */}
+        {/* <FormInput
+          idPrefix="contact-form"
+          inputType="input"
+          label="Phone Number"
+          type="tel"
+          name="phone"
+          value={phone}
+          handleChange={handleChange}
+          placeholder="Phone Number"
+          required={false}
+          autoComplete="tel"
+          errorMessage={phoneErrorMessage}
+          setStateVariable={setPhone}
+        /> */}
+
+        <FormInput
+          idPrefix="contact-form"
+          inputType="textarea"
+          label="Message"
+          type="text"
+          name="message"
+          value={message}
+          handleChange={handleChange}
+          placeholder="Let's rock"
+          required={true}
+          autoComplete="off"
+          errorMessage={messageErrorMessage}
+          setStateVariable={setMessage}
+        />
+
+        <FormCheckbox
+          idPrefix="contact-form"
+          label="Sign me up for The Long Emergency mailing list. I understand I can unsubscribe at any time."
+          name="consent"
+          checked={checked}
+          onChange={handleCheckboxChange}
+          // required={true}
+          errorMessage=""
+        />
+
         <div className="flex justify-center items-center p-6 ">
           <button
-            // color="primary"
-            // variant="shadow"
             onClick={handleFormSubmit}
-            // isSubmitted={buttonSubmitted}
             type="submit"
-            className="px-6 py-1 bg-blue-500 hover:bg-blue-700 rounded-full border-2 border-black">
+            className="px-6 py-1 bg-blue-500 hover:bg-blue-700 rounded-full border-2 border-black"
+          >
             <span className="font-emergency text-white text-outline">Send</span>
           </button>
         </div>
+
         {deliveryErrorMessage && (
           <div className="flex text-center justify-center items-center mt-2 mb-4">
             <a
               href="mailto:thelongemergencyband@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="email The Long Emergency">
+              aria-label="email The Long Emergency"
+            >
               <p className="text-red-500 text-xs font-bold hover:transform hover:scale-105 transition-transform">
                 {deliveryErrorMessage}
               </p>
@@ -299,6 +288,7 @@ export default function ContactForm() {
           </div>
         )}
       </form>
+
       <ToastContainer
         position="top-center"
         autoClose={5000}

@@ -1,6 +1,9 @@
 // import data
-import ContactForm from "../../ui/contact-form";
 import { getPage } from "../lib/data";
+// import components
+// import MailingListSignUpForm from "@/ui/mailing-list-sign-up-form";
+import ContactForm from "@/ui/contact-form";
+import Heading from "@/ui/heading";
 // import from next
 import Image from "next/image";
 // export metadata
@@ -20,6 +23,14 @@ export default async function ContactPage() {
         <h2 className="font-emergency expand-on-load text-2xl lg:text-3xl xl:text-4xl">
           {contactPageData?.page_title ?? "Contact"}
         </h2>
+        
+          {/* <MailingListSignUpForm  className="mt-8 mb-16"/> */}
+        {/* <Heading 
+          headingLevel={4}
+          text="Send Us a Message"
+         className="text-xl lg:text-2xl font-semibold text-shadow-black-background-black mb-4 text-center"
+        /> */}
+
         <ContactForm />
         <div className="w-full h-auto px-12 max-w-200 expand-on-load mb-12 ">
           <Image

@@ -20,19 +20,19 @@ export default async function AdminPage() {
   // const calendarEvents = await getCalendarEvents();
 
   return (
-     <div className=" w-full">
-      {/* {!user && ( */}
+     <div className="w-full">
+      {/* {!user && (
         <div className="flex justify-center my-12">
-          {/* <SignIn automaticRedirect={true} firstTab="password" /> */}
+          <SignIn automaticRedirect={true} firstTab="password" />
         </div>
-      {/* )} */}
+      )} */}
 
       {/* {user && ( */}
         <div className="flex flex-col justify-center items-center text-shadow-black-background-black w-full">
           <Heading
             text="Welcome back Kevin"
             headingLevel={2}
-            className="font-bold text-4xl text-shadow-black-background-black tracking-widest"
+            className="font-bold text-2xl lg:text-4xl text-shadow-black-background-black tracking-widest mt-4 md:mt-0"
           />
           <div className="w-full flex justify-center p-8">
             <AdminContainer

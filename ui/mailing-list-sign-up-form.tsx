@@ -16,11 +16,15 @@ import Heading from "./heading";
 // import from utils
 import { validateEmail } from "../utils/utils";
 
+interface MailingListSignUpFormProps {
+  mode?: "sign-up" | "remove";
+  className?: string;
+}
+
 export default function MailingListSignUpForm({
   mode = "sign-up",
-}: {
-  mode?: "sign-up" | "remove";
-}) {
+  className,
+}: MailingListSignUpFormProps) {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
   // const [error, setError] = useState("");
@@ -77,15 +81,15 @@ export default function MailingListSignUpForm({
   };
 
   return (
-    <div className="flex flex-col items-stretch w-full p-4 lg:p-8 bg-black/50 border-border-default border-2 shadow-white shadow-lg rounded-4xl max-w-lg">
+    <div className={`flex flex-col items-stretch w-full p-4 lg:p-8 bg-black/50 border-border-default border-2 shadow-white shadow-lg rounded-4xl max-w-lg ${className}`}>
       <Heading
         text={
           mode === "sign-up"
-            ? "mailing list sign-up"
-            : "unsubscribe from mailing list"
+            ? "Mailing List Sign-Up"
+            : "Unsubscribe from Mailing List"
         }
         headingLevel={3}
-        className="text-xl lg:text-2xl font-semibold text-shadow-black-background-black mb-4 text-center font-indie-flower"
+        className="text-xl lg:text-2xl font-semibold text-shadow-black-background-black mb-4 text-center"
       />
       <form
         onSubmit={handleFormSubmit}
@@ -93,12 +97,12 @@ export default function MailingListSignUpForm({
         <ContactFormInput
           idPrefix="mailing-list-sign-up-form"
           inputType="input"
-          label="email address"
+          label="Email address"
           type="email"
           name="email"
           value={email}
           handleChange={handleChange}
-          placeholder="enter your email address"
+          placeholder="Enter your email address"
           required={true}
           autoComplete="email"
           errorMessage={emailErrorMessage}
@@ -119,11 +123,11 @@ export default function MailingListSignUpForm({
           <span className="z-50 font-semibold text-white tracking-wideest">
             {submitted
               ? mode === "sign-up"
-                ? "thank you for signing up!"
-                : "thank you! sign up again at any time!"
+                ? "Thank you for signing up!"
+                : "Thank you! Sign up again at any time!"
               : mode === "sign-up"
-                ? "sign up"
-                : "unsubscribe"}
+                ? "Sign Up"
+                : "Unsubscribe"}
           </span>
         </button>
       </form>

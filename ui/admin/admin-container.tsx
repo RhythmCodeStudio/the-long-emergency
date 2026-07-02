@@ -33,7 +33,7 @@ export default function AdminContainer({
       <Heading
         headingLevel={2}
         className="text-center text-xl mb-4"
-        text="admin panel"
+        text="Admin Panel"
       />
       <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 mb-6 justify-center w-full px-6">
         <Button

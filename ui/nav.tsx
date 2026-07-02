@@ -9,6 +9,7 @@ import { FiX } from "react-icons/fi";
 import { FiMenu } from "react-icons/fi";
 // import components
 import SignOutButton from "./sign-out-button";
+import MorePopover from "./more-popover";
 // import ContactLinks from "./contact-links";
 // import MusicLinks from "./music-links";
 
@@ -90,6 +91,9 @@ export default function Nav({ isAuthenticated }: NavProps) {
                   )}
                 </li>
               ))}
+              <li className="px-8 md:px-8 lg:px-14 xl:px-20 lg:py-8 flex hover:scale-110 transition duration-300 ease-in-out">
+                <MorePopover onAnyAction={closeMenu} />
+              </li>
               {isAuthenticated && (
                 <li className="px-8 md:px-8 lg:px-14 xl:px-20 lg:py-8 flex hover:scale-110 transition duration-300 ease-in-out">
                   <SignOutButton />

@@ -1,7 +1,7 @@
 "use client";
 import { useSearchParams } from "next/navigation";
 // import components
-import MailingListSignUpForm from "../../ui/mailing-list-sign-up-form";
+import MailingListSignUpForm from "@/ui/mailing-list-sign-up-form";
 
 export default function MailingListPage() {
   const searchParams = useSearchParams();

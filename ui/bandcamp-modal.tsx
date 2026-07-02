@@ -63,6 +63,8 @@ export default function BandcampModal({
               </ModalHeader>
               <ModalBody className="flex justify-center items-center h-full z-0">
                 <iframe
+                  name="bandcamp-iframe"
+                  title={`Bandcamp player for ${title}`}
                   src={src}
                   width="90%"
                   height="90%"

@@ -53,6 +53,8 @@ export default function TicketModal({
               </ModalHeader>
               <ModalBody className="flex justify-center items-center h-full">
                 <iframe
+                  name="ticket-iframe"
+                  title="Ticket purchase iframe"
                   src={src}
                   width="80%"
                   height="80%"

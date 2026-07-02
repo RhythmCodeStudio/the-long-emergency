@@ -59,7 +59,7 @@ export default function Toaster({ toastId, message, component }: ToasterProps) {
     if (shownRef.current) return;
     if (!interactedRef.current) return;
     if (isSubscribed !== false) return;
-    if (!canInstall) return;
+    // if (!canInstall) return;
     if (dismissedToasts.has(toastId)) return;
 
     shownRef.current = true;
@@ -70,7 +70,6 @@ export default function Toaster({ toastId, message, component }: ToasterProps) {
     }, 1500);
   }, [
     isSubscribed,
-    canInstall,
     dismissedToasts,
     toastId,
     message,
@@ -79,16 +78,32 @@ export default function Toaster({ toastId, message, component }: ToasterProps) {
   ]);
 
   useEffect(() => {
-    if (isSubscribed !== false) return;
+  if (isSubscribed !== false) return;
 
-    const onFirstPointerDown = () => {
-      interactedRef.current = true;
-      maybeShowToast();
-    };
+  const onFirstInteraction = () => {
+    if (interactedRef.current) return;
+    interactedRef.current = true;
+    maybeShowToast();
 
-    window.addEventListener("pointerdown", onFirstPointerDown, { once: true });
-    return () => window.removeEventListener("pointerdown", onFirstPointerDown);
-  }, [isSubscribed, maybeShowToast]);
+    // Remove all listeners after first trigger
+    window.removeEventListener("pointerdown", onFirstInteraction);
+    window.removeEventListener("wheel", onFirstInteraction);
+    window.removeEventListener("touchstart", onFirstInteraction);
+    window.removeEventListener("keydown", onFirstInteraction);
+  };
+
+  window.addEventListener("pointerdown", onFirstInteraction, { passive: true });
+  window.addEventListener("wheel", onFirstInteraction, { passive: true });
+  window.addEventListener("touchstart", onFirstInteraction, { passive: true });
+  window.addEventListener("keydown", onFirstInteraction);
+
+  return () => {
+    window.removeEventListener("pointerdown", onFirstInteraction);
+    window.removeEventListener("wheel", onFirstInteraction);
+    window.removeEventListener("touchstart", onFirstInteraction);
+    window.removeEventListener("keydown", onFirstInteraction);
+  };
+}, [isSubscribed, maybeShowToast]);
 
   useEffect(() => {
     maybeShowToast();

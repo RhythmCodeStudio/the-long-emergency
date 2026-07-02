@@ -128,14 +128,16 @@ export default function PushNotificationSubscriptionManager({
       ) : subscription ? (
         <button
           onClick={unsubscribeFromPush}
-          className="cursor-pointer border-2 p-1 rounded-full px-4 text-sm w-full text-shadow-black-background-black">
+          className="cursor-pointer border-2 border-border-default p-1 px-4 rounded-full rainbow-gradient text-shadow-black-background-black w-full shadow-white shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] transform transition-transform duration-200 active:scale-95 text-sm"
+        >
           Unsubscribe from Notifications
         </button>
       ) : (
         <button
           onClick={subscribeToPush}
-          className="cursor-pointer border-2 border-border-default p-1 px-4 rounded-full rainbow-gradient text-shadow-black-background-black w-full shadow-white shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] transform transition-transform duration-200 active:scale-95">
-          <span className=" font-medium tracking-wider z-50">Subscribe to Notifications</span>
+          className="cursor-pointer border-2 border-border-default p-1 px-4 rounded-full rainbow-gradient text-shadow-black-background-black w-full shadow-white shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] transform transition-transform duration-200 active:scale-95 text-sm"
+        >
+          <span className="tracking-wider z-50">Subscribe to Notifications</span>
         </button>
       )}
     </>

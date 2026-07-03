@@ -3,6 +3,11 @@ import { NextResponse, NextRequest } from "next/server";
 import { auth } from "@/auth/server";
 
 export function proxy(request: NextRequest) {
+  // Let Next.js Server Actions pass through untouched.
+  const isServerAction = request.headers.has("next-action");
+  if (isServerAction) {
+    return NextResponse.next();
+  }
 
   const protectedRoutes = ["/admin"];
   const isProtected = protectedRoutes.some(route => request.nextUrl.pathname.startsWith(route));
@@ -135,8 +140,14 @@ export function proxy(request: NextRequest) {
   return response;
 }
 
+// export const config = {
+//   matcher: "/:path*",
+// };
+
 export const config = {
-  matcher: "/:path*",
+  matcher: [
+    "/((?!_next/static|_next/image|favicon.ico|sw.js|manifest.webmanifest).*)",
+  ],
 };
 
 // import NextAuth from "next-auth";

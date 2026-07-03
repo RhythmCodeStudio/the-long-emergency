@@ -33,21 +33,52 @@ self.addEventListener("activate", (event) => {
   self.clients.claim();
 });
 
-// Fetch event: serve from cache, fall back to network
+// // Fetch event: serve from cache, fall back to network
+// self.addEventListener("fetch", (event) => {
+//   if (event.request.method !== "GET") return;
+//   event.respondWith(
+//     caches.match(event.request).then((cached) => {
+//       return (
+//         cached ||
+//         fetch(event.request).catch(() =>
+//           // Optionally, return a fallback page for navigation requests
+//           event.request.mode === "navigate"
+//             ? caches.match("/")
+//             : undefined
+//         )
+//       );
+//     })
+//   );
+// });
+
+// Fetch event: avoid intercepting Next.js dev/runtime assets and localhost dev traffic.
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
+
+  const url = new URL(event.request.url);
+  const isLocalDev =
+    url.hostname === "localhost" || url.hostname === "127.0.0.1";
+  const isNextAsset = url.pathname.startsWith("/_next/");
+
+  if (isLocalDev || isNextAsset) {
+    return;
+  }
+
   event.respondWith(
-    caches.match(event.request).then((cached) => {
-      return (
-        cached ||
-        fetch(event.request).catch(() =>
-          // Optionally, return a fallback page for navigation requests
-          event.request.mode === "navigate"
-            ? caches.match("/")
-            : undefined
-        )
-      );
-    })
+    (async () => {
+      const cached = await caches.match(event.request);
+      if (cached) return cached;
+
+      try {
+        return await fetch(event.request);
+      } catch {
+        if (event.request.mode === "navigate") {
+          const fallback = await caches.match("/");
+          return fallback || Response.error();
+        }
+        return Response.error();
+      }
+    })(),
   );
 });
 
@@ -63,7 +94,7 @@ self.addEventListener('push', function (event) {
     const options = {
       body: data.body,
       icon: data.icon || '/icons/96x96.png',
-      badge: '/icons/notification-badge.png',
+      badge: '/icons/96x96.png',
       vibrate: [100, 50, 100],
       data: {
         dateOfArrival: Date.now(),

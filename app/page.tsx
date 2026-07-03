@@ -1,8 +1,8 @@
 // import from lib
 import { getPage } from "@/actions/actions";
 // import components
-import Toaster from "@/ui/toaster";
-import InstallAppButton from "@/ui/install-app-button";
+// import Toaster from "@/ui/toaster";
+// import InstallAppButton from "@/ui/install-app-button";
 
 export default async function Home() {
   const pageData = await getPage("home");
@@ -15,11 +15,11 @@ export default async function Home() {
         </h1>
         <h2 className="expand-on-load  p-4 md:text-xl text-outline">St. Louis, Missouri</h2>
       </div>
-      <Toaster
+      {/* <Toaster
         toastId="install-app-toast"
         message="Install thelongemergency.com"
         component={<InstallAppButton />}
-      />
+      /> */}
     </section>
   );
 }

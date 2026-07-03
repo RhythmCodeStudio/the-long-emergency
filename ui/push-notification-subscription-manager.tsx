@@ -50,11 +50,34 @@ export default function PushNotificationSubscriptionManager({
   // const [message, setMessage] = useState("");
   // const [url, setUrl] = useState("");
 
-  useEffect(() => {
-    if ("serviceWorker" in navigator && "PushManager" in window) {
+  // useEffect(() => {
+  //   if ("serviceWorker" in navigator && "PushManager" in window) {
+  //     setIsSupported(true);
+  //     registerServiceWorker();
+  //   }
+  // }, []);
+
+    useEffect(() => {
+    async function setupPush() {
+      if (!("serviceWorker" in navigator) || !("PushManager" in window)) {
+        return;
+      }
+
       setIsSupported(true);
-      registerServiceWorker();
+
+      if (process.env.NODE_ENV !== "production") {
+        // Keep local dev free of SW caching/HMR conflicts.
+        const regs = await navigator.serviceWorker.getRegistrations();
+        await Promise.all(regs.map((reg) => reg.unregister()));
+        return;
+      }
+
+      await registerServiceWorker();
     }
+
+    setupPush().catch((error) => {
+      console.error("Push setup failed:", error);
+    });
   }, []);
 
   // Register service worker, then retrieve subscription if present

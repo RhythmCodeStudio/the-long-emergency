@@ -88,7 +88,7 @@ export default function CalendarEventDisplay({
 
   return (
     <>
-      <section className="rainbow-gradient border-border-default border-2 shadow-white shadow-lg rounded-4xl w-full md:min-w-[20rem] text-center font-semibold">
+      <section className="rainbow-gradient border-border-default border-2 shadow-white shadow-lg rounded-4xl w-full md:min-w-xs text-center font-semibold">
         <div className="w-full bg-black/50 rounded-4xl p-4 shadow-md shadow-white min-h-full flex flex-col items-center gap-1">
           <div className="w-full">
             <p className="text-shadow-black-background-black">

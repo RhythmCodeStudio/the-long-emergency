@@ -269,7 +269,47 @@ export async function getPages(): Promise<Page[]> {
   }
 }
 
+// export async function getPage(slug: string): Promise<Page | null> {
+//   try {
+//     const page = (await sql`SELECT * FROM public.pages WHERE slug=${slug}`) as Page[];
+//     return page[0] || null;
+//   } catch (error) {
+//     console.error('Failed to fetch page:', error);
+//     throw new Error('Failed to fetch page.');
+//   }
+// }
+
 export async function getPage(slug: string): Promise<Page | null> {
+  const rawUrl = process.env.DATABASE_URL || "";
+  let safeConnInfo = {
+    hasDbUrl: Boolean(rawUrl),
+    host: "unknown",
+    dbName: "unknown",
+    options: "none",
+    protocol: "unknown",
+  };
+
+  try {
+    if (rawUrl) {
+      const parsed = new URL(rawUrl);
+      safeConnInfo = {
+        hasDbUrl: true,
+        host: parsed.hostname || "unknown",
+        dbName: parsed.pathname?.replace(/^\//, "") || "unknown",
+        options: parsed.searchParams.get("options") || "none",
+        protocol: parsed.protocol?.replace(":", "") || "unknown",
+      };
+    }
+  } catch (e) {
+    safeConnInfo = {
+      hasDbUrl: Boolean(rawUrl),
+      host: "invalid-url",
+      dbName: "invalid-url",
+      options: "invalid-url",
+      protocol: "invalid-url",
+    };
+  }
+
   const ctxRows = await sql`
     select
       current_database() as db,
@@ -282,18 +322,28 @@ export async function getPage(slug: string): Promise<Page | null> {
   `;
   const ctx = ctxRows[0];
 
+  console.log("DB connection debug", {
+    conn: safeConnInfo,
+    runtime: {
+      db: ctx.db,
+      user: ctx.usr,
+      schema: ctx.schema,
+      searchPath: ctx.search_path,
+      regPublicPages: ctx.reg_public_pages,
+      regPublicAlbums: ctx.reg_public_albums,
+      regPublicMerch: ctx.reg_public_merch,
+    },
+    slug,
+  });
+
   try {
     const page = (await sql`
       SELECT * FROM public.pages WHERE slug = ${slug}
     `) as Page[];
     return page[0] || null;
-  } catch (error: any) {
-    if (error?.code === "42P01") {
-      throw new Error(
-        `42P01 getPage slug=${slug} db=${ctx.db} user=${ctx.usr} schema=${ctx.schema} search_path=${ctx.search_path} reg_public_pages=${ctx.reg_public_pages} reg_public_albums=${ctx.reg_public_albums} reg_public_merch=${ctx.reg_public_merch}`,
-      );
-    }
-    throw error;
+  } catch (error) {
+    console.error("Failed to fetch page", error);
+    throw new Error("Failed to fetch page.");
   }
 }
 

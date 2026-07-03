@@ -89,7 +89,11 @@ export default function MorePopover({
           <>
             <PopoverButton
               className={clsx(
-                "inline-flex items-center justify-center transition duration-200 ease-in-out active:scale-95 focus:outline-none focus-visible:outline-none focus:ring-0", open 
+                "inline-flex items-center justify-center px-4 py-2 rounded-full transition duration-200 ease-in-out focus:outline-none focus-visible:outline-none border-2",
+                "border-transparent",
+                open
+                  ? "bg-black/80  border-white shadow-white shadow-lg"
+                  : "bg-transparent",
               )}>
               <span aria-label="More options" className="text-outline">
                 More
@@ -98,7 +102,7 @@ export default function MorePopover({
             <PopoverPanel
               transition
               anchor={anchor}
-              className="divide-y divide-white/5 rounded-4xl bg-black/80 text-sm/6 transition duration-200 ease-in-out [--anchor-gap:--spacing(5)] data-closed:-translate-y-1 data-closed:opacity-0 z-50 border-2 border-border-default shadow-white shadow-lg mt-2 w-64">
+              className="divide-y divide-white/5 rounded-4xl bg-black/80 text-sm/6 transition duration-200 ease-in-out [--anchor-gap:--spacing(5)] data-closed:-translate-y-1 data-closed:opacity-0 z-50 border-2 shadow-white shadow-lg mt-2 w-64">
               {({ close }) => (
                 <>
                   {!isStandalone && (

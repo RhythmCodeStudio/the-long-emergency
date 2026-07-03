@@ -31,7 +31,7 @@ export default function DesktopNav({
       <ul className="expand-on-load w-full hidden md:flex items-center justify-center space-x-12 xl:space-x-18 text-lg xl:text-xl">
         {navListItems.map((link) => (
           <li
-            className={`flex hover:scale-110 transition duration-300 ease-in-out ${
+            className={`flex transition duration-300 ease-in-out ${
               link.label === activeLink ? "hidden" : ""
             }`}
             key={link.href}>
@@ -48,11 +48,11 @@ export default function DesktopNav({
             )}
           </li>
         ))}
-        <li className="flex hover:scale-110 transition duration-300 ease-in-out">
+        <li className="flex transition duration-300 ease-in-out">
           <MorePopover />
         </li>
         {isAuthenticated && (
-          <li className="px-8 flex hover:scale-110 transition duration-300 ease-in-out">
+          <li className="px-8 flex transition duration-300 ease-in-out">
             <SignOutButton />
           </li>
         )}

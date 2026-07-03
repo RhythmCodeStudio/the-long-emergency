@@ -6,13 +6,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-interface HeaderProps {
-  isAuthenticated: boolean;
-}
+// interface HeaderProps {
+//   isAuthenticated: boolean;
+// }
 
-export const Header = ({ isAuthenticated }: HeaderProps) => {
+// export const Header = ({ isAuthenticated }: HeaderProps) => {
+export const Header = () => {
   const currentPath = usePathname();
   const [isSmUp, setIsSmUp] = useState<boolean | null>(null);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(min-width: 640px)");
@@ -26,9 +28,37 @@ export const Header = ({ isAuthenticated }: HeaderProps) => {
     return () => mediaQuery.removeEventListener("change", update);
   }, []);
 
+  useEffect(() => {
+    let mounted = true;
+
+    async function fetchSession() {
+      try {
+        const response = await fetch("/api/session", {
+          method: "GET",
+          credentials: "same-origin",
+          cache: "no-store",
+        });
+
+        if (!response.ok) return;
+        const data = await response.json();
+
+        if (mounted) {
+          setIsAuthenticated(Boolean(data?.isAuthenticated));
+        }
+      } catch {
+        // Keep default false on failure
+      }
+    }
+
+    fetchSession();
+
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
   return (
     <header
-      // className={`p-4 ${currentPath!=="/" ? "bg-[url('/images/background-images/masks-no-text-4800x3190-gaps-filled-horizontal-25per.png')] bg-no-repeat bg-cover bg-center xl:bg-none" : " "}`}
       className={`p-4 ${
         currentPath !== "/" && currentPath !== "/admin"
           ? "bg-[rgb(0,0,0,0.5)] bg-no-repeat bg-cover bg-center md:bg-transparent"

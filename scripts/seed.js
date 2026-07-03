@@ -16,7 +16,7 @@ import {
 } from "../app/lib/initial-site-data.js";
 
 const sql = postgres(process.env.DATABASE_URL, { ssl: "require" });
-console.log('Connecting to:', process.env.DATABASE_URL);
+// console.log('Connecting to:', process.env.DATABASE_URL);
 // const bcrypt = require("bcrypt");
 
 async function seedSongs() {

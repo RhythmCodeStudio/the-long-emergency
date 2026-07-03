@@ -270,12 +270,30 @@ export async function getPages(): Promise<Page[]> {
 }
 
 export async function getPage(slug: string): Promise<Page | null> {
+  const ctxRows = await sql`
+    select
+      current_database() as db,
+      current_user as usr,
+      current_schema() as schema,
+      current_setting('search_path') as search_path,
+      to_regclass('public.pages') as reg_public_pages,
+      to_regclass('public.albums') as reg_public_albums,
+      to_regclass('public.merch') as reg_public_merch
+  `;
+  const ctx = ctxRows[0];
+
   try {
-    const page = (await sql`SELECT * FROM public.pages WHERE slug=${slug}`) as Page[];
+    const page = (await sql`
+      SELECT * FROM public.pages WHERE slug = ${slug}
+    `) as Page[];
     return page[0] || null;
-  } catch (error) {
-    console.error('Failed to fetch page:', error);
-    throw new Error('Failed to fetch page.');
+  } catch (error: any) {
+    if (error?.code === "42P01") {
+      throw new Error(
+        `42P01 getPage slug=${slug} db=${ctx.db} user=${ctx.usr} schema=${ctx.schema} search_path=${ctx.search_path} reg_public_pages=${ctx.reg_public_pages} reg_public_albums=${ctx.reg_public_albums} reg_public_merch=${ctx.reg_public_merch}`,
+      );
+    }
+    throw error;
   }
 }
 

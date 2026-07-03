@@ -261,7 +261,7 @@ export async function updateUser(user: User) {
 
 export async function getPages(): Promise<Page[]> {
   try {
-    const pages = (await sql`SELECT * FROM pages`) as Page[];
+    const pages = (await sql`SELECT * FROM public.pages`) as Page[];
     return pages;
   } catch (error) {
     console.error('Failed to fetch pages:', error);
@@ -271,7 +271,7 @@ export async function getPages(): Promise<Page[]> {
 
 export async function getPage(slug: string): Promise<Page | null> {
   try {
-    const page = (await sql`SELECT * FROM pages WHERE slug=${slug}`) as Page[];
+    const page = (await sql`SELECT * FROM public.pages WHERE slug=${slug}`) as Page[];
     return page[0] || null;
   } catch (error) {
     console.error('Failed to fetch page:', error);

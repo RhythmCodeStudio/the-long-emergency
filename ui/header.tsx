@@ -35,7 +35,7 @@ export const Header = ({ isAuthenticated }: HeaderProps) => {
           : " "
       }`}>
       <div className="flex flex-col items-center w-full justify-center">
-        {currentPath !== "/" && currentPath !== "/admin" && isSmUp === true && (
+        {currentPath !== "/" && isSmUp === true && (
           <h1 className="font-emergency text-outline expand-on-load text-4xl xl:text-5xl 2xl:text-6xl m-2 p-2">
             <Link href="/">The Long Emergency</Link>
           </h1>

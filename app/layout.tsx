@@ -25,6 +25,8 @@ import { InstallContextProvider } from "@/context/install-context-provider";
 // import actions
 // import { getSession } from "@/actions/actions";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export const metadata: Metadata = {
   title: {

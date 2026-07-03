@@ -279,6 +279,7 @@ export async function getPages(): Promise<Page[]> {
 //   }
 // }
 
+// debugging version of getPage with detailed logging
 export async function getPage(slug: string): Promise<Page | null> {
   const rawUrl = process.env.DATABASE_URL || "";
   let safeConnInfo = {

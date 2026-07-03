@@ -41,7 +41,13 @@ export default function PhotoGallery({
     typeof promoPics | typeof bandPics | typeof soloPics | typeof headshots
   >(bandPics);
   const [fullScreenImage, setFullScreenImage] = useState<
-    ((typeof promoPics)[number] | (typeof bandPics)[number] | (typeof soloPics)[number] | (typeof headshots)[number]) | null
+    | (
+        | (typeof promoPics)[number]
+        | (typeof bandPics)[number]
+        | (typeof soloPics)[number]
+        | (typeof headshots)[number]
+      )
+    | null
   >(null);
   const [activeCategory, setActiveCategory] = useState<
     "band" | "solo" | "headshots" | "promo"
@@ -83,9 +89,9 @@ export default function PhotoGallery({
               setActiveCategory("band");
               track("gallery_switch", { gallery: "band_photos" });
             }}
-            className={`m-2 px-2 rounded-4xl text-shadow-black-background-black ${activeCategory === "band" ? "rainbow-gradient" : "rainbow-gradient-hover"}`}
+            className={`m-2 px-2 rounded-4xl  ${activeCategory === "band" ? "" : "-hover"}`}
           />
-          <span className="text-shadow-black-background-black">|</span>
+          <span className="">|</span>
           <Button
             label="solo"
             onClick={() => {
@@ -93,9 +99,9 @@ export default function PhotoGallery({
               setActiveCategory("solo");
               track("gallery_switch", { gallery: "solo_photos" });
             }}
-            className={`m-2 px-2 rounded-4xl text-shadow-black-background-black ${activeCategory === "solo" ? "rainbow-gradient" : "rainbow-gradient-hover"}`}
+            className={`m-2 px-2 rounded-4xl  ${activeCategory === "solo" ? "" : "-hover"}`}
           />
-          <span className="text-shadow-black-background-black">|</span>
+          <span className="">|</span>
           <Button
             label="headshots"
             onClick={() => {
@@ -103,9 +109,9 @@ export default function PhotoGallery({
               setActiveCategory("headshots");
               track("gallery_switch", { gallery: "headshots" });
             }}
-            className={`m-2 px-2 rounded-4xl text-shadow-black-background-black ${activeCategory === "headshots" ? "rainbow-gradient" : "rainbow-gradient-hover"}`}
+            className={`m-2 px-2 rounded-4xl  ${activeCategory === "headshots" ? "" : "-hover"}`}
           />
-          <span className="text-shadow-black-background-black">|</span>
+          <span className="">|</span>
           <Button
             label="promo pics"
             onClick={() => {
@@ -113,7 +119,7 @@ export default function PhotoGallery({
               setActiveCategory("promo");
               track("gallery_switch", { gallery: "promo_pics" });
             }}
-            className={`m-2 px-2 rounded-4xl text-shadow-black-background-black ${activeCategory === "promo" ? "rainbow-gradient" : "rainbow-gradient-hover"}`}
+            className={`m-2 px-2 rounded-4xl  ${activeCategory === "promo" ? "" : "-hover"}`}
           />
         </div>
       )}
@@ -121,7 +127,7 @@ export default function PhotoGallery({
         {/* <Heading
         text="Photo Gallery"
         headingLevel={2}
-        className="font-bold text-4xl sm:text-5xl md:text-6xl text-shadow-black-background-black font-indie-flower tracking-widest mb-6"
+        className="font-bold text-4xl sm:text-5xl md:text-6xl  font-indie-flower tracking-widest mb-6"
       /> */}
         <Swiper
           autoHeight={true}
@@ -181,7 +187,7 @@ export default function PhotoGallery({
                     className="object-contain w-full h-full"
                   />
                   {showCaption && (
-                    <span className="text-sm mt-1 mb-12 text-shadow-black-background-black">
+                    <span className="text-sm mt-1 mb-12 ">
                       click or tap image to view fullscreen
                     </span>
                   )}

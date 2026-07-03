@@ -23,12 +23,12 @@ export default async function ContactPage() {
         <h2 className="font-emergency expand-on-load text-2xl lg:text-3xl xl:text-4xl">
           {contactPageData?.page_title ?? "Contact"}
         </h2>
-        
-          {/* <MailingListSignUpForm  className="mt-8 mb-16"/> */}
+
+        {/* <MailingListSignUpForm  className="mt-8 mb-16"/> */}
         {/* <Heading 
           headingLevel={4}
           text="Send Us a Message"
-         className="text-xl lg:text-2xl font-semibold text-shadow-black-background-black mb-4 text-center"
+         className="text-xl lg:text-2xl font-semibold  mb-4 text-center"
         /> */}
 
         <ContactForm />

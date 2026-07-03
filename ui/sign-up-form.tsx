@@ -72,15 +72,13 @@ export default function SignUpForm() {
         onSubmit={handleSubmit}
         className="flex flex-col gap-5 items-center justify-center bg-black/50 border-border-default border-2 shadow-white shadow-lg rounded-4xl p-6 w-full max-w-md">
         <div className="md:w-sm">
-          <h2 className="text-center text-2xl font-bold text-shadow-black-background-black">
+          <h2 className="text-center text-2xl font-bold ">
             Create New Account
           </h2>
         </div>
 
         <div className="flex flex-col gap-1.5 w-xs sm:w-sm">
-          <label
-            htmlFor="name"
-            className="block text-sm font-medium text-shadow-black-background-black">
+          <label htmlFor="name" className="block text-sm font-medium ">
             Name
           </label>
           <input
@@ -96,9 +94,7 @@ export default function SignUpForm() {
         </div>
 
         <div className="flex flex-col gap-1.5 w-xs sm:w-sm">
-          <label
-            htmlFor="email"
-            className="block text-sm font-medium text-shadow-black-background-black">
+          <label htmlFor="email" className="block text-sm font-medium ">
             Email address
           </label>
           <input
@@ -114,9 +110,7 @@ export default function SignUpForm() {
         </div>
 
         <div className="flex flex-col gap-1.5 w-xs sm:w-sm">
-          <label
-            htmlFor="password"
-            className="block text-sm font-medium text-shadow-black-background-black">
+          <label htmlFor="password" className="block text-sm font-medium ">
             Password
             <span className="text-xs ml-2">
               (minimum {MIN_PASSWORD_LENGTH} characters)
@@ -150,7 +144,7 @@ export default function SignUpForm() {
         <div className="flex flex-col gap-1.5 w-xs sm:w-sm">
           <label
             htmlFor="confirmPassword"
-            className="block text-sm font-medium text-shadow-black-background-black">
+            className="block text-sm font-medium ">
             Confirm Password
           </label>
           <div className="relative">
@@ -183,13 +177,13 @@ export default function SignUpForm() {
         <button
           type="submit"
           disabled={isPending}
-          className="flex w-xs sm:w-sm mt-2 justify-center rainbow-gradient px-3 py-1.5 text-sm/6 disabled:opacity-50 disabled:cursor-not-allowed border-2 border-border-default shadow-white shadow-md hover:shadow-lg rounded-full">
-          <span className="text-shadow-black-background-black">
+          className="flex w-xs sm:w-sm mt-2 justify-center  px-3 py-1.5 text-sm/6 disabled:opacity-50 disabled:cursor-not-allowed border-2 border-border-default shadow-white shadow-md hover:shadow-lg rounded-full">
+          <span className="">
             {isPending ? "Creating account..." : "Create Account"}
           </span>
         </button>
 
-        <p className="w-full text-center text-sm text-shadow-black-background-black">
+        <p className="w-full text-center text-sm ">
           Already have an account?{" "}
           <Link
             href="/auth/sign-in"

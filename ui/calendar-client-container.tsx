@@ -43,24 +43,24 @@ export default function CalendarClientContainer({
             title="past events"
             onClick={() => setView("past")}
             className={clsx(
-              "w-22 text-white rounded-full border-border-default border-2 shadow-white shadow-md px-4 py-1 active:scale-95 transition duration-200 ease-in-out rainbow-gradient-hover",
+              "w-22 text-white rounded-full border-border-default border-2 shadow-white shadow-md px-4 py-1 active:scale-95 transition duration-200 ease-in-out -hover",
               view === "past"
-                ? "rainbow-gradient pointer-events-none"
+                ? " pointer-events-none"
                 : "bg-black/50 hover:shadow-lg",
             )}
-            labelClassName="text-shadow-black-background-black"
+            labelClassName=""
           />
           <Button
             label="future"
             title="future events"
             onClick={() => setView("future")}
             className={clsx(
-              "w-22 text-white rounded-full border-border-default border-2 shadow-white shadow-md px-4 py-1 active:scale-95 transition duration-200 ease-in-out rainbow-gradient-hover",
+              "w-22 text-white rounded-full border-border-default border-2 shadow-white shadow-md px-4 py-1 active:scale-95 transition duration-200 ease-in-out -hover",
               view === "future"
-                ? "rainbow-gradient pointer-events-none"
+                ? " pointer-events-none"
                 : "bg-black/50 hover:shadow-lg",
             )}
-            labelClassName="text-shadow-black-background-black"
+            labelClassName=""
           />
         </div>
       )}
@@ -105,7 +105,7 @@ export default function CalendarClientContainer({
               ))
           ) : (
             // no upcoming events
-            <div className="col-span-full text-center text-shadow-black-background-black">
+            <div className="col-span-full text-center ">
               <p>
                 No events currently scheduled. Please{" "}
                 <Link href="/contact">

@@ -1,16 +1,22 @@
 "use client";
-//import components
-import Nav from "./nav";
-//import from next
+// import components
+import DesktopNav from "./desktop-nav";
+import MobileNav from "./mobile-nav";
+// import from next
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+// import data
+import { navListItems } from "@/lib/nav-list-items";
 
-// interface HeaderProps {
-//   isAuthenticated: boolean;
-// }
+type NavItem = {
+  label: string;
+  href: string;
+  htmlElement: string;
+  category?: string;
+  onClick?: () => void;
+};
 
-// export const Header = ({ isAuthenticated }: HeaderProps) => {
 export const Header = () => {
   const currentPath = usePathname();
   const [isSmUp, setIsSmUp] = useState<boolean | null>(null);
@@ -66,7 +72,7 @@ export const Header = () => {
       }`}>
       <div className="flex flex-col items-center w-full justify-center">
         {currentPath !== "/" && isSmUp === true && (
-          <h1 className="font-emergency text-outline expand-on-load text-4xl xl:text-5xl 2xl:text-6xl m-2 p-2">
+          <h1 className="font-emergency text-outline expand-on-load text-4xl xl:text-5xl 2xl:text-6xl m-2 p-2 pb-6">
             <Link href="/">The Long Emergency</Link>
           </h1>
         )}
@@ -81,7 +87,16 @@ export const Header = () => {
           )}
 
           <div className="sm:flex sm:justify-center sm:w-full">
-            <Nav isAuthenticated={isAuthenticated} />
+            <div className="flex justify-center items-center text-center text-outline w-full">
+              <DesktopNav
+                navListItems={navListItems as NavItem[]}
+                isAuthenticated={isAuthenticated}
+              />
+              <MobileNav
+                navListItems={navListItems as NavItem[]}
+                isAuthenticated={isAuthenticated}
+              />
+            </div>
           </div>
         </div>
       </div>

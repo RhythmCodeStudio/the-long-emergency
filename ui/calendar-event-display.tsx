@@ -88,14 +88,14 @@ export default function CalendarEventDisplay({
 
   return (
     <>
-      <section className="rainbow-gradient border-border-default border-2 shadow-white shadow-lg rounded-4xl w-full md:min-w-xs text-center font-semibold">
+      <section className=" border-border-default border-2 shadow-white shadow-lg rounded-4xl w-full md:min-w-xs text-center font-semibold">
         <div className="w-full bg-black/50 rounded-4xl p-4 shadow-md shadow-white min-h-full flex flex-col items-center gap-1">
           <div className="w-full">
-            <p className="text-shadow-black-background-black">
+            <p className="">
               {formattedStartDate}{" "}
               {formattedEndDate ? `- ${formattedEndDate}` : ""}
             </p>
-            <p className="text-shadow-black-background-black">
+            <p className="">
               {startTime} {endTime ? `- ${endTime}` : ""}
             </p>
           </div>
@@ -105,11 +105,11 @@ export default function CalendarEventDisplay({
             <Heading
               text={title}
               headingLevel={3}
-              className="text-lg md:text-xl font-bold text-shadow-black-background-black underline decoration-[#ff0000] wrap-break-word whitespace-normal min-w-[16rem] max-w-[16rem]"
+              className="text-lg md:text-xl font-bold  underline decoration-[#ff0000] wrap-break-word whitespace-normal min-w-[16rem] max-w-[16rem]"
             />
           </Link>
           {/* <div className="w-full"> */}
-          <p className="text-shadow-black-background-black md:text-lg">
+          <p className=" md:text-lg">
             {venueLink ? (
               <a
                 href={venueLink}
@@ -122,7 +122,7 @@ export default function CalendarEventDisplay({
               locationName
             )}
           </p>
-          <p className="text-shadow-black-background-black">
+          <p className="">
             {cost && cost.toLowerCase() !== "free" ? `${cost}` : "Free"}
           </p>
           <GoogleMapsLink
@@ -131,14 +131,14 @@ export default function CalendarEventDisplay({
             city={locationCity}
             state={locationState}
             zipCode={Number(locationZip)}
-            className="text-shadow-black-background-black underline decoration-[#ffff00]"
+            className=" underline decoration-[#ffff00]"
           />
           {ticketLink && (
             <a
               href={ticketLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-shadow-black-background-black underline decoration-[#00ff00]">
+              className=" underline decoration-[#00ff00]">
               Tickets
             </a>
           )}
@@ -147,7 +147,7 @@ export default function CalendarEventDisplay({
               href={moreInfoLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-shadow-black-background-black underline decoration-[#8b00ff]">
+              className=" underline decoration-[#8b00ff]">
               More Info
             </a>
           )}
@@ -177,7 +177,7 @@ export default function CalendarEventDisplay({
       </section>
       {editModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 px-8 md:px-0">
-          <div className="rainbow-gradient rounded-2xl shadow-2xl p-6 max-w-lg w-full relative max-h-[90vh] overflow-y-auto">
+          <div className=" rounded-2xl shadow-2xl p-6 max-w-lg w-full relative max-h-[90vh] overflow-y-auto">
             <button
               onClick={handleModalToggle}
               className="absolute top-2 right-2 text-black hover:text-black text-4xl"
@@ -213,7 +213,7 @@ export default function CalendarEventDisplay({
       )}
       {duplicateModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 px-8 md:px-0">
-          <div className="rainbow-gradient rounded-2xl shadow-2xl p-6 max-w-lg w-full relative max-h-[90vh] overflow-y-auto">
+          <div className=" rounded-2xl shadow-2xl p-6 max-w-lg w-full relative max-h-[90vh] overflow-y-auto">
             <button
               onClick={() => setDuplicateModalOpen(false)}
               className="absolute top-2 right-2 text-black hover:text-black text-4xl"

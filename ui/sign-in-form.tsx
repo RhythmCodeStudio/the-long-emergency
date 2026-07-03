@@ -52,15 +52,11 @@ export default function SignInForm() {
         action={formAction}
         className="flex flex-col gap-5 items-center justify-center bg-black/50 border-border-default border-2 shadow-white shadow-lg rounded-4xl p-6 w-full max-w-md">
         <div className="w-xs sm:w-sm">
-          <h2 className="text-center text-2xl text-shadow-black-background-black">
-            Sign In
-          </h2>
+          <h2 className="text-center text-2xl ">Sign In</h2>
         </div>
 
         <div className="flex flex-col gap-1.5 w-xs sm:w-sm">
-          <label
-            htmlFor="email"
-            className="text-shadow-black-background-black block text-sm text-gray-100">
+          <label htmlFor="email" className=" block text-sm text-gray-100">
             Email address
           </label>
           {/* CHANGED: Added disabled state while pending */}
@@ -77,9 +73,7 @@ export default function SignInForm() {
         </div>
 
         <div className="flex flex-col gap-1.5 w-xs sm:w-sm">
-          <label
-            htmlFor="password"
-            className="text-shadow-black-background-black block text-sm text-gray-100">
+          <label htmlFor="password" className=" block text-sm text-gray-100">
             Password
           </label>
           <div className="relative">
@@ -113,13 +107,11 @@ export default function SignInForm() {
         <button
           type="submit"
           disabled={isPending}
-          className="flex w-xs sm:w-sm mt-2 justify-center rainbow-gradient px-3 py-1.5 text-sm/6 disabled:opacity-50 disabled:cursor-not-allowed border-2 border-border-default shadow-white shadow-md hover:shadow-lg rounded-full">
-          <span className="text-shadow-black-background-black">
-            {isPending ? "Signing in..." : "Sign in"}
-          </span>
+          className="flex w-xs sm:w-sm mt-2 justify-center  px-3 py-1.5 text-sm/6 disabled:opacity-50 disabled:cursor-not-allowed border-2 border-border-default shadow-white shadow-md hover:shadow-lg rounded-full">
+          <span className="">{isPending ? "Signing in..." : "Sign in"}</span>
         </button>
 
-        <p className="text-shadow-black-background-black w-full text-center text-sm">
+        <p className=" w-full text-center text-sm">
           Don't have an account?
           <Link
             href="/auth/sign-up"

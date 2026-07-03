@@ -259,23 +259,91 @@ export async function updateUser(user: User) {
 }
 
 
+// export async function getPages(): Promise<Page[]> {
+//   try {
+//     const pages = (await sql`SELECT * FROM public.pages`) as Page[];
+//     return pages;
+//   } catch (error) {
+//     console.error('Failed to fetch pages:', error);
+//     throw new Error('Failed to fetch pages.');
+//   }
+// }
+
+// export async function getPage(slug: string): Promise<Page | null> {
+//   try {
+//     const page = (await sql`SELECT * FROM public.pages WHERE slug=${slug}`) as Page[];
+//     return page[0] || null;
+//   } catch (error) {
+//     console.error('Failed to fetch page:', error);
+//     throw new Error('Failed to fetch page.');
+//   }
+// }
+
 export async function getPages(): Promise<Page[]> {
   try {
+    const dbDebug = await sql`
+      select
+        current_database() as db,
+        current_user as usr,
+        current_schema() as schema,
+        current_setting('search_path') as search_path,
+        to_regclass('pages') as reg_pages,
+        to_regclass('public.pages') as reg_public_pages
+    `;
+    console.log("getPages db debug", dbDebug[0]);
+
     const pages = (await sql`SELECT * FROM public.pages`) as Page[];
     return pages;
-  } catch (error) {
-    console.error('Failed to fetch pages:', error);
-    throw new Error('Failed to fetch pages.');
+  } catch (error: any) {
+    console.error("Failed to fetch pages (detailed):", {
+      code: error?.code,
+      message: error?.message,
+      detail: error?.detail,
+      schema: error?.schema,
+      table: error?.table,
+    });
+
+    if (error?.code === "42P01") {
+      return [];
+    }
+
+    throw new Error("Failed to fetch pages.");
   }
 }
 
 export async function getPage(slug: string): Promise<Page | null> {
   try {
-    const page = (await sql`SELECT * FROM public.pages WHERE slug=${slug}`) as Page[];
+    const dbDebug = await sql`
+      select
+        current_database() as db,
+        current_user as usr,
+        current_schema() as schema,
+        current_setting('search_path') as search_path,
+        to_regclass('pages') as reg_pages,
+        to_regclass('public.pages') as reg_public_pages
+    `;
+    console.log("getPage db debug", dbDebug[0]);
+
+    const page = (await sql`
+      SELECT * FROM public.pages WHERE slug = ${slug}
+    `) as Page[];
+
     return page[0] || null;
-  } catch (error) {
-    console.error('Failed to fetch page:', error);
-    throw new Error('Failed to fetch page.');
+  } catch (error: any) {
+    console.error("Failed to fetch page (detailed):", {
+      code: error?.code,
+      message: error?.message,
+      detail: error?.detail,
+      schema: error?.schema,
+      table: error?.table,
+      slug,
+    });
+
+    if (error?.code === "42P01") {
+      return null;
+    }
+
+    throw new Error("Failed to fetch page.");
   }
 }
 

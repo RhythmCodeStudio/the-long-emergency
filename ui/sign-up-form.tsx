@@ -42,14 +42,23 @@ export default function SignUpForm() {
     }
   }, [state?.error]);
 
+  // useEffect(() => {
+  //   if (state?.success) {
+  //     toast.success("Account created!");
+  //     const timer = setTimeout(() => {
+  //       router.refresh();
+  //       router.push("/admin");
+  //     }, 1200);
+  //     return () => clearTimeout(timer);
+  //   }
+  // }, [state?.success, router]);
+
   useEffect(() => {
     if (state?.success) {
       toast.success("Account created!");
-      const timer = setTimeout(() => {
-        router.refresh();
-        router.push("/admin");
-      }, 1200);
-      return () => clearTimeout(timer);
+      window.dispatchEvent(new Event("auth-changed"));
+      router.refresh();
+      router.push("/admin");
     }
   }, [state?.success, router]);
 

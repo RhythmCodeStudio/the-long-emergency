@@ -90,7 +90,7 @@ export default function MobileNav({
               ))}
 
               <li className="hover:scale-110 transition duration-300 ease-in-out">
-                <MorePopover onAnyAction={closeMenu} />
+                <MorePopover onAnyAction={closeMenu} anchor="top" />
               </li>
 
               {isAuthenticated && (

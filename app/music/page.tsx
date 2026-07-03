@@ -39,10 +39,10 @@ export default async function MusicPage() {
         <MusicDisplay albums={chronologicalAlbums} songs={songs} />
       </div>
       <Toaster
-              toastId="install-app-toast"
-              message="Install thelongemergency.com"
-              component={<InstallAppButton />}
-            />
+        toastId="install-app-toast"
+        message="Install thelongemergency.com"
+        component={<InstallAppButton />}
+      />
     </div>
   );
 }

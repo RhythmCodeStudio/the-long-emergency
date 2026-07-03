@@ -31,8 +31,8 @@ export default function DesktopNav({
       <ul className="expand-on-load w-full hidden md:flex items-center justify-center space-x-12 xl:space-x-18 text-lg xl:text-xl">
         {navListItems.map((link) => (
           <li
-            className={`flex transition duration-300 ease-in-out ${
-              link.label === activeLink ? "hidden" : ""
+            className={`inline-flex justify-center min-w-20 px-3 py-1 border-2 border-transparent rounded-full hover:border-white ${
+              link.label === activeLink ? "bg-black/80 shadow-white shadow-md  border-white pointer-events-none" : ""
             }`}
             key={link.href}>
             {link.label === "Support" ? (
@@ -41,10 +41,10 @@ export default function DesktopNav({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex flex-col items-center justify-center">
-                <span>{link.label}</span>
+                <span className="-mb-1">{link.label}</span>
               </a>
             ) : (
-              <Link href={link.href}>{link.label}</Link>
+              <Link href={link.href} className="-mb-1">{link.label}</Link>
             )}
           </li>
         ))}

@@ -8,10 +8,9 @@ import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
 // import clsx
 import { clsx } from "clsx";
 // import components
+import InstallAppButton from "./install-app-button";
 import PushNotificationSubscriptionManager from "./push-notification-subscription-manager";
-// import MailingListSignupModal from "./mailinglist-signup-modal";
 import Button from "./button";
-// import StarrySky from "./starry-sky";
 // import from react icons
 import { FiXCircle } from "react-icons/fi";
 
@@ -36,51 +35,51 @@ export default function MorePopover({
   anchor = "bottom end",
   onAnyAction,
 }: MorePopoverProps) {
-  const [isIOS, setIsIOS] = useState(false);
-  const [isStandalone, setIsStandalone] = useState(false);
-  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
-  const [isIosModalOpen, setIsIosModalOpen] = useState(false);
+  // const [isIOS, setIsIOS] = useState(false);
+  // const [isStandalone, setIsStandalone] = useState(false);
+  // const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
+  // const [isIosModalOpen, setIsIosModalOpen] = useState(false);
 
-  useEffect(() => {
-    setIsIOS(
-      /iPad|iPhone|iPod/.test(navigator.userAgent) &&
-        !(window as Window & { MSStream?: unknown }).MSStream,
-    );
-    setIsStandalone(window.matchMedia("(display-mode: standalone)").matches);
+  // useEffect(() => {
+  //   setIsIOS(
+  //     /iPad|iPhone|iPod/.test(navigator.userAgent) &&
+  //       !(window as Window & { MSStream?: unknown }).MSStream,
+  //   );
+  //   setIsStandalone(window.matchMedia("(display-mode: standalone)").matches);
 
-    window.addEventListener("appinstalled", () => {
-      setIsStandalone(true);
-    });
+  //   window.addEventListener("appinstalled", () => {
+  //     setIsStandalone(true);
+  //   });
 
-    function handleBeforeInstallPrompt(e: Event) {
-      e.preventDefault();
-      setDeferredPrompt(e);
-    }
-    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+  //   function handleBeforeInstallPrompt(e: Event) {
+  //     e.preventDefault();
+  //     setDeferredPrompt(e);
+  //   }
+  //   window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
 
-    return () => {
-      window.removeEventListener(
-        "beforeinstallprompt",
-        handleBeforeInstallPrompt,
-      );
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener(
+  //       "beforeinstallprompt",
+  //       handleBeforeInstallPrompt,
+  //     );
+  //   };
+  // }, []);
 
   // if (isStandalone) {
   //   return null;
   // }
 
-  async function handleInstallClick() {
-    if (isIOS) {
-      setIsIosModalOpen(true);
-      return;
-    }
-    if (!deferredPrompt) return;
-    (deferredPrompt as any).prompt();
-    const { outcome } = await (deferredPrompt as any).userChoice;
-    setDeferredPrompt(null);
-    // console.log("User response to the install prompt:", outcome);
-  }
+  // async function handleInstallClick() {
+  //   if (isIOS) {
+  //     setIsIosModalOpen(true);
+  //     return;
+  //   }
+  //   if (!deferredPrompt) return;
+  //   (deferredPrompt as any).prompt();
+  //   const { outcome } = await (deferredPrompt as any).userChoice;
+  //   setDeferredPrompt(null);
+  //   // console.log("User response to the install prompt:", outcome);
+  // }
 
   return (
     <>
@@ -89,13 +88,13 @@ export default function MorePopover({
           <>
             <PopoverButton
               className={clsx(
-                "inline-flex items-center justify-center px-4 py-2 rounded-full transition duration-200 ease-in-out focus:outline-none focus-visible:outline-none border-2",
-                "border-transparent",
+                "inline-flex items-center justify-center px-4 py-1 rounded-full transition duration-200 ease-in-out focus:outline-none focus-visible:outline-none border-2",
+                "border-transparent hover:border-white",
                 open
-                  ? "bg-black/80  border-white shadow-white shadow-lg"
+                  ? "bg-black/80 border-white shadow-white shadow-lg"
                   : "bg-transparent",
               )}>
-              <span aria-label="More options" className="text-outline">
+              <span aria-label="More options" className="text-outline -mb-1">
                 More
               </span>
             </PopoverButton>
@@ -105,7 +104,7 @@ export default function MorePopover({
               className="divide-y divide-white/5 rounded-4xl bg-black/80 text-sm/6 transition duration-200 ease-in-out [--anchor-gap:--spacing(5)] data-closed:-translate-y-1 data-closed:opacity-0 z-50 border-2 shadow-white shadow-lg mt-2 w-64">
               {({ close }) => (
                 <>
-                  {!isStandalone && (
+                  {/* {!isStandalone && (
                     <div className="flex items-center justify-center my-6 px-4">
                       <button
                         onClick={async () => {
@@ -117,7 +116,10 @@ export default function MorePopover({
                         Install App
                       </button>
                     </div>
-                  )}
+                  )} */}
+                  <div className="flex items-center justify-center my-6 w-full px-4">
+                    <InstallAppButton />
+                  </div>
                   <div className="flex items-center justify-center my-6 w-full px-4">
                     <PushNotificationSubscriptionManager renderedAs="button" />
                   </div>
@@ -153,7 +155,7 @@ export default function MorePopover({
           </>
         )}
       </Popover>
-      {isIosModalOpen && (
+      {/* {isIosModalOpen && (
         <div
           className="fixed inset-0  flex items-center justify-center z-50"
           role="dialog"
@@ -185,7 +187,7 @@ export default function MorePopover({
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </>
   );
 }

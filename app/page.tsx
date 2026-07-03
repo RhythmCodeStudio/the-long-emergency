@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 // import from lib
 import { getPage } from "@/actions/actions";
 // import components

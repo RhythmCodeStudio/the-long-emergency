@@ -1,5 +1,5 @@
 // import data
-import { getPage } from "../lib/data";
+import { getPage } from "@/actions/actions";
 // import components
 // import MailingListSignUpForm from "@/ui/mailing-list-sign-up-form";
 import ContactForm from "@/ui/contact-form";

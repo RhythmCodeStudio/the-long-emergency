@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 // import data
-import { getPage } from "../lib/data";
+import { getPage } from "@/actions/actions";
 import ShowDisplay from "@/ui/show-display";
 import Toaster from "@/ui/toaster";
 // export metadata

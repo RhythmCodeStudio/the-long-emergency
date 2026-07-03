@@ -1,5 +1,5 @@
 // import data
-import { getPage, getMerch } from "../lib/data";
+import { getPage, getMerch } from "@/actions/actions";
 // import components
 import MerchForSale from "../../ui/merch-for-sale";
 

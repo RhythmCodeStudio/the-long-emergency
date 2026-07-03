@@ -1,4 +1,4 @@
-import { getPage, getAlbums, getSongs } from "../lib/data";
+import { getPage, getAlbums, getSongs } from "@/actions/actions";
 // import components
 import MusicDisplay from "@/ui/music-display";
 import Toaster from "@/ui/toaster";

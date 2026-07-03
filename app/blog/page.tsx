@@ -1,5 +1,5 @@
 // import data
-import { getPage } from "../lib/data";
+import { getPage } from "@/actions/actions";
 // import components
 import BlogPost from "../../ui/blog-post";
 // import from next

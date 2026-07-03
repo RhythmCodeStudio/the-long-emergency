@@ -269,82 +269,13 @@ export async function getPages(): Promise<Page[]> {
   }
 }
 
-// export async function getPage(slug: string): Promise<Page | null> {
-//   try {
-//     const page = (await sql`SELECT * FROM public.pages WHERE slug=${slug}`) as Page[];
-//     return page[0] || null;
-//   } catch (error) {
-//     console.error('Failed to fetch page:', error);
-//     throw new Error('Failed to fetch page.');
-//   }
-// }
-
-// debugging version of getPage with detailed logging
 export async function getPage(slug: string): Promise<Page | null> {
-  const rawUrl = process.env.DATABASE_URL || "";
-  let safeConnInfo = {
-    hasDbUrl: Boolean(rawUrl),
-    host: "unknown",
-    dbName: "unknown",
-    options: "none",
-    protocol: "unknown",
-  };
-
   try {
-    if (rawUrl) {
-      const parsed = new URL(rawUrl);
-      safeConnInfo = {
-        hasDbUrl: true,
-        host: parsed.hostname || "unknown",
-        dbName: parsed.pathname?.replace(/^\//, "") || "unknown",
-        options: parsed.searchParams.get("options") || "none",
-        protocol: parsed.protocol?.replace(":", "") || "unknown",
-      };
-    }
-  } catch (e) {
-    safeConnInfo = {
-      hasDbUrl: Boolean(rawUrl),
-      host: "invalid-url",
-      dbName: "invalid-url",
-      options: "invalid-url",
-      protocol: "invalid-url",
-    };
-  }
-
-  const ctxRows = await sql`
-    select
-      current_database() as db,
-      current_user as usr,
-      current_schema() as schema,
-      current_setting('search_path') as search_path,
-      to_regclass('public.pages') as reg_public_pages,
-      to_regclass('public.albums') as reg_public_albums,
-      to_regclass('public.merch') as reg_public_merch
-  `;
-  const ctx = ctxRows[0];
-
-  console.log("DB connection debug", {
-    conn: safeConnInfo,
-    runtime: {
-      db: ctx.db,
-      user: ctx.usr,
-      schema: ctx.schema,
-      searchPath: ctx.search_path,
-      regPublicPages: ctx.reg_public_pages,
-      regPublicAlbums: ctx.reg_public_albums,
-      regPublicMerch: ctx.reg_public_merch,
-    },
-    slug,
-  });
-
-  try {
-    const page = (await sql`
-      SELECT * FROM public.pages WHERE slug = ${slug}
-    `) as Page[];
+    const page = (await sql`SELECT * FROM public.pages WHERE slug=${slug}`) as Page[];
     return page[0] || null;
   } catch (error) {
-    console.error("Failed to fetch page", error);
-    throw new Error("Failed to fetch page.");
+    console.error('Failed to fetch page:', error);
+    throw new Error('Failed to fetch page.');
   }
 }
 
@@ -380,38 +311,71 @@ export async function getPage(slug: string): Promise<Page | null> {
 //   }
 // }
 
+// debugging version of getPage with detailed logging
 // export async function getPage(slug: string): Promise<Page | null> {
-//   try {
-//     const dbDebug = await sql`
-//       select
-//         current_database() as db,
-//         current_user as usr,
-//         current_schema() as schema,
-//         current_setting('search_path') as search_path,
-//         to_regclass('pages') as reg_pages,
-//         to_regclass('public.pages') as reg_public_pages
-//     `;
-//     console.log("getPage db debug", dbDebug[0]);
+//   const rawUrl = process.env.DATABASE_URL || "";
+//   let safeConnInfo = {
+//     hasDbUrl: Boolean(rawUrl),
+//     host: "unknown",
+//     dbName: "unknown",
+//     options: "none",
+//     protocol: "unknown",
+//   };
 
+//   try {
+//     if (rawUrl) {
+//       const parsed = new URL(rawUrl);
+//       safeConnInfo = {
+//         hasDbUrl: true,
+//         host: parsed.hostname || "unknown",
+//         dbName: parsed.pathname?.replace(/^\//, "") || "unknown",
+//         options: parsed.searchParams.get("options") || "none",
+//         protocol: parsed.protocol?.replace(":", "") || "unknown",
+//       };
+//     }
+//   } catch (e) {
+//     safeConnInfo = {
+//       hasDbUrl: Boolean(rawUrl),
+//       host: "invalid-url",
+//       dbName: "invalid-url",
+//       options: "invalid-url",
+//       protocol: "invalid-url",
+//     };
+//   }
+
+//   const ctxRows = await sql`
+//     select
+//       current_database() as db,
+//       current_user as usr,
+//       current_schema() as schema,
+//       current_setting('search_path') as search_path,
+//       to_regclass('public.pages') as reg_public_pages,
+//       to_regclass('public.albums') as reg_public_albums,
+//       to_regclass('public.merch') as reg_public_merch
+//   `;
+//   const ctx = ctxRows[0];
+
+//   console.log("DB connection debug", {
+//     conn: safeConnInfo,
+//     runtime: {
+//       db: ctx.db,
+//       user: ctx.usr,
+//       schema: ctx.schema,
+//       searchPath: ctx.search_path,
+//       regPublicPages: ctx.reg_public_pages,
+//       regPublicAlbums: ctx.reg_public_albums,
+//       regPublicMerch: ctx.reg_public_merch,
+//     },
+//     slug,
+//   });
+
+//   try {
 //     const page = (await sql`
 //       SELECT * FROM public.pages WHERE slug = ${slug}
 //     `) as Page[];
-
 //     return page[0] || null;
-//   } catch (error: any) {
-//     console.error("Failed to fetch page (detailed):", {
-//       code: error?.code,
-//       message: error?.message,
-//       detail: error?.detail,
-//       schema: error?.schema,
-//       table: error?.table,
-//       slug,
-//     });
-
-//     if (error?.code === "42P01") {
-//       return null;
-//     }
-
+//   } catch (error) {
+//     console.error("Failed to fetch page", error);
 //     throw new Error("Failed to fetch page.");
 //   }
 // }

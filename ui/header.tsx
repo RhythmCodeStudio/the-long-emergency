@@ -34,34 +34,62 @@ export const Header = () => {
     return () => mediaQuery.removeEventListener("change", update);
   }, []);
 
-  useEffect(() => {
-    let mounted = true;
+  // useEffect(() => {
+  //   let mounted = true;
 
-    async function fetchSession() {
-      try {
-        const response = await fetch("/api/session", {
-          method: "GET",
-          credentials: "same-origin",
-          cache: "no-store",
-        });
+  //   async function fetchSession() {
+  //     try {
+  //       const response = await fetch("/api/session", {
+  //         method: "GET",
+  //         credentials: "same-origin",
+  //         cache: "no-store",
+  //       });
 
-        if (!response.ok) return;
-        const data = await response.json();
+  //       if (!response.ok) return;
+  //       const data = await response.json();
 
-        if (mounted) {
-          setIsAuthenticated(Boolean(data?.isAuthenticated));
-        }
-      } catch {
-        // Keep default false on failure
-      }
-    }
+  //       if (mounted) {
+  //         setIsAuthenticated(Boolean(data?.isAuthenticated));
+  //       }
+  //     } catch {
+  //       // Keep default false on failure
+  //     }
+  //   }
 
-    fetchSession();
+  //   fetchSession();
 
-    return () => {
-      mounted = false;
-    };
-  }, []);
+  //   return () => {
+  //     mounted = false;
+  //   };
+  // }, []);
+
+  // ui/header.tsx
+useEffect(() => {
+  let mounted = true;
+
+  async function fetchSession() {
+    const response = await fetch("/api/session", {
+      method: "GET",
+      credentials: "same-origin",
+      cache: "no-store",
+    });
+    if (!response.ok || !mounted) return;
+    const data = await response.json();
+    setIsAuthenticated(Boolean(data?.isAuthenticated));
+  }
+
+  function handleAuthChanged() {
+    void fetchSession();
+  }
+
+  void fetchSession();
+  window.addEventListener("auth-changed", handleAuthChanged);
+
+  return () => {
+    mounted = false;
+    window.removeEventListener("auth-changed", handleAuthChanged);
+  };
+}, [currentPath]); // rerun when route changes
 
   return (
     <header

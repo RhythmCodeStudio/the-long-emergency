@@ -23,14 +23,17 @@ export default function SignInForm() {
 
   // CHANGED: Show success toast and redirect on successful signin
   useEffect(() => {
-    if (state?.success) {
-      toast.success("Signed in successfully!");
-      router.refresh();
-      const timer = setTimeout(() => {
-        router.push("/admin");
-      }, 1200);
-      return () => clearTimeout(timer);
-    }
+    // if (state?.success) {
+    //   toast.success("Signed in successfully!");
+    //   router.refresh();
+    //   const timer = setTimeout(() => {
+    //     router.push("/admin");
+    //   }, 1200);
+    //   return () => clearTimeout(timer);
+    // }
+    window.dispatchEvent(new Event("auth-changed"));
+    router.refresh();
+    router.push("/admin");
   }, [state?.success, router]);
 
   return (

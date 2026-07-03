@@ -1,5 +1,5 @@
 // import from lib
-import { getPage } from "@/actions/actions";
+import { getPage } from "./lib/data";
 // import components
 // import Toaster from "@/ui/toaster";
 // import InstallAppButton from "@/ui/install-app-button";

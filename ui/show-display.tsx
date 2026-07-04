@@ -9,6 +9,22 @@ export default function ShowDisplay() {
   const [gigState, setGigState] = useState("upcoming");
   const gigs: any[] = [
     {
+      date: "07/08/2026",
+      venue: "Venice Cafe",
+      venue_url: "https://www.thevenicecafe.com",
+      city: "St. Louis",
+      state: "MO",
+      country: "USA",
+      street_address: "1903 Pestalozzi St",
+      zip_code: "63118",
+      google_maps_url: "https://maps.app.goo.gl/GcvfaGqrL4CAJ3au7",
+      // gig_info: "Album Release Show",
+      other_acts: "Jeremey Reidy",
+      cost: "$5",
+      // poster: "/images/show-posters/",
+      show_page: "/shows/venice-cafe-stlouis-7-8-2026",
+    },
+    {
       date: "05/28/2026",
       venue: "LB",
       venue_url: "https://www.instagram.com/lb.stl/",
@@ -22,7 +38,7 @@ export default function ShowDisplay() {
       other_acts: "with Rob Abels, Leech, and Ignoramous",
       cost: "PWYC",
       // ticket_url:
-        // "https://www.purplepass.com/events/304686-the-long-emergency-%7C-album-release-show---featurin-jan-17th-2025",
+      // "https://www.purplepass.com/events/304686-the-long-emergency-%7C-album-release-show---featurin-jan-17th-2025",
       poster: "/images/show-posters/5-28-2026-lb.jpg",
       show_page: "/shows/lb-stlouis-5-28-2026",
     },
@@ -47,7 +63,8 @@ export default function ShowDisplay() {
     {
       date: "05/11/2013",
       venue: "The Nomad World Pub",
-      venue_url: "https://www.startribune.com/minneapolis-soccer-bocce-and-music-bar-part-wolf-ex-nomad-pub-to-close-jan-28/600137435",
+      venue_url:
+        "https://www.startribune.com/minneapolis-soccer-bocce-and-music-bar-part-wolf-ex-nomad-pub-to-close-jan-28/600137435",
       city: "Minneapolis",
       state: "MN",
       country: "USA",
@@ -114,7 +131,7 @@ export default function ShowDisplay() {
   });
 
   const filteredGigs = gigState === "upcoming" ? upcomingGigs : pastGigs;
-  
+
   return (
     <>
       <div className="flex justify-center items-center">
@@ -139,14 +156,16 @@ export default function ShowDisplay() {
             <p className="text-center text-lg md:text-xl text-balance">
               No upcoming shows currently scheduled.
               <br />
-              <span>
-                For booking please email{" "}
-              </span>
+              <span>For booking please email </span>
               {/* <span className="text-blue-300 hover:text-blue-400 underline">
                 <Link href="/contact">contact</Link>
               </span>{" "} */}
               <span>
-                <a href="mailto:booking@thelongemergency.com" className="text-blue-300 hover:text-blue-400 underline">booking@thelongemergency.com</a>
+                <a
+                  href="mailto:booking@thelongemergency.com"
+                  className="text-blue-300 hover:text-blue-400 underline">
+                  booking@thelongemergency.com
+                </a>
               </span>
             </p>
           </div>
@@ -170,24 +189,33 @@ export default function ShowDisplay() {
                   <div className="p-8">
                     <div className="flex justify-center items-center">
                       {gig.show_page ? (
-                        <Link href={gig.show_page} passHref>
-                          <Image
-                            src={gig.poster}
-                            alt="show poster"
-                            width={300}
-                            height={425}
-                            className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 expand-on-load hover:scale-105 transform transition-transform duration-500 ease-in-out"
-                          />
+                        <Link
+                          href={gig.show_page}
+                          className="inline-block"
+                          aria-label={`Open show page for ${gig.venue}`}>
+                          {gig.poster ? (
+                            <Image
+                              src={gig.poster}
+                              alt="show poster"
+                              width={300}
+                              height={425}
+                              className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 expand-on-load hover:scale-105 transform transition-transform duration-500 ease-in-out"
+                            />
+                          ) : (
+                            <span className="underline text-blue-300 hover:text-blue-400">
+                              View show details
+                            </span>
+                          )}
                         </Link>
-                      ) : (
+                      ) : gig.poster ? (
                         <Image
                           src={gig.poster}
                           alt="show poster"
                           width={300}
                           height={425}
-                          className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 expand-on-load "
+                          className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 expand-on-load"
                         />
-                      )}
+                      ) : null}
                     </div>
                     <div className="z-50">
                       <p className=" text-center mt-6 z-50">{gig.date}</p>
@@ -211,7 +239,7 @@ export default function ShowDisplay() {
                       <p className=" text-center">{gig.cost}</p>
                       <p className=" text-center">{gig.gig_info}</p>
                       <p className=" text-center">{gig.other_acts}</p>
-                      {gigState === "upcoming" && gig.ticket_url &&  (
+                      {gigState === "upcoming" && gig.ticket_url && (
                         <div className="flex justify-center expand-on-load">
                           <a
                             target="_blank"

@@ -28,11 +28,13 @@ interface MorePopoverProps {
     | "left start"
     | "left end";
   onAnyAction?: () => void;
+  isAuthenticated: boolean;
 }
 
 export default function MorePopover({
   anchor = "bottom end",
   onAnyAction,
+  isAuthenticated,
 }: MorePopoverProps) {
   // const [isIOS, setIsIOS] = useState(false);
   // const [isStandalone, setIsStandalone] = useState(false);
@@ -116,9 +118,11 @@ export default function MorePopover({
                       </button>
                     </div>
                   )} */}
-                  <div className="flex items-center justify-center my-6 w-full px-4">
-                    <SignOutButton />
-                  </div>
+                  {isAuthenticated && (
+                    <div className="flex items-center justify-center my-6 w-full px-4">
+                      <SignOutButton />
+                    </div>
+                  )}
                   <div className="flex items-center justify-center my-6 w-full px-4">
                     <InstallAppButton labelClassName="-mb-1"/>
                   </div>

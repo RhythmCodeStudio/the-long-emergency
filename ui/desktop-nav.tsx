@@ -49,7 +49,7 @@ export default function DesktopNav({
           </li>
         ))}
         <li className="flex transition duration-300 ease-in-out">
-          <MorePopover />
+          <MorePopover isAuthenticated={isAuthenticated} />
         </li>
         {/* {isAuthenticated && (
           <li className="flex transition duration-300 ease-in-out">

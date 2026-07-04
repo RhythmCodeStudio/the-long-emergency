@@ -12,7 +12,7 @@ import PlayButton from "./play-button";
 // import icons
 // import { FiDownload } from "react-icons/fi";
 // import data
-import { Album, Song } from "@/definitions/definitions";
+import { Release, Song } from "@/definitions/definitions";
 
 const truncateTitle = (title: string, maxLength: number) => {
   if (title.length > maxLength) {
@@ -22,10 +22,10 @@ const truncateTitle = (title: string, maxLength: number) => {
 };
 
 export default function MusicDisplay({
-  albums,
+  releases,
   songs,
 }: {
-  albums: Album[];
+  releases: Release[];
   songs: Song[];
 }) {
   // const [modalOpen, setModalOpen] = useState(false);
@@ -33,60 +33,60 @@ export default function MusicDisplay({
   const trackSongPlay = (song: Song) => {
     track("song-play", {
       song: song.title,
-      album: song.album,
+      release: song.release,
     });
   };
   const trackSongDownload = (song: Song) => {
     track("song-download", {
       song: song.title,
-      album: song.album,
+      release: song.release,
     });
   };
-  const trackAlbumDownload = (album: Album) => {
-    track("album-download", {
-      album: album.title,
+  const trackReleaseDownload = (release: Release) => {
+    track("release-download", {
+      release: release.title,
     });
   };
 
   return (
     <div className="flex justify-center items center flex-col">
-      <div className="px-10 grid grid-cols-1 lg:grid-cols-2 lg:gap-24 justify-center items center text-center">
-        {albums.map((album) => (
-          <div key={album.id} className="m-4  text- md:text-2xl">
+      <div className="px-10 lg:px-0 grid grid-cols-1 lg:grid-cols-2 lg:gap-12 justify-center items center text-center">
+        {releases.map((release) => (
+          <div key={release.id} className="m-4 md:text-2xl">
             <div className="text-outline expand-on-load ">
-              <h3 className="text-xl">{album.title}</h3>
-              <h4>{album.type}</h4>
-              <h5>{album.year}</h5>
+              <h3 className="text-xl">{release.title}</h3>
+              <h4>{release.release_type}</h4>
+              <h5>{release.year}</h5>
             </div>
             <div className="relative">
               <div className=" max-w-96 p-6">
                 <Image
                   priority
-                  src={album.cover_image}
-                  alt={`${album.title} cover art`}
+                  src={release.cover_image}
+                  alt={`${release.title} cover art`}
                   width={1423}
                   height={1411}
                   className="expand-on-load h-auto shadow-2xl shadow-blue-300/50 border-2 border-slate-400"
                 />
               </div>
               <div className="text-outline expand-on-load ">
-                <div className="download-album-div ">
-                  <h6>Download <br />{album.title}</h6>
+                <div className="download-release-div ">
+                  <h6>Download <br />{release.title}</h6>
                   <div
                     className="mb-6 flex justify-center icon-outline"
                     onClick={() => {
-                      trackAlbumDownload(album);
+                      trackReleaseDownload(release);
                     }}>
-                    <DownloadButton src={album.zip} label={`Download ${album.title}`} />
+                    <DownloadButton src={release.zip_file || ""} label={`Download ${release.title}`} />
                     {/* <BandcampModal
-                      src={album.bandcamp_url}
-                      title={album.title}
+                      src={release.bandcamp_url}
+                      title={release.title}
                     /> */}
                   </div>
                 </div>
                 <ol className="list-decimal list-inside pl-2 expand-on-load">
                   {songs
-                    .filter((song) => song.album === album.id)
+                    .filter((song) => song.release === release.id)
                     .sort((a, b) => a.track_number - b.track_number)
                     .map((song, index) => (
                       // console.log(song, index),

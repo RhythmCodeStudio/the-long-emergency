@@ -1,4 +1,4 @@
-import { getPage, getAlbums, getSongs } from "@/actions/actions";
+import { getPage, getReleases, getSongs } from "@/actions/actions";
 // import components
 import MusicDisplay from "@/ui/music-display";
 import Toaster from "@/ui/toaster";
@@ -14,29 +14,33 @@ export const metadata = {
 
 export default async function MusicPage() {
   const musicPageData = await getPage("music");
-  const albums = await getAlbums();
-  const chronologicalAlbums = albums.sort((a, b) => {
+  
+
+  const releases = await getReleases();
+  const chronologicalReleases = releases.sort((a, b) => {
     if (a.year !== b.year) {
       return b.year - a.year; // Newest first
     }
-    // If years are the same, albums come before singles
-    if (a.type === "single" && b.type !== "single") {
+    // If years are the same, releases come before singles
+    if (a.release_type === "single" && b.release_type !== "single") {
       return 1;
     }
-    if (a.type !== "single" && b.type === "single") {
+    if (a.release_type !== "single" && b.release_type === "single") {
       return -1;
     }
     return 0;
   });
+  console.log("Chronological Releases:", chronologicalReleases);
+
   const songs = await getSongs();
 
   return (
     <div className="bg-[rgba(0,0,0,0.5)] md:bg-transparent w-full">
       <div className="flex flex-col justify-center items-center ">
-        <h2 className="font-emergency mt-4 text-center text-2xl lg:text-3xl xl:text-4xl text-outline">
+        <h2 className="font-emergency m-4 text-center text-2xl lg:text-3xl xl:text-4xl text-outline">
           {musicPageData?.page_title ?? "Music"}
         </h2>
-        <MusicDisplay albums={chronologicalAlbums} songs={songs} />
+        <MusicDisplay releases={chronologicalReleases} songs={songs} />
       </div>
       <Toaster
         toastId="install-app-toast"

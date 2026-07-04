@@ -8,9 +8,8 @@ import postgres from "postgres";
 import bcrypt from "bcrypt";
 import 'dotenv/config'; // or require('dotenv').config({ path: '.env.local' });
 import { 
-  users,
   pages,
-  albums,
+  releases,
   songs,
   merch 
 } from "../app/lib/initial-site-data.js";
@@ -31,14 +30,13 @@ async function seedSongs() {
         id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
         title TEXT NOT NULL,
         artist TEXT NOT NULL,
-        album UUID NOT NULL,
+        release UUID NOT NULL,
         year INT NOT NULL,
-        genre TEXT NOT NULL,
+        genre TEXT[] NOT NULL,
         track_number INT NOT NULL,
         src TEXT NOT NULL,
-        bandcamp_url TEXT NOT NULL,
         lyrics TEXT[],
-        FOREIGN KEY (album) REFERENCES albums(id)
+        FOREIGN KEY (release) REFERENCES releases(id)
       );
     `;
     console.log(`Created "songs" table`);
@@ -47,8 +45,8 @@ async function seedSongs() {
     const insertedSongs = await Promise.all(
       songs.map(async (song) => {
         return sql`
-        INSERT INTO songs (id, title, artist, album, year, genre, track_number, src, bandcamp_url, lyrics)
-        VALUES (${song.id}, ${song.title}, ${song.artist}, ${song.album}, ${song.year}, ${song.genre}, ${song.track_number}, ${song.src}, ${song.bandcamp_url}, ${song.lyrics})
+        INSERT INTO songs (id, title, artist, release, year, genre, track_number, src, lyrics)
+        VALUES (${song.id}, ${song.title}, ${song.artist}, ${song.release}, ${song.year}, ${song.genre}, ${song.track_number}, ${song.src}, ${song.lyrics})
         ON CONFLICT (id) DO NOTHING;
       `;
       })
@@ -64,84 +62,45 @@ async function seedSongs() {
   }
 }
 
-async function seedAlbums() {
+async function seedReleases() {
   try {
     await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
     await sql`
-    DROP TABLE IF EXISTS albums CASCADE;
+    DROP TABLE IF EXISTS releases CASCADE;
     `;
-    // Create the "albums" table if it doesn't exist
+    // Create the "releases" table if it doesn't exist
     const createTable = await sql`
-      CREATE TABLE IF NOT EXISTS albums (
+      CREATE TABLE IF NOT EXISTS releases (
         id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
         title TEXT NOT NULL,
         artist TEXT NOT NULL,
         year INT NOT NULL,
-        genre TEXT NOT NULL,
+        release_date DATE,
+        genre TEXT[] NOT NULL,
         cover_image TEXT NOT NULL,
-        type TEXT NOT NULL,
-        zip TEXT NOT NULL,
-        bandcamp_url TEXT NOT NULL
+        release_type TEXT NOT NULL,
+        zip_file TEXT NOT NULL
       );
     `;
-    console.log(`Created "albums" table`);
+    console.log(`Created "releases" table`);
 
-    // Insert data into the "albums" table
-    const insertedAlbums = await Promise.all(
-      albums.map(async (album) => {
+    // Insert data into the "releases" table
+    const insertedReleases = await Promise.all(
+      releases.map(async (release) => {
         return sql`
-        INSERT INTO albums (id, title, artist, year, genre, cover_image, type, zip, bandcamp_url)
-        VALUES (${album.id}, ${album.title}, ${album.artist}, ${album.year}, ${album.genre}, ${album.cover_image}, ${album.type}, ${album.zip}, ${album.bandcamp_url})
+        INSERT INTO releases (id, title, artist, year, genre, cover_image, release_type, zip_file)
+        VALUES (${release.id}, ${release.title}, ${release.artist}, ${release.year}, ${release.genre}, ${release.cover_image}, ${release.release_type}, ${release.zip_file})
         ON CONFLICT (id) DO NOTHING;
       `;
       })
     );
-    console.log(`Seeded ${insertedAlbums.length} albums`);
+    console.log(`Seeded ${insertedReleases.length} releases`);
     return {
       createTable,
-      albums: insertedAlbums,
+      releases: insertedReleases,
     };
   } catch (error) {
-    console.error("Error seeding albums:", error);
-    throw error;
-  }
-}
-
-async function seedUsers() {
-  try {
-    await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
-    // Create the "users" table if it doesn't exist
-    const createTable = await sql`
-      CREATE TABLE IF NOT EXISTS users (
-        id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-        name VARCHAR(255) NOT NULL,
-        email TEXT NOT NULL UNIQUE,
-        password TEXT NOT NULL
-      );
-    `;
-
-    console.log(`Created "users" table`);
-
-    // Insert data into the "users" table
-    const insertedUsers = await Promise.all(
-      users.map(async (user) => {
-        const hashedPassword = await bcrypt.hash(user.password, 10);
-        return sql`
-        INSERT INTO users (id, name, email, password)
-        VALUES (${user.id}, ${user.name}, ${user.email}, ${hashedPassword})
-        ON CONFLICT (email) DO NOTHING;
-      `;
-      })
-    );
-
-    console.log(`Seeded ${insertedUsers.length} users`);
-
-    return {
-      createTable,
-      users: insertedUsers,
-    };
-  } catch (error) {
-    console.error("Error seeding users:", error);
+    console.error("Error seeding releases:", error);
     throw error;
   }
 }
@@ -234,9 +193,8 @@ async function seedMerch() {
 }
 
 async function main() {
-  await seedUsers();
   await seedPages();
-  await seedAlbums();
+  await seedReleases();
   await seedSongs();
   await seedMerch();
   await sql.end();

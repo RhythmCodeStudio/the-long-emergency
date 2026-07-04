@@ -2,10 +2,23 @@
 import { neon } from "@neondatabase/serverless";
 import { auth } from "@/auth/server";
 import { redirect } from "next/navigation";
-import { User, Section, Page, TextBlock, Image, Album, Song, MerchProduct } from "@/definitions/definitions";
+import { User, Section, Page, TextBlock, Image, Album, Release, Song, MerchProduct } from "@/definitions/definitions";
 
 const sql = neon(`${process.env.DATABASE_URL}`);
 
+// user authentication actions
+export async function getSession() {
+  const session = await auth.getSession();
+  return session;
+}
+
+export async function signOut() {
+  await auth.signOut();
+  // redirect to "/"
+  redirect("/");
+}
+
+// mailing list actions
 export async function signUpForMailingList(email: string) {
   await sql`
     INSERT INTO mailing_list (email)
@@ -28,7 +41,8 @@ export async function removeFromMailingList(email: string) {
   `;
 }
 
-// create calendar event
+// calendar event actions
+//create a new calendar event
 export async function createCalendarEvent(event: {
   title: string,
   startDate: Date | string,
@@ -156,17 +170,7 @@ export async function updateCalendarEvent(event: {
   `;
 }
 
-export async function getSession() {
-  const session = await auth.getSession();
-  return session;
-}
-
-export async function signOut() {
-  await auth.signOut();
-  // redirect to "/"
-  redirect("/");
-}
-
+// release actions
 export async function getAlbum(id: string) {
   try {
     const album = await sql`SELECT * FROM albums WHERE id=${id}::uuid`;
@@ -189,7 +193,29 @@ export async function getAlbums(): Promise<Album[]> {
   }
 }
 
+export async function getRelease(id: string) {
+  try {
+    const release = await sql`SELECT * FROM releases WHERE id=${id}::uuid`;
+    return release[0] as Release;
+  } catch (error) {
+    console.error('Failed to fetch release:', error);
+    throw new Error('Failed to fetch release.');
+  }
+};
 
+export async function getReleases(): Promise<Release[]> {
+  try {
+    const releases = (await sql`
+      SELECT * FROM releases
+    `) as Release[];
+    return releases;
+  } catch (error) {
+    console.error('Failed to fetch releases:', error);
+    throw new Error('Failed to fetch releases.');
+  }
+};
+
+// song actions
 export async function getSong(id: string): Promise<Song | null> {
   try {
     const song = await sql`SELECT * FROM songs WHERE id=${id}::uuid`;
@@ -210,6 +236,7 @@ export async function getSongs(): Promise<Song[]> {
   }
 };
 
+// merch actions
 export async function getMerch(): Promise<MerchProduct[]> {
   try {
     const merch = (await sql`SELECT * FROM merch`) as MerchProduct[];
@@ -220,6 +247,7 @@ export async function getMerch(): Promise<MerchProduct[]> {
   }
 };
 
+// user actions
 export async function getUsers(): Promise<User[]> {
   try {
     const users = (await sql`SELECT * FROM users`) as User[];
@@ -258,7 +286,7 @@ export async function updateUser(user: User) {
   }
 }
 
-
+// page actions
 export async function getPages(): Promise<Page[]> {
   try {
     const pages = (await sql`SELECT * FROM public.pages`) as Page[];
@@ -279,107 +307,16 @@ export async function getPage(slug: string): Promise<Page | null> {
   }
 }
 
-// export async function getPages(): Promise<Page[]> {
-//   try {
-//     const dbDebug = await sql`
-//       select
-//         current_database() as db,
-//         current_user as usr,
-//         current_schema() as schema,
-//         current_setting('search_path') as search_path,
-//         to_regclass('pages') as reg_pages,
-//         to_regclass('public.pages') as reg_public_pages
-//     `;
-//     console.log("getPages db debug", dbDebug[0]);
+export async function updatePage(pageId: string, page_title: string) {
+  try {
+    await sql`UPDATE pages SET page_title=${page_title} WHERE id=${pageId}`;
+  } catch (error) {
+    console.error('Failed to update page:', error);
+    throw new Error('Failed to update page.');
+  }
+}
 
-//     const pages = (await sql`SELECT * FROM public.pages`) as Page[];
-//     return pages;
-//   } catch (error: any) {
-//     console.error("Failed to fetch pages (detailed):", {
-//       code: error?.code,
-//       message: error?.message,
-//       detail: error?.detail,
-//       schema: error?.schema,
-//       table: error?.table,
-//     });
-
-//     if (error?.code === "42P01") {
-//       return [];
-//     }
-
-//     throw new Error("Failed to fetch pages.");
-//   }
-// }
-
-// debugging version of getPage with detailed logging
-// export async function getPage(slug: string): Promise<Page | null> {
-//   const rawUrl = process.env.DATABASE_URL || "";
-//   let safeConnInfo = {
-//     hasDbUrl: Boolean(rawUrl),
-//     host: "unknown",
-//     dbName: "unknown",
-//     options: "none",
-//     protocol: "unknown",
-//   };
-
-//   try {
-//     if (rawUrl) {
-//       const parsed = new URL(rawUrl);
-//       safeConnInfo = {
-//         hasDbUrl: true,
-//         host: parsed.hostname || "unknown",
-//         dbName: parsed.pathname?.replace(/^\//, "") || "unknown",
-//         options: parsed.searchParams.get("options") || "none",
-//         protocol: parsed.protocol?.replace(":", "") || "unknown",
-//       };
-//     }
-//   } catch (e) {
-//     safeConnInfo = {
-//       hasDbUrl: Boolean(rawUrl),
-//       host: "invalid-url",
-//       dbName: "invalid-url",
-//       options: "invalid-url",
-//       protocol: "invalid-url",
-//     };
-//   }
-
-//   const ctxRows = await sql`
-//     select
-//       current_database() as db,
-//       current_user as usr,
-//       current_schema() as schema,
-//       current_setting('search_path') as search_path,
-//       to_regclass('public.pages') as reg_public_pages,
-//       to_regclass('public.albums') as reg_public_albums,
-//       to_regclass('public.merch') as reg_public_merch
-//   `;
-//   const ctx = ctxRows[0];
-
-//   console.log("DB connection debug", {
-//     conn: safeConnInfo,
-//     runtime: {
-//       db: ctx.db,
-//       user: ctx.usr,
-//       schema: ctx.schema,
-//       searchPath: ctx.search_path,
-//       regPublicPages: ctx.reg_public_pages,
-//       regPublicAlbums: ctx.reg_public_albums,
-//       regPublicMerch: ctx.reg_public_merch,
-//     },
-//     slug,
-//   });
-
-//   try {
-//     const page = (await sql`
-//       SELECT * FROM public.pages WHERE slug = ${slug}
-//     `) as Page[];
-//     return page[0] || null;
-//   } catch (error) {
-//     console.error("Failed to fetch page", error);
-//     throw new Error("Failed to fetch page.");
-//   }
-// }
-
+// section actions
 export async function getSections(pageId: string): Promise<Section[]> {
   try {
     const sections = (await sql`SELECT * FROM sections WHERE page=${pageId}`) as Section[];
@@ -400,6 +337,7 @@ export async function getSection(sectionId: string): Promise<Section | null> {
   }
 }
 
+// text block actions
 export async function getTextBlock(blockId: string): Promise<TextBlock | null> {
   try {
     const block = (await sql`SELECT * FROM text_blocks WHERE id=${blockId}`) as TextBlock[];
@@ -407,16 +345,6 @@ export async function getTextBlock(blockId: string): Promise<TextBlock | null> {
   } catch (error) {
     console.error('Failed to fetch text block:', error);
     throw new Error('Failed to fetch text block.');
-  }
-}
-
-export async function getImage(imageUrl: string): Promise<Image | null> {
-  try {
-    const image = (await sql`SELECT * FROM images WHERE url=${imageUrl}`) as Image[];
-    return image[0] || null;
-  } catch (error) {
-    console.error('Failed to fetch image:', error);
-    throw new Error('Failed to fetch image.');
   }
 }
 
@@ -429,20 +357,22 @@ export async function updateTextBlock(blockId: string, text: string) {
   }
 }
 
+// image actions
+export async function getImage(imageUrl: string): Promise<Image | null> {
+  try {
+    const image = (await sql`SELECT * FROM images WHERE url=${imageUrl}`) as Image[];
+    return image[0] || null;
+  } catch (error) {
+    console.error('Failed to fetch image:', error);
+    throw new Error('Failed to fetch image.');
+  }
+}
+
 export async function updateImage(imageUrl: string, alt: string) {
   try {
     await sql`UPDATE images SET alt=${alt} WHERE url=${imageUrl}`;
   } catch (error) {
     console.error('Failed to update image:', error);
     throw new Error('Failed to update image.');
-  }
-}
-
-export async function updatePage(pageId: string, page_title: string) {
-  try {
-    await sql`UPDATE pages SET page_title=${page_title} WHERE id=${pageId}`;
-  } catch (error) {
-    console.error('Failed to update page:', error);
-    throw new Error('Failed to update page.');
   }
 }

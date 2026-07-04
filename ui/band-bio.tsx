@@ -3,9 +3,9 @@ import Image from "next/image";
 
 export default function BandBio() {
   return (
-    <section className=" p-2 px-8 max-w-800 flex flex-col md:text-lg">
-      <div className="pb-3 lg:px-48 xl:px-64 2xl:px-96  rounded-2xl">
-        <p className="text-outline">
+    <section className=" p-2 px-8 max-w-800 flex flex-col md:text-lg text-outline">
+      <div className="pb-3 lg:px-48 xl:px-64 2xl:px-96 rounded-2xl">
+        <p className="">
           I was active in the Twin Cities independent music scene from around
           2003 through 2013 as a solo artist and with several different bands.
           In 2013 I formed The Long Emergency as a vehicle for my songwriting.
@@ -14,7 +14,7 @@ export default function BandBio() {
         </p>
       </div>
       <div className="pb-3 lg:px-48 xl:px-64 2xl:px-96  rounded-2xl">
-        <p className="text-outline">
+        <p className="">
           That summer I moved to Austin, TX with plans to promote the new album
           and form a new version of The Long Emergency to continue performing
           and recording. After about a year in Texas I came to terms with the
@@ -33,7 +33,7 @@ export default function BandBio() {
         />
       </div>
       <div className="py-3 lg:px-48 xl:px-64 2xl:px-96 ">
-        <p className="text-outline">
+        <p className="">
           In those early days without alcohol playing music felt impossible.
           Just holding my guitar felt weird. I couldn&apos;t imagine performing
           sober. I no longer felt the joy and sense of purpose I once did when I
@@ -43,19 +43,19 @@ export default function BandBio() {
         </p>
       </div>
       <div className="py-3 lg:px-48 xl:px-64 2xl:px-96 ">
-        <p className="text-outline">
+        <p className="">
           Ten years later I am ready to share my songs and my story.
         </p>
       </div>
       <div className="py-3 lg:px-48 xl:px-64 2xl:px-96  ">
-        <p className="text-outline">
+        <p className="">
           Songwriting for me has always been a way of processing difficult
           things. I have danced with anxiety, depression, and addiction most of
           my life. All of my songs are in some way about these experiences.
         </p>
       </div>
       <div className="py-3 lg:px-48 xl:px-64 2xl:px-96 ">
-        <p className="text-outline">
+        <p className="">
           My first attempt to quit drinking came during the recording of
           Starting Over. There was something about hearing these songs over and
           over throughout the recording process that made the reality of my
@@ -65,7 +65,7 @@ export default function BandBio() {
         </p>
       </div>
       <div className="py-3 lg:px-48 xl:px-64 2xl:px-96 ">
-        <p className="text-outline">
+        <p className="">
           These songs saved my life. I&apos;ve never really shared them in the
           way that they deserve. I offer them now in the hope that they might
           help someone else. Maybe that&apos;s silly. I don&apos;t know. I do
@@ -76,10 +76,10 @@ export default function BandBio() {
         </p>
       </div>
       <div className="py-3 lg:px-48 xl:px-64 2xl:px-96 ">
-        <p className="text-outline">Thank you for listening.</p>
+        <p className="">Thank you for listening.</p>
       </div>
       <div className="py-3 lg:px-48 xl:px-64 2xl:px-96 ">
-        <p className="mt-6 text-outline text-right">
+        <p className="mt-6  text-right">
           -&nbsp;
           <a
             href="https://www.discogs.com/artist/3655286-Kevin-Long-5"

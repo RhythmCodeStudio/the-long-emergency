@@ -5,6 +5,7 @@ import { getPage } from "@/actions/actions";
 // import components
 import BandBio from "../../ui/band-bio";
 import Toaster from "@/ui/toaster";
+import InstallAppButton from "@/ui/install-app-button";
 // export metadata
 export const metadata = {
   title: "About",
@@ -24,7 +25,12 @@ export default async function AboutPage() {
       <div className="pt-2">
         <BandBio />
       </div>
-      <Toaster toastId="default"/>
+      {/* <Toaster toastId="default"/> */}
+      <Toaster
+        toastId="install-app-toast"
+        message="Install thelongemergency.com"
+        component={<InstallAppButton />}
+      />
     </div>
   );
 }

@@ -2,7 +2,7 @@
 import { neon } from "@neondatabase/serverless";
 import { auth } from "@/auth/server";
 import { redirect } from "next/navigation";
-import { User, Section, Page, TextBlock, Image, Album, Release, Song, MerchProduct } from "@/definitions/definitions";
+import { User, Section, Page, TextBlock, Image, Release, Song, MerchProduct } from "@/definitions/definitions";
 
 const sql = neon(`${process.env.DATABASE_URL}`);
 
@@ -170,29 +170,29 @@ export async function updateCalendarEvent(event: {
   `;
 }
 
+// export async function getAlbum(id: string) {
+//   try {
+//     const album = await sql`SELECT * FROM albums WHERE id=${id}::uuid`;
+//     return album[0] as Album;
+//   } catch (error) {
+//     console.error('Failed to fetch album:', error);
+//     throw new Error('Failed to fetch album.');
+//   }
+// };
+
+// export async function getAlbums(): Promise<Album[]> {
+//   try {
+//     const albums = (await sql`
+//       SELECT * FROM albums
+//     `) as Album[];
+//     return albums;
+//   } catch (error) {
+//     console.error('Failed to fetch albums:', error);
+//     throw new Error('Failed to fetch albums.');
+//   }
+// }
+
 // release actions
-export async function getAlbum(id: string) {
-  try {
-    const album = await sql`SELECT * FROM albums WHERE id=${id}::uuid`;
-    return album[0] as Album;
-  } catch (error) {
-    console.error('Failed to fetch album:', error);
-    throw new Error('Failed to fetch album.');
-  }
-};
-
-export async function getAlbums(): Promise<Album[]> {
-  try {
-    const albums = (await sql`
-      SELECT * FROM albums
-    `) as Album[];
-    return albums;
-  } catch (error) {
-    console.error('Failed to fetch albums:', error);
-    throw new Error('Failed to fetch albums.');
-  }
-}
-
 export async function getRelease(id: string) {
   try {
     const release = await sql`SELECT * FROM releases WHERE id=${id}::uuid`;

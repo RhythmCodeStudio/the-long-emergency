@@ -120,7 +120,7 @@ export default function MorePopover({
                     <SignOutButton />
                   </div>
                   <div className="flex items-center justify-center my-6 w-full px-4">
-                    <InstallAppButton />
+                    <InstallAppButton labelClassName="-mb-1"/>
                   </div>
                    <div className="flex items-center justify-center my-6 w-full px-4">
                     <SupportLink/>
@@ -136,7 +136,7 @@ export default function MorePopover({
                         if (onAnyAction) onAnyAction(); // <-- close mobile menu if provided
                       }}
                       className="flex items-center justify-center px-4 py-1 rounded-full border-2 border-border-default shadow-white shadow-md lg:hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full transform transition-transform duration-200 active:scale-95 font-medium tracking-wider text-sm">
-                      Signup for Mailing List 
+                      <span className="-mb-1">Signup for Mailing List</span>
                     </Link>
                   </div>
                   <div className="flex items-center justify-center my-6 w-full px-4">
@@ -147,7 +147,8 @@ export default function MorePopover({
                         if (onAnyAction) onAnyAction(); // <-- close mobile menu if provided
                       }}
                       className="flex items-center justify-center px-4 py-1 rounded-full border-2 border-border-default shadow-white shadow-md lg:hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full transform transition-transform duration-200 active:scale-95 font-medium tracking-wider text-sm">
-                      Unsubscribe from Mailing List
+                        <span className="-mb-1">Unsubscribe from Mailing List</span>
+                      
                     </Link>
                   </div>
                 </>

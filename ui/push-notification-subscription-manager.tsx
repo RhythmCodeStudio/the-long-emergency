@@ -169,9 +169,14 @@
 
 "use client";
 
+// import from react
 import { useState, useEffect } from "react";
+// import from react-icons
 import { IoIosNotifications, IoIosNotificationsOff } from "react-icons/io";
+// import from context
 import { usePushNotification } from "../context/push-notification-context-provider";
+// import components
+import Button from "./button";
 
 async function subscribeUser(sub: Record<string, unknown>) {
   const response = await fetch("/api/push-notifications/subscribe", {
@@ -362,7 +367,7 @@ export default function PushNotificationSubscriptionManager({
 
   const isBusy = isInitializing;
   const buttonBaseClass =
-    "flex items-center justify-center cursor-pointer border-2 border-border-default p-1 px-4 rounded-full w-full shadow-white shadow-md lg:hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] transform transition-transform duration-200 active:scale-95 text-sm";
+    "flex items-center justify-center cursor-pointer border-2 border-border-default py-1 px-4 rounded-full w-full shadow-white shadow-md lg:hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] transform transition-transform duration-200 active:scale-95 text-sm";
   const disabledClass = isBusy ? "opacity-60 cursor-not-allowed" : "";
 
   return (
@@ -400,25 +405,47 @@ export default function PushNotificationSubscriptionManager({
           />
         )
       ) : subscription ? (
-        <button
+        // <button
+        //   onClick={() => void unsubscribeFromPush()}
+        //   disabled={isBusy}
+        //   className={`${buttonBaseClass} ${disabledClass}`}>
+        //   {isBusy
+        //     ? "Preparing notifications..."
+        //     : "Unsubscribe from Notifications"}
+        // </button>
+        <Button
           onClick={() => void unsubscribeFromPush()}
           disabled={isBusy}
-          className={`${buttonBaseClass} ${disabledClass}`}>
-          {isBusy
-            ? "Preparing notifications..."
-            : "Unsubscribe from Notifications"}
-        </button>
+          className={`${buttonBaseClass} ${disabledClass}`}
+          labelClassName="-mb-1"
+          label={
+            isBusy
+              ? "Preparing notifications..."
+              : "Unsubscribe from Notifications"
+          }
+        />
       ) : (
-        <button
+        // <button
+        //   onClick={() => void subscribeToPush()}
+        //   disabled={isBusy}
+        //   className={`${buttonBaseClass} ${disabledClass}`}>
+        //   <span className="tracking-wider z-50">
+        //     {isBusy
+        //       ? "Preparing notifications..."
+        //       : "Subscribe to Notifications"}
+        //   </span>
+        // </button>
+        <Button
           onClick={() => void subscribeToPush()}
           disabled={isBusy}
-          className={`${buttonBaseClass} ${disabledClass}`}>
-          <span className="tracking-wider z-50">
-            {isBusy
+          className={`${buttonBaseClass} ${disabledClass}`}
+          labelClassName="-mb-1"
+          label={
+            isBusy
               ? "Preparing notifications..."
-              : "Subscribe to Notifications"}
-          </span>
-        </button>
+              : "Subscribe to Notifications"
+          }
+        />
       )}
 
       {/* {statusMessage && renderedAs === "button" ? (

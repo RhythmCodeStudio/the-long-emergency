@@ -8,7 +8,7 @@ import { useState } from "react";
 import { FiX } from "react-icons/fi";
 import { FiMenu } from "react-icons/fi";
 // import components
-import SignOutButton from "./sign-out-button";
+// import SignOutButton from "./sign-out-button";
 import MorePopover from "./more-popover";
 
 type NavItem = {
@@ -51,7 +51,6 @@ export default function MobileNav({
               <FiX className="text-2xl" />
             </button>
           </div>
-
           <nav id="mobile-nav-link-container" className="font-bold relative">
             <Link href="/">
               <h1
@@ -60,7 +59,6 @@ export default function MobileNav({
                 The Long Emergency
               </h1>
             </Link>
-
             <ul className="text-xl">
               {navListItems.map((link) => (
                 <li

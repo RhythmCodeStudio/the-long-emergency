@@ -6,5 +6,5 @@ export const navListItems = [
     { label: "Merch", href: "/merch" },
     { label: "Blog", href: "/blog" },
     { label: "Contact", href: "/contact" },
-    { label: "Support", href: "https://www.patreon.com/TheLongEmergency" },
+    // { label: "Support", href: "https://www.patreon.com/TheLongEmergency" },
   ];

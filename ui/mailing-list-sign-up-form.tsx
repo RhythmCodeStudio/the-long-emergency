@@ -82,7 +82,7 @@ export default function MailingListSignUpForm({
 
   return (
     <div
-      className={`flex flex-col items-stretch w-full p-4 lg:p-8 bg-black/50 border-border-default border-2 shadow-white shadow-lg rounded-4xl max-w-lg ${className}`}>
+      className={`flex flex-col items-stretch w-full p-4 lg:p-8 bg-black/50 border-border-default border-2 shadow-white shadow-lg rounded-4xl max-w-lg text-black-shadow-only ${className}`}>
       <Heading
         text={
           mode === "sign-up"

@@ -10,9 +10,8 @@ import { clsx } from "clsx";
 // import components
 import InstallAppButton from "./install-app-button";
 import PushNotificationSubscriptionManager from "./push-notification-subscription-manager";
-import Button from "./button";
-// import from react icons
-import { FiXCircle } from "react-icons/fi";
+import SupportLink from "./support-link";
+import SignOutButton from "./sign-out-button";
 
 interface MorePopoverProps {
   anchor?:
@@ -101,7 +100,7 @@ export default function MorePopover({
             <PopoverPanel
               transition
               anchor={anchor}
-              className="divide-y divide-white/5 rounded-4xl bg-black/80 text-sm/6 transition duration-200 ease-in-out [--anchor-gap:--spacing(5)] data-closed:-translate-y-1 data-closed:opacity-0 z-50 border-2 shadow-white shadow-lg mt-2 w-64">
+              className="divide-y divide-white/5 rounded-4xl bg-black/80 text-sm/6 transition duration-200 ease-in-out [--anchor-gap:--spacing(5)] data-closed:-translate-y-1 data-closed:opacity-0 z-50 border-2 shadow-white shadow-lg mt-2 w-96 max-w-[90vw]">
               {({ close }) => (
                 <>
                   {/* {!isStandalone && (
@@ -112,41 +111,43 @@ export default function MorePopover({
                           // close();
                           // if (onAnyAction) onAnyAction();
                         }}
-                        className="p-1 rounded-full border-2 border-border-default shadow-white shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full max-w-xs transform transition-transform duration-200 active:scale-95 font-medium tracking-wider">
+                        className="flex items-center justify-center px-4 py-1 rounded-full border-2 border-border-default shadow-white shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full max-w-xs transform transition-transform duration-200 active:scale-95 font-medium tracking-wider">
                         Install App
                       </button>
                     </div>
                   )} */}
                   <div className="flex items-center justify-center my-6 w-full px-4">
+                    <SignOutButton />
+                  </div>
+                  <div className="flex items-center justify-center my-6 w-full px-4">
                     <InstallAppButton />
+                  </div>
+                   <div className="flex items-center justify-center my-6 w-full px-4">
+                    <SupportLink/>
                   </div>
                   <div className="flex items-center justify-center my-6 w-full px-4">
                     <PushNotificationSubscriptionManager renderedAs="button" />
                   </div>
-                  <div className="flex items-center justify-center my-6 w-full px-4">
+                   <div className="flex items-center justify-center my-6 w-full px-4">
                     <Link
                       href="/mailing-list?mode=sign-up"
                       onClick={() => {
                         close();
                         if (onAnyAction) onAnyAction(); // <-- close mobile menu if provided
                       }}
-                      className="p-1 rounded-full border-2 border-border-default shadow-white shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full max-w-xs transform transition-transform duration-200 active:scale-95  text-center font-medium tracking-wider">
-                      Mailing List
-                      <br />
-                      Signup
+                      className="flex items-center justify-center px-4 py-1 rounded-full border-2 border-border-default shadow-white shadow-md lg:hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full transform transition-transform duration-200 active:scale-95 font-medium tracking-wider text-sm">
+                      Signup for Mailing List 
                     </Link>
                   </div>
-                  <div className="flex items-center justify-center my-6 px-4">
+                  <div className="flex items-center justify-center my-6 w-full px-4">
                     <Link
                       href="/mailing-list?mode=remove"
                       onClick={() => {
                         close();
                         if (onAnyAction) onAnyAction(); // <-- close mobile menu if provided
                       }}
-                      className="p-1 rounded-full border-2 border-border-default shadow-white shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full max-w-xs transform transition-transform duration-200 active:scale-95  text-center font-medium tracking-wider">
-                      Unsubscribe from
-                      <br />
-                      Mailing List
+                      className="flex items-center justify-center px-4 py-1 rounded-full border-2 border-border-default shadow-white shadow-md lg:hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full transform transition-transform duration-200 active:scale-95 font-medium tracking-wider text-sm">
+                      Unsubscribe from Mailing List
                     </Link>
                   </div>
                 </>

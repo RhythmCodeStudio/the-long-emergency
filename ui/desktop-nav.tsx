@@ -28,10 +28,10 @@ export default function DesktopNav({
 
   return (
     <nav className="my-6">
-      <ul className="expand-on-load w-full hidden md:flex items-center justify-center space-x-12 xl:space-x-18 text-lg xl:text-xl">
+      <ul className="expand-on-load w-full hidden lg:flex items-center justify-center space-x-8 text-lg">
         {navListItems.map((link) => (
           <li
-            className={`inline-flex justify-center min-w-20 px-3 py-1 border-2 border-transparent rounded-full hover:border-white ${
+            className={`inline-flex justify-center px-3 py-1 border-2 border-transparent rounded-full hover:border-white ${
               link.label === activeLink ? "bg-black/80 shadow-white shadow-md  border-white pointer-events-none" : ""
             }`}
             key={link.href}>
@@ -51,11 +51,11 @@ export default function DesktopNav({
         <li className="flex transition duration-300 ease-in-out">
           <MorePopover />
         </li>
-        {isAuthenticated && (
-          <li className="px-8 flex transition duration-300 ease-in-out">
+        {/* {isAuthenticated && (
+          <li className="flex transition duration-300 ease-in-out">
             <SignOutButton />
           </li>
-        )}
+        )} */}
       </ul>
     </nav>
   );

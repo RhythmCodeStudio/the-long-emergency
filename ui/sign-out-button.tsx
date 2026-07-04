@@ -3,7 +3,7 @@ import { signOut } from "@/actions/actions";
 // import components
 import Button from "./button";
 // import icon
-import { RiLogoutCircleRLine } from "react-icons/ri";
+// import { RiLogoutCircleRLine } from "react-icons/ri";
 import clsx from "clsx";
 
 export default function SignOutButton() {
@@ -24,8 +24,9 @@ export default function SignOutButton() {
       onClick={handleSignOut}
       // className="text-black hover:underline"
       className={clsx(
-        "inline-flex items-center justify-center appearance-none min-h-0 leading-none rounded-full border-border-default border-2 shadow-white shadow-md hover:shadow-lg px-4 py-2 text-white bg-black/50 transition duration-200 ease-in-out active:scale-95 -hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 whitespace-nowrap",
+        "flex items-center justify-center px-4 py-1 rounded-full border-2 border-border-default shadow-white shadow-md lg:hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full transform transition-transform duration-200 active:scale-95 font-medium tracking-wider text-sm",
       )}
+      labelClassName="-mb-1"
       label="Sign Out"
       type="button"
       ariaLabel="Sign out of your account"

@@ -98,6 +98,9 @@ button {
     -webkit-background-clip: text;
     -moz-background-clip: text;
   }
+  .text-black-shadow-only {
+    text-shadow: 2px 2px 0 black;
+  }
   .text-outline-gray {
     /* text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000; */
     text-shadow: 1.25px 1.25px 0 #868686;

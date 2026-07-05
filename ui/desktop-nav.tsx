@@ -28,7 +28,7 @@ export default function DesktopNav({
 
   return (
     <nav className="my-6">
-      <ul className="expand-on-load w-full hidden lg:flex items-center justify-center space-x-8 text-lg">
+      <ul className="expand-on-load w-full hidden lg:flex items-center justify-center space-x-12 text-xl 3xl:text-2xl font-medium">
         {navListItems.map((link) => (
           <li
             className={`inline-flex justify-center px-3 py-1 border-2 border-transparent rounded-full hover:border-white ${

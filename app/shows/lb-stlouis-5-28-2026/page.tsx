@@ -12,7 +12,7 @@ export const metadata = {
   },
 };
 
-export default async function AlbumReleaseShow() {
+export default async function LBShowPage() {
   return (
     <div className="bg-[rgba(0,0,0,0.5)] md:bg-transparent">
       <div className="relative flex flex-col justify-center items-center text-outline text-center">

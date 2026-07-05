@@ -64,40 +64,42 @@ export const Header = () => {
   // }, []);
 
   // ui/header.tsx
-useEffect(() => {
-  let mounted = true;
+  useEffect(() => {
+    let mounted = true;
 
-  async function fetchSession() {
-    const response = await fetch("/api/session", {
-      method: "GET",
-      credentials: "same-origin",
-      cache: "no-store",
-    });
-    if (!response.ok || !mounted) return;
-    const data = await response.json();
-    setIsAuthenticated(Boolean(data?.isAuthenticated));
-  }
+    async function fetchSession() {
+      const response = await fetch("/api/session", {
+        method: "GET",
+        credentials: "same-origin",
+        cache: "no-store",
+      });
+      if (!response.ok || !mounted) return;
+      const data = await response.json();
+      setIsAuthenticated(Boolean(data?.isAuthenticated));
+    }
 
-  function handleAuthChanged() {
+    function handleAuthChanged() {
+      void fetchSession();
+    }
+
     void fetchSession();
-  }
+    window.addEventListener("auth-changed", handleAuthChanged);
 
-  void fetchSession();
-  window.addEventListener("auth-changed", handleAuthChanged);
-
-  return () => {
-    mounted = false;
-    window.removeEventListener("auth-changed", handleAuthChanged);
-  };
-}, [currentPath]); // rerun when route changes
+    return () => {
+      mounted = false;
+      window.removeEventListener("auth-changed", handleAuthChanged);
+    };
+  }, [currentPath]); // rerun when route changes
 
   return (
     <header
-      className={`p-4 ${
-        currentPath !== "/" && currentPath !== "/admin"
-          ? "bg-[rgb(0,0,0,0.5)] bg-no-repeat bg-cover bg-center md:bg-transparent"
-          : " "
-      }`}>
+      className={`p-4 px-6 pb-0 `}>
+        {/* ${
+          currentPath !== "/" && currentPath !== "/admin"
+            ? "bg-[rgb(0,0,0,0.5)] bg-no-repeat bg-cover bg-center md:bg-transparent"
+            : " "
+        } */}
+      
       <div className="flex flex-col items-center w-full justify-center">
         {currentPath !== "/" && isSmUp === true && (
           <h1 className="font-emergency text-outline expand-on-load text-4xl xl:text-5xl 2xl:text-6xl m-2 p-2 pb-6">
@@ -105,11 +107,11 @@ useEffect(() => {
           </h1>
         )}
 
-        <div className="flex items-center w-full">
+        <div className="relative flex items-center w-full">
           {currentPath !== "/" && isSmUp === false && (
             <h1
               id="main-heading-most-pages"
-              className="font-emergency px-2 text-outline expand-on-load text-xl xs:text-2xl">
+              className="font-emergency text-outline expand-on-load text-xl xs:text-2xl">
               <Link href="/">The Long Emergency</Link>
             </h1>
           )}

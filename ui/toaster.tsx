@@ -24,14 +24,14 @@ const toastMessage = (
     position: "bottom-center",
     autoClose: 7000,
     hideProgressBar: false,
-    icon: (
-      <Image
-        src="/logos/long-emergency/32x32.png"
-        alt="The Long Emergency icon"
-        width={32}
-        height={32}
-      />
-    ),
+    // icon: (
+    //   <Image
+    //     src="/logos/long-emergency/32x32.png"
+    //     alt="The Long Emergency icon"
+    //     width={32}
+    //     height={32}
+    //   />
+    // ),
     closeOnClick: false,
     pauseOnHover: true,
     closeButton: false,
@@ -43,6 +43,13 @@ const toastMessage = (
     className:
       "border-2 border-slate-400 font-emergency text-outline-none text-black flex flex-col items-center justify-center text-center rounded-2xl shadow-lg shadow-white/50",
     theme: "dark",
+    style: {
+      backgroundImage:
+        "linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('/images/masks-no-text.png')",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+    },
   });
 };
 
@@ -78,32 +85,36 @@ export default function Toaster({ toastId, message, component }: ToasterProps) {
   ]);
 
   useEffect(() => {
-  if (isSubscribed !== false) return;
+    if (isSubscribed !== false) return;
 
-  const onFirstInteraction = () => {
-    if (interactedRef.current) return;
-    interactedRef.current = true;
-    maybeShowToast();
+    const onFirstInteraction = () => {
+      if (interactedRef.current) return;
+      interactedRef.current = true;
+      maybeShowToast();
 
-    // Remove all listeners after first trigger
-    window.removeEventListener("pointerdown", onFirstInteraction);
-    window.removeEventListener("wheel", onFirstInteraction);
-    window.removeEventListener("touchstart", onFirstInteraction);
-    window.removeEventListener("keydown", onFirstInteraction);
-  };
+      // Remove all listeners after first trigger
+      window.removeEventListener("pointerdown", onFirstInteraction);
+      window.removeEventListener("wheel", onFirstInteraction);
+      window.removeEventListener("touchstart", onFirstInteraction);
+      window.removeEventListener("keydown", onFirstInteraction);
+    };
 
-  window.addEventListener("pointerdown", onFirstInteraction, { passive: true });
-  window.addEventListener("wheel", onFirstInteraction, { passive: true });
-  window.addEventListener("touchstart", onFirstInteraction, { passive: true });
-  window.addEventListener("keydown", onFirstInteraction);
+    window.addEventListener("pointerdown", onFirstInteraction, {
+      passive: true,
+    });
+    window.addEventListener("wheel", onFirstInteraction, { passive: true });
+    window.addEventListener("touchstart", onFirstInteraction, {
+      passive: true,
+    });
+    window.addEventListener("keydown", onFirstInteraction);
 
-  return () => {
-    window.removeEventListener("pointerdown", onFirstInteraction);
-    window.removeEventListener("wheel", onFirstInteraction);
-    window.removeEventListener("touchstart", onFirstInteraction);
-    window.removeEventListener("keydown", onFirstInteraction);
-  };
-}, [isSubscribed, maybeShowToast]);
+    return () => {
+      window.removeEventListener("pointerdown", onFirstInteraction);
+      window.removeEventListener("wheel", onFirstInteraction);
+      window.removeEventListener("touchstart", onFirstInteraction);
+      window.removeEventListener("keydown", onFirstInteraction);
+    };
+  }, [isSubscribed, maybeShowToast]);
 
   useEffect(() => {
     maybeShowToast();

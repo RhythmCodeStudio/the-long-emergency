@@ -50,16 +50,17 @@ export default function MusicDisplay({
 
   return (
     <div className="flex justify-center items center flex-col">
-      <div className="px-10 lg:px-0 grid grid-cols-1 lg:grid-cols-2 lg:gap-12 justify-center items center text-center">
+      <div className="px-10 lg:px-0 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-24 justify-center items center text-center">
         {releases.map((release) => (
           <div key={release.id} className="m-4 md:text-2xl">
             <div className="text-outline expand-on-load ">
-              <h3 className="text-xl">{release.title}</h3>
-              <h4>{release.release_type}</h4>
-              <h5>{release.year}</h5>
+              <h3 className="text-lg">{release.title}</h3>
+              <h4 className="text-md">{release.release_type}</h4>
+              <h5 className="text-sm">{release.year}</h5>
             </div>
+
             <div className="relative">
-              <div className=" max-w-96 p-6">
+              <div className="max-w-96 p-6">
                 <Image
                   priority
                   src={release.cover_image}
@@ -71,7 +72,7 @@ export default function MusicDisplay({
               </div>
               <div className="text-outline expand-on-load ">
                 <div className="download-release-div ">
-                  <h6>Download <br />{release.title}</h6>
+                  <h6 className="text-sm">Download {release.title}</h6>
                   <div
                     className="mb-6 flex justify-center icon-outline"
                     onClick={() => {

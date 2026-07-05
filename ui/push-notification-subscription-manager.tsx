@@ -217,10 +217,12 @@ function urlBase64ToUint8Array(base64String: string) {
 
 interface PushNotificationSubscriptionManagerProps {
   renderedAs: "icon" | "button";
+  labelClassName?: string; // Optional prop for button label className
 }
 
 export default function PushNotificationSubscriptionManager({
   renderedAs,
+  labelClassName,
 }: PushNotificationSubscriptionManagerProps) {
   const { setIsSubscribed } = usePushNotification();
 
@@ -417,7 +419,7 @@ export default function PushNotificationSubscriptionManager({
           onClick={() => void unsubscribeFromPush()}
           disabled={isBusy}
           className={`${buttonBaseClass} ${disabledClass}`}
-          labelClassName="-mb-1"
+          labelClassName={labelClassName}
           label={
             isBusy
               ? "Preparing notifications..."
@@ -439,7 +441,7 @@ export default function PushNotificationSubscriptionManager({
           onClick={() => void subscribeToPush()}
           disabled={isBusy}
           className={`${buttonBaseClass} ${disabledClass}`}
-          labelClassName="-mb-1"
+          labelClassName={labelClassName}
           label={
             isBusy
               ? "Preparing notifications..."

@@ -35,7 +35,7 @@ export default function MobileNav({
 
   return (
     <>
-      <div className="absolute top-4 right-4 lg:hidden">
+      <div className="absolute right-0 top-[58%] -translate-y-1/2 sm:hidden">
         <button onClick={openMenu} aria-label="Open Menu">
           <FiMenu className="z-50 expand-on-load text-2xl" />
         </button>
@@ -87,7 +87,7 @@ export default function MobileNav({
                 </li>
               ))}
 
-              <li className="hover:scale-110 transition duration-300 ease-in-out">
+              <li className="py-6">
                 <MorePopover 
                   isAuthenticated={isAuthenticated}
                   onAnyAction={closeMenu} anchor="top" />

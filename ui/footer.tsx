@@ -10,9 +10,7 @@ export const Footer = () => {
   const currentPath = usePathname();
   return (
     <footer
-      className={`flex flex-col space-y-2 items-center justify-center w-full pt-2 pb-1 ${
-        currentPath !== "/" ? "bg-[rgba(0,0,0,0.5)] md:bg-transparent" : " "
-      }`}>
+      className={`flex flex-col space-y-2 items-center justify-center`}>
       <div className="expand-on-load">
         <div className={`block sm:hidden`}>
           <ContactLinks size={18} />

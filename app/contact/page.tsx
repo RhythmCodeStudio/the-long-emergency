@@ -18,7 +18,7 @@ export const metadata = {
 export default async function ContactPage() {
   const contactPageData = await getPage("contact");
   return (
-    <div className="bg-[rgba(0,0,0,0.5)] md:bg-transparent">
+    <div className="">
       <div className="flex justify-center items-center flex-col text-outline mt-4">
         <h2 className="font-emergency expand-on-load text-2xl lg:text-3xl xl:text-4xl">
           {contactPageData?.page_title ?? "Contact"}

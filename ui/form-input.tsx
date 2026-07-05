@@ -52,11 +52,11 @@ export default function FormInput({
           name={name}
           placeholder={placeholder}
           id={uniqueInputId}
-          className="shadow-md shadow-black border-2 border-border-default p-2 w-full text-black placeholder-neutral-800 rounded-3xl bg-neutral-100 tracking-wide h-80 resize-none caret-[#ff7f00]"
+          className="shadow-md shadow-black border-2 border-border-default p-2 w-full text-black placeholder-neutral-800 rounded-3xl tracking-wide h-80 resize-none caret-blue-500 bg-[linear-gradient(rgba(255,255,255,0.45),rgba(255,255,255,0.45)),url('/images/masks-no-text.png')] bg-no-repeat bg-cover bg-center"
         />
       ) : (
         <input
-          className="shadow-md shadow-black border-2 border-border-default p-2 w-full text-black placeholder-neutral-800 rounded-3xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
+          className="shadow-md shadow-black border-2 border-border-default p-2 w-full text-black placeholder-neutral-800 rounded-3xl tracking-wide h-10 caret-blue-500 bg-[linear-gradient(rgba(255,255,255,0.45),rgba(255,255,255,0.45)),url('/images/masks-no-text.png')] bg-no-repeat bg-cover bg-center"
           type={type}
           id={uniqueInputId}
           name={name}

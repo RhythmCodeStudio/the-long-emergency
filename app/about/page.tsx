@@ -18,11 +18,11 @@ export const metadata = {
 export default async function AboutPage() {
   const aboutPageData = await getPage("about");
   return (
-    <div className="flex flex-col items-center bg-[rgba(0,0,0,0.5)] md:bg-transparent">
+    <div className="flex flex-col items-center">
       <h2 className="font-emergency text-outline expand-on-load text-center text-2xl lg:text-3xl xl:text-4xl mt-4">
         {aboutPageData?.page_title ?? "About"}
       </h2>
-      <div className="pt-2">
+      <div className="p-4">
         <BandBio />
       </div>
       {/* <Toaster toastId="default"/> */}

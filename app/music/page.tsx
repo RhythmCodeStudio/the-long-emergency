@@ -35,9 +35,9 @@ export default async function MusicPage() {
   const songs = await getSongs();
 
   return (
-    <div className="bg-[rgba(0,0,0,0.5)] md:bg-transparent w-full">
+    <div className="w-full">
       <div className="flex flex-col justify-center items-center ">
-        <h2 className="font-emergency m-4 text-center text-2xl lg:text-3xl xl:text-4xl text-outline">
+        <h2 className="font-emergency m-4 text-center text-xl lg:text-2xl text-outline">
           {musicPageData?.page_title ?? "Music"}
         </h2>
         <MusicDisplay releases={chronologicalReleases} songs={songs} />

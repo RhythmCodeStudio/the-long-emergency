@@ -2,14 +2,6 @@
 
 @config '../tailwind.config.ts';
 
-/*
-  The default border color has changed to `currentcolor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
 
 @layer base {
   *,
@@ -132,14 +124,60 @@ button {
     @apply animate-expand;
   }
 
-  /* .rhap_container {
+  .rhap_container {
   background-image: url('/images/masks-no-text.png');
   background-size: cover;
   background-position: center;
   color: white;
-} */
+}
+}
 
-  
+
+/* Player container text/icons */
+.rhap_container {
+  color: #ffffff;
+}
+
+/* Play/Pause + skip buttons */
+.rhap_main-controls-button,
+.rhap_button-clear {
+  color: #ffffff !important;
+}
+
+/* Button hover */
+.rhap_main-controls-button:hover,
+.rhap_button-clear:hover {
+  color: #93c5fd !important; /* light blue */
+}
+
+/* Progress bar base + fill */
+.rhap_progress-bar {
+  background-color: #ffffff !important;
+}
+.rhap_progress-indicator {
+  background-color: #60a5fa !important;
+}
+.rhap_progress-filled {
+  background-color: #60a5fa !important;
+}
+
+/* Downloaded/buffered segment */
+.rhap_download-progress {
+  background-color: rgba(255, 255, 255, 0.45) !important;
+}
+
+/* Volume bar base + fill */
+.rhap_volume-bar {
+  background-color: #ffffff !important;
+}
+.rhap_volume-indicator,
+.rhap_volume-filled {
+  background-color: #ffffff !important;
+}
+
+/* Current time / duration text */
+.rhap_time {
+  color: #ffffff !important;
 }
 
 .rhap_header {
@@ -170,7 +208,7 @@ button {
   scrollbar-width: none; /* Firefox */
 }
 
-@media (max-width: 640px) {
+/* @media (max-width: 640px) {
   .bg-mobile {
     background-image: url("/images/masks-no-text-2048-rotate-crop.png");
   }
@@ -180,4 +218,4 @@ button {
   .bg-desktop {
     background-image: url("/images/masks-no-text-4800x3190.png");
   }
-}
+} */

@@ -130,7 +130,7 @@ export default function MorePopover({
                     <SupportLink/>
                   </div>
                   <div className="flex items-center justify-center my-6 w-full px-4">
-                    <PushNotificationSubscriptionManager renderedAs="button" />
+                    <PushNotificationSubscriptionManager renderedAs="button" labelClassName="-mb-1"/>
                   </div>
                    <div className="flex items-center justify-center my-6 w-full px-4">
                     <Link

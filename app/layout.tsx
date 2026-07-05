@@ -72,18 +72,20 @@ export default async function RootLayout({
     <html
       lang="en"
       className={`${emergency.variable} ${special_elite.variable}`}>
-      <body className={`font-specialElite overflow-x-hidden flex flex-col`}>
+      <body className={`font-specialElite overflow-x-hidden flex flex-col min-h-screen bg-black/90`}>
         <PushNotificationContextProvider>
           <InstallContextProvider>
             <DismissedToastsProvider>
-              <div className="flex flex-col min-h-screen bg-cover bg-center bg-no-repeat bg-[url('/images/background-images/768x1156.png')] xl:bg-[url('/images/background-images/masks-no-text-4800x3190-gaps-filled-horizontal.png')] md:bg-fixed">
+              {/* <div className="flex flex-col min-h-screen bg-cover bg-center bg-no-repeat bg-[url('/images/background-images/768x1156.png')] xl:bg-[url('/images/background-images/masks-no-text-4800x3190-gaps-filled-horizontal.png')] md:bg-fixed">
+               */}
+                {/* <div className="flex flex-col min-h-screen bg-black"> */}
                 <Header />
                 <main className="flex grow items-center justify-center">
                   {children}
                 </main>
                 <ScrollToTopButton />
                 <Footer />
-              </div>
+              {/* </div> */}
               <Analytics />
             </DismissedToastsProvider>
           </InstallContextProvider>

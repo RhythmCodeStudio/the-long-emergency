@@ -66,7 +66,7 @@ export default async function Home() {
           height={2256}
           className="w-full md:w-[80%] lg:w-[60%] xl:w-[40%] 3xl:w-[80%] h-auto z-10 opacity-100"
         /> */}
-
+       
         {/* Overlay image */}
         <Image
           // src="/images/website-images/kev-sing-nomad-semi-transparent-cut-out.png"

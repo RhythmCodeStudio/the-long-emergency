@@ -72,7 +72,7 @@ export default async function RootLayout({
     <html
       lang="en"
       className={`${emergency.variable} ${special_elite.variable}`}>
-      <body className={`font-specialElite overflow-x-hidden flex flex-col min-h-screen bg-black/90`}>
+      <body className={`font-specialElite overflow-x-hidden flex flex-col min-h-screen bg-black`}>
         <PushNotificationContextProvider>
           <InstallContextProvider>
             <DismissedToastsProvider>

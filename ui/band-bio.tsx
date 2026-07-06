@@ -48,14 +48,14 @@ export default function BandBio() {
         </p>
       </div>
       <div className="py-3 lg:px-48 xl:px-64 2xl:px-96  ">
-        <p className="">
+        <p>
           Songwriting for me has always been a way of processing difficult
           things. I have danced with anxiety, depression, and addiction most of
           my life. All of my songs are in some way about these experiences.
         </p>
       </div>
       <div className="py-3 lg:px-48 xl:px-64 2xl:px-96 ">
-        <p className="">
+        <p>
           My first attempt to quit drinking came during the recording of
           Starting Over. There was something about hearing these songs over and
           over throughout the recording process that made the reality of my
@@ -65,7 +65,7 @@ export default function BandBio() {
         </p>
       </div>
       <div className="py-3 lg:px-48 xl:px-64 2xl:px-96 ">
-        <p className="">
+        <p>
           These songs saved my life. I&apos;ve never really shared them in the
           way that they deserve. I offer them now in the hope that they might
           help someone else. Maybe that&apos;s silly. I don&apos;t know. I do

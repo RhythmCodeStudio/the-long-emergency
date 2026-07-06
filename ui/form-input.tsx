@@ -52,11 +52,11 @@ export default function FormInput({
           name={name}
           placeholder={placeholder}
           id={uniqueInputId}
-          className="shadow-md shadow-black border-2 border-border-default p-2 w-full text-black placeholder-neutral-800 rounded-3xl tracking-wide h-80 resize-none caret-blue-500 bg-[linear-gradient(rgba(255,255,255,0.45),rgba(255,255,255,0.45)),url('/images/masks-no-text.png')] bg-no-repeat bg-cover bg-center"
+          className="shadow-md shadow-white border-2 border-border-default p-2 w-full text-whitesmoke placeholder-neutral-800 rounded-3xl tracking-wide h-80 resize-none caret-blue-500 bg-[linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url('/images/masks-no-text.png')] bg-no-repeat bg-cover bg-center p-6"
         />
       ) : (
         <input
-          className="shadow-md shadow-black border-2 border-border-default p-2 w-full text-black placeholder-neutral-800 rounded-3xl tracking-wide h-10 caret-blue-500 bg-[linear-gradient(rgba(255,255,255,0.45),rgba(255,255,255,0.45)),url('/images/masks-no-text.png')] bg-no-repeat bg-cover bg-center"
+          className="shadow-md shadow-white border-2 border-border-default w-full text-whitesmoke placeholder-neutral-800 rounded-3xl tracking-wide  caret-blue-500 bg-[linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url('/images/masks-no-text.png')] bg-no-repeat bg-cover bg-center px-6 pb-1 pt-2 flex items-center"
           type={type}
           id={uniqueInputId}
           name={name}

@@ -175,7 +175,7 @@ export default function ContactForm() {
     <div className="w-full black">
       <form
         onSubmit={handleFormSubmit}
-        className="expand-on-load px-12 py-6 max-w-200 mx-auto relative "
+        className="expand-on-load px-12 py-6 max-w-200 mx-auto relative"
       >
         <FormInput
           idPrefix="contact-form"
@@ -190,6 +190,7 @@ export default function ContactForm() {
           autoComplete="given-name"
           errorMessage={firstNameErrorMessage}
           setStateVariable={setFirstName}
+          c
         />
 
         <FormInput

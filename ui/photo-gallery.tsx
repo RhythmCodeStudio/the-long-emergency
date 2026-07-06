@@ -89,9 +89,9 @@ export default function PhotoGallery({
               setActiveCategory("band");
               track("gallery_switch", { gallery: "band_photos" });
             }}
-            className={`m-2 px-2 rounded-4xl  ${activeCategory === "band" ? "" : "-hover"}`}
+            className={`m-2 px-2 rounded-4xl text-shadow-black-background-black ${activeCategory === "band" ? "" : "-hover"}`}
           />
-          <span className="">|</span>
+          <span className="text-shadow-black-background-black">|</span>
           <Button
             label="solo"
             onClick={() => {
@@ -99,9 +99,9 @@ export default function PhotoGallery({
               setActiveCategory("solo");
               track("gallery_switch", { gallery: "solo_photos" });
             }}
-            className={`m-2 px-2 rounded-4xl  ${activeCategory === "solo" ? "" : "-hover"}`}
+            className={`m-2 px-2 rounded-4xl text-shadow-black-background-black ${activeCategory === "solo" ? "" : "-hover"}`}
           />
-          <span className="">|</span>
+          <span className="text-shadow-black-background-black">|</span>
           <Button
             label="headshots"
             onClick={() => {
@@ -109,9 +109,9 @@ export default function PhotoGallery({
               setActiveCategory("headshots");
               track("gallery_switch", { gallery: "headshots" });
             }}
-            className={`m-2 px-2 rounded-4xl  ${activeCategory === "headshots" ? "" : "-hover"}`}
+            className={`m-2 px-2 rounded-4xl text-shadow-black-background-black ${activeCategory === "headshots" ? "" : "-hover"}`}
           />
-          <span className="">|</span>
+          <span className="text-shadow-black-background-black">|</span>
           <Button
             label="promo pics"
             onClick={() => {
@@ -119,7 +119,7 @@ export default function PhotoGallery({
               setActiveCategory("promo");
               track("gallery_switch", { gallery: "promo_pics" });
             }}
-            className={`m-2 px-2 rounded-4xl  ${activeCategory === "promo" ? "" : "-hover"}`}
+            className={`m-2 px-2 rounded-4xl text-shadow-black-background-black ${activeCategory === "promo" ? "" : "-hover"}`}
           />
         </div>
       )}
@@ -127,7 +127,7 @@ export default function PhotoGallery({
         {/* <Heading
         text="Photo Gallery"
         headingLevel={2}
-        className="font-bold text-4xl sm:text-5xl md:text-6xl  font-indie-flower tracking-widest mb-6"
+        className="font-bold text-4xl sm:text-5xl md:text-6xl text-shadow-black-background-black font-indie-flower tracking-widest mb-6"
       /> */}
         <Swiper
           autoHeight={true}
@@ -187,7 +187,7 @@ export default function PhotoGallery({
                     className="object-contain w-full h-full"
                   />
                   {showCaption && (
-                    <span className="text-sm mt-1 mb-12 ">
+                    <span className="text-sm mt-1 mb-12 text-shadow-black-background-black">
                       click or tap image to view fullscreen
                     </span>
                   )}

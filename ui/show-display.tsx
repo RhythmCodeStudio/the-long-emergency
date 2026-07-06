@@ -19,7 +19,7 @@ export default function ShowDisplay() {
       zip_code: "63118",
       google_maps_url: "https://maps.app.goo.gl/GcvfaGqrL4CAJ3au7",
       // gig_info: "Album Release Show",
-      other_acts: "Jeremey Reidy",
+      other_acts: "Igor Death",
       cost: "$5",
       // poster: "/images/show-posters/",
       show_page: "/shows/venice-cafe-stlouis-7-8-2026",

@@ -33,9 +33,9 @@ export default async function AlbumReleaseShow() {
         <h5 className="text-outline m-2 text-lg lg:text-xl xl:text-2xl">$5</h5>
         <div className="mt-6 relative flex flex-col justify-center items-center  text-center">
           <div className="m-4">
-            <h6 className="text-2xl">Jeremey Reidy</h6>
+            <h6 className="text-2xl">Igor Death</h6>
             <a
-              href="https://www.instagram.com/jreidy909/"
+              href="https://www.instagram.com/igordeathmusic/"
               target="_blank"
               rel="noreferrer noopener"
               className="text-2xl text-blue-300 hover:text-blue-400 underline">

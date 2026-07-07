@@ -92,14 +92,13 @@ export const Header = () => {
   }, [currentPath]); // rerun when route changes
 
   return (
-    <header
-      className={`p-4 px-6 pb-0 `}>
-        {/* ${
+    <header className="p-4">
+      {/* ${
           currentPath !== "/" && currentPath !== "/admin"
             ? "bg-[rgb(0,0,0,0.5)] bg-no-repeat bg-cover bg-center md:bg-transparent"
             : " "
         } */}
-      
+
       <div className="flex flex-col items-center w-full justify-center">
         {currentPath !== "/" && isSmUp === true && (
           <h1 className="font-emergency text-outline expand-on-load text-4xl xl:text-5xl 2xl:text-6xl m-2 p-2 pb-6">
@@ -111,7 +110,7 @@ export const Header = () => {
           {currentPath !== "/" && isSmUp === false && (
             <h1
               id="main-heading-most-pages"
-              className="font-emergency text-outline expand-on-load text-xl xs:text-2xl">
+              className="-mt-1 font-emergency text-outline expand-on-load text-xl xs:text-2xl">
               <Link href="/">The Long Emergency</Link>
             </h1>
           )}

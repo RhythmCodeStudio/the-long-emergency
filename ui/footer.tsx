@@ -9,31 +9,38 @@ import ContactLinks from "./contact-links";
 export const Footer = () => {
   const currentPath = usePathname();
   return (
-    <footer
-      className={`flex flex-col space-y-2 items-center justify-center`}>
-      <div className="expand-on-load">
-        <div className={`block sm:hidden`}>
-          <ContactLinks size={18} />
-        </div>
-        <div className={`hidden sm:block lg:hidden`}>
-          <ContactLinks size={22} />
-        </div>
-        <div className={`hidden lg:block`}>
-          <ContactLinks size={28} />
-        </div>
-      </div>
-      <p className="expand-on-load text-sm text-center text-outline pt-1">
-        <span className="">©</span> 2026
+  <footer
+    className={
+      currentPath === "/"
+        ? "expand-on-load p-4 hidden  flex-col items-center justify-center"
+        : "expand-on-load p-4 flex flex-col items-center justify-center"
+    }
+  >
+    <div className="flex flex-col items-center justify-center">
+      <p className="text-sm flex items-center justify-center text-center text-outline">
+        <span className="text-lg">©</span>{" "}2026
       </p>
       <a
-        className="flex flex-col items-center justify-center text-center "
+        className="flex flex-col items-center justify-center text-center"
         href="https://rhythmcodestudio.tech"
         target="_blank"
         rel="noopener noreferrer">
-        <span className="expand-on-load text-sm text-outline">
+        <span className="text-sm text-outline">
           Website by Rhythm Code Studio LLC
         </span>
       </a>
-    </footer>
-  );
+    </div>
+  </footer>
+);
 };
+
+
+
+
+
+
+  {/* <div className="flex flex-col items-center justify-center">
+        <div>
+          <ContactLinks size={18} />
+        </div>
+      </div> */}

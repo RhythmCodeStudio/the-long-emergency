@@ -35,7 +35,7 @@ export default function MobileNav({
 
   return (
     <>
-      <div className="absolute right-0 top-[58%] -translate-y-1/2 sm:hidden">
+      <div className="absolute right-0 top-4 -translate-y-1/2 sm:hidden">
         <button onClick={openMenu} aria-label="Open Menu">
           <FiMenu className="z-50 expand-on-load text-2xl" />
         </button>

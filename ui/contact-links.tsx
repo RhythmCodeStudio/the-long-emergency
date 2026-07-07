@@ -9,10 +9,9 @@ import IconLink from "./iconLink";
 
 export default function ContactLinks({ size }: { size: number }) {
   const linkData = [
-   
     {
       href: "mailto:info@thelongemergency.com",
-      icon: <FiMail size={size} className="icon-outline"/>,
+      icon: <FiMail size={size} className="icon-outline" />,
       label: "Email The Long Emergency",
       name: "Email The Long Emergency",
       title: "Email The Long Emergency",
@@ -23,9 +22,9 @@ export default function ContactLinks({ size }: { size: number }) {
     //   label: "Download music from The Long Emergency on Bandcamp",
     //   name: "Download music from The Long Emergency on Bandcamp",
     // },
-    { 
+    {
       href: "https://patreon.com/TheLongEmergency",
-      icon: <PiPatreonLogoBold size={size} className="icon-outline"/>,
+      icon: <PiPatreonLogoBold size={size} className="icon-outline" />,
       label: "Support The Long Emergency on Patreon",
       name: "Support The Long Emergency on Patreon",
       title: "Support The Long Emergency on Patreon",
@@ -39,18 +38,21 @@ export default function ContactLinks({ size }: { size: number }) {
     // }
   ];
   return (
-    <div className="flex justify-center items-center space-x-10 sm:space-x-16 md:space-x-24">
-      {linkData.map((link) => (
-        <div key={link.href} className="md:hover:transform md:hover:scale-125 transition-transform">
-          <IconLink
-            href={link.href}
-            icon={link.icon}
-            label={link.label}
-            name={link.name}
-            title={link.label}
-          />
-        </div>
-      ))}
-    </div>
-  );
+  <div className="flex w-full items-center justify-center gap-6">
+    {linkData.map((link) => (
+      <div
+        key={link.href}
+        className="md:hover:scale-125 transition-transform"
+      >
+        <IconLink
+          href={link.href}
+          icon={link.icon}
+          label={link.label}
+          name={link.name}
+          title={link.label}
+        />
+      </div>
+    ))}
+  </div>
+);
 }

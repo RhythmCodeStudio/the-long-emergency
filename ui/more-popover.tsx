@@ -134,7 +134,8 @@ export default function MorePopover({
                   </div>
                    <div className="flex items-center justify-center my-6 w-full px-4">
                     <Link
-                      href="/mailing-list?mode=sign-up"
+                      // href="/mailing-list?mode=sign-up"
+                      href="/mailing-list"
                       onClick={() => {
                         close();
                         if (onAnyAction) onAnyAction(); // <-- close mobile menu if provided

@@ -66,7 +66,7 @@ export function proxy(request: NextRequest) {
     default-src 'self';
     connect-src 'self' https://api.emailjs.com/ https://api.iconify.design/;
     script-src 'self' 'nonce-${nonce}';
-    style-src 'self' 'unsafe-inline' 'nonce-${nonce}';
+    style-src 'self' 'unsafe-inline';
     img-src 'self';
     font-src 'self';
     object-src 'none';

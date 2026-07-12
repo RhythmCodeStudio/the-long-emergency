@@ -40,6 +40,7 @@ export default async function BlogPage() {
           width={1423}
           height={1411}
           priority
+          className="shadow-md shadow-white rounded-2xl border-2 border-slate-400 m-2"
         />
       </div>
       <div>

@@ -18,7 +18,7 @@ export const metadata = {
 export default async function ContactPage() {
   const contactPageData = await getPage("contact");
   return (
-    <div className="">
+    <div className="flex flex-col items-center justify-center w-full">
       <div className="flex justify-center items-center flex-col text-outline mt-4">
         <h2 className="font-emergency expand-on-load text-2xl lg:text-3xl xl:text-4xl">
           {contactPageData?.page_title ?? "Contact"}
@@ -39,7 +39,7 @@ export default async function ContactPage() {
             alt="guitar mask mound"
             width={4510}
             height={3205}
-            className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400"
+            className="shadow-md shadow-white rounded-2xl border-2 border-slate-400 m-2"
           />
         </div>
       </div>

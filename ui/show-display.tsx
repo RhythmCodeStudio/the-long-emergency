@@ -137,20 +137,8 @@ export default function ShowDisplay({ gigView }: ShowDisplayProps) {
   return (
     <>
       <div className="flex justify-center items-center">
-        <Link
-          href="/shows?view=upcoming"
-          className={`${
-            gigView === "upcoming" ? "bg-blue-300 text-lg" : "bg-white"
-          } hover:scale-110 transition duration-300 ease-in-out md:hover:bg-blue-500 md:hover:text-white p-2 m-2 rounded-full border-2 border-black shadow-blue-300/50 text-black`}>
-          Future
-        </Link>
-        <Link
-          href="/shows?view=past"
-          className={`${
-            gigView === "past" ? "bg-blue-300 text-lg" : "bg-white"
-          } hover:scale-110 transition duration-300 ease-in-out md:hover:bg-blue-500 md:hover:text-white p-2 px-5 m-2 rounded-full border-2 border-black shadow-blue-300/50 text-black`}>
-          Past
-        </Link>
+        <Link href="/shows?view=upcoming" className={`${ gigView === "upcoming" ? "bg-blue-300" : "bg-white" } inline-flex h-9 w-24 m-2 items-center justify-center rounded-full border-2 border-black text-black hover:scale-110 transition duration-300 ease-in-out md:hover:bg-blue-500 md:hover:text-white`} > <span className="relative top-px leading-none">Future</span> </Link> 
+        <Link href="/shows?view=past" className={`${ gigView === "past" ? "bg-blue-300" : "bg-white" } inline-flex h-9 w-24 m-2 items-center justify-center rounded-full border-2 border-black text-black hover:scale-110 transition duration-300 ease-in-out md:hover:bg-blue-500 md:hover:text-white`} > <span className="relative top-px leading-none">Past</span> </Link>
       </div>
       <div className="p-6 text-outline">
         {filteredGigs.length === 0 ? (
@@ -189,7 +177,7 @@ export default function ShowDisplay({ gigView }: ShowDisplayProps) {
               {filteredGigs.map((gig, index) => (
                 <li
                   key={index}
-                  className="expand-on-load border-2 border-slate-400 bg-[rgba(0,0,0,0.6)]">
+                  className="expand-on-load border-2 border-slate-400 bg-[rgba(0,0,0,0.6)] rounded-2xl shadow-md shadow-white">
                   <div className="p-8">
                     <div className="flex justify-center items-center">
                       {gig.show_page ? (
@@ -203,7 +191,7 @@ export default function ShowDisplay({ gigView }: ShowDisplayProps) {
                               alt="show poster"
                               width={300}
                               height={425}
-                              className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 expand-on-load hover:scale-105 transform transition-transform duration-500 ease-in-out"
+                              className="shadow-md shadow-white rounded-2xl border-2 border-slate-400 expand-on-load hover:scale-105 transform transition-transform duration-500 ease-in-out"
                             />
                           ) : (
                             <span className="underline text-blue-300 hover:text-blue-400">
@@ -217,7 +205,7 @@ export default function ShowDisplay({ gigView }: ShowDisplayProps) {
                           alt="show poster"
                           width={300}
                           height={425}
-                          className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 expand-on-load"
+                          className="shadow-md shadow-white rounded-2xl border-2 border-slate-400 expand-on-load"
                         />
                       ) : null}
                     </div>

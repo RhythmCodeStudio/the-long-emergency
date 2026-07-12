@@ -18,7 +18,7 @@ export const metadata = {
 export default async function AboutPage() {
   const aboutPageData = await getPage("about");
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center w-full">
       <h2 className="font-emergency text-outline expand-on-load text-center text-2xl lg:text-3xl xl:text-4xl mt-4">
         {aboutPageData?.page_title ?? "About"}
       </h2>

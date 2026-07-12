@@ -29,7 +29,7 @@ export default function BandBio() {
           alt="Kevin Long performing with The Long Emergency"
           width={545}
           height={308}
-          className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400"
+          className="shadow-md shadow-white border-2 border-slate-400 rounded-2xl"
         />
       </div>
       <div className="py-3 lg:px-48 xl:px-64 2xl:px-96 ">

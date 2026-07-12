@@ -92,7 +92,7 @@ export default function MorePopover({
                 "inline-flex items-center justify-center px-4 py-1 rounded-full transition duration-200 ease-in-out focus:outline-none focus-visible:outline-none border-2",
                 "border-transparent hover:border-white",
                 open
-                  ? "bg-black/80 border-white shadow-white shadow-lg"
+                  ? "bg-black/80 border-white shadow-white shadow-md"
                   : "bg-transparent",
               )}>
               <span aria-label="More options" className="text-outline -mb-1">
@@ -102,7 +102,7 @@ export default function MorePopover({
             <PopoverPanel
               transition
               anchor={anchor}
-              className="divide-y divide-white/5 rounded-4xl bg-black/80 text-sm/6 transition duration-200 ease-in-out [--anchor-gap:--spacing(5)] data-closed:-translate-y-1 data-closed:opacity-0 z-50 border-2 shadow-white shadow-lg mt-2 w-96 max-w-[90vw]">
+              className="divide-y divide-white/5 rounded-4xl bg-black/80 text-sm/6 transition duration-200 ease-in-out [--anchor-gap:--spacing(5)] data-closed:-translate-y-1 data-closed:opacity-0 z-50 border-2 shadow-white shadow-md mt-2 w-96 max-w-[90vw]">
               {({ close }) => (
                 <>
                   {/* {!isStandalone && (

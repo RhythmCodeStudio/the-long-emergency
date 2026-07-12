@@ -32,7 +32,7 @@ export default function DesktopNav({
         {navListItems.map((link) => (
           <li
             className={`inline-flex justify-center px-3 py-1 border-2 border-transparent rounded-full hover:border-white ${
-              link.label === activeLink ? "bg-black/80 shadow-white shadow-md  border-white pointer-events-none" : ""
+              link.label === activeLink ? "bg-black/80 shadow-white shadow-md border-white pointer-events-none" : ""
             }`}
             key={link.href}>
             {link.label === "Support" ? (
@@ -51,11 +51,6 @@ export default function DesktopNav({
         <li className="flex transition duration-300 ease-in-out">
           <MorePopover isAuthenticated={isAuthenticated} />
         </li>
-        {/* {isAuthenticated && (
-          <li className="flex transition duration-300 ease-in-out">
-            <SignOutButton />
-          </li>
-        )} */}
       </ul>
     </nav>
   );

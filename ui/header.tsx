@@ -34,36 +34,6 @@ export const Header = () => {
     return () => mediaQuery.removeEventListener("change", update);
   }, []);
 
-  // useEffect(() => {
-  //   let mounted = true;
-
-  //   async function fetchSession() {
-  //     try {
-  //       const response = await fetch("/api/session", {
-  //         method: "GET",
-  //         credentials: "same-origin",
-  //         cache: "no-store",
-  //       });
-
-  //       if (!response.ok) return;
-  //       const data = await response.json();
-
-  //       if (mounted) {
-  //         setIsAuthenticated(Boolean(data?.isAuthenticated));
-  //       }
-  //     } catch {
-  //       // Keep default false on failure
-  //     }
-  //   }
-
-  //   fetchSession();
-
-  //   return () => {
-  //     mounted = false;
-  //   };
-  // }, []);
-
-  // ui/header.tsx
   useEffect(() => {
     let mounted = true;
 
@@ -93,17 +63,17 @@ export const Header = () => {
 
   return (
     <header className="p-4">
-      {/* ${
-          currentPath !== "/" && currentPath !== "/admin"
-            ? "bg-[rgb(0,0,0,0.5)] bg-no-repeat bg-cover bg-center md:bg-transparent"
-            : " "
-        } */}
 
       <div className="flex flex-col items-center w-full justify-center">
         {currentPath !== "/" && isSmUp === true && (
-          <h1 className="font-emergency text-outline expand-on-load text-4xl xl:text-5xl 2xl:text-6xl m-2 p-2 pb-6">
-            <Link href="/">The Long Emergency</Link>
-          </h1>
+          <div className="flex flex-col items-center justify-center m-4 p-6 pb-0">
+            <h1 className="font-emergency text-outline expand-on-load text-4xl xl:text-5xl 2xl:text-6xl">
+              <Link href="/">The Long Emergency</Link>
+            </h1>
+            <h2 className="expand-on-load p-4 md:text-xl text-outline">
+              St. Louis, Missouri
+            </h2>
+          </div>
         )}
 
         <div className="relative flex items-center w-full">

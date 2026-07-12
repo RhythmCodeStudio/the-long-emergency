@@ -29,6 +29,7 @@ export default function MusicDisplay({
   songs: Song[];
 }) {
   // const [modalOpen, setModalOpen] = useState(false);
+  const [songSelected, setSongSelected] = useState<Song | null>(null);
   const [currentSong, setCurrentSong] = useState<Song>({} as Song);
   const trackSongPlay = (song: Song) => {
     track("song-play", {
@@ -67,7 +68,7 @@ export default function MusicDisplay({
                   alt={`${release.title} cover art`}
                   width={1423}
                   height={1411}
-                  className="expand-on-load h-auto shadow-2xl shadow-blue-300/50 border-2 border-slate-400"
+                  className="expand-on-load h-auto shadow-md shadow-white border-2 border-slate-400 rounded-2xl"
                 />
               </div>
               <div className="text-outline expand-on-load ">
@@ -95,6 +96,7 @@ export default function MusicDisplay({
                             <PlayButton
                               song={song}
                               onPlay={() => {
+                                setSongSelected(song);
                                 setCurrentSong(song);
                                 trackSongPlay(song);
                               }}
@@ -117,7 +119,7 @@ export default function MusicDisplay({
         ))}
       </div>
       <div className="p-8">
-        <MusicPlayer song={currentSong || undefined} />
+        <MusicPlayer song={currentSong || undefined} songSelected={songSelected} />
       </div>
     </div>
   );

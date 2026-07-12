@@ -2,7 +2,6 @@
 
 @config '../tailwind.config.ts';
 
-
 @layer base {
   *,
   ::after,
@@ -124,18 +123,18 @@ button {
     @apply animate-expand;
   }
 
-  .rhap_container {
-  background-image: url('/images/masks-no-text.png');
-  background-size: cover;
-  background-position: center;
-  color: white;
+  .audio-player-container {
+    background-image: url("/images/masks-no-text.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+  }
 }
-}
-
 
 /* Player container text/icons */
 .rhap_container {
   color: #ffffff;
+  background: transparent !important;
 }
 
 /* Play/Pause + skip buttons */
@@ -187,6 +186,8 @@ button {
   background-clip: text;
   -webkit-background-clip: text;
   -moz-background-clip: text;
+  min-height: 1.75rem;
+  line-height: 1.75rem;
 }
 
 .rhap_footer {

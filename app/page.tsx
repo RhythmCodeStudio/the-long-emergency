@@ -16,7 +16,7 @@ export default async function Home() {
           className="select-none pointer-events-none object-contain object-bottom"
         />
       </div>
-      <div className="absolute inset-x-0 z-10 flex flex-col items-center text-center pointer-events-none top-[calc((100%-var(--image-h))/2)] -translate-y-1/2">
+      <div className="absolute inset-x-0 z-10 flex flex-col items-center text-center pointer-events-none top-[calc((100%-var(--image-h))/6)] -translate-y-1/2">
         <h1 className="p-4 expand-on-load text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-emergency text-outline">
           {pageData?.page_title ?? "Loading..."}
         </h1>

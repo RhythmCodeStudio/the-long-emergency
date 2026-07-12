@@ -68,12 +68,9 @@ export function proxy(request: NextRequest) {
 
   const productionCspHeader = `
     default-src 'self';
-    connect-src 'self' 
-    https://api.emailjs.com/ 
-    https://api.iconify.design/
-    ;
+    connect-src 'self' https://api.emailjs.com/ https://api.iconify.design/;
     script-src 'self' 'nonce-${nonce}';
-    style-src 'self' 'nonce-${nonce}';
+    style-src 'self' 'unsafe-inline';
     img-src 'self';
     font-src 'self';
     object-src 'none';
@@ -86,10 +83,7 @@ export function proxy(request: NextRequest) {
 
   const productionCspHeaderForSitemap = `
     default-src 'self';
-    connect-src 'self' 
-    https://api.emailjs.com/ 
-    https://api.iconify.design/
-    ;
+    connect-src 'self' https://api.emailjs.com/ https://api.iconify.design/;
     script-src 'self' 'nonce-${nonce}';
     style-src 'self' 'unsafe-inline';
     img-src 'self';

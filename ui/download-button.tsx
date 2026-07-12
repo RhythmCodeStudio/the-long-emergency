@@ -23,11 +23,13 @@ export default function DownloadButton({
   label = "Download file",
 }: DownloadButtonProps) {
   return (
-    <div>
-      <a download href={src} aria-label={label}>
-        <FiDownload className="text-lg xl:text-2xl" aria-hidden="true" />
-        <span className="sr-only">{label}</span>
-      </a>
-    </div>
+    <a
+      download
+      href={src}
+      aria-label={label}
+      className="inline-flex items-center justify-center leading-none"
+    >
+      <FiDownload className="text-lg xl:text-2xl" aria-hidden="true" />
+    </a>
   );
 }

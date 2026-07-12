@@ -10,7 +10,6 @@
 //   );
 // };
 
-
 import { FiDownload } from "react-icons/fi";
 
 type DownloadButtonProps = {
@@ -26,7 +25,7 @@ export default function DownloadButton({
     <div>
       <a download href={src} aria-label={label}>
         <FiDownload className="text-lg xl:text-2xl" aria-hidden="true" />
-        <span className="sr-only">{label}</span>
+        {label}
       </a>
     </div>
   );

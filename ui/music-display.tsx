@@ -78,10 +78,6 @@ export default function MusicDisplay({
                       trackAlbumDownload(album);
                     }}>
                     <DownloadButton src={album.zip} label={`Download ${album.title}`} />
-                    {/* <BandcampModal
-                      src={album.bandcamp_url}
-                      title={album.title}
-                    /> */}
                   </div>
                 </div>
                 <ol className="list-decimal list-inside pl-2 expand-on-load">
@@ -110,10 +106,6 @@ export default function MusicDisplay({
                               trackSongDownload(song);
                             }}>
                             <DownloadButton src={song.src} label={`Download ${song.title}`} />
-                            {/* <BandcampModal
-                              src={song.bandcamp_url}
-                              title={song.title}
-                            /> */}
                           </div>
                         </div>
                       </li>

@@ -14,8 +14,21 @@ export const metadata = {
   },
 };
 
-export default async function ShowsPage() {
-  const showsPageData = await getPage("shows");
+type ShowsPageSearchParams = {
+view?: string | string[];
+};
+
+export default async function ShowsPage({
+searchParams,
+}: {
+searchParams: Promise<ShowsPageSearchParams>;
+}) {
+const showsPageData = await getPage("shows");
+
+const resolvedSearchParams = await searchParams;
+const rawView = resolvedSearchParams?.view;
+const requestedView = Array.isArray(rawView) ? rawView[0] : rawView;
+const gigView = requestedView === "past" ? "past" : "upcoming";
 
   return (
     <div className="">
@@ -25,7 +38,7 @@ export default async function ShowsPage() {
             {showsPageData?.page_title}
           </h2>
         </div>
-        <ShowDisplay />
+        <ShowDisplay gigView={gigView} />
         <div className="lg:m-12 expand-on-load w-full h-auto px-8 flex justify-center">
           <Image
             priority

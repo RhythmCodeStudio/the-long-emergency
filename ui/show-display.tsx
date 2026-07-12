@@ -1,12 +1,14 @@
-"use client";
-//import from react
-import { useState } from "react";
 // import from next
 import Image from "next/image";
 import Link from "next/link";
 
-export default function ShowDisplay() {
-  const [gigState, setGigState] = useState("upcoming");
+type GigView = "upcoming" | "past";
+
+type ShowDisplayProps = {
+  gigView: GigView;
+};
+
+export default function ShowDisplay({ gigView }: ShowDisplayProps) {
   const gigs: any[] = [
     {
       date: "07/08/2026",
@@ -34,7 +36,7 @@ export default function ShowDisplay() {
       street_address: "Message me for the address",
       zip_code: "63104",
       google_maps_url: "/contact",
-      // gig_info: "Album Release Show",
+      gig_info: "House Show",
       other_acts: "with Rob Abels, Leech, and Ignoramous",
       cost: "PWYC",
       // ticket_url:
@@ -130,31 +132,33 @@ export default function ShowDisplay() {
     return gigDate >= today;
   });
 
-  const filteredGigs = gigState === "upcoming" ? upcomingGigs : pastGigs;
-
+  const filteredGigs = gigView === "upcoming" ? upcomingGigs : pastGigs;
+  
   return (
     <>
       <div className="flex justify-center items-center">
-        <button
-          onClick={() => setGigState("upcoming")}
+        <Link
+          href="/shows?view=upcoming"
           className={`${
-            gigState === "upcoming" ? "bg-blue-300 text-lg" : "bg-white"
+            gigView === "upcoming" ? "bg-blue-300 text-lg" : "bg-white"
           } hover:scale-110 transition duration-300 ease-in-out md:hover:bg-blue-500 md:hover:text-white p-2 m-2 rounded-full border-2 border-black shadow-blue-300/50 text-black`}>
           Future
-        </button>
-        <button
-          onClick={() => setGigState("past")}
+        </Link>
+        <Link
+          href="/shows?view=past"
           className={`${
-            gigState === "past" ? "bg-blue-300 text-lg" : "bg-white"
+            gigView === "past" ? "bg-blue-300 text-lg" : "bg-white"
           } hover:scale-110 transition duration-300 ease-in-out md:hover:bg-blue-500 md:hover:text-white p-2 px-5 m-2 rounded-full border-2 border-black shadow-blue-300/50 text-black`}>
           Past
-        </button>
+        </Link>
       </div>
       <div className="p-6 text-outline">
         {filteredGigs.length === 0 ? (
           <div className="p-6">
             <p className="text-center text-lg md:text-xl text-balance">
-              No upcoming shows currently scheduled.
+              {gigView === "upcoming"
+                ? "No upcoming shows currently scheduled."
+                : "No past shows found."}
               <br />
               <span>For booking please email </span>
               {/* <span className="text-blue-300 hover:text-blue-400 underline">
@@ -171,7 +175,7 @@ export default function ShowDisplay() {
           </div>
         ) : (
           <>
-            {gigState === "upcoming" && (
+            {gigView === "upcoming" && (
               <h3 className="expand-on-load pt-2 text-outline text-center">
                 The Long Emergency is coming...
               </h3>
@@ -239,7 +243,7 @@ export default function ShowDisplay() {
                       <p className=" text-center">{gig.cost}</p>
                       <p className=" text-center">{gig.gig_info}</p>
                       <p className=" text-center">{gig.other_acts}</p>
-                      {gigState === "upcoming" && gig.ticket_url && (
+                      {gigView === "upcoming" && gig.ticket_url &&  (
                         <div className="flex justify-center expand-on-load">
                           <a
                             target="_blank"

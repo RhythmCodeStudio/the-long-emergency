@@ -65,8 +65,8 @@ export function proxy(request: NextRequest) {
   const productionCspHeader = `
     default-src 'self';
     connect-src 'self' https://api.emailjs.com/ https://api.iconify.design/;
-    script-src 'self' 'unsafe-inline' 'nonce-${nonce}';
-    style-src 'self' 'nonce-${nonce}';
+    script-src 'self' 'nonce-${nonce}';
+    style-src 'self' 'unsafe-inline' 'nonce-${nonce}';
     img-src 'self';
     font-src 'self';
     object-src 'none';

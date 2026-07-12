@@ -190,7 +190,6 @@ export default function ContactForm() {
           autoComplete="given-name"
           errorMessage={firstNameErrorMessage}
           setStateVariable={setFirstName}
-          c
         />
 
         <FormInput

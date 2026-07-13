@@ -23,7 +23,7 @@ export default function ShowDisplay({ gigView }: ShowDisplayProps) {
       // gig_info: "Album Release Show",
       other_acts: "Opening for Igor Death",
       cost: "$5",
-      // poster: "/images/show-posters/",
+      poster: "/images/show-posters/masks-no-text.png",
       show_page: "/shows/venice-cafe-stlouis-7-8-2026",
     },
     {
@@ -133,12 +133,22 @@ export default function ShowDisplay({ gigView }: ShowDisplayProps) {
   });
 
   const filteredGigs = gigView === "upcoming" ? upcomingGigs : pastGigs;
-  
+
   return (
     <>
-      <div className="flex justify-center items-center">
-        <Link href="/shows?view=upcoming" className={`${ gigView === "upcoming" ? "bg-blue-300" : "bg-white" } inline-flex h-9 w-24 m-2 items-center justify-center rounded-full border-2 border-black text-black hover:scale-110 transition duration-300 ease-in-out md:hover:bg-blue-500 md:hover:text-white`} > <span className="relative top-px leading-none">Future</span> </Link> 
-        <Link href="/shows?view=past" className={`${ gigView === "past" ? "bg-blue-300" : "bg-white" } inline-flex h-9 w-24 m-2 items-center justify-center rounded-full border-2 border-black text-black hover:scale-110 transition duration-300 ease-in-out md:hover:bg-blue-500 md:hover:text-white`} > <span className="relative top-px leading-none">Past</span> </Link>
+      <div className="flex justify-center items-center pb-12">
+        <Link
+          href="/shows?view=upcoming"
+          className={`${gigView === "upcoming" ? "bg-blue-300" : "bg-white"} inline-flex h-9 w-24 m-2 items-center justify-center rounded-full border-2 border-black text-black transition duration-300 ease-in-out md:hover:bg-blue-500 md:hover:text-white`}>
+          {" "}
+          <span className="relative top-px leading-none">Future</span>{" "}
+        </Link>
+        <Link
+          href="/shows?view=past"
+          className={`${gigView === "past" ? "bg-blue-300" : "bg-white"} inline-flex h-9 w-24 m-2 items-center justify-center rounded-full border-2 border-black text-black transition duration-300 ease-in-out md:hover:bg-blue-500 md:hover:text-white`}>
+          {" "}
+          <span className="relative top-px leading-none">Past</span>{" "}
+        </Link>
       </div>
       <div className="p-6 text-outline">
         {filteredGigs.length === 0 ? (
@@ -231,7 +241,7 @@ export default function ShowDisplay({ gigView }: ShowDisplayProps) {
                       <p className=" text-center">{gig.cost}</p>
                       <p className=" text-center">{gig.gig_info}</p>
                       <p className=" text-center">{gig.other_acts}</p>
-                      {gigView === "upcoming" && gig.ticket_url &&  (
+                      {gigView === "upcoming" && gig.ticket_url && (
                         <div className="flex justify-center expand-on-load">
                           <a
                             target="_blank"

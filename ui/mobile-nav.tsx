@@ -92,12 +92,6 @@ export default function MobileNav({
                   isAuthenticated={isAuthenticated}
                   onAnyAction={closeMenu} anchor="top" />
               </li>
-
-              {/* {isAuthenticated && (
-                <li className="px-8 md:px-8 lg:px-14 xl:px-20 lg:py-8 flex hover:scale-110 transition duration-300 ease-in-out">
-                  <SignOutButton />
-                </li>
-              )} */}
             </ul>
           </nav>
         </div>

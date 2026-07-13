@@ -20,18 +20,20 @@ export default async function ContactPage() {
   return (
     <div className="flex flex-col items-center justify-center w-full">
       <div className="flex justify-center items-center flex-col text-outline mt-4">
-        <h2 className="font-emergency expand-on-load text-2xl lg:text-3xl xl:text-4xl">
+        {/* <h2 className="font-emergency expand-on-load text-2xl lg:text-3xl xl:text-4xl">
           {contactPageData?.page_title ?? "Contact"}
-        </h2>
+        </h2> */}
 
         {/* <MailingListSignUpForm  className="mt-8 mb-16"/> */}
-        {/* <Heading 
+        {/* <Heading
           headingLevel={4}
           text="Send Us a Message"
-         className="text-xl lg:text-2xl font-semibold  mb-4 text-center"
+          className="text-xl lg:text-2xl font-semibold py-12 text-center"
         /> */}
+        <div className="py-12">
+          <ContactForm />
+        </div>
 
-        <ContactForm />
         <div className="w-full h-auto px-12 max-w-200 expand-on-load mb-12 ">
           <Image
             priority

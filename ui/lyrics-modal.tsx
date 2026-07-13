@@ -32,7 +32,7 @@ export default function LyricsModal({
         type="button"
         disabled={isDisabled}
       >
-        <span className="text-black font-bold">Lyrics</span>
+        <span className="text-black font-bold text-shadow-white">Lyrics</span>
       </button>
       <Modal
         placement="center"

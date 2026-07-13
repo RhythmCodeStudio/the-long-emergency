@@ -22,7 +22,7 @@ export default function BandBio() {
           about it. In May of 2014 I quit drinking for good.
         </p>
       </div>
-      <div className="expand-on-load px-10 py-2 xl:py-6 flex justify-center items-center">
+      <div className="expand-on-load px-10 py-6 xl:py-12 flex justify-center items-center">
         <Image
           priority
           src="/images/kev-16-9.jpg"

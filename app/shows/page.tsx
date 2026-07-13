@@ -15,30 +15,32 @@ export const metadata = {
 };
 
 type ShowsPageSearchParams = {
-view?: string | string[];
+  view?: string | string[];
 };
 
 export default async function ShowsPage({
-searchParams,
+  searchParams,
 }: {
-searchParams: Promise<ShowsPageSearchParams>;
+  searchParams: Promise<ShowsPageSearchParams>;
 }) {
-const showsPageData = await getPage("shows");
+  const showsPageData = await getPage("shows");
 
-const resolvedSearchParams = await searchParams;
-const rawView = resolvedSearchParams?.view;
-const requestedView = Array.isArray(rawView) ? rawView[0] : rawView;
-const gigView = requestedView === "past" ? "past" : "upcoming";
+  const resolvedSearchParams = await searchParams;
+  const rawView = resolvedSearchParams?.view;
+  const requestedView = Array.isArray(rawView) ? rawView[0] : rawView;
+  const gigView = requestedView === "past" ? "past" : "upcoming";
 
   return (
     <div className="flex flex-col items-center justify-center w-full">
       <div className="relative flex flex-col justify-center items-center">
-        <div className="expand-on-load">
+        {/* <div className="expand-on-load">
           <h2 className="font-emergency text-2xl lg:text-3xl xl:text-4xl text-outline mt-8 mb-4">
             {showsPageData?.page_title}
           </h2>
+        </div> */}
+        <div className="py-12">
+          <ShowDisplay gigView={gigView} />
         </div>
-        <ShowDisplay gigView={gigView} />
         <div className="lg:m-12 expand-on-load w-full h-auto px-8 flex justify-center">
           <Image
             priority

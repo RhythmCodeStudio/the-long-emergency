@@ -102,7 +102,7 @@ export default function MorePopover({
             <PopoverPanel
               transition
               anchor={anchor}
-              className="divide-y divide-white/5 rounded-4xl bg-black/80 text-sm/6 transition duration-200 ease-in-out [--anchor-gap:--spacing(5)] data-closed:-translate-y-1 data-closed:opacity-0 z-50 border-2 shadow-white shadow-md mt-2 w-96 max-w-[90vw]">
+              className="divide-y divide-white/5 rounded-4xl bg-black text-sm/6 transition duration-200 ease-in-out [--anchor-gap:--spacing(5)] data-closed:-translate-y-1 data-closed:opacity-0 z-50 border-2 shadow-white shadow-md mt-2 w-96 max-w-[90vw]">
               {({ close }) => (
                 <>
                   {/* {!isStandalone && (

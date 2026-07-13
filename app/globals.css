@@ -86,6 +86,9 @@ button {
   .text-black-shadow-only {
     text-shadow: 2px 2px 0 black;
   }
+  .text-shadow-white {
+    text-shadow: 1px 1px 0 white;
+  }
   .text-outline-gray {
     /* text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000; */
     text-shadow: 1.25px 1.25px 0 #868686;
@@ -141,6 +144,7 @@ button {
 .rhap_main-controls-button,
 .rhap_button-clear {
   color: #ffffff !important;
+  filter: drop-shadow(2px 2px 0 #000);
 }
 
 /* Button hover */
@@ -152,6 +156,7 @@ button {
 /* Progress bar base + fill */
 .rhap_progress-bar {
   background-color: #ffffff !important;
+  filter: drop-shadow(2px 2px 0 #000);
 }
 .rhap_progress-indicator {
   background-color: #60a5fa !important;
@@ -168,6 +173,7 @@ button {
 /* Volume bar base + fill */
 .rhap_volume-bar {
   background-color: #ffffff !important;
+  filter: drop-shadow(2px 2px 0 #000);
 }
 .rhap_volume-indicator,
 .rhap_volume-filled {
@@ -177,11 +183,12 @@ button {
 /* Current time / duration text */
 .rhap_time {
   color: #ffffff !important;
+  filter: drop-shadow(2px 2px 0 #000);
 }
 
 .rhap_header {
   font-family: var(--font-emergency);
-  text-shadow: 1.25px 1.25px 0 #868686;
+  text-shadow: 1.25px 1.25px 0 black;
   /* background-color: rgba(0, 0, 0, 1); */
   background-clip: text;
   -webkit-background-clip: text;
@@ -192,7 +199,7 @@ button {
 
 .rhap_footer {
   font-family: var(--font-emergency);
-  text-shadow: 1.25px 1.25px 0 #868686;
+  text-shadow: 1.25px 1.25px 0 black;
   /* background-color: rgba(0, 0, 0, 1); */
   background-clip: text;
   -webkit-background-clip: text;

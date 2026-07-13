@@ -4,7 +4,7 @@ export const navListItems = [
     { label: "Shows", href: "/shows" },
     // {label: "News", href: "/news"},
     // { label: "Merch", href: "/merch" },
-    { label: "Blog", href: "/blog" },
+    // { label: "Blog", href: "/blog" },
     { label: "Contact", href: "/contact" },
     // { label: "Support", href: "https://www.patreon.com/TheLongEmergency" },
   ];

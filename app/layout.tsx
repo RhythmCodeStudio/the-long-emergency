@@ -73,7 +73,7 @@ export default async function RootLayout({
       lang="en"
       className={`${emergency.variable} ${special_elite.variable}`}>
       <body
-        className={`font-specialElite overflow-x-hidden flex flex-col min-h-screen bg-black`}>
+        className={`font-specialElite overflow-x-hidden flex flex-col min-h-screen bg-zinc-950 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.08),transparent_55%)]`}>
         <PushNotificationContextProvider>
           <InstallContextProvider>
             <DismissedToastsProvider>

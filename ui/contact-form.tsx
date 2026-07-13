@@ -191,7 +191,6 @@ export default function ContactForm() {
           errorMessage={firstNameErrorMessage}
           setStateVariable={setFirstName}
         />
-
         <FormInput
           idPrefix="contact-form"
           inputType="input"
@@ -206,7 +205,6 @@ export default function ContactForm() {
           errorMessage={lastNameErrorMessage}
           setStateVariable={setLastName}
         />
-
         <FormInput
           idPrefix="contact-form"
           inputType="input"
@@ -221,7 +219,6 @@ export default function ContactForm() {
           errorMessage={emailErrorMessage}
           setStateVariable={setEmail}
         />
-
         {/* Keep phone state/validation behavior unchanged even though field is hidden */}
         {/* <FormInput
           idPrefix="contact-form"
@@ -237,7 +234,6 @@ export default function ContactForm() {
           errorMessage={phoneErrorMessage}
           setStateVariable={setPhone}
         /> */}
-
         <FormInput
           idPrefix="contact-form"
           inputType="textarea"
@@ -252,7 +248,6 @@ export default function ContactForm() {
           errorMessage={messageErrorMessage}
           setStateVariable={setMessage}
         />
-
         <FormCheckbox
           idPrefix="contact-form"
           label="Sign me up for The Long Emergency mailing list. I understand I can unsubscribe at any time."
@@ -262,7 +257,6 @@ export default function ContactForm() {
           // required={true}
           errorMessage=""
         />
-
         <div className="flex justify-center items-center p-6 ">
           <button
             onClick={handleFormSubmit}
@@ -272,7 +266,6 @@ export default function ContactForm() {
             <span className="font-emergency text-white text-outline">Send</span>
           </button>
         </div>
-
         {deliveryErrorMessage && (
           <div className="flex text-center justify-center items-center mt-2 mb-4">
             <a
@@ -288,7 +281,6 @@ export default function ContactForm() {
           </div>
         )}
       </form>
-
       <ToastContainer
         position="top-center"
         autoClose={5000}

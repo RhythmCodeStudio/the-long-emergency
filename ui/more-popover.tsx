@@ -89,7 +89,7 @@ export default function MorePopover({
           <>
             <PopoverButton
               className={clsx(
-                "inline-flex items-center justify-center px-4 py-1 rounded-full transition duration-200 ease-in-out focus:outline-none focus-visible:outline-none border-2",
+                "inline-flex items-center justify-center px-3 py-1 rounded-full transition duration-200 ease-in-out focus:outline-none focus-visible:outline-none border-2",
                 "border-transparent hover:border-white",
                 open
                   ? "bg-black/80 border-white shadow-white shadow-md"

@@ -89,11 +89,10 @@ export default function MorePopover({
           <>
             <PopoverButton
               className={clsx(
-                "inline-flex items-center justify-center px-3 py-1 rounded-full transition duration-200 ease-in-out focus:outline-none focus-visible:outline-none border-2",
-                "border-transparent hover:border-white",
+            "flex items-center justify-center font-semibold text-white rounded-full border-2 border-transparent px-4 py-2 active:scale-95 transition duration-200 ease-in-out shadow-white",
                 open
-                  ? "bg-black/80 border-white shadow-white shadow-md"
-                  : "bg-transparent",
+                  ? "bg-black/80 shadow-md border-white"
+              : "hover:border-white hover:shadow-lg",
               )}>
               <span aria-label="More options" className="text-outline -mb-1">
                 More

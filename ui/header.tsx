@@ -270,7 +270,7 @@ export const Header = () => {
             </div>
           )}
 
-          <div className="sm:flex sm:justify-center sm:w-full">
+          {/* <div className="sm:flex sm:justify-center sm:w-full"> */}
             <div className="flex justify-center items-center text-center text-outline w-full">
               <DesktopNav
                 navListItems={navListItems as NavItem[]}
@@ -281,7 +281,7 @@ export const Header = () => {
                 isAuthenticated={isAuthenticated}
               />
             </div>
-          </div>
+          {/* </div> */}
         </div>
       </div>
     </header>

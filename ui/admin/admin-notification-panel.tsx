@@ -13,10 +13,10 @@ export default function AdminNotificationPanel({
   const [status, setStatus] = useState<null | string>(null);
 
   async function handleSend() {
-    console.log("handleSend clicked", { message, url });
+    // console.log("handleSend clicked", { message, url });
     try {
       const result = await sendNotification(message, url);
-      console.log("sendNotification result", result);
+      // console.log("sendNotification result", result);
       setStatus(result?.success ? "Notification sent!" : `Failed: ${result?.error ?? "Unknown error"}`);
       setMessage("");
       setUrl("");

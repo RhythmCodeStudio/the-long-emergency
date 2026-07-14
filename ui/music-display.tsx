@@ -87,7 +87,7 @@ export default function MusicDisplay({
                     .filter((song) => song.release === release.id)
                     .sort((a, b) => a.track_number - b.track_number)
                     .map((song, index) => (
-                      console.log(song, index),
+                      // console.log(song, index),
                       <li key={song.id} className="flex items-center my-1 z-0">
                         <span className="mr-2">{index + 1}.</span>
                         <span className="">{truncateTitle(song.title, 18)}</span>

@@ -4,7 +4,7 @@
 //import from react
 import { useState } from "react";
 // import components
-import MailingListSignupForm from "./mailing-list-sign-up-form";
+import MailingListSignupForm from "./mailing-list-form";
 import Button from "./button";
 // import from react icons
 import { FiXCircle } from "react-icons/fi";

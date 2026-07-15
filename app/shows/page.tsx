@@ -32,17 +32,17 @@ export default async function ShowsPage({
   const gigView = requestedView === "past" ? "past" : "upcoming";
 
   return (
-    <div className="flex flex-col items-center justify-center w-full">
-      <div className="relative flex flex-col justify-center items-center">
+    <div className="flex flex-col items-center w-full min-h-full">
+      <div className="relative flex flex-col items-center">
         {/* <div className="">
           <h2 className="font-emergency text-2xl lg:text-3xl xl:text-4xl text-outline mt-8 mb-4">
             {showsPageData?.page_title}
           </h2>
         </div> */}
-        <div className="py-12">
+        <div className="w-full">
           <ShowDisplay gigView={gigView} />
         </div>
-        <div className="lg:m-12  w-full h-auto px-8 flex justify-center">
+        <div className=" w-full h-auto p-6 flex justify-center">
           <Image
             priority
             src="/images/banner.png"
@@ -52,21 +52,23 @@ export default async function ShowsPage({
             className="shadow-md shadow-white rounded-2xl border-2 border-slate-400 mb-12 xl:mb-0"
           />
         </div>
-        <h3 className="text-lg text-outline">
-          &quot;I spent all my money on a habit&quot;
-        </h3>
-        <Link href="/music">
-          <Image
-            className="shadow-md shadow-white rounded-2xl border-2 border-slate-400 m-2"
-            width={213}
-            height={211}
-            src="/music/habit/album-art/front-cover.png"
-            alt="I spent all my money on a habit album cover"
-          />
-          <h4 className="text-center text-xl text-outline text-blue-300 hover:text-blue-400 underline">
-            Available Now
-          </h4>
-        </Link>
+        <div className="flex flex-col justify-center items-center p-6">
+          <h3 className="text-lg text-outline">
+            &quot;I spent all my money on a habit&quot;
+          </h3>
+          <Link href="/music">
+            <Image
+              className="shadow-md shadow-white rounded-2xl border-2 border-slate-400 m-2"
+              width={213}
+              height={211}
+              src="/music/habit/album-art/front-cover.png"
+              alt="I spent all my money on a habit album cover"
+            />
+            <h4 className="text-center text-xl text-outline text-blue-300 hover:text-blue-400 underline">
+              Available Now
+            </h4>
+          </Link>
+        </div>
       </div>
       {/* <Toaster toastId="default" /> */}
       <Toaster

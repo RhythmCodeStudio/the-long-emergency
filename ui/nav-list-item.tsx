@@ -10,12 +10,14 @@ export default function NavListItem({
   htmlElement,
   onClick,
   className,
+  isDesktop,
 }: {
   label: string;
   href: string;
   htmlElement: string;
   onClick?: () => void;
   className?: string;
+  isDesktop?: boolean;
 }) {
   const pathname = usePathname();
   const isActive = pathname === href;
@@ -39,15 +41,15 @@ export default function NavListItem({
         <Link
           href={href}
           className={clsx(
-            "flex items-center justify-center font-semibold text-white rounded-full border-2 border-transparent px-4 py-1 transition duration-200 ease-in-out shadow-white",
-            isActive
+            "flex items-center justify-center gap-2 font-semibold text-white rounded-full border-2 border-transparent px-4 py-2 transition duration-200 ease-in-out shadow-white",
+            isActive && isDesktop
               ? "pointer-events-none bg-black/80 shadow-md border-white"
               : "hover:border-white hover:shadow-lg",
           )}
-          tabIndex={isActive ? -1 : 0}
-          aria-disabled={isActive ? "true" : undefined}
+          tabIndex={isActive && isDesktop ? -1 : 0}
+          aria-disabled={isActive && isDesktop ? "true" : undefined}
           onClick={onClick}>
-          <span className="-mb-1">
+          <span className="text-outline leading-none translate-y-px">
             {label}
           </span>
         </Link>

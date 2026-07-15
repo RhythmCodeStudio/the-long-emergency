@@ -433,7 +433,7 @@ export const Header = () => {
   const showMobileHeading = isSmUp === false;
 
   return (
-    <header className="p-4 z-30 w-full">
+    <header className="p-6 z-30 w-full">
       <div className="flex flex-col items-center w-full justify-center">
         {isHomePage && showDesktopHeading && (
           <div className="flex flex-col items-center justify-center m-4 p-6 pb-0">
@@ -459,13 +459,11 @@ export const Header = () => {
                 className="font-emergency text-outline text-xl whitespace-nowrap leading-none">
                 <Link href="/">The Long Emergency</Link>
               </h1>
-
-              <h2 className="m-1 text-sm text-outline whitespace-nowrap">
+              <h2 className="mt-1 text-sm text-outline whitespace-nowrap">
                 St. Louis, Missouri
               </h2>
             </div>
           )}
-
           {isHomePage && showMobileHeading && (
             <div className="flex flex-col justify-center shrink-0">
               <h1
@@ -473,12 +471,11 @@ export const Header = () => {
                 className="font-emergency text-outline text-xl whitespace-nowrap leading-none">
                 The Long Emergency
               </h1>
-              <h2 className="m-1 text-sm text-outline whitespace-nowrap">
+              <h2 className="mt-1 text-sm text-outline whitespace-nowrap">
                 St. Louis, Missouri
               </h2>
             </div>
           )}
-
           <div className="flex justify-center items-center text-center text-outline w-full">
             <DesktopNav
               navListItems={navListItems as NavItem[]}

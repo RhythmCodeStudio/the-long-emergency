@@ -37,7 +37,7 @@ export default function DesktopNav({
             href={link.href}
             htmlElement={link.htmlElement}
             onClick={link.onClick}
-            className={link.label === activeLink ? "pointer-events-none" : ""}
+            isDesktop={true}
           />
         ))}
         <li className="flex transition duration-300 ease-in-out">

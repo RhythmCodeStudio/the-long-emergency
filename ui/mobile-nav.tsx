@@ -8,7 +8,7 @@ import { useState } from "react";
 import { FiX } from "react-icons/fi";
 import { FiMenu } from "react-icons/fi";
 // import components
-// import SignOutButton from "./sign-out-button";
+import SignOutButton from "./sign-out-button";
 import MorePopover from "./more-popover";
 import NavListItem from "./nav-list-item";
 
@@ -52,52 +52,26 @@ export default function MobileNav({
               <FiX className="text-2xl" />
             </button>
           </div>
+
           <nav
             id="mobile-nav-link-container"
-            className="font-bold flex flex-col items-center justify-center bg-zinc-950/60 fixed inset-0">
-            <Link href="/">
-              <h1
-                className="font-emergency text-center text-2xl pb-6"
+            className="font-bold flex flex-col items-center justify-center bg-zinc-950/80 fixed inset-0 space-y-12"
+          >
+            <ul className="text-xl mx-auto space-y-12">
+              <li
+                className="font-emergency text-center text-2xl"
                 onClick={closeMenu}>
-                The Long Emergency
-              </h1>
-            </Link>
-            <ul className="text-xl max-w-30 mx-auto">
+                <Link href="/">The Long Emergency</Link>
+              </li>
               {navListItems.map((item) => (
-                // <li
-                //   key={link.label}
-                //   className={`font-bold text-center w-full py-6 ${
-                //     pathname === link.href ? "hidden" : ""
-                //   }`}>
-                //   {link.label === "Support" ? (
-                //     <a
-                //       href={link.href}
-                //       target="_blank"
-                //       rel="noopener noreferrer"
-                //       className="flex flex-col items-center justify-center"
-                //       onClick={closeMenu}>
-                //       <span>{link.label}</span>
-                //     </a>
-                //   ) : (
-                //     <Link href={link.href}>
-                //       <div
-                //         className="flex flex-col items-center justify-center"
-                //         onClick={closeMenu}>
-                //         <span>{link.label}</span>
-                //       </div>
-                //     </Link>
-                //   )}
-                // </li>
                 <NavListItem
                   key={item.label}
                   label={item.label}
                   href={item.href}
                   htmlElement={item.htmlElement}
                   onClick={closeMenu}
-                  className="py-4"
                 />
               ))}
-
               <li className="flex justify-center">
                 <MorePopover
                   isAuthenticated={isAuthenticated}

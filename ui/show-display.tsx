@@ -136,7 +136,7 @@ export default function ShowDisplay({ gigView }: ShowDisplayProps) {
 
   return (
     <>
-      <div className="flex justify-center items-center pb-12">
+      <div className="flex justify-center items-center p-6">
         <Link
           href="/shows?view=upcoming"
           className={`${gigView === "upcoming" ? "bg-blue-300" : "bg-white"} inline-flex h-9 w-24 m-2 items-center justify-center rounded-full border-2 border-black text-black transition duration-300 ease-in-out md:hover:bg-blue-500 md:hover:text-white`}>
@@ -152,16 +152,13 @@ export default function ShowDisplay({ gigView }: ShowDisplayProps) {
       </div>
       <div className="p-6 text-outline">
         {filteredGigs.length === 0 ? (
-          <div className="p-6">
+          <div className="">
             <p className="text-center text-lg md:text-xl text-balance">
               {gigView === "upcoming"
                 ? "No upcoming shows currently scheduled."
                 : "No past shows found."}
               <br />
               <span>For booking please email </span>
-              {/* <span className="text-blue-300 hover:text-blue-400 underline">
-                <Link href="/contact">contact</Link>
-              </span>{" "} */}
               <span>
                 <a
                   href="mailto:booking@thelongemergency.com"

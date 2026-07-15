@@ -49,25 +49,22 @@ export default function MorePopover({
       {({ open }) => (
         <>
           <PopoverButton
+            aria-label="More options"
             className={clsx(
-              "flex items-center justify-center font-semibold text-white rounded-full border-2 border-transparent px-4 py-1 transition duration-200 ease-in-out shadow-white",
+              "flex items-center justify-center gap-2 font-semibold text-white rounded-full border-2 border-transparent px-4 py-2 transition duration-200 ease-in-out shadow-white",
               open
                 ? "bg-black/80 shadow-md border-white"
                 : "hover:border-white hover:shadow-lg",
             )}>
-            <span aria-label="More options" className="text-outline -mb-1">
+            <span className="text-outline leading-none translate-y-px">
               More
             </span>
-            {open ? (
-              <TbChevronUp size={20} className="ml-2" />
-            ) : (
-              <TbChevronDown size={20} className="ml-2" />
-            )}
+            {open ? <TbChevronUp size={20} /> : <TbChevronDown size={20} />}
           </PopoverButton>
           <PopoverPanel
             transition
             anchor={anchor}
-            className="divide-y divide-white/5 rounded-4xl bg-black text-sm/6 transition duration-200 ease-in-out [--anchor-gap:--spacing(5)] data-closed:-translate-y-1 data-closed:opacity-0 z-50 border-2 shadow-white shadow-md mt-2 w-96 max-w-[90vw]">
+            className="divide-y divide-white/5 rounded-4xl bg-black text-sm/6 transition duration-200 ease-in-out [--anchor-gap:--spacing(5)] data-closed:-translate-y-1 data-closed:opacity-0 z-50 border-2 shadow-white shadow-md mt-2 w-80 max-w-[20vw]">
             {({ close }) => (
               <>
                 {isAuthenticated && (

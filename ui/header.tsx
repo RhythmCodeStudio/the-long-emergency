@@ -315,9 +315,9 @@ function SkeletonBox({ className }: { className?: string }) {
 
 function HeaderLoading() {
   return (
-    <header className="p-4 z-30">
+    <header className="p-6 z-30">
       <div className="flex flex-col items-center w-full justify-center">
-        <div className="flex flex-col items-center justify-center m-4 p-6 pb-0">
+        <div className="hidden sm:flex flex-col items-center justify-center m-4 p-6 pb-0 ">
           <SkeletonBox className="h-10 w-72 xl:h-12 xl:w-xl rounded-xl" />
           <SkeletonBox className="mt-4 h-6 w-52 rounded-lg" />
         </div>

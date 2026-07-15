@@ -27,7 +27,7 @@ export default function NavListItem({
           label={label}
           onClick={onClick}
           className={clsx(
-            "flex items-center justify-center font-semibold text-white rounded-full border-2 shadow-white shadow-md px-4 py-2 active:scale-95 transition duration-200 ease-in-out ",
+            "flex items-center justify-center font-semibold text-white rounded-full border-2 shadow-white shadow-md px-4 py-2 transition duration-200 ease-in-out ",
             isActive
               ? "pointer-events-none bg-black/80 shadow-white shadow-md border-white"
               : "",
@@ -39,7 +39,7 @@ export default function NavListItem({
         <Link
           href={href}
           className={clsx(
-            "flex items-center justify-center font-semibold text-white rounded-full border-2 border-transparent px-4 py-2 active:scale-95 transition duration-200 ease-in-out shadow-white",
+            "flex items-center justify-center font-semibold text-white rounded-full border-2 border-transparent px-4 py-1 transition duration-200 ease-in-out shadow-white",
             isActive
               ? "pointer-events-none bg-black/80 shadow-md border-white"
               : "hover:border-white hover:shadow-lg",
@@ -47,7 +47,7 @@ export default function NavListItem({
           tabIndex={isActive ? -1 : 0}
           aria-disabled={isActive ? "true" : undefined}
           onClick={onClick}>
-          <span className="text-shadow-black-background-black mb-0 lg:-mb-1">
+          <span className="-mb-1">
             {label}
           </span>
         </Link>

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { getPage } from "@/actions/actions";
 import ShowDisplay from "@/ui/show-display";
 import Toaster from "@/ui/toaster";
+import InstallAppButton from "@/ui/install-app-button";
 // export metadata
 export const metadata = {
   title: "Shows",
@@ -67,7 +68,12 @@ export default async function ShowsPage({
           </h4>
         </Link>
       </div>
-      <Toaster toastId="default" />
+      {/* <Toaster toastId="default" /> */}
+      <Toaster
+        toastId="install-app-toast"
+        message="Install thelongemergency.com"
+        component={<InstallAppButton />}
+      />
     </div>
   );
 }

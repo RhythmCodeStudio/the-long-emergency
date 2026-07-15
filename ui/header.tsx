@@ -127,6 +127,169 @@
 //   );
 // };
 
+// import DesktopNav from "./desktop-nav";
+// import MobileNav from "./mobile-nav";
+// import Link from "next/link";
+// import { usePathname } from "next/navigation";
+// import { useEffect, useState } from "react";
+// import { navListItems } from "@/lib/nav-list-items";
+
+// type NavItem = {
+//   label: string;
+//   href: string;
+//   htmlElement: string;
+//   category?: string;
+//   onClick?: () => void;
+// };
+
+// function SkeletonBox({ className }: { className?: string }) {
+//   return (
+//     <div
+//       className={"animate-pulse rounded bg-gray-300/30 " + (className ?? "")}
+//     />
+//   );
+// }
+
+// function HeaderLoading() {
+//   return (
+//     <header className="p-4 z-30">
+//       <div className="flex flex-col items-center w-full justify-center">
+//         <div className="flex flex-col items-center justify-center m-4 p-6 pb-0">
+//           <SkeletonBox className="h-10 w-72 xl:h-12 xl:w-xl rounded-xl" />
+//           <SkeletonBox className="mt-4 h-6 w-52 rounded-lg" />
+//         </div>
+//         <div className="relative flex items-center w-full">
+//           <div className="flex-col sm:hidden">
+//             <SkeletonBox className="h-6 w-44 rounded-md" />
+//             <SkeletonBox className="mt-2 h-4 w-32 rounded-md" />
+//           </div>
+
+//           <div className="sm:flex sm:justify-center sm:w-full">
+//             <div className="w-full hidden sm:flex items-center justify-center gap-4 md:gap-12">
+//               <SkeletonBox className="h-9 w-24 rounded-full" />
+//               <SkeletonBox className="h-9 w-24 rounded-full" />
+//               <SkeletonBox className="h-9 w-24 rounded-full" />
+//               <SkeletonBox className="h-9 w-28 rounded-full" />
+//               <SkeletonBox className="h-9 w-24 rounded-full" />
+//             </div>
+
+//             <div className="absolute right-0 top-4 -translate-y-1/2 sm:hidden">
+//               <SkeletonBox className="h-9 w-9 rounded-md" />
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </header>
+//   );
+// }
+// export const Header = () => {
+//   const currentPath = usePathname();
+//   const [hasHydrated, setHasHydrated] = useState(false);
+//   const [isSmUp, setIsSmUp] = useState<boolean | null>(null);
+//   const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+//   useEffect(() => {
+//     const mediaQuery = window.matchMedia("(min-width: 640px)");
+//     const update = () => {
+//       setIsSmUp(mediaQuery.matches);
+//     };
+
+//     update();
+//     setHasHydrated(true);
+
+//     mediaQuery.addEventListener("change", update);
+//     return () => mediaQuery.removeEventListener("change", update);
+//   }, []);
+
+//   useEffect(() => {
+//     let mounted = true;
+//     async function fetchSession() {
+//       const response = await fetch("/api/session", {
+//         method: "GET",
+//         credentials: "same-origin",
+//         cache: "no-store",
+//       });
+//       if (!response.ok || !mounted) return;
+//       const data = await response.json();
+//       setIsAuthenticated(Boolean(data?.isAuthenticated));
+//     }
+
+//     function handleAuthChanged() {
+//       void fetchSession();
+//     }
+
+//     void fetchSession();
+//     window.addEventListener("auth-changed", handleAuthChanged);
+
+//     return () => {
+//       mounted = false;
+//       window.removeEventListener("auth-changed", handleAuthChanged);
+//     };
+//   }, [currentPath]);
+
+//   if (!hasHydrated || isSmUp === null) {
+//     return <HeaderLoading />;
+//   }
+
+//   const isHomePage = currentPath === "/";
+//   const showDesktopHeading = isSmUp === true;
+//   const showMobileHeading = isSmUp === false;
+
+//   return (
+//     <header className="p-4 z-30">
+//       <div className="flex flex-col items-center w-full justify-center">
+//         {showDesktopHeading && (
+//           <div className="flex flex-col items-center justify-center m-4 p-6 pb-0">
+//             <h1 className="font-emergency text-outline expand-on-load text-4xl xl:text-5xl 2xl:text-6xl">
+//               <Link href="/">The Long Emergency</Link>
+//             </h1>
+//             <h2 className="expand-on-load p-4 md:text-xl text-outline">
+//               St. Louis, Missouri
+//             </h2>
+//           </div>
+//         )}
+//         <div className="relative flex items-center w-full">
+//           {!isHomePage && showMobileHeading && (
+//             <h1
+//               id="main-heading-most-pages"
+//               className="-mt-1 font-emergency text-outline expand-on-load text-xl">
+//               <Link href="/">The Long Emergency</Link>
+//             </h1>
+//           )}
+
+//           {isHomePage && showMobileHeading && (
+//             <div className="flex-col">
+//               <h1
+//                 id="main-heading-most-pages"
+//                 className="-mt-1 font-emergency text-outline expand-on-load text-xl">
+//                 The Long Emergency
+//               </h1>
+//               <h2 className="expand-on-load text-sm text-outline">
+//                 St. Louis, Missouri
+//               </h2>
+//             </div>
+//           )}
+
+//           {/* <div className="sm:flex sm:justify-center sm:w-full"> */}
+//             <div className="flex justify-center items-center text-center text-outline w-full">
+//               <DesktopNav
+//                 navListItems={navListItems as NavItem[]}
+//                 isAuthenticated={isAuthenticated}
+//               />
+//               <MobileNav
+//                 navListItems={navListItems as NavItem[]}
+//                 isAuthenticated={isAuthenticated}
+//               />
+//             </div>
+//           {/* </div> */}
+//         </div>
+//       </div>
+//     </header>
+//   );
+// };
+
+"use client";
+
 import DesktopNav from "./desktop-nav";
 import MobileNav from "./mobile-nav";
 import Link from "next/link";
@@ -182,6 +345,7 @@ function HeaderLoading() {
     </header>
   );
 }
+
 export const Header = () => {
   const currentPath = usePathname();
   const [hasHydrated, setHasHydrated] = useState(false);
@@ -203,15 +367,47 @@ export const Header = () => {
 
   useEffect(() => {
     let mounted = true;
+    let activeController: AbortController | null = null; // CHANGE: track in-flight request so we can cancel it.
+
     async function fetchSession() {
-      const response = await fetch("/api/session", {
-        method: "GET",
-        credentials: "same-origin",
-        cache: "no-store",
-      });
-      if (!response.ok || !mounted) return;
-      const data = await response.json();
-      setIsAuthenticated(Boolean(data?.isAuthenticated));
+      activeController?.abort(); // CHANGE: cancel any previous in-flight fetch.
+      const controller = new AbortController(); // CHANGE: abort support for unmount/races.
+      activeController = controller;
+
+      try {
+        const response = await fetch("/api/session", {
+          method: "GET",
+          credentials: "same-origin",
+          cache: "no-store",
+          signal: controller.signal, // CHANGE: pass abort signal.
+        });
+
+        if (!mounted) return;
+
+        if (!response.ok) {
+          setIsAuthenticated(false); // CHANGE: expected fallback when API is unavailable/non-OK.
+          return;
+        }
+
+        const data = await response.json();
+        if (!mounted) return;
+        setIsAuthenticated(Boolean(data?.isAuthenticated));
+      } catch (error) {
+        // CHANGE: ignore abort rejections; they are expected during cleanup/race cancellation.
+        if (error instanceof DOMException && error.name === "AbortError") {
+          return;
+        }
+
+        // CHANGE: network/runtime fetch failures should not be unhandled; degrade gracefully.
+        if (mounted) {
+          setIsAuthenticated(false);
+        }
+
+        // CHANGE: keep logs low-noise in production.
+        if (process.env.NODE_ENV !== "production") {
+          console.warn("Session fetch failed in Header:", error);
+        }
+      }
     }
 
     function handleAuthChanged() {
@@ -223,9 +419,10 @@ export const Header = () => {
 
     return () => {
       mounted = false;
+      activeController?.abort(); // CHANGE: abort in-flight fetch on unmount.
       window.removeEventListener("auth-changed", handleAuthChanged);
     };
-  }, [currentPath]);
+  }, []); // CHANGE: do not refetch on every route change; refetch on mount + auth-changed event only.
 
   if (!hasHydrated || isSmUp === null) {
     return <HeaderLoading />;
@@ -270,18 +467,16 @@ export const Header = () => {
             </div>
           )}
 
-          {/* <div className="sm:flex sm:justify-center sm:w-full"> */}
-            <div className="flex justify-center items-center text-center text-outline w-full">
-              <DesktopNav
-                navListItems={navListItems as NavItem[]}
-                isAuthenticated={isAuthenticated}
-              />
-              <MobileNav
-                navListItems={navListItems as NavItem[]}
-                isAuthenticated={isAuthenticated}
-              />
-            </div>
-          {/* </div> */}
+          <div className="flex justify-center items-center text-center text-outline w-full">
+            <DesktopNav
+              navListItems={navListItems as NavItem[]}
+              isAuthenticated={isAuthenticated}
+            />
+            <MobileNav
+              navListItems={navListItems as NavItem[]}
+              isAuthenticated={isAuthenticated}
+            />
+          </div>
         </div>
       </div>
     </header>

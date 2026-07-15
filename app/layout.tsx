@@ -22,6 +22,7 @@ import "./globals.css";
 import { PushNotificationContextProvider } from "@/context/push-notification-context-provider";
 import { DismissedToastsProvider } from "@/context/dismissed-toasts-context-provider";
 import { InstallContextProvider } from "@/context/install-context-provider";
+import RegisterServiceWorker from "@/ui/register-service-worker";
 // import actions
 // import { getSession } from "@/actions/actions";
 
@@ -74,8 +75,10 @@ export default async function RootLayout({
       className={`${emergency.variable} ${special_elite.variable}`}>
       <body
         // className={`font-specialElite overflow-x-hidden flex flex-col min-h-screen bg-zinc-950 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.11),transparent_62%)]`}>
-         className={`font-specialElite overflow-x-hidden flex flex-col min-h-screen bg-zinc-950 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.13),transparent_58%)]`}>
-         {/* className={`font-specialElite overflow-x-hidden flex flex-col min-h-screen bg-zinc-950 bg-[radial-gradient(ellipse_at_top,rgba(140,190,255,0.13),transparent_58%)]`}> */}
+        className={`font-specialElite overflow-x-hidden flex flex-col min-h-screen bg-zinc-950 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.13),transparent_58%)]`}>
+        {/* className={`font-specialElite overflow-x-hidden flex flex-col min-h-screen bg-zinc-950 bg-[radial-gradient(ellipse_at_top,rgba(140,190,255,0.13),transparent_58%)]`}
+         > */}
+        <RegisterServiceWorker />
         <PushNotificationContextProvider>
           <InstallContextProvider>
             <DismissedToastsProvider>

@@ -66,7 +66,7 @@ export default function Toaster({ toastId, message, component }: ToasterProps) {
     if (shownRef.current) return;
     if (!interactedRef.current) return;
     if (isSubscribed !== false) return;
-    // if (!canInstall) return;
+    if (!canInstall) return;
     if (dismissedToasts.has(toastId)) return;
 
     shownRef.current = true;
@@ -77,6 +77,7 @@ export default function Toaster({ toastId, message, component }: ToasterProps) {
     }, 1500);
   }, [
     isSubscribed,
+    canInstall,
     dismissedToasts,
     toastId,
     message,

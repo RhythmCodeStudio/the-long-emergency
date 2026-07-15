@@ -3,7 +3,8 @@ import { getPage } from "@/actions/actions";
 // import components
 // import MailingListSignUpForm from "@/ui/mailing-list-sign-up-form";
 import ContactForm from "@/ui/contact-form";
-import Heading from "@/ui/heading";
+import Toaster from "@/ui/toaster";
+// import Heading from "@/ui/heading";
 // import from next
 import Image from "next/image";
 // export metadata
@@ -45,6 +46,7 @@ export default async function ContactPage() {
           />
         </div>
       </div>
+      <Toaster toastId="default" /> 
     </div>
   );
 }

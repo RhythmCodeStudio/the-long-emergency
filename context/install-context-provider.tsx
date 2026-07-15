@@ -2,7 +2,8 @@
 import React, {
   createContext,
   useContext,
-  useEffect,
+  // useEffect,
+  useLayoutEffect,
   useMemo,
   useState,
 } from "react";
@@ -37,7 +38,7 @@ export function InstallContextProvider({
   const [deferredPrompt, setDeferredPrompt] =
     useState<BeforeInstallPromptEvent | null>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const ios =
       /iPad|iPhone|iPod/.test(navigator.userAgent) &&
       !(window as Window & { MSStream?: unknown }).MSStream;
@@ -56,6 +57,7 @@ export function InstallContextProvider({
     };
 
     const handleBeforeInstallPrompt = (event: Event) => {
+      console.log("beforeinstallprompt event fired");
       const e = event as BeforeInstallPromptEvent;
       e.preventDefault();
       setDeferredPrompt(e);

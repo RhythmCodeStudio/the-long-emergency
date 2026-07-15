@@ -258,30 +258,46 @@ export default function PushNotificationSubscriptionManager({
         const shouldDisablePush =
           process.env.NODE_ENV !== "production" && !enablePushInDev;
 
-        if (shouldDisablePush) {
-          const regs = await navigator.serviceWorker.getRegistrations();
-          await Promise.all(regs.map((reg) => reg.unregister()));
+        // if (shouldDisablePush) {
+        //   // const regs = await navigator.serviceWorker.getRegistrations();
+        //   // await Promise.all(regs.map((reg) => reg.unregister()));
 
+        //   if (mounted) {
+        //     setSubscription(null);
+        //     setIsSubscribed(false);
+        //     setStatusMessage(
+        //       "Push notifications are disabled in local development.",
+        //     );
+        //   }
+        //   return;
+        // }
+
+        if (shouldDisablePush) {
           if (mounted) {
+            setRegistration(null);
             setSubscription(null);
             setIsSubscribed(false);
             setStatusMessage(
               "Push notifications are disabled in local development.",
             );
+            setIsInitializing(false);
           }
           return;
         }
 
-        const reg = await navigator.serviceWorker.register("/sw.js", {
-          scope: "/",
-          updateViaCache: "none",
-        });
+        // const reg = await navigator.serviceWorker.register("/sw.js", {
+        //   scope: "/",
+        //   updateViaCache: "none",
+        // });
 
-        const existingSub = await reg.pushManager.getSubscription();
+        // const existingSub = await reg.pushManager.getSubscription();
+
+        const reg = await navigator.serviceWorker.getRegistration("/");
+        const existingSub = await reg?.pushManager.getSubscription();
 
         if (!mounted) return;
-        setRegistration(reg);
-        setSubscription(existingSub);
+        setRegistration(reg ?? null);
+        setSubscription(existingSub ?? null);
         setIsSubscribed(Boolean(existingSub));
         setStatusMessage(null);
       } catch (error) {
@@ -296,7 +312,7 @@ export default function PushNotificationSubscriptionManager({
       }
     }
 
-    setupPush();
+    void setupPush();
 
     return () => {
       mounted = false;
@@ -443,9 +459,7 @@ export default function PushNotificationSubscriptionManager({
           className={`${buttonBaseClass} ${disabledClass}`}
           labelClassName={labelClassName}
           label={
-            isBusy
-              ? "Preparing notifications..."
-              : "Subscribe to Notifications"
+            isBusy ? "Preparing notifications..." : "Subscribe to Notifications"
           }
         />
       )}

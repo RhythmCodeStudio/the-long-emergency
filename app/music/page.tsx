@@ -30,7 +30,7 @@ export default async function MusicPage() {
     }
     return 0;
   });
-  console.log("Chronological Releases:", chronologicalReleases);
+  // console.log("Chronological Releases:", chronologicalReleases);
 
   const songs = await getSongs();
 
@@ -47,11 +47,12 @@ export default async function MusicPage() {
         />
         </section>
       </div>
-      <Toaster
+      {/* <Toaster
         toastId="install-app-toast"
         message="Install thelongemergency.com"
         component={<InstallAppButton />}
-      />
+      /> */}
+      <Toaster toastId="default" />
     </div>
   );
 }

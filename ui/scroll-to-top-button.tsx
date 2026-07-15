@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { MdOutlineKeyboardDoubleArrowUp } from "react-icons/md";
+// import { MdOutlineKeyboardDoubleArrowUp } from "react-icons/md";
+import { TbChevronsUp } from "react-icons/tb";
 
 export default function ScrollToTopButton() {
   const [scrollToTopButtonVisible, setScrollToTopButtonVisible] = useState<boolean>(false);
@@ -59,7 +60,7 @@ export default function ScrollToTopButton() {
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
       >
-        <MdOutlineKeyboardDoubleArrowUp size={24} className="h-8 w-8 text-outline" />
+        <TbChevronsUp size={24} className="h-8 w-8 text-outline" />
       </button>
     </div>
   );

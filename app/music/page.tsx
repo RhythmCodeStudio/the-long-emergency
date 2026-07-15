@@ -2,7 +2,7 @@ import { getPage, getReleases, getSongs } from "@/actions/actions";
 // import components
 import MusicDisplay from "@/ui/music-display";
 import Toaster from "@/ui/toaster";
-import InstallAppButton from "@/ui/install-app-button";
+// import InstallAppButton from "@/ui/install-app-button";
 
 export const metadata = {
   title: "Music",
@@ -13,7 +13,7 @@ export const metadata = {
 };
 
 export default async function MusicPage() {
-  const musicPageData = await getPage("music");
+  // const musicPageData = await getPage("music");
   
 
   const releases = await getReleases();
@@ -30,10 +30,11 @@ export default async function MusicPage() {
     }
     return 0;
   });
-  // console.log("Chronological Releases:", chronologicalReleases);
+  console.log("Chronological Releases:", chronologicalReleases);
 
   const songs = await getSongs();
-
+  console.log("Songs:", songs);
+  
   return (
     <div className="w-full">
       <div className="flex flex-col justify-center items-center ">
@@ -47,11 +48,6 @@ export default async function MusicPage() {
         />
         </section>
       </div>
-      {/* <Toaster
-        toastId="install-app-toast"
-        message="Install thelongemergency.com"
-        component={<InstallAppButton />}
-      /> */}
       <Toaster toastId="default" />
     </div>
   );

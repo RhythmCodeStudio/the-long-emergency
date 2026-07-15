@@ -57,7 +57,7 @@ export function InstallContextProvider({
     };
 
     const handleBeforeInstallPrompt = (event: Event) => {
-      console.log("beforeinstallprompt event fired");
+      // console.log("beforeinstallprompt event fired");
       const e = event as BeforeInstallPromptEvent;
       e.preventDefault();
       setDeferredPrompt(e);

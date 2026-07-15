@@ -28,7 +28,7 @@ export default async function LBShowPage() {
           alt="show poster"
           width={300}
           height={425}
-          className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 expand-on-load "
+          className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400  "
         />
         <div className="mt-6 relative flex flex-col justify-center items-center  text-center">
           <div className="m-4">

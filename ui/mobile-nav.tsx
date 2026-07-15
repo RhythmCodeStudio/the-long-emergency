@@ -38,7 +38,7 @@ export default function MobileNav({
     <>
       <div className="absolute right-0 top-4 -translate-y-1/2 sm:hidden">
         <button onClick={openMenu} aria-label="Open Menu">
-          <FiMenu className="z-50 expand-on-load text-2xl" />
+          <FiMenu className="z-50  text-2xl" />
         </button>
       </div>
 
@@ -52,7 +52,9 @@ export default function MobileNav({
               <FiX className="text-2xl" />
             </button>
           </div>
-          <nav id="mobile-nav-link-container" className="font-bold flex flex-col items-center justify-center bg-zinc-950/60 fixed inset-0">
+          <nav
+            id="mobile-nav-link-container"
+            className="font-bold flex flex-col items-center justify-center bg-zinc-950/60 fixed inset-0">
             <Link href="/">
               <h1
                 className="font-emergency text-center text-2xl pb-6"
@@ -97,9 +99,11 @@ export default function MobileNav({
               ))}
 
               <li className="flex justify-center">
-                <MorePopover 
+                <MorePopover
                   isAuthenticated={isAuthenticated}
-                  onAnyAction={closeMenu} anchor="top" />
+                  onAnyAction={closeMenu}
+                  anchor="top"
+                />
               </li>
             </ul>
           </nav>

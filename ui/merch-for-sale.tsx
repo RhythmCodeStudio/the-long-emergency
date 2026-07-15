@@ -46,7 +46,7 @@ export default function MerchForSale({ merch }: { merch: MerchProduct[] }) {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-12">
         {merch.map((product) => (
           <div
-            className="flex flex-col justify-center expand-on-load  p-6 w-72 "
+            className="flex flex-col justify-center   p-6 w-72 "
             key={product.id}>
             <div className="p-2 text-center text-outline">
               <h3>{product.name} </h3>

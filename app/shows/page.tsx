@@ -34,7 +34,7 @@ export default async function ShowsPage({
   return (
     <div className="flex flex-col items-center justify-center w-full">
       <div className="relative flex flex-col justify-center items-center">
-        {/* <div className="expand-on-load">
+        {/* <div className="">
           <h2 className="font-emergency text-2xl lg:text-3xl xl:text-4xl text-outline mt-8 mb-4">
             {showsPageData?.page_title}
           </h2>
@@ -42,7 +42,7 @@ export default async function ShowsPage({
         <div className="py-12">
           <ShowDisplay gigView={gigView} />
         </div>
-        <div className="lg:m-12 expand-on-load w-full h-auto px-8 flex justify-center">
+        <div className="lg:m-12  w-full h-auto px-8 flex justify-center">
           <Image
             priority
             src="/images/banner.png"

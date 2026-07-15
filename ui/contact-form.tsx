@@ -19,9 +19,7 @@ import {
   validateMessage,
 } from "../app/utils/utils";
 // import actions
-import {
-  signUpForMailingList,
-} from "../actions/actions";
+import { signUpForMailingList } from "../actions/actions";
 // import from emailjs
 import emailjs from "@emailjs/browser";
 
@@ -175,8 +173,7 @@ export default function ContactForm() {
     <div className="w-full black">
       <form
         onSubmit={handleFormSubmit}
-        className="expand-on-load px-12 py-6 max-w-200 mx-auto relative"
-      >
+        className=" px-12 py-6 max-w-200 mx-auto relative">
         <FormInput
           idPrefix="contact-form"
           inputType="input"
@@ -261,8 +258,7 @@ export default function ContactForm() {
           <button
             onClick={handleFormSubmit}
             type="submit"
-            className="px-6 py-1 bg-blue-500 hover:bg-blue-700 rounded-full border-2 border-black"
-          >
+            className="px-6 py-1 bg-blue-500 hover:bg-blue-700 rounded-full border-2 border-black">
             <span className="font-emergency text-white text-outline">Send</span>
           </button>
         </div>
@@ -272,8 +268,7 @@ export default function ContactForm() {
               href="mailto:thelongemergencyband@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="email The Long Emergency"
-            >
+              aria-label="email The Long Emergency">
               <p className="text-red-500 text-xs font-bold hover:transform hover:scale-105 transition-transform">
                 {deliveryErrorMessage}
               </p>

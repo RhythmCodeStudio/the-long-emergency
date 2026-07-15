@@ -29,7 +29,7 @@ export default function DesktopNav({
 
   return (
     <nav className="text-lg md:text-xl lg:text-xl">
-      <ul className="expand-on-load w-full hidden sm:flex items-center justify-center space-x-6 lg:space-x-12 font-medium">
+      <ul className="w-full hidden sm:flex items-center justify-center space-x-6 lg:space-x-12 font-medium">
         {navListItems.map((link) => (
           <NavListItem
             key={link.href}

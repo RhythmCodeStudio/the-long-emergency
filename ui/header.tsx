@@ -67,10 +67,10 @@
 //       <div className="flex flex-col items-center w-full justify-center">
 //         {!isHomePage && isSmUp === true && (
 //           <div className="flex flex-col items-center justify-center m-4 p-6 pb-0">
-//             <h1 className="font-emergency text-outline expand-on-load text-4xl xl:text-5xl 2xl:text-6xl">
+//             <h1 className="font-emergency text-outline  text-4xl xl:text-5xl 2xl:text-6xl">
 //               <Link href="/">The Long Emergency</Link>
 //             </h1>
-//             <h2 className="expand-on-load p-4 md:text-xl text-outline">
+//             <h2 className=" p-4 md:text-xl text-outline">
 //               St. Louis, Missouri
 //             </h2>
 //           </div>
@@ -78,10 +78,10 @@
 
 //         {isHomePage && isSmUp === true && (
 //           <div className="flex flex-col items-center justify-center m-4 p-6 pb-0">
-//             <h1 className="font-emergency text-outline expand-on-load text-4xl xl:text-5xl 2xl:text-6xl">
+//             <h1 className="font-emergency text-outline  text-4xl xl:text-5xl 2xl:text-6xl">
 //               <Link href="/">The Long Emergency</Link>
 //             </h1>
-//             <h2 className="expand-on-load p-4 md:text-xl text-outline">
+//             <h2 className=" p-4 md:text-xl text-outline">
 //               St. Louis, Missouri
 //             </h2>
 //           </div>
@@ -91,7 +91,7 @@
 //           {!isHomePage && isSmUp === false && (
 //             <h1
 //               id="main-heading-most-pages"
-//               className="-mt-1 font-emergency text-outline expand-on-load text-xl">
+//               className="-mt-1 font-emergency text-outline  text-xl">
 //               <Link href="/">The Long Emergency</Link>
 //             </h1>
 //           )}
@@ -100,10 +100,10 @@
 //             <div className="flex-col">
 //               <h1
 //                 id="main-heading-most-pages"
-//                 className="-mt-1 font-emergency text-outline expand-on-load text-xl">
+//                 className="-mt-1 font-emergency text-outline  text-xl">
 //                 The Long Emergency
 //               </h1>
-//               <h2 className="expand-on-load text-sm text-outline">
+//               <h2 className=" text-sm text-outline">
 //                 St. Louis, Missouri
 //               </h2>
 //             </div>
@@ -240,10 +240,10 @@
 //       <div className="flex flex-col items-center w-full justify-center">
 //         {showDesktopHeading && (
 //           <div className="flex flex-col items-center justify-center m-4 p-6 pb-0">
-//             <h1 className="font-emergency text-outline expand-on-load text-4xl xl:text-5xl 2xl:text-6xl">
+//             <h1 className="font-emergency text-outline  text-4xl xl:text-5xl 2xl:text-6xl">
 //               <Link href="/">The Long Emergency</Link>
 //             </h1>
-//             <h2 className="expand-on-load p-4 md:text-xl text-outline">
+//             <h2 className=" p-4 md:text-xl text-outline">
 //               St. Louis, Missouri
 //             </h2>
 //           </div>
@@ -252,7 +252,7 @@
 //           {!isHomePage && showMobileHeading && (
 //             <h1
 //               id="main-heading-most-pages"
-//               className="-mt-1 font-emergency text-outline expand-on-load text-xl">
+//               className="-mt-1 font-emergency text-outline  text-xl">
 //               <Link href="/">The Long Emergency</Link>
 //             </h1>
 //           )}
@@ -261,10 +261,10 @@
 //             <div className="flex-col">
 //               <h1
 //                 id="main-heading-most-pages"
-//                 className="-mt-1 font-emergency text-outline expand-on-load text-xl">
+//                 className="-mt-1 font-emergency text-outline  text-xl">
 //                 The Long Emergency
 //               </h1>
-//               <h2 className="expand-on-load text-sm text-outline">
+//               <h2 className=" text-sm text-outline">
 //                 St. Louis, Missouri
 //               </h2>
 //             </div>
@@ -433,35 +433,47 @@ export const Header = () => {
   const showMobileHeading = isSmUp === false;
 
   return (
-    <header className="p-4 z-30">
+    <header className="p-4 z-30 w-full">
       <div className="flex flex-col items-center w-full justify-center">
-        {showDesktopHeading && (
+        {isHomePage && showDesktopHeading && (
           <div className="flex flex-col items-center justify-center m-4 p-6 pb-0">
-            <h1 className="font-emergency text-outline expand-on-load text-4xl xl:text-5xl 2xl:text-6xl">
+            <h1 className="font-emergency text-outline text-4xl xl:text-5xl 2xl:text-6xl">
+              The Long Emergency
+            </h1>
+            <h2 className="p-4 md:text-xl text-outline">St. Louis, Missouri</h2>
+          </div>
+        )}
+        {!isHomePage && showDesktopHeading && (
+          <div className="flex flex-col items-center justify-center m-4 p-6 pb-0">
+            <h1 className="font-emergency text-outline text-4xl xl:text-5xl 2xl:text-6xl">
               <Link href="/">The Long Emergency</Link>
             </h1>
-            <h2 className="expand-on-load p-4 md:text-xl text-outline">
-              St. Louis, Missouri
-            </h2>
+            <h2 className="p-4 md:text-xl text-outline">St. Louis, Missouri</h2>
           </div>
         )}
         <div className="relative flex items-center w-full">
           {!isHomePage && showMobileHeading && (
-            <h1
-              id="main-heading-most-pages"
-              className="-mt-1 font-emergency text-outline expand-on-load text-xl">
-              <Link href="/">The Long Emergency</Link>
-            </h1>
+            <div className="flex flex-col justify-center shrink-0">
+              <h1
+                id="main-heading-most-pages"
+                className="font-emergency text-outline text-xl whitespace-nowrap leading-none">
+                <Link href="/">The Long Emergency</Link>
+              </h1>
+
+              <h2 className="m-1 text-sm text-outline whitespace-nowrap">
+                St. Louis, Missouri
+              </h2>
+            </div>
           )}
 
           {isHomePage && showMobileHeading && (
-            <div className="flex-col">
+            <div className="flex flex-col justify-center shrink-0">
               <h1
                 id="main-heading-most-pages"
-                className="-mt-1 font-emergency text-outline expand-on-load text-xl">
+                className="font-emergency text-outline text-xl whitespace-nowrap leading-none">
                 The Long Emergency
               </h1>
-              <h2 className="expand-on-load text-sm text-outline">
+              <h2 className="m-1 text-sm text-outline whitespace-nowrap">
                 St. Louis, Missouri
               </h2>
             </div>

@@ -24,7 +24,7 @@ export default async function CdsForSale() {
     <div className="grid grid-cols-1 gap-4">
       {availableCds.map((cd) => (
         <div
-          className="flex flex-col justify-center expand-on-load  p-6 w-72 md:w-96"
+          className="flex flex-col justify-center   p-6 w-72 md:w-96"
           key={cd.title}>
           <Image
             priority

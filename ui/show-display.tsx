@@ -174,7 +174,7 @@ export default function ShowDisplay({ gigView }: ShowDisplayProps) {
         ) : (
           <>
             {gigView === "upcoming" && (
-              <h3 className="expand-on-load pt-2 text-outline text-center">
+              <h3 className=" pt-2 text-outline text-center">
                 The Long Emergency is coming...
               </h3>
             )}
@@ -187,7 +187,7 @@ export default function ShowDisplay({ gigView }: ShowDisplayProps) {
               {filteredGigs.map((gig, index) => (
                 <li
                   key={index}
-                  className="expand-on-load border-2 border-slate-400 bg-[rgba(0,0,0,0.6)] rounded-2xl shadow-md shadow-white">
+                  className=" border-2 border-slate-400 bg-[rgba(0,0,0,0.6)] rounded-2xl shadow-md shadow-white">
                   <div className="p-8">
                     <div className="flex justify-center items-center">
                       {gig.show_page ? (
@@ -201,7 +201,7 @@ export default function ShowDisplay({ gigView }: ShowDisplayProps) {
                               alt="show poster"
                               width={300}
                               height={425}
-                              className="shadow-md shadow-white rounded-2xl border-2 border-slate-400 expand-on-load hover:scale-105 transform transition-transform duration-500 ease-in-out"
+                              className="shadow-md shadow-white rounded-2xl border-2 border-slate-400  hover:scale-105 transform transition-transform duration-500 ease-in-out"
                             />
                           ) : (
                             <span className="underline text-blue-300 hover:text-blue-400">
@@ -215,7 +215,7 @@ export default function ShowDisplay({ gigView }: ShowDisplayProps) {
                           alt="show poster"
                           width={300}
                           height={425}
-                          className="shadow-md shadow-white rounded-2xl border-2 border-slate-400 expand-on-load"
+                          className="shadow-md shadow-white rounded-2xl border-2 border-slate-400 "
                         />
                       ) : null}
                     </div>
@@ -242,7 +242,7 @@ export default function ShowDisplay({ gigView }: ShowDisplayProps) {
                       <p className=" text-center">{gig.gig_info}</p>
                       <p className=" text-center">{gig.other_acts}</p>
                       {gigView === "upcoming" && gig.ticket_url && (
-                        <div className="flex justify-center expand-on-load">
+                        <div className="flex justify-center ">
                           <a
                             target="_blank"
                             rel="noopener noreferrer"

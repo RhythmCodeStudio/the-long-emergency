@@ -33,7 +33,7 @@ export default async function BlogPage() {
           {blogPageData.page_title}
         </h2>
       </div>
-      <div className="-mt-6 w-full h-auto max-w-200 expand-on-load p-16">
+      <div className="-mt-6 w-full h-auto max-w-200  p-16">
         <Image
           src="/images/trombone-no-text-banner.png"
           alt={blogPageData.page_title}

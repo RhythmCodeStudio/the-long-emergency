@@ -21,7 +21,7 @@ export default async function ContactPage() {
   return (
     <div className="flex flex-col items-center justify-center w-full">
       <div className="flex justify-center items-center flex-col text-outline mt-4">
-        {/* <h2 className="font-emergency expand-on-load text-2xl lg:text-3xl xl:text-4xl">
+        {/* <h2 className="font-emergency  text-2xl lg:text-3xl xl:text-4xl">
           {contactPageData?.page_title ?? "Contact"}
         </h2> */}
 
@@ -35,7 +35,7 @@ export default async function ContactPage() {
           <ContactForm />
         </div>
 
-        <div className="w-full h-auto px-12 max-w-200 expand-on-load mb-12 ">
+        <div className="w-full h-auto px-12 max-w-200  mb-12 ">
           <Image
             priority
             src="/images/guitar-mask-mound-4510x3205.png"
@@ -46,7 +46,7 @@ export default async function ContactPage() {
           />
         </div>
       </div>
-      <Toaster toastId="default" /> 
+      <Toaster toastId="default" />
     </div>
   );
 }

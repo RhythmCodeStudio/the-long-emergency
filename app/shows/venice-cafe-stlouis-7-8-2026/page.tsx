@@ -19,7 +19,9 @@ export default async function VeniceCafeShowPage() {
         <h2 className="font-emergency text-2xl lg:text-3xl xl:text-4xl m-4 text-center">
           Tuesday, July 7th, 2026
         </h2>
-        <h3 className="text-outline m-2 text-xl lg:text-2xl xl:text-3xl">Venice Cafe</h3>
+        <h3 className="text-outline m-2 text-xl lg:text-2xl xl:text-3xl">
+          Venice Cafe
+        </h3>
         <h4 className="text-outline m-2 text-lg lg:text-xl xl:text-2xl">
           St. Louis, MO
         </h4>
@@ -28,7 +30,7 @@ export default async function VeniceCafeShowPage() {
           alt="show poster"
           width={300}
           height={425}
-          className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 expand-on-load "
+          className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400  "
         /> */}
         <h5 className="text-outline m-2 text-lg lg:text-xl xl:text-2xl">$5</h5>
         <div className="mt-6 relative flex flex-col justify-center items-center  text-center">
@@ -51,7 +53,6 @@ export default async function VeniceCafeShowPage() {
               className="text-2xl text-blue-300 hover:text-blue-400 underline">
               <h6 className="text-xl">Website</h6>
             </Link>
-    
           </div>
         </div>
         <div className="lg:m-12 w-full h-auto px-8 flex justify-center">

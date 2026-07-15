@@ -16,7 +16,7 @@ import { Release, Song } from "@/definitions/definitions";
 
 const truncateTitle = (title: string, maxLength: number) => {
   if (title.length > maxLength) {
-    return title.substring(0, maxLength) + '...';
+    return title.substring(0, maxLength) + "...";
   }
   return title;
 };
@@ -54,7 +54,7 @@ export default function MusicDisplay({
       <div className="px-10 lg:px-0 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-24 justify-center items center text-center">
         {releases.map((release) => (
           <div key={release.id} className="m-4 md:text-2xl">
-            <div className="text-outline expand-on-load ">
+            <div className="text-outline  ">
               <h3 className="text-lg">{release.title}</h3>
               <h4 className="text-md">{release.release_type}</h4>
               <h5 className="text-sm">{release.year}</h5>
@@ -68,10 +68,10 @@ export default function MusicDisplay({
                   alt={`${release.title} cover art`}
                   width={1423}
                   height={1411}
-                  className="expand-on-load h-auto shadow-md shadow-white border-2 border-slate-400 rounded-2xl"
+                  className=" h-auto shadow-md shadow-white border-2 border-slate-400 rounded-2xl"
                 />
               </div>
-              <div className="text-outline expand-on-load ">
+              <div className="text-outline  ">
                 <div className="download-release-div ">
                   <h6 className="text-sm">Download {release.title}</h6>
                   <div
@@ -79,10 +79,13 @@ export default function MusicDisplay({
                     onClick={() => {
                       trackReleaseDownload(release);
                     }}>
-                    <DownloadButton src={release.zip_file || ""} label={`Download ${release.title}`} />
+                    <DownloadButton
+                      src={release.zip_file || ""}
+                      label={`Download ${release.title}`}
+                    />
                   </div>
                 </div>
-                <ol className="list-decimal list-inside pl-2 expand-on-load">
+                <ol className="list-decimal list-inside pl-2 ">
                   {songs
                     .filter((song) => song.release === release.id)
                     .sort((a, b) => a.track_number - b.track_number)
@@ -90,7 +93,9 @@ export default function MusicDisplay({
                       // console.log(song, index),
                       <li key={song.id} className="flex items-center my-1 z-0">
                         <span className="mr-2">{index + 1}.</span>
-                        <span className="">{truncateTitle(song.title, 18)}</span>
+                        <span className="">
+                          {truncateTitle(song.title, 18)}
+                        </span>
                         <div className="ml-auto flex pr-2 ">
                           <div className="mr-2 icon-outline">
                             <PlayButton
@@ -107,7 +112,10 @@ export default function MusicDisplay({
                             onClick={() => {
                               trackSongDownload(song);
                             }}>
-                            <DownloadButton src={song.src} label={`Download ${song.title}`} />
+                            <DownloadButton
+                              src={song.src}
+                              label={`Download ${song.title}`}
+                            />
                           </div>
                         </div>
                       </li>
@@ -119,7 +127,10 @@ export default function MusicDisplay({
         ))}
       </div>
       <div className="p-8">
-        <MusicPlayer song={currentSong || undefined} songSelected={songSelected} />
+        <MusicPlayer
+          song={currentSong || undefined}
+          songSelected={songSelected}
+        />
       </div>
     </div>
   );

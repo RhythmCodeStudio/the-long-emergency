@@ -173,7 +173,7 @@ export default function ContactForm() {
     <div className="w-full black">
       <form
         onSubmit={handleFormSubmit}
-        className=" px-12 py-6 max-w-200 mx-auto relative">
+        className=" px-12 py-4 sm:py-8 max-w-200 mx-auto relative">
         <FormInput
           idPrefix="contact-form"
           inputType="input"

@@ -136,7 +136,7 @@ export default function ShowDisplay({ gigView }: ShowDisplayProps) {
 
   return (
     <>
-      <div className="flex justify-center items-center p-6">
+      <div className="flex justify-center items-center p-4">
         <Link
           href="/shows?view=upcoming"
           className={`${gigView === "upcoming" ? "bg-blue-300" : "bg-white"} inline-flex h-9 w-24 m-2 items-center justify-center rounded-full border-2 border-black text-black transition duration-300 ease-in-out md:hover:bg-blue-500 md:hover:text-white`}>

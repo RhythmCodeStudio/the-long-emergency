@@ -19,10 +19,10 @@ export default async function AboutPage() {
   const aboutPageData = await getPage("about");
   return (
     <div className="flex flex-col items-center w-full">
-      {/* <h2 className="font-emergency text-outline  text-center text-2xl lg:text-3xl xl:text-4xl mt-4">
+      <h2 className="sm:hidden font-emergency text-outline text-center text-2xl lg:text-3xl xl:text-4xl py-4 sm:py-6">
         {aboutPageData?.page_title ?? "About"}
-      </h2> */}
-      <div className="px-4 py-12">
+      </h2>
+      <div className="p-4 sm:pt-12">
         <BandBio />
       </div>
       {/* <Toaster toastId="default"/> */}

@@ -28,11 +28,11 @@ export default async function AdminPage() {
       )} */}
 
       {/* {user && ( */}
-      <div className="flex flex-col justify-center items-center  w-full">
+      <div className="flex flex-col justify-center items-center w-full">
         <Heading
           text="Welcome back Kevin"
           headingLevel={2}
-          className="font-bold text-2xl lg:text-4xl  tracking-widest mt-4 md:mt-0"
+          className="font-bold text-2xl lg:text-4xl mt-4 md:mt-0"
         />
         <div className="w-full flex justify-center p-8">
           <AdminContainer

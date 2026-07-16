@@ -3,8 +3,8 @@ import Image from "next/image";
 
 export default function BandBio() {
   return (
-    <section className=" p-2 px-8 max-w-800 flex flex-col md:text-lg text-outline">
-      <div className="pb-3 lg:px-48 xl:px-64 2xl:px-96 rounded-2xl">
+    <section className="px-8 max-w-800 flex flex-col md:text-lg text-outline">
+      <div className="pb-4 lg:px-48 xl:px-64 2xl:px-96 rounded-2xl">
         <p className="">
           I was active in the Twin Cities independent music scene from around
           2003 through 2013 as a solo artist and with several different bands.
@@ -13,7 +13,7 @@ export default function BandBio() {
           of 2013.
         </p>
       </div>
-      <div className="pb-3 lg:px-48 xl:px-64 2xl:px-96  rounded-2xl">
+      <div className="pb-4 lg:px-48 xl:px-64 2xl:px-96  rounded-2xl">
         <p className="">
           That summer I moved to Austin, TX with plans to promote the new album
           and form a new version of The Long Emergency to continue performing
@@ -22,7 +22,7 @@ export default function BandBio() {
           about it. In May of 2014 I quit drinking for good.
         </p>
       </div>
-      <div className=" px-10 py-6 xl:py-12 flex justify-center items-center">
+      <div className="py-6 flex justify-center items-center">
         <Image
           priority
           src="/images/kev-16-9.jpg"
@@ -32,7 +32,7 @@ export default function BandBio() {
           className="shadow-md shadow-white border-2 border-slate-400 rounded-2xl"
         />
       </div>
-      <div className="py-3 lg:px-48 xl:px-64 2xl:px-96 ">
+      <div className="py-4 lg:px-48 xl:px-64 2xl:px-96 ">
         <p className="">
           In those early days without alcohol playing music felt impossible.
           Just holding my guitar felt weird. I couldn&apos;t imagine performing
@@ -42,19 +42,19 @@ export default function BandBio() {
           to it when I was ready. I just didn&apos;t expect it to take so long.
         </p>
       </div>
-      <div className="py-3 lg:px-48 xl:px-64 2xl:px-96 ">
+      <div className="py-4 lg:px-48 xl:px-64 2xl:px-96 ">
         <p className="">
           Ten years later I am ready to share my songs and my story.
         </p>
       </div>
-      <div className="py-3 lg:px-48 xl:px-64 2xl:px-96  ">
+      <div className="py-4 lg:px-48 xl:px-64 2xl:px-96  ">
         <p>
           Songwriting for me has always been a way of processing difficult
           things. I have danced with anxiety, depression, and addiction most of
           my life. All of my songs are in some way about these experiences.
         </p>
       </div>
-      <div className="py-3 lg:px-48 xl:px-64 2xl:px-96 ">
+      <div className="py-4 lg:px-48 xl:px-64 2xl:px-96 ">
         <p>
           My first attempt to quit drinking came during the recording of
           Starting Over. There was something about hearing these songs over and
@@ -64,7 +64,7 @@ export default function BandBio() {
           is still growing today.
         </p>
       </div>
-      <div className="py-3 lg:px-48 xl:px-64 2xl:px-96 ">
+      <div className="py-4 lg:px-48 xl:px-64 2xl:px-96 ">
         <p>
           These songs saved my life. I&apos;ve never really shared them in the
           way that they deserve. I offer them now in the hope that they might
@@ -75,11 +75,11 @@ export default function BandBio() {
           little bit then maybe it will have all been worthwhile.
         </p>
       </div>
-      <div className="py-3 lg:px-48 xl:px-64 2xl:px-96 ">
+      <div className="py-4 lg:px-48 xl:px-64 2xl:px-96 ">
         <p className="">Thank you for listening.</p>
       </div>
-      <div className="py-3 lg:px-48 xl:px-64 2xl:px-96 ">
-        <p className="mt-6  text-right">
+      <div className="py-4 lg:px-48 xl:px-64 2xl:px-96 ">
+        <p className="mt-6 text-right">
           -&nbsp;
           <a
             href="https://www.discogs.com/artist/3655286-Kevin-Long-5"

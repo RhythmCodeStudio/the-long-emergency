@@ -269,7 +269,7 @@ export default function MailingListForm({
         <Heading
           text={config.heading}
           headingLevel={3}
-          className="text-xl lg:text-2xl font-semibold mb-4 text-center"
+          className="text sm:text-lg md:text-xl lg:text-2xl font-semibold mb-4 text-center"
         />
         <form onSubmit={handleFormSubmit} className="flex flex-col">
           <FormInput

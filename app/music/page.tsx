@@ -13,8 +13,7 @@ export const metadata = {
 };
 
 export default async function MusicPage() {
-  // const musicPageData = await getPage("music");
-  
+  const musicPageData = await getPage("music");
 
   const releases = await getReleases();
   const chronologicalReleases = releases.sort((a, b) => {
@@ -30,22 +29,19 @@ export default async function MusicPage() {
     }
     return 0;
   });
-  console.log("Chronological Releases:", chronologicalReleases);
+  // console.log("Chronological Releases:", chronologicalReleases);
 
   const songs = await getSongs();
-  console.log("Songs:", songs);
-  
+  // console.log("Songs:", songs);
+
   return (
     <div className="w-full">
       <div className="flex flex-col justify-center items-center ">
-        {/* <h2 className="font-emergency py-6 text-center text-2xl lg:text-3xl xl:text-4xl text-outline">
+         <h2 className="sm:hidden font-emergency text-outline text-center text-2xl lg:text-3xl xl:text-4xl py-4 sm:py-6">
           {musicPageData?.page_title ?? "Music"}
-        </h2> */}
-        <section className="py-18">
-        <MusicDisplay 
-          releases={chronologicalReleases} 
-          songs={songs} 
-        />
+        </h2>
+        <section className="sm:py-6">
+          <MusicDisplay releases={chronologicalReleases} songs={songs} />
         </section>
       </div>
       <Toaster toastId="default" />

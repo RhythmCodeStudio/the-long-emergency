@@ -28,12 +28,13 @@ export default async function BlogPage() {
   }
   return (
     <div className="flex flex-col justify-center items-center w-full">
-      <div className="p-2">
-        <h2 className="font-emergency text-center text-2xl lg:text-4xl text-outline">
+    
+        <h2 className="sm:hidden font-emergency text-outline text-center text-2xl lg:text-3xl xl:text-4xl py-4 sm:py-6"
+        >
           {blogPageData.page_title}
         </h2>
-      </div>
-      <div className="-mt-6 w-full h-auto max-w-200  p-16">
+     
+      <div className="p-12 pt-4 sm:pt-12 w-full h-auto max-w-200">
         <Image
           src="/images/trombone-no-text-banner.png"
           alt={blogPageData.page_title}

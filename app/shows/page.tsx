@@ -39,7 +39,7 @@ export default async function ShowsPage({
         {showsPageData?.page_title}
       </h2>
 
-      <div className="w-full sm:py-4">
+      <div className="w-full max-w-600 sm:py-4">
         <ShowDisplay gigView={gigView} />
       </div>
       <div className="w-full h-auto px-12 py-6 sm:px-6 flex justify-center">

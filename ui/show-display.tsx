@@ -179,12 +179,13 @@ export default function ShowDisplay({ gigView }: ShowDisplayProps) {
               className={`grid ${
                 filteredGigs.length === 1
                   ? "justify-center"
-                  : "grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-9 lg:gap-20 xl:gap-28"
+                  : "grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12 p-6"
               } p-2 md:text-lg`}>
               {filteredGigs.map((gig, index) => (
                 <li
                   key={index}
-                  className=" border-2 border-slate-400 bg-[rgba(0,0,0,0.6)] rounded-2xl shadow-md shadow-white">
+                  className="border-2 border-slate-400 bg-[rgba(0,0,0,0.6)] rounded-2xl shadow-md shadow-white"
+                >
                   <div className="p-8">
                     <div className="flex justify-center items-center">
                       {gig.show_page ? (

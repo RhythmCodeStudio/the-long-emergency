@@ -8,7 +8,7 @@ import { useState } from "react";
 import { FiX } from "react-icons/fi";
 import { FiMenu } from "react-icons/fi";
 // import components
-import SignOutButton from "./sign-out-button";
+// import SignOutButton from "./sign-out-button";
 import MorePopover from "./more-popover";
 import NavListItem from "./nav-list-item";
 
@@ -29,10 +29,15 @@ export default function MobileNav({
   navListItems,
   isAuthenticated,
 }: MobileNavProps) {
-  const pathname = usePathname();
+  // const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const openMenu = () => setMenuOpen(true);
   const closeMenu = () => setMenuOpen(false);
+
+
+  const filteredNavListItems = !isAuthenticated
+    ? navListItems.filter((item) => item.label !== "Admin")
+    : navListItems;
 
   return (
     <>
@@ -63,7 +68,7 @@ export default function MobileNav({
                 onClick={closeMenu}>
                 <Link href="/">The Long Emergency</Link>
               </li>
-              {navListItems.map((item) => (
+              {filteredNavListItems.map((item) => (
                 <NavListItem
                   key={item.label}
                   label={item.label}

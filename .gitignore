@@ -44,3 +44,6 @@ next-env.d.ts
 # Ignore placeholder data file
 /app/lib/initial-site-data.js
 certificates
+
+# ignore react email node_modules
+/react-email-starter/node_modules

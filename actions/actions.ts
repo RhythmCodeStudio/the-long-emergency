@@ -79,6 +79,38 @@ export async function removeFromMailingList(email: string) {
   `;
 }
 
+// request a show actions
+export async function submitShowRequest(showRequest: {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+  subscribe: boolean;
+}) {
+  await sql`
+    INSERT INTO show_requests (name, email, phone, message, subscribe)
+    VALUES (
+      ${showRequest.name},
+      ${showRequest.email},
+      ${showRequest.phone},
+      ${showRequest.message},
+      ${showRequest.subscribe}
+    )
+  `;
+
+  const { error } = await resend.emails.send({
+    from: "The Long Emergency <info@thelongemergency.com>",
+    to: showRequest.email,
+    subject: "Show Request Received",
+    react: createElement(MailingListConfirmationEmailTemplate),
+  });
+
+  if (showRequest.subscribe) {
+    await signUpForMailingList(showRequest.email);
+  }
+  return showRequest;
+}
+
 // calendar event actions
 //create a new calendar event
 export async function createCalendarEvent(event: {

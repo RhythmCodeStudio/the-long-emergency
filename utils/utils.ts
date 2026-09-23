@@ -7,6 +7,36 @@ export function validateName(name: string) {
   const re = /^[a-zA-Z\s]+$/;
   return re.test(String(name));
 }
+
+export function validateCity(city: string) {
+  const re = /^[a-zA-Z\s]+$/;
+  return re.test(String(city));
+}
+
+export function validateState(state: string) {
+  const re = /^[a-zA-Z\s]+$/;
+  return re.test(String(state));
+}
+
+export function validateVenue(venue: string) {
+  const re = /^[a-zA-Z\s]+$/;
+  return re.test(String(venue));
+}
+
+export function validateOtherActs(otherActs: string) {
+  const re = /^[a-zA-Z\s]+$/;
+  return re.test(String(otherActs));
+}
+
+export function validatePerformanceDate(performanceDate: Date) {
+  const now = new Date();
+  return performanceDate > now;
+}
+ 
+export function validatePlaceToCrash(placeToCrash: string) {
+  const re = /^[a-zA-Z\s]+$/;
+  return re.test(String(placeToCrash));
+}
 export function validateMessage(message: string) {
   const trimmed = message.trim();
   // Must contain at least one alphanumeric character
@@ -20,19 +50,49 @@ export function validatePhone(phone: string) {
     /^(?:\+1\s?|001\s?)?(?:\(\d{3}\)\s?|\d{3}[-.\s]?)?\d{3}[-.\s]?\d{4}$/;
   return re.test(String(phone));
 }
-export function validateForm(
-  name: string,
+export function validateContactForm(
+  firstName: string,
+  lastName: string,
   email: string,
   phone: string,
   message: string
 ) {
   return (
-    validateName(name) &&
+    validateName(firstName) &&
+    validateName(lastName) &&
     validateEmail(email) &&
     validatePhone(phone) &&
     validateMessage(message)
   );
 }
+
+export const validateShowRequestForm = (
+  firstName: string,
+  lastName: string,
+  email: string,
+  phone: string,
+  city: string,
+  state: string,
+  venue: string,
+  otherActs: string,
+  performanceDate: Date,
+  placeToCrash: string,
+  message: string
+) => {
+  return (
+    validateName(firstName) &&
+    validateName(lastName) &&
+    validateEmail(email) &&
+    validatePhone(phone) &&
+    validateCity(city) &&
+    validateState(state) &&
+    validateVenue(venue) &&
+    validateOtherActs(otherActs) &&
+    validatePerformanceDate(performanceDate) &&
+    validatePlaceToCrash(placeToCrash) &&
+    validateMessage(message)
+  );
+};
 
 export const formatDate = (date: Date | string | undefined) => {
   if (!date) {

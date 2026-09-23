@@ -10,7 +10,7 @@ export function validateMessage(message: string | any[]) {
   return message.length > 0;
 }
 export function validatePhone(phone: string) {
-  // Regular expression to match phine number formats
+  // Regular expression to match phone number formats
   const re = /^(?:\+1\s?|001\s?)?(?:\(\d{3}\)\s?|\d{3}[-.\s]?)?\d{3}[-.\s]?\d{4}$/;
   return phone === "" || re.test(String(phone));
 }

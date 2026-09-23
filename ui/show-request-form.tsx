@@ -17,26 +17,55 @@ import {
   validateName,
   validatePhone,
   validateMessage,
+  validateCity,
+  validateState,
+  validateVenue,
+  validateOtherActs,
+  validatePerformanceDate,
+  validatePlaceToCrash,
+  validateShowRequestForm
 } from "@/utils/utils";
 // import actions
-import { signUpForMailingList } from "../actions/actions";
-// import from emailjs
-import emailjs from "@emailjs/browser";
+import { submitShowRequest } from "@/actions/actions";
 
-export default function ContactForm() {
+export default function ShowRequestForm() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
   const [message, setMessage] = useState("");
 
-  const [checked, setChecked] = useState(true);
+  const [mailingListChecked, setMailingListChecked] = useState(true);
+
+  const [venueChecked, setVenueChecked] = useState(false);
+  const [venueName, setVenueName] = useState("");
+
+  const [otherActsChecked, setOtherActsChecked] = useState(false);
+  const [otherActs, setOtherActs] = useState("");
+
+  const [performanceDateChecked, setPerformanceDateChecked] = useState(false);
+  const [performanceDate, setPerformanceDate] = useState("");
+
+  const [placeToCrashChecked, setPlaceToCrashChecked] = useState(false);
+  const [placeToCrash, setPlaceToCrash] = useState("");
 
   const [emailErrorMessage, setEmailErrorMessage] = useState("");
   const [phoneErrorMessage, setPhoneErrorMessage] = useState("");
   const [firstNameErrorMessage, setFirstNameErrorMessage] = useState("");
   const [lastNameErrorMessage, setLastNameErrorMessage] = useState("");
   const [messageErrorMessage, setMessageErrorMessage] = useState("");
+
+  const [cityErrorMessage, setCityErrorMessage] = useState("");
+  const [stateErrorMessage, setStateErrorMessage] = useState("");
+  const [venueErrorMessage, setVenueErrorMessage] = useState("");
+  const [otherActsErrorMessage, setOtherActsErrorMessage] = useState("");
+  const [performanceDateErrorMessage, setPerformanceDateErrorMessage] = useState("");
+  const [placeToCrashErrorMessage, setPlaceToCrashErrorMessage] = useState("");
+
+
+
   const [deliveryErrorMessage, setDeliveryErrorMessage] = useState("");
   const [buttonSubmitted, setButtonSubmitted] = useState(false);
 
@@ -58,8 +87,23 @@ export default function ContactForm() {
         "border-2 border-slate-400 font-emergency text-outline-none text-black",
     });
 
-  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(e.target.checked);
+  const handleMailingListCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setMailingListChecked(e.target.checked);
+  };
+
+  const handleVenueCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setVenueChecked(e.target.checked);
+  };
+
+  const handlePlaceToCrashCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPlaceToCrashChecked(e.target.checked);
+  };
+
+  const handlePerformanceDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPerformanceDate(e.target.value);
+    if (validatePerformanceDate(new Date(e.target.value))) {
+      setPerformanceDateErrorMessage("");
+    }
   };
 
   const handleChange = (
@@ -82,6 +126,21 @@ export default function ContactForm() {
     }
     if (e.target.name === "message" && validateMessage(e.target.value)) {
       setMessageErrorMessage("");
+    }
+    if (e.target.name === "city" && validateCity(e.target.value)) {
+      setCityErrorMessage("");
+    }
+    if (e.target.name === "state" && validateState(e.target.value)) {
+      setStateErrorMessage("");
+    }
+    if (e.target.name === "venue" && validateVenue(e.target.value)) {
+      setVenueErrorMessage("");
+    }
+    if (e.target.name === "otherActs" && validateOtherActs(e.target.value)) {
+      setOtherActsErrorMessage("");
+    }
+    if (e.target.name === "placeToCrash" && validatePlaceToCrash(e.target.value)) {
+      setPlaceToCrashErrorMessage("");
     }
   };
 
@@ -127,45 +186,13 @@ export default function ContactForm() {
       isLastNameValid &&
       isMessageValid
     ) {
-      const emailTemplateParams = {
-        first_name: trimmedFirstName,
-        last_name: trimmedLastName,
+      submitShowRequest({
+        name: `${trimmedFirstName} ${trimmedLastName}`,
         email: trimmedEmail,
-        phone_number: trimmedPhone,
+        phone: trimmedPhone,
         message: message,
-      };
-
-      try {
-        emailjs
-          .send(
-            process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
-            process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "",
-            emailTemplateParams,
-            process.env.NEXT_PUBLIC_EMAILJS_USER_ID,
-          )
-          .then(() => {
-            track("Contact form submission");
-            setButtonSubmitted(true);
-            setFirstName("");
-            setLastName("");
-            setEmail("");
-            setPhone("");
-            setMessage("");
-
-            setTimeout(() => {
-              setButtonSubmitted(false);
-            }, 5000);
-
-            notify();
-          });
-      } catch (error) {
-        setDeliveryErrorMessage(
-          "There was an error delivering your message. Please email us at thelongemergencyband@gmail.com. Sorry for the trouble.",
-        );
-      }
-    }
-    if (checked && isEmailValid) {
-      signUpForMailingList(trimmedEmail);
+        subscribe: mailingListChecked,
+      });
     }
   };
 
@@ -217,7 +244,7 @@ export default function ContactForm() {
           setStateVariable={setEmail}
         />
         {/* Keep phone state/validation behavior unchanged even though field is hidden */}
-        {/* <FormInput
+        <FormInput
           idPrefix="contact-form"
           inputType="input"
           label="Phone Number"
@@ -230,7 +257,16 @@ export default function ContactForm() {
           autoComplete="tel"
           errorMessage={phoneErrorMessage}
           setStateVariable={setPhone}
-        /> */}
+        />
+        <FormCheckbox
+          idPrefix="contact-form"
+          label="Do you have a venue in mind?"
+          name="consent"
+          checked={venueChecked}
+          onChange={handleVenueCheckboxChange}
+          // required={true}
+          errorMessage=""
+        />
         <FormInput
           idPrefix="contact-form"
           inputType="textarea"
@@ -249,8 +285,8 @@ export default function ContactForm() {
           idPrefix="contact-form"
           label="Sign me up for The Long Emergency mailing list. I understand I can unsubscribe at any time."
           name="consent"
-          checked={checked}
-          onChange={handleCheckboxChange}
+          checked={mailingListChecked}
+          onChange={handleMailingListCheckboxChange}
           // required={true}
           errorMessage=""
         />

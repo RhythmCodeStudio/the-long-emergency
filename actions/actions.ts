@@ -2,7 +2,21 @@
 import { neon } from "@neondatabase/serverless";
 import { auth } from "@/auth/server";
 import { redirect } from "next/navigation";
-import { User, Section, Page, TextBlock, Image, Release, Song, MerchProduct } from "@/definitions/definitions";
+import {
+  User,
+  Section,
+  Page,
+  TextBlock,
+  Image,
+  Release,
+  Song,
+  MerchProduct,
+} from "@/definitions/definitions";
+import { Resend } from "resend";
+import { createElement } from "react";
+import MailingListConfirmationEmailTemplate from "@/ui/email/mailing-list-confirmation-email-template";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const sql = neon(`${process.env.DATABASE_URL}`);
 
@@ -19,12 +33,36 @@ export async function signOut() {
 }
 
 // mailing list actions
+// export async function signUpForMailingList(email: string) {
+//   await sql`
+//     INSERT INTO mailing_list (email)
+//     VALUES (${email})
+//     ON CONFLICT (email) DO NOTHING
+//   `;
+// }
+
 export async function signUpForMailingList(email: string) {
-  await sql`
+  const entries = await sql`
     INSERT INTO mailing_list (email)
     VALUES (${email})
     ON CONFLICT (email) DO NOTHING
+    RETURNING email
   `;
+
+  if (entries.length === 0) {
+    return;
+  }
+
+  const { error } = await resend.emails.send({
+    from: "The Long Emergency <info@thelongemergency.com>",
+    to: email,
+    subject: "Welcome to The Long Emergency",
+    react: createElement(MailingListConfirmationEmailTemplate),
+  });
+
+  if (error) {
+    throw new Error("Failed to send confirmation email.");
+  }
 }
 
 export async function getMailingList() {
@@ -44,24 +82,24 @@ export async function removeFromMailingList(email: string) {
 // calendar event actions
 //create a new calendar event
 export async function createCalendarEvent(event: {
-  title: string,
-  startDate: Date | string,
-  endDate?: Date | string,
-  startTime: string,
-  endTime?: string,
-  allDay?: boolean,
-  cost?: string,
-  locationName: string,
-  locationStreetAddress: string,
-  locationCity: string,
-  locationState: string,
-  locationZip: string,
-  description?: string,
-  image?: string
-  ticketLink?: string,
-  eventLink?: string,
-  venueLink?: string,
-  moreInfoLink?: string
+  title: string;
+  startDate: Date | string;
+  endDate?: Date | string;
+  startTime: string;
+  endTime?: string;
+  allDay?: boolean;
+  cost?: string;
+  locationName: string;
+  locationStreetAddress: string;
+  locationCity: string;
+  locationState: string;
+  locationZip: string;
+  description?: string;
+  image?: string;
+  ticketLink?: string;
+  eventLink?: string;
+  venueLink?: string;
+  moreInfoLink?: string;
 }) {
   await sql`
     INSERT INTO calendar_events (
@@ -125,25 +163,25 @@ export async function deleteCalendarEvent(id: string) {
 
 // update calendar event by id
 export async function updateCalendarEvent(event: {
-  id: string,
-  title: string,
-  startDate: Date | string,
-  endDate?: Date | string,
-  startTime: string,
-  endTime?: string,
-  allDay?: boolean,
-  cost?: string,
-  locationName: string,
-  locationStreetAddress: string,
-  locationCity: string,
-  locationState: string,
-  locationZip: string,
-  description?: string,
-  image?: string,
-  ticketLink?: string,
-  eventLink?: string,
-  venueLink?: string,
-  moreInfoLink?: string
+  id: string;
+  title: string;
+  startDate: Date | string;
+  endDate?: Date | string;
+  startTime: string;
+  endTime?: string;
+  allDay?: boolean;
+  cost?: string;
+  locationName: string;
+  locationStreetAddress: string;
+  locationCity: string;
+  locationState: string;
+  locationZip: string;
+  description?: string;
+  image?: string;
+  ticketLink?: string;
+  eventLink?: string;
+  venueLink?: string;
+  moreInfoLink?: string;
 }) {
   await sql`
     UPDATE calendar_events
@@ -198,10 +236,10 @@ export async function getRelease(id: string) {
     const release = await sql`SELECT * FROM releases WHERE id=${id}::uuid`;
     return release[0] as Release;
   } catch (error) {
-    console.error('Failed to fetch release:', error);
-    throw new Error('Failed to fetch release.');
+    console.error("Failed to fetch release:", error);
+    throw new Error("Failed to fetch release.");
   }
-};
+}
 
 export async function getReleases(): Promise<Release[]> {
   try {
@@ -210,31 +248,31 @@ export async function getReleases(): Promise<Release[]> {
     `) as Release[];
     return releases;
   } catch (error) {
-    console.error('Failed to fetch releases:', error);
-    throw new Error('Failed to fetch releases.');
+    console.error("Failed to fetch releases:", error);
+    throw new Error("Failed to fetch releases.");
   }
-};
+}
 
 // song actions
 export async function getSong(id: string): Promise<Song | null> {
   try {
     const song = await sql`SELECT * FROM songs WHERE id=${id}::uuid`;
-    return song[0] as Song || null;
+    return (song[0] as Song) || null;
   } catch (error) {
-    console.error('Failed to fetch song:', error);
-    throw new Error('Failed to fetch song.');
+    console.error("Failed to fetch song:", error);
+    throw new Error("Failed to fetch song.");
   }
-};
+}
 
 export async function getSongs(): Promise<Song[]> {
   try {
     const songs = (await sql`SELECT * FROM songs`) as Song[];
     return songs;
   } catch (error) {
-    console.error('Failed to fetch songs:', error);
-    throw new Error('Failed to fetch songs.');
+    console.error("Failed to fetch songs:", error);
+    throw new Error("Failed to fetch songs.");
   }
-};
+}
 
 // merch actions
 export async function getMerch(): Promise<MerchProduct[]> {
@@ -242,10 +280,10 @@ export async function getMerch(): Promise<MerchProduct[]> {
     const merch = (await sql`SELECT * FROM merch`) as MerchProduct[];
     return merch;
   } catch (error) {
-    console.error('Failed to fetch merch:', error);
-    throw new Error('Failed to fetch merch.');
+    console.error("Failed to fetch merch:", error);
+    throw new Error("Failed to fetch merch.");
   }
-};
+}
 
 // user actions
 export async function getUsers(): Promise<User[]> {
@@ -253,18 +291,19 @@ export async function getUsers(): Promise<User[]> {
     const users = (await sql`SELECT * FROM users`) as User[];
     return users;
   } catch (error) {
-    console.error('Failed to fetch users:', error);
-    throw new Error('Failed to fetch users.');
+    console.error("Failed to fetch users:", error);
+    throw new Error("Failed to fetch users.");
   }
 }
 
 export async function getUser(email: string): Promise<User | null> {
   try {
-    const user = (await sql`SELECT * FROM users WHERE email=${email}`) as User[];
+    const user =
+      (await sql`SELECT * FROM users WHERE email=${email}`) as User[];
     return user[0] || null;
   } catch (error) {
-    console.error('Failed to fetch user:', error);
-    throw new Error('Failed to fetch user.');
+    console.error("Failed to fetch user:", error);
+    throw new Error("Failed to fetch user.");
   }
 }
 
@@ -272,8 +311,8 @@ export async function createUser(user: User) {
   try {
     await sql`INSERT INTO users (id, name, email, password) VALUES (${user.id}, ${user.name}, ${user.email}, ${user.password})`;
   } catch (error) {
-    console.error('Failed to create user:', error);
-    throw new Error('Failed to create user.');
+    console.error("Failed to create user:", error);
+    throw new Error("Failed to create user.");
   }
 }
 
@@ -281,8 +320,8 @@ export async function updateUser(user: User) {
   try {
     await sql`UPDATE users SET name=${user.name}, password=${user.password} WHERE id=${user.id}`;
   } catch (error) {
-    console.error('Failed to update user:', error);
-    throw new Error('Failed to update user.');
+    console.error("Failed to update user:", error);
+    throw new Error("Failed to update user.");
   }
 }
 
@@ -292,18 +331,19 @@ export async function getPages(): Promise<Page[]> {
     const pages = (await sql`SELECT * FROM public.pages`) as Page[];
     return pages;
   } catch (error) {
-    console.error('Failed to fetch pages:', error);
-    throw new Error('Failed to fetch pages.');
+    console.error("Failed to fetch pages:", error);
+    throw new Error("Failed to fetch pages.");
   }
 }
 
 export async function getPage(slug: string): Promise<Page | null> {
   try {
-    const page = (await sql`SELECT * FROM public.pages WHERE slug=${slug}`) as Page[];
+    const page =
+      (await sql`SELECT * FROM public.pages WHERE slug=${slug}`) as Page[];
     return page[0] || null;
   } catch (error) {
-    console.error('Failed to fetch page:', error);
-    throw new Error('Failed to fetch page.');
+    console.error("Failed to fetch page:", error);
+    throw new Error("Failed to fetch page.");
   }
 }
 
@@ -311,40 +351,43 @@ export async function updatePage(pageId: string, page_title: string) {
   try {
     await sql`UPDATE pages SET page_title=${page_title} WHERE id=${pageId}`;
   } catch (error) {
-    console.error('Failed to update page:', error);
-    throw new Error('Failed to update page.');
+    console.error("Failed to update page:", error);
+    throw new Error("Failed to update page.");
   }
 }
 
 // section actions
 export async function getSections(pageId: string): Promise<Section[]> {
   try {
-    const sections = (await sql`SELECT * FROM sections WHERE page=${pageId}`) as Section[];
+    const sections =
+      (await sql`SELECT * FROM sections WHERE page=${pageId}`) as Section[];
     return sections;
   } catch (error) {
-    console.error('Failed to fetch sections:', error);
-    throw new Error('Failed to fetch sections.');
+    console.error("Failed to fetch sections:", error);
+    throw new Error("Failed to fetch sections.");
   }
 }
 
 export async function getSection(sectionId: string): Promise<Section | null> {
   try {
-    const section = (await sql`SELECT * FROM sections WHERE id=${sectionId}`) as Section[];
+    const section =
+      (await sql`SELECT * FROM sections WHERE id=${sectionId}`) as Section[];
     return section[0] || null;
   } catch (error) {
-    console.error('Failed to fetch section:', error);
-    throw new Error('Failed to fetch section.');
+    console.error("Failed to fetch section:", error);
+    throw new Error("Failed to fetch section.");
   }
 }
 
 // text block actions
 export async function getTextBlock(blockId: string): Promise<TextBlock | null> {
   try {
-    const block = (await sql`SELECT * FROM text_blocks WHERE id=${blockId}`) as TextBlock[];
+    const block =
+      (await sql`SELECT * FROM text_blocks WHERE id=${blockId}`) as TextBlock[];
     return block[0] || null;
   } catch (error) {
-    console.error('Failed to fetch text block:', error);
-    throw new Error('Failed to fetch text block.');
+    console.error("Failed to fetch text block:", error);
+    throw new Error("Failed to fetch text block.");
   }
 }
 
@@ -352,19 +395,20 @@ export async function updateTextBlock(blockId: string, text: string) {
   try {
     await sql`UPDATE text_blocks SET text=${text} WHERE id=${blockId}`;
   } catch (error) {
-    console.error('Failed to update text block:', error);
-    throw new Error('Failed to update text block.');
+    console.error("Failed to update text block:", error);
+    throw new Error("Failed to update text block.");
   }
 }
 
 // image actions
 export async function getImage(imageUrl: string): Promise<Image | null> {
   try {
-    const image = (await sql`SELECT * FROM images WHERE url=${imageUrl}`) as Image[];
+    const image =
+      (await sql`SELECT * FROM images WHERE url=${imageUrl}`) as Image[];
     return image[0] || null;
   } catch (error) {
-    console.error('Failed to fetch image:', error);
-    throw new Error('Failed to fetch image.');
+    console.error("Failed to fetch image:", error);
+    throw new Error("Failed to fetch image.");
   }
 }
 
@@ -372,7 +416,7 @@ export async function updateImage(imageUrl: string, alt: string) {
   try {
     await sql`UPDATE images SET alt=${alt} WHERE url=${imageUrl}`;
   } catch (error) {
-    console.error('Failed to update image:', error);
-    throw new Error('Failed to update image.');
+    console.error("Failed to update image:", error);
+    throw new Error("Failed to update image.");
   }
 }

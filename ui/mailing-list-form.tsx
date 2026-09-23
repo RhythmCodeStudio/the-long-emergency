@@ -152,7 +152,7 @@
 // }
 
 "use client";
-import { useState, type ChangeEvent, type FormEvent } from "react";
+import { useState, type ChangeEvent, type SubmitEvent } from "react";
 import Link from "next/link";
 import { clsx } from "clsx";
 import { ToastContainer, Zoom, toast } from "react-toastify";
@@ -240,7 +240,7 @@ export default function MailingListForm({
     );
   };
 
-  const handleFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleFormSubmit = async (e: SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const trimmedEmail = email.trim();
@@ -294,7 +294,7 @@ export default function MailingListForm({
               "border-2 border-border-default p-1 px-4 rounded-full text-sm transition duration-700 ease-in-out tracking-widest will-change-transform mx-auto",
               {
                 "cursor-not-allowed opacity-40": !isFormValid || submitted,
-                "border-green-500 hover:border-border-default cursor-pointer opacity-100 hover:scale-105 active:scale-95 shadow-lg shadow-white":
+                "border-blue-500 hover:border-border-default cursor-pointer opacity-100 hover:scale-105 active:scale-95 shadow-lg shadow-white":
                   isFormValid && !submitted,
               },
             )}>

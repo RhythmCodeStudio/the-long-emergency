@@ -1,83 +1,11 @@
-// export function MailinglistConfirmationEmailTemplate() {
-//   return (
-//     <div>
-//       <h1 className="font-emergency">Welcome to The Long Emergency mailing list!</h1>
-//       <p>Thanks for signing up. We will keep you posted on new music and shows.</p>
-//       <p>
-//         You can unsubscribe at any time by visiting your mailing-list
-//         preferences.
-//       </p>
-//     </div>
-//   );
-// }
-
-// import {
-//   Body,
-//   Container,
-//   Head,
-//   Heading,
-//   Html,
-//   Preview,
-//   Tailwind,
-//   Text,
-// } from "react-email";
-
-// export default function MailingListConfirmationEmailTemplate() {
-//   return (
-//     <Html>
-//       <Head>
-//         <style>
-//           {`
-//             @font-face {
-//               font-family: "Emergency";
-//               src: url("https://thelongemergency.com/fonts/emergency.ttf")
-//                 format("truetype");
-//               font-weight: 400;
-//               font-style: normal;
-//             }
-//           `}
-//         </style>
-//       </Head>
-//       <Preview>Welcome to The Long Emergency mailing list</Preview>
-
-//       <Tailwind>
-//         <Body className="bg-neutral-100 font-sans">
-//           <Container className="mx-auto my-10 max-w-140 bg-white p-8">
-//             {/* <Heading className="text-2xl font-bold text-black">
-//               Welcome to The Long Emergency mailing list!
-//             </Heading> */}
-
-//             <Heading
-//               style={{
-//                 fontFamily: "'Emergency', Georgia, serif",
-//                 fontWeight: 400,
-//                 fontSize: "28px",
-//                 color: "#000000",
-//               }}>
-//               Welcome to The Long Emergency mailing list!
-//             </Heading>
-
-//             <Text className="text-base leading-6 text-neutral-700">
-//               Thanks for signing up. We will keep you posted on new music and
-//               shows.
-//             </Text>
-
-//             <Text className="text-sm text-neutral-500">
-//               You can unsubscribe at any time.
-//             </Text>
-//           </Container>
-//         </Body>
-//       </Tailwind>
-//     </Html>
-//   );
-// }
-
 import {
   Body,
+  Button,
   Column,
   Container,
   Head,
   Heading,
+  Hr,
   Html,
   Img,
   Link,
@@ -88,9 +16,9 @@ import {
   Text,
 } from "react-email";
 
-const baseUrl = process.env.BANDNAME_URL
-  ? `https://${process.env.BANDNAME_URL}`
-  : "";
+// const baseUrl = process.env.SITE_URL
+//   ? `https://${process.env.SITE_URL}`
+//   : "";
 
 export default function MailingListConfirmationEmailTemplate() {
   return (
@@ -103,20 +31,11 @@ export default function MailingListConfirmationEmailTemplate() {
         </style>
       </Head>
 
-      <Preview>Welcome to The Long Emergency mailing list</Preview>
+      <Preview>Welcome to The Long Emergency...</Preview>
 
       <Tailwind>
-        <Body
-          // className="bg-zinc-950 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.16),transparent_58%)] font-sans w-full"
-          style={{
-            width: "100%",
-            margin: 0,
-            fontFamily: "'Special Elite', Georgia, serif",
-            backgroundColor: "#09090b",
-            backgroundImage:
-              "radial-gradient(ellipse at top, rgba(255, 255, 255, 0.16), transparent 58%)",
-          }}>
-          <Container className="text-white">
+        <Body className="bg-zinc-950 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.16),transparent_58%)] font-sans w-full">
+          <Container className="text-white w-full">
             <Section className="my-4">
               <Row>
                 <Column align="center">
@@ -125,59 +44,28 @@ export default function MailingListConfirmationEmailTemplate() {
                     className="inline-block">
                     <Img
                       alt="The Long Emergency logo"
-                      height="42"
-                      src={`${baseUrl}/static/band-name-white.png`}
+                      height="60"
+                      src={`https://www.thelongemergency.com/images/email/band-name-white.png`}
                     />
                   </Link>
                 </Column>
               </Row>
               <Row>
                 <Column align="center">
-                  <Text className="text-center text-lg mt-0">
+                  <Text
+                    className="text-center text-lg -mt-2 mb-0"
+                    style={{
+                      fontFamily: "'Special Elite', Georgia, serif",
+                      fontWeight: 400,
+                    }}>
                     St. Louis, Missouri
                   </Text>
-                </Column>
-              </Row>
-              <Row>
-                <Column align="center">
-                  <table>
-                    <tr>
-                      <td className="px-6">
-                        <Link
-                          className="text-white [text-decoration:none]"
-                          href="https://www.thelongemergency.com/about">
-                          About
-                        </Link>
-                      </td>
-                      <td className="px-6">
-                        <Link
-                          className="text-white [text-decoration:none]"
-                          href="https://www.thelongemergency.com/music">
-                          Music
-                        </Link>
-                      </td>
-                      <td className="px-6">
-                        <Link
-                          className="text-white [text-decoration:none]"
-                          href="https://www.thelongemergency.com/shows">
-                          Shows
-                        </Link>
-                      </td>
-                      <td className="px-6">
-                        <Link
-                          className="text-white [text-decoration:none]"
-                          href="https://www.thelongemergency.com/contact">
-                          Contact
-                        </Link>
-                      </td>
-                    </tr>
-                  </table>
                 </Column>
               </Row>
             </Section>
             <Section>
               <Heading
-                className="text-center text-xl"
+                className="text-center text-xl mt-0"
                 style={{
                   fontFamily: "'Special Elite', Georgia, serif",
                   fontWeight: 400,
@@ -189,25 +77,141 @@ export default function MailingListConfirmationEmailTemplate() {
                 style={{
                   fontFamily: "'Special Elite', Georgia, serif",
                 }}>
-                Thank you for signing up. We will keep you posted on new music
-                and shows. Keep an eye on your inbox for updates.
-              </Text>
-              <Text className="text-center text-lg ">
-                You can{" "}
-                <Link
-                  className="underline text-white"
-                  href="https://www.thelongemergency.com/mailing-list?mode=remove">
-                  unsubscribe
-                </Link>{" "}
-                at any time.
+                Thank you for signing up. Keep an eye on your inbox for all the
+                latest from The Long Emergency.
               </Text>
             </Section>
+            <Section className="mb-6">
+              <table
+                role="presentation"
+                width="100%"
+                cellPadding="0"
+                cellSpacing="0"
+                border={0}>
+                <tbody>
+                  <tr>
+                    <td align="center">
+                      <Button
+                        href="https://www.thelongemergency.com/request-a-show"
+                        style={{
+                          backgroundColor: "#000000",
+                          border: "2px solid #ffffff",
+                          borderRadius: "999px",
+                          color: "#ffffff",
+                          display: "inline-block",
+                          fontFamily: "'Special Elite', Georgia, serif",
+                          fontSize: "16px",
+                          fontWeight: 600,
+                          lineHeight: "20px",
+                          padding: "0px 16px",
+                          textAlign: "center",
+                          textDecoration: "none",
+                          width: "14rem",
+                        }}>
+                        <Text className="my-2">Request a Show</Text>
+                      </Button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </Section>
+            <Section>
+              <table
+                role="presentation"
+                width="100%"
+                cellPadding="0"
+                cellSpacing="0"
+                border={0}>
+                <tbody>
+                  <tr>
+                    <td align="center">
+                      <Button
+                        href="https://www.thelongemergency.com/music"
+                        style={{
+                          backgroundColor: "#000000",
+                          border: "2px solid #ffffff",
+                          borderRadius: "999px",
+                          color: "#ffffff",
+                          display: "inline-block",
+                          fontFamily: "'Special Elite', Georgia, serif",
+                          fontSize: "16px",
+                          fontWeight: 600,
+                          lineHeight: "20px",
+                          padding: "0px 16px",
+                          textAlign: "center",
+                          textDecoration: "none",
+                          width: "14rem",
+                        }}>
+                        <Text className="my-2">
+                          Listen to The Long Emergency
+                        </Text>
+                      </Button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </Section>
+            <Section>
+              <Img
+                src="https://www.thelongemergency.com/images/kevcutout3.png"
+                alt="Kevin Long playing the guitar"
+                className="mx-auto mt-4 w-60"
+              />
+            </Section>
+
+            <Section className="text-center">
+              <table className="w-full">
+                <tr className="w-full">
+                  <td align="center">
+                    <Img
+                      alt="The Long Emergency logo"
+                      height="36"
+                      src={`https://www.thelongemergency.com/images/email/band-name-white.png`}
+                    />
+                    <Text className="text-center text-white mt-0 mb-2">
+                      St. Louis, Missouri
+                    </Text>
+                    <Link
+                      title="Visit thelongemergency.com"
+                      href={`https://www.thelongemergency.com/`}
+                      className="inline-block text-white underline">
+                      thelongemergency.com
+                    </Link>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center">
+                    <Text className="text-white mb-1">Booking:</Text>
+                    <Link
+                      title="Email The Long Emergency at booking@thelongemergency.com"
+                      href="mailto:booking@thelongemergency.com"
+                      className="mt-1 mb-0 font-semibold text-white underline leading-6">
+                      booking@thelongemergency.com
+                    </Link>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center">
+                    <Text className="text-white mb-1">General Inquiries:</Text>
+                    <Link
+                      title="Email The Long Emergency at info@thelongemergency.com"
+                      href="mailto:info@thelongemergency.com"
+                      className="mt-1 mb-0 font-semibold text-white underline leading-6">
+                      info@thelongemergency.com
+                    </Link>
+                  </td>
+                </tr>
+              </table>
+            </Section>
+            <Text className="text-center text-gray-400 mt-6">
+              <Link
+                className="underline text-gray-400"
+                href="https://www.thelongemergency.com/mailing-list?mode=remove"
+                title="Unsubscribe from mailing list">
+                unsubscribe
+              </Link>
+            </Text>
           </Container>
-          <Img
-            src="https://www.thelongemergency.com/images/kevcutout3.png"
-            alt="Kevin Long playing the guitar"
-            className="mx-auto mt-4 w-60"
-          />
         </Body>
       </Tailwind>
     </Html>

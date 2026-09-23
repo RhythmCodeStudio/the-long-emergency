@@ -8,6 +8,14 @@
 - [Tailwind CSS](https://tailwindcss.com/)
 - [TypeScript](https://www.typescriptlang.org/)
 
+## Features
+
+- User authentication
+- Mailing list management
+- Calendar event management
+- Responsive design for mobile and desktop
+- Contact form integration
+
 ## Screenshots
 
 ### Mobile

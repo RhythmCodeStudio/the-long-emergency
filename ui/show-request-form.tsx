@@ -23,10 +23,11 @@ import {
   validateOtherActs,
   validatePerformanceDate,
   validatePlaceToCrash,
-  validateShowRequestForm
+  validateShowRequestForm,
 } from "@/utils/utils";
 // import actions
 import { submitShowRequest } from "@/actions/actions";
+import FormDateInput from "./form-date-input";
 
 export default function ShowRequestForm() {
   const [firstName, setFirstName] = useState("");
@@ -39,14 +40,15 @@ export default function ShowRequestForm() {
 
   const [mailingListChecked, setMailingListChecked] = useState(true);
 
-  const [venueChecked, setVenueChecked] = useState(false);
+  const [venueChecked, setVenueChecked] = useState<boolean | undefined>(
+    undefined,
+  );
   const [venueName, setVenueName] = useState("");
 
-  const [otherActsChecked, setOtherActsChecked] = useState(false);
-  const [otherActs, setOtherActs] = useState("");
-
-  const [performanceDateChecked, setPerformanceDateChecked] = useState(false);
-  const [performanceDate, setPerformanceDate] = useState("");
+  const [preferredDateFirstChoice, setPreferredDateFirstChoice] = useState("");
+  const [preferredDateSecondChoice, setPreferredDateSecondChoice] =
+    useState("");
+  const [preferredDateThirdChoice, setPreferredDateThirdChoice] = useState("");
 
   const [placeToCrashChecked, setPlaceToCrashChecked] = useState(false);
   const [placeToCrash, setPlaceToCrash] = useState("");
@@ -59,12 +61,21 @@ export default function ShowRequestForm() {
 
   const [cityErrorMessage, setCityErrorMessage] = useState("");
   const [stateErrorMessage, setStateErrorMessage] = useState("");
-  const [venueErrorMessage, setVenueErrorMessage] = useState("");
-  const [otherActsErrorMessage, setOtherActsErrorMessage] = useState("");
-  const [performanceDateErrorMessage, setPerformanceDateErrorMessage] = useState("");
+  const [venueNameErrorMessage, setVenueNameErrorMessage] = useState("");
+
+  const [
+    preferredDateFirstChoiceErrorMessage,
+    setPreferredDateFirstChoiceErrorMessage,
+  ] = useState("");
+  const [
+    preferredDateSecondChoiceErrorMessage,
+    setPreferredDateSecondChoiceErrorMessage,
+  ] = useState("");
+  const [
+    preferredDateThirdChoiceErrorMessage,
+    setPreferredDateThirdChoiceErrorMessage,
+  ] = useState("");
   const [placeToCrashErrorMessage, setPlaceToCrashErrorMessage] = useState("");
-
-
 
   const [deliveryErrorMessage, setDeliveryErrorMessage] = useState("");
   const [buttonSubmitted, setButtonSubmitted] = useState(false);
@@ -87,22 +98,51 @@ export default function ShowRequestForm() {
         "border-2 border-slate-400 font-emergency text-outline-none text-black",
     });
 
-  const handleMailingListCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleMailingListCheckboxChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+  ) => {
     setMailingListChecked(e.target.checked);
   };
 
-  const handleVenueCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setVenueChecked(e.target.checked);
+  const handleVenueChoiceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const isYes = e.target.value === "yes";
+    setVenueChecked(isYes);
+    if (!isYes) {
+      setVenueName("");
+      setVenueNameErrorMessage("");
+    }
   };
 
-  const handlePlaceToCrashCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handlePlaceToCrashCheckboxChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+  ) => {
     setPlaceToCrashChecked(e.target.checked);
   };
 
-  const handlePerformanceDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPerformanceDate(e.target.value);
+  const handlePreferredDateFirstChoiceChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    setPreferredDateFirstChoice(e.target.value);
     if (validatePerformanceDate(new Date(e.target.value))) {
-      setPerformanceDateErrorMessage("");
+      setPreferredDateFirstChoiceErrorMessage("");
+    }
+  };
+
+  const handlePreferredDateSecondChoiceChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    setPreferredDateSecondChoice(e.target.value);
+    if (validatePerformanceDate(new Date(e.target.value))) {
+      setPreferredDateSecondChoiceErrorMessage("");
+    }
+  };
+
+  const handlePreferredDateThirdChoiceChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    setPreferredDateThirdChoice(e.target.value);
+    if (validatePerformanceDate(new Date(e.target.value))) {
+      setPreferredDateThirdChoiceErrorMessage("");
     }
   };
 
@@ -133,13 +173,14 @@ export default function ShowRequestForm() {
     if (e.target.name === "state" && validateState(e.target.value)) {
       setStateErrorMessage("");
     }
-    if (e.target.name === "venue" && validateVenue(e.target.value)) {
-      setVenueErrorMessage("");
+    if (e.target.name === "venueName" && validateVenue(e.target.value)) {
+      setVenueNameErrorMessage("");
     }
-    if (e.target.name === "otherActs" && validateOtherActs(e.target.value)) {
-      setOtherActsErrorMessage("");
-    }
-    if (e.target.name === "placeToCrash" && validatePlaceToCrash(e.target.value)) {
+
+    if (
+      e.target.name === "placeToCrash" &&
+      validatePlaceToCrash(e.target.value)
+    ) {
       setPlaceToCrashErrorMessage("");
     }
   };
@@ -200,9 +241,12 @@ export default function ShowRequestForm() {
     <div className="w-full">
       <form
         onSubmit={handleFormSubmit}
-        className=" px-12 py-4 sm:py-8 max-w-200 mx-auto relative">
+        className="px-12 py-4 max-w-200 mx-auto relative">
+        <p className="text-center text-lg font-semibold mb-4">
+          Contact Information
+        </p>
         <FormInput
-          idPrefix="contact-form"
+          idPrefix="show-request-form"
           inputType="input"
           label="First Name"
           type="text"
@@ -216,7 +260,7 @@ export default function ShowRequestForm() {
           setStateVariable={setFirstName}
         />
         <FormInput
-          idPrefix="contact-form"
+          idPrefix="show-request-form"
           inputType="input"
           label="Last Name"
           type="text"
@@ -230,7 +274,7 @@ export default function ShowRequestForm() {
           setStateVariable={setLastName}
         />
         <FormInput
-          idPrefix="contact-form"
+          idPrefix="show-request-form"
           inputType="input"
           label="Email"
           type="email"
@@ -243,9 +287,8 @@ export default function ShowRequestForm() {
           errorMessage={emailErrorMessage}
           setStateVariable={setEmail}
         />
-        {/* Keep phone state/validation behavior unchanged even though field is hidden */}
         <FormInput
-          idPrefix="contact-form"
+          idPrefix="show-request-form"
           inputType="input"
           label="Phone Number"
           type="tel"
@@ -258,19 +301,121 @@ export default function ShowRequestForm() {
           errorMessage={phoneErrorMessage}
           setStateVariable={setPhone}
         />
-        <FormCheckbox
-          idPrefix="contact-form"
-          label="Do you have a venue in mind?"
-          name="consent"
-          checked={venueChecked}
-          onChange={handleVenueCheckboxChange}
-          // required={true}
-          errorMessage=""
+        <p className="text-center text-lg font-semibold mt-6 mb-4">
+          Date Preferences
+        </p>
+        <div className="grid grid-cols-3 gap-6">
+          <FormDateInput
+            idPrefix="show-request-form"
+            label="1st Choice"
+            name="preferredDateFirstChoice"
+            value={preferredDateFirstChoice}
+            required={false}
+            min={new Date().toISOString().split("T")[0]}
+            errorMessage={preferredDateFirstChoiceErrorMessage}
+            handleChange={handlePreferredDateFirstChoiceChange}
+          />
+
+          <FormDateInput
+            idPrefix="show-request-form"
+            label="2nd Choice"
+            name="preferredDateSecondChoice"
+            value={preferredDateSecondChoice}
+            required={false}
+            min={new Date().toISOString().split("T")[0]}
+            errorMessage={preferredDateSecondChoiceErrorMessage}
+            handleChange={handlePreferredDateSecondChoiceChange}
+          />
+
+          <FormDateInput
+            idPrefix="show-request-form"
+            label="3rd Choice"
+            name="preferredDateThirdChoice"
+            value={preferredDateThirdChoice}
+            required={false}
+            min={new Date().toISOString().split("T")[0]}
+            errorMessage={preferredDateThirdChoiceErrorMessage}
+            handleChange={handlePreferredDateThirdChoiceChange}
+          />
+        </div>
+
+        <p className="text-center text-lg font-semibold mt-6 mb-4">
+          Venue Information
+        </p>
+        <FormInput
+          idPrefix="show-request-form"
+          inputType="input"
+          label="City"
+          type="text"
+          name="city"
+          value={city}
+          handleChange={handleChange}
+          placeholder="City"
+          required={false}
+          autoComplete="address-level2"
+          errorMessage={cityErrorMessage}
+          setStateVariable={setCity}
         />
         <FormInput
-          idPrefix="contact-form"
+          idPrefix="show-request-form"
+          inputType="input"
+          label="State"
+          type="text"
+          name="state"
+          value={state}
+          handleChange={handleChange}
+          placeholder="State"
+          required={false}
+          autoComplete="address-level1"
+          errorMessage={stateErrorMessage}
+          setStateVariable={setState}
+        />
+        <p>Do you have a venue in mind?</p>
+        <div className="grid grid-cols-2">
+          <FormCheckbox
+            idPrefix="show-request-form"
+            type="radio"
+            label="Yes"
+            name="venue-choice"
+            value="yes"
+            checked={venueChecked === true}
+            onChange={handleVenueChoiceChange}
+            errorMessage=""
+          />
+          <FormCheckbox
+            idPrefix="show-request-form"
+            type="radio"
+            label="No"
+            name="venue-choice"
+            value="no"
+            checked={venueChecked === false}
+            onChange={handleVenueChoiceChange}
+            errorMessage=""
+          />
+        </div>
+
+        {venueChecked === true && (
+          <FormInput
+            idPrefix="show-request-form"
+            inputType="input"
+            label="Venue Name"
+            type="text"
+            name="venueName"
+            value={venueName}
+            handleChange={handleChange}
+            placeholder="Venue Name"
+            required={false}
+            autoComplete="organization"
+            errorMessage={venueNameErrorMessage}
+            setStateVariable={setVenueName}
+          />
+        )}
+
+        <p className="text-center text-lg font-semibold mb-4">Details</p>
+        <FormInput
+          idPrefix="show-request-form"
           inputType="textarea"
-          label="Message"
+          label="Please introduce yourself and provide any additional details"
           type="text"
           name="message"
           value={message}
@@ -282,7 +427,7 @@ export default function ShowRequestForm() {
           setStateVariable={setMessage}
         />
         <FormCheckbox
-          idPrefix="contact-form"
+          idPrefix="show-request-form"
           label="Sign me up for The Long Emergency mailing list. I understand I can unsubscribe at any time."
           name="consent"
           checked={mailingListChecked}

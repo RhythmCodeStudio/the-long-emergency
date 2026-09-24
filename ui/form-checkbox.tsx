@@ -10,6 +10,8 @@ interface FormCheckboxProps {
   idPrefix?: string;
   className?: string;
   labelClassName?: string;
+  type?: "checkbox" | "radio"; // new
+  value?: string; // needed for radio groups
 }
 
 export default function FormCheckbox({
@@ -22,6 +24,8 @@ export default function FormCheckbox({
   idPrefix = "",
   className = "",
   labelClassName = "",
+  type = "checkbox",
+  value = "",
 }: FormCheckboxProps) {
   const uniqueInputId = idPrefix ? `${idPrefix}-${name}` : name;
 
@@ -34,7 +38,8 @@ export default function FormCheckbox({
         <input
           id={uniqueInputId}
           name={name}
-          type="checkbox"
+          type={type}
+          value={value}
           checked={checked}
           onChange={onChange}
           required={required}

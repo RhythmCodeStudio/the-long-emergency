@@ -91,9 +91,9 @@ export default function MorePopover({
                     <InstallAppButton labelClassName="-mb-1" />
                   </div>
                 )}
-                <div className="flex items-center justify-center my-6 w-full px-4">
+                {/* <div className="flex items-center justify-center my-6 w-full px-4">
                   <SupportLink />
-                </div>
+                </div> */}
                 <div className="flex items-center justify-center my-6 w-full px-4">
                   <PushNotificationSubscriptionManager
                     renderedAs="button"
@@ -114,13 +114,13 @@ export default function MorePopover({
                 </div>
                 <div className="flex items-center justify-center my-6 w-full px-4">
                   <Link
-                    href="/mailing-list?mode=remove"
+                    href="/request-a-show"
                     onClick={() => {
                       close();
                       if (onAnyAction) onAnyAction(); // <-- close mobile menu if provided
                     }}
                     className="flex items-center justify-center px-4 py-1 rounded-full border-2 border-border-default shadow-white shadow-md lg:hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full transform transition-transform duration-200 active:scale-95 font-medium tracking-wider text-sm">
-                    <span className="-mb-1">Unsubscribe from Mailing List</span>
+                    <span className="-mb-1">Request a Show</span>
                   </Link>
                 </div>
               </>

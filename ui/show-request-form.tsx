@@ -43,7 +43,13 @@ export default function ShowRequestForm() {
   const [venueChecked, setVenueChecked] = useState<boolean | undefined>(
     undefined,
   );
+  const [venueType, setVenueType] = useState<string | undefined>(undefined);
   const [venueName, setVenueName] = useState("");
+  const [venueWebsite, setVenueWebsite] = useState("");
+  const [venueAddress, setVenueAddress] = useState("");
+  const [arrangeVenueChecked, setArrangeVenueChecked] = useState<boolean | undefined>(
+    undefined,
+  );
 
   const [preferredDateFirstChoice, setPreferredDateFirstChoice] = useState("");
   const [preferredDateSecondChoice, setPreferredDateSecondChoice] =
@@ -62,6 +68,9 @@ export default function ShowRequestForm() {
   const [cityErrorMessage, setCityErrorMessage] = useState("");
   const [stateErrorMessage, setStateErrorMessage] = useState("");
   const [venueNameErrorMessage, setVenueNameErrorMessage] = useState("");
+  const [venueWebsiteErrorMessage, setVenueWebsiteErrorMessage] = useState("");
+  const [venueAddressErrorMessage, setVenueAddressErrorMessage] = useState("");
+  const [arrangeVenueErrorMessage, setArrangeVenueErrorMessage] = useState("");
 
   const [
     preferredDateFirstChoiceErrorMessage,
@@ -109,6 +118,15 @@ export default function ShowRequestForm() {
     setVenueChecked(isYes);
     if (!isYes) {
       setVenueName("");
+      setVenueType(undefined);
+      setVenueNameErrorMessage("");
+    }
+  };
+
+  const handleVenueTypeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setVenueType(e.target.value);
+    if (e.target.value !== "house") {
+      setVenueName("");
       setVenueNameErrorMessage("");
     }
   };
@@ -143,6 +161,14 @@ export default function ShowRequestForm() {
     setPreferredDateThirdChoice(e.target.value);
     if (validatePerformanceDate(new Date(e.target.value))) {
       setPreferredDateThirdChoiceErrorMessage("");
+    }
+  };
+
+  const handleArrangeVenueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const isYes = e.target.value === "yes";
+    setArrangeVenueChecked(isYes);
+    if (!isYes) {
+      setArrangeVenueErrorMessage("");
     }
   };
 
@@ -248,13 +274,27 @@ export default function ShowRequestForm() {
         <FormInput
           idPrefix="show-request-form"
           inputType="input"
+          label="Email"
+          type="email"
+          name="email"
+          value={email}
+          handleChange={handleChange}
+          placeholder="Email"
+          required={true}
+          autoComplete="email"
+          errorMessage={emailErrorMessage}
+          setStateVariable={setEmail}
+        />
+        <FormInput
+          idPrefix="show-request-form"
+          inputType="input"
           label="First Name"
           type="text"
           name="firstName"
           value={firstName}
           handleChange={handleChange}
           placeholder="First Name"
-          required={false}
+          required={true}
           autoComplete="given-name"
           errorMessage={firstNameErrorMessage}
           setStateVariable={setFirstName}
@@ -273,20 +313,7 @@ export default function ShowRequestForm() {
           errorMessage={lastNameErrorMessage}
           setStateVariable={setLastName}
         />
-        <FormInput
-          idPrefix="show-request-form"
-          inputType="input"
-          label="Email"
-          type="email"
-          name="email"
-          value={email}
-          handleChange={handleChange}
-          placeholder="Email"
-          required={true}
-          autoComplete="email"
-          errorMessage={emailErrorMessage}
-          setStateVariable={setEmail}
-        />
+
         <FormInput
           idPrefix="show-request-form"
           inputType="input"
@@ -340,7 +367,7 @@ export default function ShowRequestForm() {
         </div>
 
         <p className="text-center text-lg font-semibold mt-6 mb-4">
-          Venue Information
+          Location / Venue
         </p>
         <FormInput
           idPrefix="show-request-form"
@@ -395,20 +422,116 @@ export default function ShowRequestForm() {
         </div>
 
         {venueChecked === true && (
-          <FormInput
-            idPrefix="show-request-form"
-            inputType="input"
-            label="Venue Name"
-            type="text"
-            name="venueName"
-            value={venueName}
-            handleChange={handleChange}
-            placeholder="Venue Name"
-            required={false}
-            autoComplete="organization"
-            errorMessage={venueNameErrorMessage}
-            setStateVariable={setVenueName}
-          />
+          <>
+            <p>Great! What type of venue is it?</p>
+            <div className="grid grid-cols-3">
+              <FormCheckbox
+                idPrefix="show-request-form"
+                type="radio"
+                label="House"
+                name="venue-type"
+                value="house"
+                checked={venueType === "house"}
+                onChange={handleVenueTypeChange}
+                errorMessage=""
+              />
+              <FormCheckbox
+                idPrefix="show-request-form"
+                type="radio"
+                label="Bar/Club"
+                name="venue-type"
+                value="bar/club"
+                checked={venueType === "bar/club"}
+                onChange={handleVenueTypeChange}
+                errorMessage=""
+              />
+              <FormCheckbox
+                idPrefix="show-request-form"
+                type="radio"
+                label="Other"
+                name="venue-type"
+                value="other"
+                checked={venueType === "other"}
+                onChange={handleVenueTypeChange}
+                errorMessage=""
+              />
+            </div>
+          </>
+        )}
+
+        {venueChecked === true && (
+          <>
+            <FormInput
+              idPrefix="show-request-form"
+              inputType="input"
+              label="Venue Name"
+              type="text"
+              name="venueName"
+              value={venueName}
+              handleChange={handleChange}
+              placeholder="Venue Name"
+              required={false}
+              autoComplete="organization"
+              errorMessage={venueNameErrorMessage}
+              setStateVariable={setVenueName}
+            />
+            <FormInput
+              idPrefix="show-request-form"
+              inputType="input"
+              label="Venue Website"
+              type="text"
+              name="venueWebsite"
+              value={venueWebsite}
+              handleChange={handleChange}
+              placeholder="Venue Website"
+              required={false}
+              autoComplete="organization"
+              errorMessage={venueWebsiteErrorMessage}
+              setStateVariable={setVenueWebsite}
+            />
+            <FormInput
+              idPrefix="show-request-form"
+              inputType="input"
+              label="Venue Address"
+              type="text"
+              name="venueAddress"
+              value={venueAddress}
+              handleChange={handleChange}
+              placeholder="Venue Address"
+              required={false}
+              autoComplete="organization"
+              errorMessage={venueAddressErrorMessage}
+              setStateVariable={setVenueAddress}
+            />
+          </>
+        )}
+
+        {venueChecked === false && (
+          <>
+            <p>Can you arrange a venue?</p>
+            <div className="grid grid-cols-2">
+              <FormCheckbox
+                idPrefix="show-request-form"
+                type="radio"
+                label="Yes"
+                name="arrange-venue"
+                value="yes"
+                checked={arrangeVenueChecked === true}
+                onChange={handleArrangeVenueChange}
+                errorMessage={arrangeVenueErrorMessage}
+              />
+              <FormCheckbox
+                idPrefix="show-request-form"
+                type="radio"
+                label="No"
+                name="arrange-venue"
+                value="no"
+                checked={arrangeVenueChecked === false}
+                onChange={handleArrangeVenueChange}
+                errorMessage={arrangeVenueErrorMessage}
+              />
+            </div>
+          </>
         )}
 
         <p className="text-center text-lg font-semibold mb-4">Details</p>

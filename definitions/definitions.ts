@@ -20,6 +20,20 @@ export type CalendarEvent = {
   moreInfoLink?: string;
 };
 
+export type ShowRequest = {
+  id: string;
+  name: string;
+  email: string;
+  venueName: string;
+  venueAddress: string;
+  preferredDateFirstChoice: Date;
+  preferredDateSecondChoice?: Date;
+  preferredDateThirdChoice?: Date;
+  mailingListOptIn: boolean;
+  placeToCrashOptIn: boolean;
+  message: string;
+};
+
 export type Page = {
   id: string;
   name: string;

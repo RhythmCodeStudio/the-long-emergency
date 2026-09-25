@@ -77,12 +77,12 @@ export async function submitShowRequest(showRequest: {
   lastName?: string;
   email: string;
   phone?: string;
-  message?: string;
+  message: string;
   mailingListOptIn: boolean;
   preferredDateFirstChoice?: string;
   preferredDateSecondChoice?: string;
   preferredDateThirdChoice?: string;
-  location: "stl-area" | "outside-stl-area";
+  location?: "stl-area" | "outside-stl-area";
   city?: string;
   state?: string;
   placeToCrashOptIn?: boolean;
@@ -108,12 +108,12 @@ export async function submitShowRequest(showRequest: {
       ${showRequest.lastName ?? null},
       ${showRequest.email},
       ${showRequest.phone ?? null},
-      ${showRequest.message ?? null},
+      ${showRequest.message},
       ${showRequest.mailingListOptIn},
       ${showRequest.preferredDateFirstChoice ?? null},
       ${showRequest.preferredDateSecondChoice ?? null},
       ${showRequest.preferredDateThirdChoice ?? null},
-      ${showRequest.location},
+      ${showRequest.location ?? null},
       ${showRequest.city ?? null},
       ${showRequest.state ?? null},
       ${showRequest.placeToCrashOptIn ?? null},

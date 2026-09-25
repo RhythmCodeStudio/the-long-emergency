@@ -293,21 +293,14 @@ export default function ShowRequestForm() {
     return;
   }
 
-  if (
-    isEmailValid &&
-    isFirstNameValid &&
-    isLastNameValid &&
-    isPhoneValid &&
-    isPreferredDateFirstChoiceValid &&
-    isPreferredDateSecondChoiceValid
-  ) {
+  
     try {
       const payload = {
         firstName: trimmedFirstName,
         ...(trimmedLastName ? { lastName: trimmedLastName } : {}),
         email: trimmedEmail,
         ...(trimmedPhone ? { phone: trimmedPhone } : {}),
-        ...(trimmedMessage ? { message: trimmedMessage } : {}),
+        message: trimmedMessage,
 
         mailingListOptIn: mailingListChecked,
 
@@ -373,10 +366,10 @@ export default function ShowRequestForm() {
           : {}),
       };
 
-      await submitShowRequest(payload).then(() => {
-        track("show_request_submitted");
-        setButtonSubmitted(true);
-        setFirstName("");
+      await submitShowRequest(payload);
+      track("show_request_submitted");
+      setButtonSubmitted(true);
+      setFirstName("");
         setLastName("");
         setEmail("");
         setPhone("");
@@ -400,13 +393,12 @@ export default function ShowRequestForm() {
           setButtonSubmitted(false);
         }, 3000);
         notify();
-      });
+      
     } catch (error) {
       setDeliveryErrorMessage(
         "There was an error delivering your message. Please email us at info@thelongemergency.com. Sorry for the trouble.",
       );
     }
-  }
 };
 
   return (

@@ -55,8 +55,8 @@ export async function signUpForMailingList(email: string) {
   // });
 
   const [logo, kevinImage] = await Promise.all([
-    readFile(join(process.cwd(), "public/images/email/band-name-white.png")),
-    readFile(join(process.cwd(), "public/images/kevcutout3.png")),
+    readFile(join(process.cwd(), "public/images/email/the-long-emergency-logo.png")),
+    readFile(join(process.cwd(), "public/images/email/kevin-playing-guitar.png")),
   ]);
 
   const { error } = await resend.emails.send({
@@ -66,12 +66,12 @@ export async function signUpForMailingList(email: string) {
     react: createElement(MailingListConfirmation),
     attachments: [
       {
-        filename: "band-name-white.png",
+        filename: "the-long-emergency-logo.png",
         content: logo,
         contentId: "band-logo",
       },
       {
-        filename: "kevcutout3.png",
+        filename: "kevin-playing-guitar.png",
         content: kevinImage,
         contentId: "kevin-image",
       },
@@ -156,8 +156,8 @@ export async function submitShowRequest(showRequest: {
 
   async function sendShowRequestConfirmation(email: string) {
     const [logo, kevinImage] = await Promise.all([
-      readFile(join(process.cwd(), "public/images/email/band-name-white.png")),
-      readFile(join(process.cwd(), "public/images/kevcutout3.png")),
+      readFile(join(process.cwd(), "public/images/email/the-long-emergency-logo.png")),
+      readFile(join(process.cwd(), "public/images/email/kevin-playing-guitar.png")),
     ]);
 
     const { error } = await resend.emails.send({
@@ -167,12 +167,12 @@ export async function submitShowRequest(showRequest: {
       react: createElement(ShowRequestResponseEmail),
       attachments: [
         {
-          filename: "band-name-white.png",
+          filename: "the-long-emergency-logo.png",
           content: logo,
           contentId: "band-logo",
         },
         {
-          filename: "kevcutout3.png",
+          filename: "kevin-playing-guitar.png",
           content: kevinImage,
           contentId: "kevin-image",
         },

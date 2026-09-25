@@ -1,9 +1,9 @@
 "use client";
 // import from next
-// import Image from "next/image";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 // import components
-import ContactLinks from "./contact-links";
+// import ContactLinks from "./contact-links";
 // import MusicLinks from "./music-links";
 
 export const Footer = () => {
@@ -15,6 +15,11 @@ export const Footer = () => {
           ? " p-4 hidden  flex-col items-center justify-center"
           : " p-4 flex flex-col items-center justify-center"
       }>
+        
+          <span className="font-emergency text-outline text-2xl ">
+              The Long Emergency
+            </span>
+       
       <div className="flex flex-col items-center justify-center">
         <p className="text-sm flex items-center justify-center text-center text-outline">
           <span className="text-lg">©</span> 2026

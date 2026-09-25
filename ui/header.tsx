@@ -436,16 +436,16 @@ export const Header = () => {
     <header className="p-6 z-30 w-full">
       <div className="flex flex-col items-center w-full justify-center">
         {isHomePage && showDesktopHeading && (
-          <div className="flex flex-col items-center justify-center m-4 p-6 pb-0">
-            <h1 className="font-emergency text-outline text-4xl xl:text-5xl 2xl:text-6xl">
+          <div className="flex flex-col items-center justify-center p-2">
+            <h1 className="font-emergency text-outline text-4xl 2xl:text-5xl">
               The Long Emergency
             </h1>
             <h2 className="p-4 md:text-xl text-outline">St. Louis, Missouri</h2>
           </div>
         )}
         {!isHomePage && showDesktopHeading && (
-          <div className="flex flex-col items-center justify-center m-4 p-6 pb-0">
-            <h1 className="font-emergency text-outline text-4xl xl:text-5xl 2xl:text-6xl">
+          <div className="flex flex-col items-center justify-center p-2">
+            <h1 className="font-emergency text-outline text-4xl 2xl:text-5xl">
               <Link href="/">The Long Emergency</Link>
             </h1>
             <h2 className="p-4 md:text-xl text-outline">St. Louis, Missouri</h2>

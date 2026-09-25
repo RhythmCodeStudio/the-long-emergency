@@ -14,7 +14,7 @@ import {
 } from "@/definitions/definitions";
 import { Resend } from "resend";
 import { createElement } from "react";
-import MailingListConfirmationEmail from "@/ui/email/mailing-list-confirmation-email";
+import MailingListConfirmationEmail from "@/ui/email/mailing-list-confirmation";
 import ShowRequestResponseEmail from "@/ui/email/show-request-response";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";

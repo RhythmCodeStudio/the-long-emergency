@@ -293,33 +293,41 @@ export default function ShowRequestForm() {
           phone: trimmedPhone || undefined,
           message: trimmedMessage,
           mailingListOptIn: mailingListChecked,
+
           preferredDateFirstChoice: preferredDateFirstChoice || undefined,
           preferredDateSecondChoice: preferredDateSecondChoice || undefined,
           preferredDateThirdChoice: preferredDateThirdChoice || undefined,
+
           location: locationChecked!,
+
           ...(locationChecked === "outside-stl-area"
             ? {
                 city: city || undefined,
                 state: state || undefined,
               }
             : {}),
+
           ...(locationChecked === "outside-stl-area" &&
           placeToCrashChecked !== undefined
             ? {
                 placeToCrashOptIn: placeToCrashChecked,
               }
             : {}),
+
           ...(placeToCrashChecked === true
             ? {
                 placeToCrashDescription: placeToCrashDescription || undefined,
               }
             : {}),
+
           ...(placeToCrashChecked === false
             ? {
                 needsHelpFindingPlaceToCrash: helpWithPlaceToCrash,
               }
             : {}),
+
           hasVenue: venueChecked!,
+
           ...(venueChecked
             ? {
                 venueType: venueType as
@@ -329,6 +337,7 @@ export default function ShowRequestForm() {
                 venueAddress: venueAddress || undefined,
               }
             : {}),
+
           ...(venueChecked === false
             ? {
                 canArrangeVenue: arrangeVenueChecked,

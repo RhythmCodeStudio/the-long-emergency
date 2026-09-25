@@ -49,7 +49,7 @@ export default async function ShowsPage({
           alt="Kevin Long playing guitar and singing into a microphone"
           width={870}
           height={320}
-          className="shadow-md shadow-white rounded-2xl border-2 border-slate-400"
+          className="shadow-md shadow-white rounded-3xl border-2 border-slate-400"
         />
       </div>
       <div className="flex flex-col justify-center items-center p-6">
@@ -58,7 +58,7 @@ export default async function ShowsPage({
         </h3>
         <Link href="/music">
           <Image
-            className="shadow-md shadow-white rounded-2xl border-2 border-slate-400 m-2"
+            className="shadow-md shadow-white rounded-3xl border-2 border-slate-400 m-2"
             width={213}
             height={211}
             src="/music/habit/album-art/front-cover.png"

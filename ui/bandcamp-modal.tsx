@@ -68,7 +68,7 @@ export default function BandcampModal({
                   src={src}
                   width="90%"
                   height="90%"
-                  className="rounded-2xl"
+                  className="rounded-3xl"
                 />
               </ModalBody>
               <ModalFooter className="flex flex-col justify-center text-center items-center w-full ">

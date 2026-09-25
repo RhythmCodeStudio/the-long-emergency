@@ -28,12 +28,10 @@ export default async function BlogPage() {
   }
   return (
     <div className="flex flex-col justify-center items-center w-full">
-    
-        <h2 className="sm:hidden font-emergency text-outline text-center text-2xl lg:text-3xl xl:text-4xl py-4 sm:py-6"
-        >
-          {blogPageData.page_title}
-        </h2>
-     
+      <h2 className="sm:hidden font-emergency text-outline text-center text-2xl lg:text-3xl xl:text-4xl py-4 sm:py-6">
+        {blogPageData.page_title}
+      </h2>
+
       <div className="p-12 pt-4 sm:pt-12 w-full h-auto max-w-200">
         <Image
           src="/images/trombone-no-text-banner.png"
@@ -41,7 +39,7 @@ export default async function BlogPage() {
           width={1423}
           height={1411}
           priority
-          className="shadow-md shadow-white rounded-2xl border-2 border-slate-400 m-2"
+          className="shadow-md shadow-white rounded-3xl border-2 border-slate-400 m-2"
         />
       </div>
       <div>

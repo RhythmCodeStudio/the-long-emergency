@@ -58,7 +58,7 @@ export default function TicketModal({
                   src={src}
                   width="80%"
                   height="80%"
-                  className="rounded-2xl"
+                  className="rounded-3xl"
                 />
               </ModalBody>
               <ModalFooter className="flex flex-col justify-center text-center items-center w-full ">

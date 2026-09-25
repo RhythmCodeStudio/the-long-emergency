@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function BandBio() {
   return (
     <section className="px-8 max-w-800 flex flex-col md:text-lg text-outline">
-      <div className="pb-4 lg:px-48 xl:px-64 2xl:px-96 rounded-2xl">
+      <div className="pb-4 lg:px-48 xl:px-64 2xl:px-96 rounded-3xl">
         <p className="">
           I was active in the Twin Cities independent music scene from around
           2003 through 2013 as a solo artist and with several different bands.
@@ -13,7 +13,7 @@ export default function BandBio() {
           of 2013.
         </p>
       </div>
-      <div className="pb-4 lg:px-48 xl:px-64 2xl:px-96  rounded-2xl">
+      <div className="pb-4 lg:px-48 xl:px-64 2xl:px-96  rounded-3xl">
         <p className="">
           That summer I moved to Austin, TX with plans to promote the new album
           and form a new version of The Long Emergency to continue performing
@@ -29,7 +29,7 @@ export default function BandBio() {
           alt="Kevin Long performing with The Long Emergency"
           width={545}
           height={308}
-          className="shadow-md shadow-white border-2 border-slate-400 rounded-2xl"
+          className="shadow-md shadow-white border-2 border-slate-400 rounded-3xl"
         />
       </div>
       <div className="py-4 lg:px-48 xl:px-64 2xl:px-96 ">

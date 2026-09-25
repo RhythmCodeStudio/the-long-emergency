@@ -20,7 +20,6 @@ import {
   validateCity,
   validateState,
   validateVenue,
-  validateOtherActs,
   validatePerformanceDate,
   validatePlaceToCrash,
   validateShowRequestForm,
@@ -36,10 +35,12 @@ export default function ShowRequestForm() {
   const [phone, setPhone] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
+  const [placeToCrashDescription, setPlaceToCrashDescription] = useState("");
   const [message, setMessage] = useState("");
-
   const [mailingListChecked, setMailingListChecked] = useState(true);
-
+  const [locationChecked, setLocationChecked] = useState<
+    "stl-area" | "outside-stl-area" | undefined
+  >("stl-area");
   const [venueChecked, setVenueChecked] = useState<boolean | undefined>(
     undefined,
   );
@@ -47,31 +48,31 @@ export default function ShowRequestForm() {
   const [venueName, setVenueName] = useState("");
   const [venueWebsite, setVenueWebsite] = useState("");
   const [venueAddress, setVenueAddress] = useState("");
-  const [arrangeVenueChecked, setArrangeVenueChecked] = useState<boolean | undefined>(
-    undefined,
-  );
-
+  const [arrangeVenueChecked, setArrangeVenueChecked] = useState<
+    boolean | undefined
+  >(undefined);
   const [preferredDateFirstChoice, setPreferredDateFirstChoice] = useState("");
   const [preferredDateSecondChoice, setPreferredDateSecondChoice] =
     useState("");
   const [preferredDateThirdChoice, setPreferredDateThirdChoice] = useState("");
-
-  const [placeToCrashChecked, setPlaceToCrashChecked] = useState(false);
-  const [placeToCrash, setPlaceToCrash] = useState("");
-
+  const [placeToCrashChecked, setPlaceToCrashChecked] = useState<
+    boolean | undefined
+  >(undefined);
+  const [helpWithPlaceToCrash, setHelpWithPlaceToCrash] = useState<
+    boolean | undefined
+  >(undefined);
   const [emailErrorMessage, setEmailErrorMessage] = useState("");
   const [phoneErrorMessage, setPhoneErrorMessage] = useState("");
   const [firstNameErrorMessage, setFirstNameErrorMessage] = useState("");
   const [lastNameErrorMessage, setLastNameErrorMessage] = useState("");
   const [messageErrorMessage, setMessageErrorMessage] = useState("");
-
+  const [locationErrorMessage, setLocationErrorMessage] = useState("");
   const [cityErrorMessage, setCityErrorMessage] = useState("");
   const [stateErrorMessage, setStateErrorMessage] = useState("");
   const [venueNameErrorMessage, setVenueNameErrorMessage] = useState("");
   const [venueWebsiteErrorMessage, setVenueWebsiteErrorMessage] = useState("");
   const [venueAddressErrorMessage, setVenueAddressErrorMessage] = useState("");
   const [arrangeVenueErrorMessage, setArrangeVenueErrorMessage] = useState("");
-
   const [
     preferredDateFirstChoiceErrorMessage,
     setPreferredDateFirstChoiceErrorMessage,
@@ -85,12 +86,15 @@ export default function ShowRequestForm() {
     setPreferredDateThirdChoiceErrorMessage,
   ] = useState("");
   const [placeToCrashErrorMessage, setPlaceToCrashErrorMessage] = useState("");
-
+  const [
+    placeToCrashDescriptionErrorMessage,
+    setPlaceToCrashDescriptionErrorMessage,
+  ] = useState("");
   const [deliveryErrorMessage, setDeliveryErrorMessage] = useState("");
   const [buttonSubmitted, setButtonSubmitted] = useState(false);
 
   const notify = () =>
-    toast.info("Thanks for reaching out. I will be in touch soon!", {
+    toast.info("Thank you for your show request! I will be in touch soon.", {
       transition: Bounce,
       position: "top-center",
       icon: (
@@ -113,6 +117,14 @@ export default function ShowRequestForm() {
     setMailingListChecked(e.target.checked);
   };
 
+  const handleLocationChoiceChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    const value = e.target.value as "stl-area" | "outside-stl-area";
+    setLocationChecked(value);
+    setLocationErrorMessage("");
+  };
+
   const handleVenueChoiceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const isYes = e.target.value === "yes";
     setVenueChecked(isYes);
@@ -129,12 +141,6 @@ export default function ShowRequestForm() {
       setVenueName("");
       setVenueNameErrorMessage("");
     }
-  };
-
-  const handlePlaceToCrashCheckboxChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
-  ) => {
-    setPlaceToCrashChecked(e.target.checked);
   };
 
   const handlePreferredDateFirstChoiceChange = (
@@ -169,6 +175,24 @@ export default function ShowRequestForm() {
     setArrangeVenueChecked(isYes);
     if (!isYes) {
       setArrangeVenueErrorMessage("");
+    }
+  };
+
+  const handlePlaceToCrashChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const isYes = e.target.value === "yes";
+    setPlaceToCrashChecked(isYes);
+    if (!isYes) {
+      setPlaceToCrashErrorMessage("");
+    }
+  };
+
+  const handleHelpWithPlaceToCrashChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    const isYes = e.target.value === "yes";
+    setHelpWithPlaceToCrash(isYes);
+    if (!isYes) {
+      setPlaceToCrashErrorMessage("");
     }
   };
 
@@ -218,12 +242,14 @@ export default function ShowRequestForm() {
     const trimmedLastName = lastName.trim();
     const trimmedEmail = email.trim();
     const trimmedPhone = phone.trim();
-
     const isEmailValid = validateEmail(trimmedEmail);
-    const isPhoneValid = validatePhone(trimmedPhone);
+    const isPhoneValid = trimmedPhone === "" || validatePhone(trimmedPhone);
     const isFirstNameValid = validateName(trimmedFirstName);
-    const isLastNameValid = validateName(trimmedLastName);
-    const isMessageValid = validateMessage(message);
+    const isLastNameValid =
+      trimmedLastName === "" || validateName(trimmedLastName);
+    const trimmedMessage = message.trim();
+    const isMessageValid = validateMessage(trimmedMessage);
+    const isLocationValid = locationChecked !== undefined;
 
     if (!isEmailValid) {
       setEmailErrorMessage("Please enter a valid email address.");
@@ -245,21 +271,87 @@ export default function ShowRequestForm() {
       setMessageErrorMessage("Please enter a message.");
       return;
     }
+    if (!isLocationValid) {
+      setLocationErrorMessage("Please select a location.");
+      return;
+    }
 
     if (
       isEmailValid &&
       isPhoneValid &&
       isFirstNameValid &&
       isLastNameValid &&
-      isMessageValid
+      isMessageValid &&
+      isLocationValid
     ) {
-      submitShowRequest({
-        name: `${trimmedFirstName} ${trimmedLastName}`,
-        email: trimmedEmail,
-        phone: trimmedPhone,
-        message: message,
-        subscribe: mailingListChecked,
-      });
+      try {
+        submitShowRequest({
+          firstName: trimmedFirstName,
+          lastName: trimmedLastName,
+          email: trimmedEmail,
+          phone: trimmedPhone,
+          message: trimmedMessage,
+          mailingListOptIn: mailingListChecked,
+
+          preferredDateFirstChoice: preferredDateFirstChoice || undefined,
+          preferredDateSecondChoice: preferredDateSecondChoice || undefined,
+          preferredDateThirdChoice: preferredDateThirdChoice || undefined,
+
+          location: locationChecked!, // validate before submit that this isn't undefined
+          city: locationChecked === "outside-stl-area" ? city : undefined,
+          state: locationChecked === "outside-stl-area" ? state : undefined,
+
+          placeToCrashOptIn:
+            locationChecked === "outside-stl-area"
+              ? placeToCrashChecked
+              : undefined,
+          placeToCrashDescription:
+            placeToCrashChecked === true ? placeToCrashDescription : undefined,
+          needsHelpFindingPlaceToCrash:
+            placeToCrashChecked === false ? helpWithPlaceToCrash : undefined,
+
+          hasVenue: venueChecked!, // validate before submit that this isn't undefined
+          venueType: venueChecked
+            ? (venueType as "house" | "bar/club" | "other")
+            : undefined,
+          venueName: venueChecked ? venueName : undefined,
+          venueWebsite: venueChecked ? venueWebsite : undefined,
+          venueAddress: venueChecked ? venueAddress : undefined,
+          canArrangeVenue:
+            venueChecked === false ? arrangeVenueChecked : undefined,
+        }).then(() => {
+          track("show_request_submitted");
+          setButtonSubmitted(true);
+          setFirstName("");
+          setLastName("");
+          setEmail("");
+          setPhone("");
+          setMessage("");
+          setPreferredDateFirstChoice("");
+          setPreferredDateSecondChoice("");
+          setPreferredDateThirdChoice("");
+          setLocationChecked(undefined);
+          setCity("");
+          setState("");
+          setPlaceToCrashChecked(undefined);
+          setPlaceToCrashDescription("");
+          setHelpWithPlaceToCrash(undefined);
+          setVenueChecked(undefined);
+          setVenueType("");
+          setVenueName("");
+          setVenueWebsite("");
+          setVenueAddress("");
+          setArrangeVenueChecked(undefined);
+          setTimeout(() => {
+            setButtonSubmitted(false);
+          }, 3000);
+          notify();
+        });
+      } catch (error) {
+        setDeliveryErrorMessage(
+          "There was an error delivering your message. Please email us at info@thelongemergency.com. Sorry for the trouble.",
+        );
+      }
     }
   };
 
@@ -369,34 +461,142 @@ export default function ShowRequestForm() {
         <p className="text-center text-lg font-semibold mt-6 mb-4">
           Location / Venue
         </p>
-        <FormInput
-          idPrefix="show-request-form"
-          inputType="input"
-          label="City"
-          type="text"
-          name="city"
-          value={city}
-          handleChange={handleChange}
-          placeholder="City"
-          required={false}
-          autoComplete="address-level2"
-          errorMessage={cityErrorMessage}
-          setStateVariable={setCity}
-        />
-        <FormInput
-          idPrefix="show-request-form"
-          inputType="input"
-          label="State"
-          type="text"
-          name="state"
-          value={state}
-          handleChange={handleChange}
-          placeholder="State"
-          required={false}
-          autoComplete="address-level1"
-          errorMessage={stateErrorMessage}
-          setStateVariable={setState}
-        />
+
+        <>
+          <p>
+            Where are you requesting a show?
+            <span className="text-sm">* (required)</span>
+          </p>
+          <div className="grid grid-cols-2">
+            <FormCheckbox
+              idPrefix="show-request-form"
+              type="radio"
+              label="St. Louis, MO Area"
+              name="location-choice"
+              value="stl-area"
+              checked={locationChecked === "stl-area"}
+              onChange={handleLocationChoiceChange}
+              errorMessage={locationErrorMessage}
+            />
+            <FormCheckbox
+              idPrefix="show-request-form"
+              type="radio"
+              label="Outside St. Louis, MO Area"
+              name="location-choice"
+              value="outside-stl-area"
+              checked={locationChecked === "outside-stl-area"}
+              onChange={handleLocationChoiceChange}
+              errorMessage={locationErrorMessage}
+            />
+          </div>
+        </>
+        {locationChecked === "outside-stl-area" && (
+          <>
+            <p>Please specify your location:</p>
+            <FormInput
+              idPrefix="show-request-form"
+              inputType="input"
+              label="City"
+              type="text"
+              name="city"
+              value={city}
+              handleChange={handleChange}
+              placeholder="City"
+              required={false}
+              autoComplete="address-level2"
+              errorMessage={cityErrorMessage}
+              setStateVariable={setCity}
+            />
+            <FormInput
+              idPrefix="show-request-form"
+              inputType="input"
+              label="State"
+              type="text"
+              name="state"
+              value={state}
+              handleChange={handleChange}
+              placeholder="State"
+              required={false}
+              autoComplete="address-level1"
+              errorMessage={stateErrorMessage}
+              setStateVariable={setState}
+            />
+            <p>Do you have a place I can crash after the show?</p>
+            <div className="grid grid-cols-2">
+              <FormCheckbox
+                idPrefix="show-request-form"
+                type="radio"
+                label="Yes"
+                name="place-to-crash"
+                value="yes"
+                checked={placeToCrashChecked === true}
+                onChange={handlePlaceToCrashChange}
+                errorMessage=""
+              />
+              <FormCheckbox
+                idPrefix="show-request-form"
+                type="radio"
+                label="No"
+                name="place-to-crash"
+                value="no"
+                checked={placeToCrashChecked === false}
+                onChange={handlePlaceToCrashChange}
+                errorMessage=""
+              />
+            </div>
+
+            {placeToCrashChecked === true && (
+              <>
+                <p>
+                  Sweet! Thank you! Please provide some details about the
+                  accommodations.
+                </p>
+                <FormInput
+                  idPrefix="show-request-form"
+                  inputType="input"
+                  label=""
+                  type="text"
+                  name="place-to-crash-description"
+                  value={placeToCrashDescription}
+                  handleChange={handleChange}
+                  placeholder="Description"
+                  required={false}
+                  autoComplete="off"
+                  errorMessage={placeToCrashDescriptionErrorMessage}
+                  setStateVariable={setPlaceToCrashDescription}
+                />
+              </>
+            )}
+
+            {placeToCrashChecked === false && (
+              <>
+                <p>Can you find a place for me to crash after the show?</p>
+                <div className="grid grid-cols-2">
+                  <FormCheckbox
+                    idPrefix="show-request-form"
+                    type="radio"
+                    label="Yes"
+                    name="help-with-place-to-crash"
+                    value="yes"
+                    checked={helpWithPlaceToCrash === true}
+                    onChange={handleHelpWithPlaceToCrashChange}
+                    errorMessage=""
+                  />
+                  <FormCheckbox
+                    idPrefix="show-request-form"
+                    type="radio"
+                    label="No"
+                    name="help-with-place-to-crash"
+                    value="no"
+                    checked={helpWithPlaceToCrash === false}
+                    onChange={handleHelpWithPlaceToCrashChange}
+                    errorMessage=""
+                  />
+                </div>
+              </>
+            )}
+          </>
+        )}
         <p>Do you have a venue in mind?</p>
         <div className="grid grid-cols-2">
           <FormCheckbox
@@ -534,7 +734,9 @@ export default function ShowRequestForm() {
           </>
         )}
 
-        <p className="text-center text-lg font-semibold mb-4">Details</p>
+        <></>
+
+        <p className="text-center text-lg font-semibold mt-6 mb-4">Details</p>
         <FormInput
           idPrefix="show-request-form"
           inputType="textarea"

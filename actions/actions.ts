@@ -14,7 +14,8 @@ import {
 } from "@/definitions/definitions";
 import { Resend } from "resend";
 import { createElement } from "react";
-import MailingListConfirmationEmailTemplate from "@/ui/email/mailing-list-confirmation-email-template";
+import MailingListConfirmationEmail from "@/ui/email/mailing-list-confirmation-email";
+import ShowRequestResponseEmail from "@/ui/email/show-request-response";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -32,15 +33,6 @@ export async function signOut() {
   redirect("/");
 }
 
-// mailing list actions
-// export async function signUpForMailingList(email: string) {
-//   await sql`
-//     INSERT INTO mailing_list (email)
-//     VALUES (${email})
-//     ON CONFLICT (email) DO NOTHING
-//   `;
-// }
-
 export async function signUpForMailingList(email: string) {
   const entries = await sql`
     INSERT INTO mailing_list (email)
@@ -57,7 +49,7 @@ export async function signUpForMailingList(email: string) {
     from: "The Long Emergency <info@thelongemergency.com>",
     to: email,
     subject: "Welcome to The Long Emergency",
-    react: createElement(MailingListConfirmationEmailTemplate),
+    react: createElement(MailingListConfirmationEmail),
   });
 
   if (error) {
@@ -81,20 +73,42 @@ export async function removeFromMailingList(email: string) {
 
 // request a show actions
 export async function submitShowRequest(showRequest: {
-  name: string;
+  firstName: string;
+  lastName?: string;
   email: string;
-  phone: string;
+  phone?: string;
   message: string;
-  subscribe: boolean;
+  mailingListOptIn: boolean;
+  preferredDateFirstChoice?: string;
+  preferredDateSecondChoice?: string;
+  preferredDateThirdChoice?: string;
+  location: "stl-area" | "outside-stl-area";
+  city?: string;
+  state?: string;
+  placeToCrashOptIn?: boolean;
+  placeToCrashDescription?: string; // only when placeToCrashOptIn === true
+  needsHelpFindingPlaceToCrash?: boolean;
+  hasVenue: boolean;
+  venueType?: "house" | "bar/club" | "other";
+  venueName?: string;
+  venueWebsite?: string;
+  venueAddress?: string;
+  canArrangeVenue?: boolean;
 }) {
   await sql`
-    INSERT INTO show_requests (name, email, phone, message, subscribe)
+    INSERT INTO show_requests (
+      first_name, last_name, email, phone, message, mailing_list_opt_in,
+      preferred_date_first_choice, preferred_date_second_choice, preferred_date_third_choice,
+      location, city, state,
+      place_to_crash_opt_in, place_to_crash_description, needs_help_finding_place_to_crash,
+      has_venue, venue_type, venue_name, venue_website, venue_address, can_arrange_venue
+    )
     VALUES (
-      ${showRequest.name},
-      ${showRequest.email},
-      ${showRequest.phone},
-      ${showRequest.message},
-      ${showRequest.subscribe}
+      ${showRequest.firstName}, ${showRequest.lastName}, ${showRequest.email}, ${showRequest.phone}, ${showRequest.message}, ${showRequest.mailingListOptIn},
+      ${showRequest.preferredDateFirstChoice ?? null}, ${showRequest.preferredDateSecondChoice ?? null}, ${showRequest.preferredDateThirdChoice ?? null},
+      ${showRequest.location}, ${showRequest.city ?? null}, ${showRequest.state ?? null},
+      ${showRequest.placeToCrashOptIn ?? null}, ${showRequest.needsHelpFindingPlaceToCrash ?? null},
+      ${showRequest.hasVenue}, ${showRequest.venueType ?? null}, ${showRequest.venueName ?? null}, ${showRequest.venueWebsite ?? null}, ${showRequest.venueAddress ?? null}, ${showRequest.canArrangeVenue ?? null}
     )
   `;
 
@@ -102,13 +116,17 @@ export async function submitShowRequest(showRequest: {
     from: "The Long Emergency <info@thelongemergency.com>",
     to: showRequest.email,
     subject: "Show Request Received",
-    react: createElement(MailingListConfirmationEmailTemplate),
+    react: createElement(ShowRequestResponseEmail),
   });
 
-  if (showRequest.subscribe) {
+  if (error) {
+    throw new Error("Failed to send show request confirmation email.");
+  }
+
+
+  if (showRequest.mailingListOptIn) {
     await signUpForMailingList(showRequest.email);
   }
-  return showRequest;
 }
 
 // calendar event actions

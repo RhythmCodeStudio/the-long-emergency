@@ -30,8 +30,7 @@ export default function LyricsModal({
         className={` m-1 px-2 py-1 text-white rounded-full bg-customGray ${isDisabled ? "opacity-50 cursor-not-allowed" : ""}`}
         aria-label={`View lyrics for ${title}`}
         type="button"
-        disabled={isDisabled}
-      >
+        disabled={isDisabled}>
         <span className="text-black font-bold text-shadow-white">Lyrics</span>
       </button>
       <Modal
@@ -44,7 +43,7 @@ export default function LyricsModal({
         scrollBehavior="normal"
         backdrop="blur"
         className="flex items-center justify-center max-w-[80vw] lg:max-w-[60vw] xl:max-w-[40vw] 2xl:max-w-[40vw] 3xl:max-w-[30vw]">
-        <ModalContent className="bg-black rounded-2xl max-h-[80vh] overflow-y-auto shadow-md shadow-white border-2 border-slate-400">
+        <ModalContent className="bg-black rounded-3xl max-h-[80vh] overflow-y-auto shadow-md shadow-white border-2 border-slate-400">
           {(onClose) => (
             <>
               <ModalHeader>
@@ -56,17 +55,19 @@ export default function LyricsModal({
                   <FiX />
                 </button>
                 <div className="mt-2 flex-col justify-center text-center items-center w-full">
-                  <p className="font-emergency text-xl md:text-2xl text-white text-outline-gray">{title}</p>
+                  <p className="font-emergency text-xl md:text-2xl text-white text-outline-gray">
+                    {title}
+                  </p>
                 </div>
               </ModalHeader>
               <ModalBody
-                className="p-2 relative flex justify-center items-center overflow-y-auto rounded-2xl bg-[url('/images/masks-no-text-2048.png')] bg-cover"
+                className="p-2 relative flex justify-center items-center overflow-y-auto rounded-3xl bg-[url('/images/masks-no-text-2048.png')] bg-cover"
                 // style={{
                 //   backgroundImage: "url(/images/masks-no-text-2048.png)",
                 //   backgroundSize: "cover",
                 // }}
               >
-                <div className="absolute inset-0 bg-[rgba(0,0,0,0.4)] rounded-2xl"></div>
+                <div className="absolute inset-0 bg-[rgba(0,0,0,0.4)] rounded-3xl"></div>
                 <div className="relative px-6 overflow-y-auto text-white hide-scrollbar">
                   <div className="text-center text-outline">
                     {lyrics.map((paragraph, index) => (
@@ -83,7 +84,9 @@ export default function LyricsModal({
               </ModalBody>
               <ModalFooter className="flex flex-col justify-center text-center items-center w-full">
                 <div className="text-outline-gray mb-6">
-                  <p className="font-emergency  text-xl md:text-2xl">The Long Emergency</p>
+                  <p className="font-emergency  text-xl md:text-2xl">
+                    The Long Emergency
+                  </p>
                   <p className=" mt-2">
                     music and lyrics
                     <br />

@@ -25,7 +25,7 @@ export default function ToastContent({
         icon={<RiCloseCircleFill size={18} className="icon-shadow" />}
       />
 
-      <div className="mt-6 flex flex-col items-center text-center rounded-2xl">
+      <div className="mt-6 flex flex-col items-center text-center rounded-3xl">
         <p>
           {message || (
             <>

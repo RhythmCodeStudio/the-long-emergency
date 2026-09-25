@@ -41,7 +41,7 @@ const toastMessage = (
       onDismiss?.();
     },
     className:
-      "border-2 border-slate-400 font-emergency text-outline-none text-black flex flex-col items-center justify-center text-center rounded-2xl shadow-lg shadow-white/50",
+      "border-2 border-slate-400 font-emergency text-outline-none text-black flex flex-col items-center justify-center text-center rounded-3xl shadow-lg shadow-white/50",
     theme: "dark",
     style: {
       backgroundImage:

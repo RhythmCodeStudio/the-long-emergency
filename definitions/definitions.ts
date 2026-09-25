@@ -22,16 +22,31 @@ export type CalendarEvent = {
 
 export type ShowRequest = {
   id: string;
-  name: string;
+  firstName: string;
+  lastName?: string;
   email: string;
-  venueName: string;
-  venueAddress: string;
-  preferredDateFirstChoice: Date;
-  preferredDateSecondChoice?: Date;
-  preferredDateThirdChoice?: Date;
-  mailingListOptIn: boolean;
-  placeToCrashOptIn: boolean;
+  phone?: string;
   message: string;
+  mailingListOptIn: boolean;
+
+  preferredDateFirstChoice?: string; // yyyy-mm-dd, from <input type="date">
+  preferredDateSecondChoice?: string;
+  preferredDateThirdChoice?: string;
+
+  location: "stl-area" | "outside-stl-area";
+  city?: string; // only when location === "outside-stl-area"
+  state?: string; // only when location === "outside-stl-area"
+
+  placeToCrashOptIn?: boolean; // only when location === "outside-stl-area"
+  placeToCrashDescription?: string; // only when placeToCrashOptIn === true
+  needsHelpFindingPlaceToCrash?: boolean; // only when placeToCrashOptIn === false
+
+  hasVenue: boolean;
+  venueType?: "house" | "bar/club" | "other"; // only when hasVenue === true
+  venueName?: string;
+  venueWebsite?: string;
+  venueAddress?: string;
+  canArrangeVenue?: boolean; // only when hasVenue === false
 };
 
 export type Page = {

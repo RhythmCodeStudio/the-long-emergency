@@ -68,12 +68,14 @@ export default function MusicDisplay({
                   alt={`${release.title} cover art`}
                   width={1423}
                   height={1411}
-                  className=" h-auto shadow-md shadow-white border-2 border-slate-400 rounded-2xl"
+                  className=" h-auto shadow-md shadow-white border-2 border-slate-400 rounded-3xl"
                 />
               </div>
               <div className="text-outline  ">
                 <div className="download-release-div ">
-                  <h6 className="text-xs sm:text-sm">Download {release.title}</h6>
+                  <h6 className="text-xs sm:text-sm">
+                    Download {release.title}
+                  </h6>
                   <div
                     className="mb-6 flex justify-center icon-outline"
                     onClick={() => {

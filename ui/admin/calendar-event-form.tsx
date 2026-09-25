@@ -269,7 +269,7 @@ export default function CalendarEventForm({
             id="date"
             name="date"
             required
-            className="shadow-md shadow-green-500/50 border-2 border-green-500 p-2 max-w-xs w-full text-black placeholder-neutral-800 rounded-2xl bg-neutral-100 tracking-wide h-10"
+            className="shadow-md shadow-green-500/50 border-2 border-green-500 p-2 max-w-xs w-full text-black placeholder-neutral-800 rounded-3xl bg-neutral-100 tracking-wide h-10"
             value={date}
             autoComplete="off"
             onChange={(e) => setDate(e.target.value)}
@@ -295,7 +295,7 @@ export default function CalendarEventForm({
             type="date"
             id="endDate"
             name="endDate"
-            className="shadow-md shadow-green-500/50 border-2 border-green-500 p-2 text-black placeholder-neutral-800 rounded-2xl bg-neutral-100 tracking-wide h-10 w-full"
+            className="shadow-md shadow-green-500/50 border-2 border-green-500 p-2 text-black placeholder-neutral-800 rounded-3xl bg-neutral-100 tracking-wide h-10 w-full"
             value={endDate}
             autoComplete="off"
             onChange={(e) => setDate(e.target.value)}

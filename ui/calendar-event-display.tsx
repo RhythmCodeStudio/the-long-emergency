@@ -177,7 +177,7 @@ export default function CalendarEventDisplay({
       </section>
       {editModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 px-8 md:px-0">
-          <div className=" rounded-2xl shadow-2xl p-6 max-w-lg w-full relative max-h-[90vh] overflow-y-auto">
+          <div className=" rounded-3xl shadow-2xl p-6 max-w-lg w-full relative max-h-[90vh] overflow-y-auto">
             <button
               onClick={handleModalToggle}
               className="absolute top-2 right-2 text-black hover:text-black text-4xl"
@@ -213,7 +213,7 @@ export default function CalendarEventDisplay({
       )}
       {duplicateModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 px-8 md:px-0">
-          <div className=" rounded-2xl shadow-2xl p-6 max-w-lg w-full relative max-h-[90vh] overflow-y-auto">
+          <div className=" rounded-3xl shadow-2xl p-6 max-w-lg w-full relative max-h-[90vh] overflow-y-auto">
             <button
               onClick={() => setDuplicateModalOpen(false)}
               className="absolute top-2 right-2 text-black hover:text-black text-4xl"

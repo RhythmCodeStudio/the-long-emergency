@@ -127,6 +127,9 @@ export async function submitShowRequest(showRequest: {
       ${showRequest.canArrangeVenue ?? null}
     )
   `;
+  if (showRequest.mailingListOptIn) {
+    await signUpForMailingList(showRequest.email);
+  }
 }
 
 // calendar event actions

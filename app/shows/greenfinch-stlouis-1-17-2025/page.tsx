@@ -14,7 +14,7 @@ export const metadata = {
 
 export default async function AlbumReleaseShow() {
   return (
-    <div className="">
+    <div className="w-full">
       <div className="relative flex flex-col justify-center items-center text-outline text-center">
         <h2 className="font-emergency text-2xl lg:text-3xl xl:text-4xl m-4 text-center">
           Album Release Show
@@ -33,7 +33,7 @@ export default async function AlbumReleaseShow() {
         <h5 className="text-xl">&quot;I spent all my money on a habit&quot;</h5>
         <Link href="/music">
           <Image
-            className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 m-2"
+            className="shadow-md shadow-white rounded-3xl border-2 border-slate-400 m-2"
             width={213}
             height={211}
             src="/music/habit/album-art/front-cover.png"
@@ -44,7 +44,7 @@ export default async function AlbumReleaseShow() {
           </h6>
         </Link>
 
-        <div className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 p-6 m-12 relative flex flex-col justify-center items-center text-outline text-center">
+        <div className="shadow-md shadow-white rounded-3xl border-2 border-slate-400 p-6 m-12 relative flex flex-col justify-center items-center text-outline text-center">
           <p className="text-lg">
             In celebration of my birthday please consider supporting
           </p>
@@ -194,7 +194,7 @@ export default async function AlbumReleaseShow() {
             alt="Kevin Long playing guitar and singing into a microphone"
             width={870}
             height={320}
-            className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 mb-12 xl:mb-0"
+            className="shadow-md shadow-white rounded-3xl border-2 border-slate-400 mb-12 xl:mb-0"
           />
         </div>
         <Link href="/">

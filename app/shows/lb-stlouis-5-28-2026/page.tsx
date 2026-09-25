@@ -14,7 +14,7 @@ export const metadata = {
 
 export default async function LBShowPage() {
   return (
-    <div>
+    <div className="w-full">
       <div className="relative flex flex-col justify-center items-center text-outline text-center">
         <h2 className="font-emergency text-2xl lg:text-3xl xl:text-4xl m-4 text-center">
           Thursday, May 28th, 2026
@@ -28,7 +28,7 @@ export default async function LBShowPage() {
           alt="show poster"
           width={300}
           height={425}
-          className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400  "
+          className="shadow-md shadow-white rounded-3xl border-2 border-slate-400"
         />
         <div className="mt-6 relative flex flex-col justify-center items-center  text-center">
           <div className="m-4">
@@ -130,7 +130,7 @@ export default async function LBShowPage() {
             alt="Kevin Long playing guitar and singing into a microphone"
             width={870}
             height={320}
-            className="shadow-2xl shadow-blue-300/50 border-2 border-slate-400 mb-12 xl:mb-0"
+            className="shadow-md shadow-white rounded-3xl border-2 border-slate-400 mb-12 xl:mb-0"
           />
         </div>
         <Link href="/">

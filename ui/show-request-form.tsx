@@ -11,6 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 // import from components
 import FormInput from "./form-input";
 import FormCheckbox from "./form-checkbox";
+import StateAutocomplete from "./state-auto-complete";
 // import from utils
 import {
   validateEmail,
@@ -330,7 +331,7 @@ export default function ShowRequestForm() {
           setPreferredDateFirstChoice("");
           setPreferredDateSecondChoice("");
           setPreferredDateThirdChoice("");
-          setLocationChecked(undefined);
+          setLocationChecked("stl-area");
           setCity("");
           setState("");
           setPlaceToCrashChecked(undefined);
@@ -429,7 +430,7 @@ export default function ShowRequestForm() {
             label="1st Choice"
             name="preferredDateFirstChoice"
             value={preferredDateFirstChoice}
-            required={false}
+            required={true}
             min={new Date().toISOString().split("T")[0]}
             errorMessage={preferredDateFirstChoiceErrorMessage}
             handleChange={handlePreferredDateFirstChoiceChange}
@@ -440,7 +441,7 @@ export default function ShowRequestForm() {
             label="2nd Choice"
             name="preferredDateSecondChoice"
             value={preferredDateSecondChoice}
-            required={false}
+            required={true}
             min={new Date().toISOString().split("T")[0]}
             errorMessage={preferredDateSecondChoiceErrorMessage}
             handleChange={handlePreferredDateSecondChoiceChange}
@@ -457,11 +458,9 @@ export default function ShowRequestForm() {
             handleChange={handlePreferredDateThirdChoiceChange}
           />
         </div>
-
         <p className="text-center text-lg font-semibold mt-6 mb-4">
           Location / Venue
         </p>
-
         <>
           <p>
             Where are you requesting a show?
@@ -507,19 +506,16 @@ export default function ShowRequestForm() {
               errorMessage={cityErrorMessage}
               setStateVariable={setCity}
             />
-            <FormInput
-              idPrefix="show-request-form"
-              inputType="input"
-              label="State"
-              type="text"
-              name="state"
+            <StateAutocomplete
               value={state}
-              handleChange={handleChange}
-              placeholder="State"
-              required={false}
-              autoComplete="address-level1"
               errorMessage={stateErrorMessage}
-              setStateVariable={setState}
+              onChange={(nextValue) => {
+                setState(nextValue);
+                if (validateState(nextValue)) {
+                  setStateErrorMessage("");
+                }
+              }}
+              onErrorMessageChange={setStateErrorMessage}
             />
             <p>Do you have a place I can crash after the show?</p>
             <div className="grid grid-cols-2">
@@ -764,8 +760,15 @@ export default function ShowRequestForm() {
           <button
             onClick={handleFormSubmit}
             type="submit"
-            className="px-6 py-1 bg-blue-500 hover:bg-blue-700 rounded-full border-2 border-black">
-            <span className="font-emergency text-white text-outline">Send</span>
+            disabled={buttonSubmitted}
+            className={`px-6 py-1 rounded-full border-2 border-black ${
+              buttonSubmitted
+                ? "bg-green-600 opacity-80 pointer-events-none"
+                : "bg-blue-500 hover:bg-blue-700"
+            }`}>
+            <span className="font-emergency text-white text-outline">
+              {buttonSubmitted ? "Sent" : "Send"}
+            </span>
           </button>
         </div>
         {deliveryErrorMessage && (

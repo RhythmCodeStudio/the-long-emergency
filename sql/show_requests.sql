@@ -17,6 +17,7 @@ CREATE TABLE show_requests (
   state TEXT,
 
   place_to_crash_opt_in BOOLEAN,
+  place_to_crash_description TEXT,
   needs_help_finding_place_to_crash BOOLEAN,
 
   has_venue BOOLEAN NOT NULL,

@@ -77,7 +77,7 @@ export async function submitShowRequest(showRequest: {
   lastName?: string;
   email: string;
   phone?: string;
-  message: string;
+  message?: string;
   mailingListOptIn: boolean;
   preferredDateFirstChoice?: string;
   preferredDateSecondChoice?: string;
@@ -86,9 +86,9 @@ export async function submitShowRequest(showRequest: {
   city?: string;
   state?: string;
   placeToCrashOptIn?: boolean;
-  placeToCrashDescription?: string; // only when placeToCrashOptIn === true
+  placeToCrashDescription?: string;
   needsHelpFindingPlaceToCrash?: boolean;
-  hasVenue: boolean;
+  hasVenue?: boolean;
   venueType?: "house" | "bar/club" | "other";
   venueName?: string;
   venueWebsite?: string;
@@ -96,53 +96,37 @@ export async function submitShowRequest(showRequest: {
   canArrangeVenue?: boolean;
 }) {
   await sql`
-  INSERT INTO show_requests (
-    first_name, last_name, email, phone, message, mailing_list_opt_in,
-    preferred_date_first_choice, preferred_date_second_choice, preferred_date_third_choice,
-    location, city, state,
-    place_to_crash_opt_in, place_to_crash_description, needs_help_finding_place_to_crash,
-    has_venue, venue_type, venue_name, venue_website, venue_address, can_arrange_venue
-  )
-  VALUES (
-    ${showRequest.firstName},
-    ${showRequest.lastName ?? null},
-    ${showRequest.email},
-    ${showRequest.phone ?? null},
-    ${showRequest.message},
-    ${showRequest.mailingListOptIn},
-    ${showRequest.preferredDateFirstChoice ?? null},
-    ${showRequest.preferredDateSecondChoice ?? null},
-    ${showRequest.preferredDateThirdChoice ?? null},
-    ${showRequest.location},
-    ${showRequest.city ?? null},
-    ${showRequest.state ?? null},
-    ${showRequest.placeToCrashOptIn ?? null},
-    ${showRequest.placeToCrashDescription ?? null},
-    ${showRequest.needsHelpFindingPlaceToCrash ?? null},
-    ${showRequest.hasVenue},
-    ${showRequest.venueType ?? null},
-    ${showRequest.venueName ?? null},
-    ${showRequest.venueWebsite ?? null},
-    ${showRequest.venueAddress ?? null},
-    ${showRequest.canArrangeVenue ?? null}
-  )
-`;
-
-  const { error } = await resend.emails.send({
-    from: "The Long Emergency <info@thelongemergency.com>",
-    to: showRequest.email,
-    subject: "Show Request Received",
-    react: createElement(ShowRequestResponseEmail),
-  });
-
-  if (error) {
-    throw new Error("Failed to send show request confirmation email.");
-  }
-
-
-  if (showRequest.mailingListOptIn) {
-    await signUpForMailingList(showRequest.email);
-  }
+    INSERT INTO show_requests (
+      first_name, last_name, email, phone, message, mailing_list_opt_in,
+      preferred_date_first_choice, preferred_date_second_choice, preferred_date_third_choice,
+      location, city, state,
+      place_to_crash_opt_in, place_to_crash_description, needs_help_finding_place_to_crash,
+      has_venue, venue_type, venue_name, venue_website, venue_address, can_arrange_venue
+    )
+    VALUES (
+      ${showRequest.firstName},
+      ${showRequest.lastName ?? null},
+      ${showRequest.email},
+      ${showRequest.phone ?? null},
+      ${showRequest.message ?? null},
+      ${showRequest.mailingListOptIn},
+      ${showRequest.preferredDateFirstChoice ?? null},
+      ${showRequest.preferredDateSecondChoice ?? null},
+      ${showRequest.preferredDateThirdChoice ?? null},
+      ${showRequest.location},
+      ${showRequest.city ?? null},
+      ${showRequest.state ?? null},
+      ${showRequest.placeToCrashOptIn ?? null},
+      ${showRequest.placeToCrashDescription ?? null},
+      ${showRequest.needsHelpFindingPlaceToCrash ?? null},
+      ${showRequest.hasVenue ?? null},
+      ${showRequest.venueType ?? null},
+      ${showRequest.venueName ?? null},
+      ${showRequest.venueWebsite ?? null},
+      ${showRequest.venueAddress ?? null},
+      ${showRequest.canArrangeVenue ?? null}
+    )
+  `;
 }
 
 // calendar event actions

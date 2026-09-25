@@ -45,7 +45,9 @@ export default function ShowRequestForm() {
   const [venueChecked, setVenueChecked] = useState<boolean | undefined>(
     undefined,
   );
-  const [venueType, setVenueType] = useState<string | undefined>(undefined);
+  const [venueType, setVenueType] = useState<
+    "house" | "bar/club" | "other" | undefined
+  >(undefined);
   const [venueName, setVenueName] = useState("");
   const [venueWebsite, setVenueWebsite] = useState("");
   const [venueAddress, setVenueAddress] = useState("");
@@ -137,7 +139,8 @@ export default function ShowRequestForm() {
   };
 
   const handleVenueTypeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setVenueType(e.target.value);
+    const value = e.target.value as "house" | "bar/club" | "other";
+    setVenueType(value);
     if (e.target.value !== "house") {
       setVenueName("");
       setVenueNameErrorMessage("");
@@ -237,149 +240,174 @@ export default function ShowRequestForm() {
   };
 
   const handleFormSubmit = async (e: { preventDefault: () => void }) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const trimmedFirstName = firstName.trim();
-    const trimmedLastName = lastName.trim();
-    const trimmedEmail = email.trim();
-    const trimmedPhone = phone.trim();
-    const isEmailValid = validateEmail(trimmedEmail);
-    const isPhoneValid = trimmedPhone === "" || validatePhone(trimmedPhone);
-    const isFirstNameValid = validateName(trimmedFirstName);
-    const isLastNameValid =
-      trimmedLastName === "" || validateName(trimmedLastName);
-    const trimmedMessage = message.trim();
-    const isMessageValid = validateMessage(trimmedMessage);
-    const isLocationValid = locationChecked !== undefined;
+  const trimmedFirstName = firstName.trim();
+  const trimmedLastName = lastName.trim();
+  const trimmedEmail = email.trim();
+  const trimmedPhone = phone.trim();
+  const trimmedMessage = message.trim();
 
-    if (!isEmailValid) {
-      setEmailErrorMessage("Please enter a valid email address.");
-      return;
+  const isEmailValid = validateEmail(trimmedEmail);
+  const isFirstNameValid = validateName(trimmedFirstName);
+  const isLastNameValid =
+    trimmedLastName === "" || validateName(trimmedLastName);
+  const isPhoneValid = trimmedPhone === "" || validatePhone(trimmedPhone);
+
+  const isPreferredDateFirstChoiceValid =
+    preferredDateFirstChoice.trim() !== "";
+  const isPreferredDateSecondChoiceValid =
+    preferredDateSecondChoice.trim() !== "";
+
+  if (!isEmailValid) {
+    setEmailErrorMessage("Please enter a valid email address.");
+    return;
+  }
+
+  if (!isFirstNameValid) {
+    setFirstNameErrorMessage("Please enter a valid first name.");
+    return;
+  }
+
+  if (!isLastNameValid) {
+    setLastNameErrorMessage("Please enter a valid last name.");
+    return;
+  }
+
+  if (!isPhoneValid) {
+    setPhoneErrorMessage("Please enter a valid phone number.");
+    return;
+  }
+
+  if (!isPreferredDateFirstChoiceValid) {
+    setPreferredDateFirstChoiceErrorMessage(
+      "Please choose a first date preference.",
+    );
+    return;
+  }
+
+  if (!isPreferredDateSecondChoiceValid) {
+    setPreferredDateSecondChoiceErrorMessage(
+      "Please choose a second date preference.",
+    );
+    return;
+  }
+
+  if (
+    isEmailValid &&
+    isFirstNameValid &&
+    isLastNameValid &&
+    isPhoneValid &&
+    isPreferredDateFirstChoiceValid &&
+    isPreferredDateSecondChoiceValid
+  ) {
+    try {
+      const payload = {
+        firstName: trimmedFirstName,
+        ...(trimmedLastName ? { lastName: trimmedLastName } : {}),
+        email: trimmedEmail,
+        ...(trimmedPhone ? { phone: trimmedPhone } : {}),
+        ...(trimmedMessage ? { message: trimmedMessage } : {}),
+
+        mailingListOptIn: mailingListChecked,
+
+        ...(preferredDateFirstChoice
+          ? { preferredDateFirstChoice }
+          : {}),
+        ...(preferredDateSecondChoice
+          ? { preferredDateSecondChoice }
+          : {}),
+        ...(preferredDateThirdChoice
+          ? { preferredDateThirdChoice }
+          : {}),
+
+        location: locationChecked!,
+
+        ...(locationChecked === "outside-stl-area"
+          ? {
+              ...(city ? { city } : {}),
+              ...(state ? { state } : {}),
+            }
+          : {}),
+
+        ...(locationChecked === "outside-stl-area" &&
+        placeToCrashChecked !== undefined
+          ? {
+              placeToCrashOptIn: placeToCrashChecked,
+            }
+          : {}),
+
+        ...(placeToCrashChecked === true
+          ? {
+              ...(placeToCrashDescription
+                ? { placeToCrashDescription }
+                : {}),
+            }
+          : {}),
+
+        ...(placeToCrashChecked === false
+          ? {
+              ...(helpWithPlaceToCrash !== undefined
+                ? { needsHelpFindingPlaceToCrash: helpWithPlaceToCrash }
+                : {}),
+            }
+          : {}),
+
+        ...(venueChecked !== undefined ? { hasVenue: venueChecked } : {}),
+
+        ...(venueChecked
+          ? {
+              ...(venueType ? { venueType } : {}),
+              ...(venueName ? { venueName } : {}),
+              ...(venueWebsite ? { venueWebsite } : {}),
+              ...(venueAddress ? { venueAddress } : {}),
+            }
+          : {}),
+
+        ...(venueChecked === false
+          ? {
+              ...(arrangeVenueChecked !== undefined
+                ? { canArrangeVenue: arrangeVenueChecked }
+                : {}),
+            }
+          : {}),
+      };
+
+      await submitShowRequest(payload).then(() => {
+        track("show_request_submitted");
+        setButtonSubmitted(true);
+        setFirstName("");
+        setLastName("");
+        setEmail("");
+        setPhone("");
+        setMessage("");
+        setPreferredDateFirstChoice("");
+        setPreferredDateSecondChoice("");
+        setPreferredDateThirdChoice("");
+        setLocationChecked("stl-area");
+        setCity("");
+        setState("");
+        setPlaceToCrashChecked(undefined);
+        setPlaceToCrashDescription("");
+        setHelpWithPlaceToCrash(undefined);
+        setVenueChecked(undefined);
+        setVenueType(undefined);
+        setVenueName("");
+        setVenueWebsite("");
+        setVenueAddress("");
+        setArrangeVenueChecked(undefined);
+        setTimeout(() => {
+          setButtonSubmitted(false);
+        }, 3000);
+        notify();
+      });
+    } catch (error) {
+      setDeliveryErrorMessage(
+        "There was an error delivering your message. Please email us at info@thelongemergency.com. Sorry for the trouble.",
+      );
     }
-    if (!isFirstNameValid) {
-      setFirstNameErrorMessage("Please enter a valid first name.");
-      return;
-    }
-    if (!isLastNameValid) {
-      setLastNameErrorMessage("Please enter a valid last name.");
-      return;
-    }
-    if (!isPhoneValid) {
-      setPhoneErrorMessage("Please enter a valid phone number.");
-      return;
-    }
-    if (!isMessageValid) {
-      setMessageErrorMessage("Please enter a message.");
-      return;
-    }
-    if (!isLocationValid) {
-      setLocationErrorMessage("Please select a location.");
-      return;
-    }
-
-    if (
-      isEmailValid &&
-      isPhoneValid &&
-      isFirstNameValid &&
-      isLastNameValid &&
-      isMessageValid &&
-      isLocationValid
-    ) {
-      try {
-        const payload = {
-          firstName: trimmedFirstName,
-          lastName: trimmedLastName || undefined,
-          email: trimmedEmail,
-          phone: trimmedPhone || undefined,
-          message: trimmedMessage,
-          mailingListOptIn: mailingListChecked,
-
-          preferredDateFirstChoice: preferredDateFirstChoice || undefined,
-          preferredDateSecondChoice: preferredDateSecondChoice || undefined,
-          preferredDateThirdChoice: preferredDateThirdChoice || undefined,
-
-          location: locationChecked!,
-
-          ...(locationChecked === "outside-stl-area"
-            ? {
-                city: city || undefined,
-                state: state || undefined,
-              }
-            : {}),
-
-          ...(locationChecked === "outside-stl-area" &&
-          placeToCrashChecked !== undefined
-            ? {
-                placeToCrashOptIn: placeToCrashChecked,
-              }
-            : {}),
-
-          ...(placeToCrashChecked === true
-            ? {
-                placeToCrashDescription: placeToCrashDescription || undefined,
-              }
-            : {}),
-
-          ...(placeToCrashChecked === false
-            ? {
-                needsHelpFindingPlaceToCrash: helpWithPlaceToCrash,
-              }
-            : {}),
-
-          hasVenue: venueChecked!,
-
-          ...(venueChecked
-            ? {
-                venueType: venueType as
-                  "house" | "bar/club" | "other" | undefined,
-                venueName: venueName || undefined,
-                venueWebsite: venueWebsite || undefined,
-                venueAddress: venueAddress || undefined,
-              }
-            : {}),
-
-          ...(venueChecked === false
-            ? {
-                canArrangeVenue: arrangeVenueChecked,
-              }
-            : {}),
-        };
-
-        await submitShowRequest(payload).then(() => {
-          track("show_request_submitted");
-          setButtonSubmitted(true);
-          setFirstName("");
-          setLastName("");
-          setEmail("");
-          setPhone("");
-          setMessage("");
-          setPreferredDateFirstChoice("");
-          setPreferredDateSecondChoice("");
-          setPreferredDateThirdChoice("");
-          setLocationChecked("stl-area");
-          setCity("");
-          setState("");
-          setPlaceToCrashChecked(undefined);
-          setPlaceToCrashDescription("");
-          setHelpWithPlaceToCrash(undefined);
-          setVenueChecked(undefined);
-          setVenueType("");
-          setVenueName("");
-          setVenueWebsite("");
-          setVenueAddress("");
-          setArrangeVenueChecked(undefined);
-          setTimeout(() => {
-            setButtonSubmitted(false);
-          }, 3000);
-          notify();
-        });
-      } catch (error) {
-        setDeliveryErrorMessage(
-          "There was an error delivering your message. Please email us at info@thelongemergency.com. Sorry for the trouble.",
-        );
-      }
-    }
-  };
+  }
+};
 
   return (
     <div className="w-full">

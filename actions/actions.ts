@@ -16,6 +16,8 @@ import { Resend } from "resend";
 import { createElement } from "react";
 import MailingListConfirmationEmail from "@/ui/email/mailing-list-confirmation-email";
 import ShowRequestResponseEmail from "@/ui/email/show-request-response";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -45,12 +47,36 @@ export async function signUpForMailingList(email: string) {
     return;
   }
 
-  const { error } = await resend.emails.send({
-    from: "The Long Emergency <info@thelongemergency.com>",
-    to: email,
-    subject: "Welcome to The Long Emergency",
-    react: createElement(MailingListConfirmationEmail),
-  });
+  // const { error } = await resend.emails.send({
+  //   from: "The Long Emergency <info@thelongemergency.com>",
+  //   to: email,
+  //   subject: "Welcome to The Long Emergency",
+  //   react: createElement(MailingListConfirmationEmail),
+  // });
+
+  const [logo, kevinImage] = await Promise.all([
+  readFile(join(process.cwd(), "public/images/email/band-name-white.png")),
+  readFile(join(process.cwd(), "public/images/kevcutout3.png")),
+]);
+
+const { error } = await resend.emails.send({
+  from: "The Long Emergency <info@thelongemergency.com>",
+  to: email,
+  subject: "Welcome to The Long Emergency",
+  react: createElement(MailingListConfirmationEmail),
+  attachments: [
+    {
+      filename: "band-name-white.png",
+      content: logo,
+      contentId: "band-logo",
+    },
+    {
+      filename: "kevcutout3.png",
+      content: kevinImage,
+      contentId: "kevin-image",
+    },
+  ],
+});
 
   if (error) {
     throw new Error("Failed to send confirmation email.");

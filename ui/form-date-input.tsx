@@ -40,11 +40,15 @@ export default function FormDateInput({
         min={min}
         required={required}
         onChange={handleChange}
-        className="shadow-md shadow-white border-2 border-border-default w-full text-whitesmoke rounded-3xl tracking-wide caret-blue-500 bg-[linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url('/images/masks-no-text.png')] bg-no-repeat bg-cover bg-center px-6 pb-1 pt-2 flex items-center [&::-webkit-calendar-picker-indicator]:invert [&::-webkit-calendar-picker-indicator]:cursor-pointer"
+        className="px-6 pb-1 pt-2 w-full rounded-3xl border-2 border-border-default
+        bg-[linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url('/images/masks-no-text.png')] bg-cover bg-center px-6 py-2 text-whitesmoke shadow-md shadow-white [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-calendar-picker-indicator]:invert"
       />
       <p
         className="text-red-200 text-xs mt-1 ml-2 min-h-5 transition-opacity duration-300"
-        style={{ visibility: errorMessage ? "visible" : "hidden", opacity: errorMessage ? 1 : 0 }}>
+        style={{
+          visibility: errorMessage ? "visible" : "hidden",
+          opacity: errorMessage ? 1 : 0,
+        }}>
         {errorMessage || " "}
       </p>
     </div>

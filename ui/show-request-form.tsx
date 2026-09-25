@@ -403,7 +403,7 @@ export default function ShowRequestForm() {
     <div className="w-full">
       <form
         onSubmit={handleFormSubmit}
-        className="px-12 py-4 max-w-200 mx-auto relative">
+        className="px-6 py-4 max-w-200 mx-auto relative">
         <p className="text-center text-lg font-semibold mt-12 mb-4">
           Contact Information
         </p>
@@ -467,7 +467,7 @@ export default function ShowRequestForm() {
         <p className="text-center text-lg font-semibold mt-6 mb-4">
           Date Preferences
         </p>
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 md:gap-6">
           <FormDateInput
             idPrefix="show-request-form"
             label="1st Choice"
@@ -509,7 +509,7 @@ export default function ShowRequestForm() {
             Where are you requesting a show?
             <span className="text-sm">* (required)</span>
           </p>
-          <div className="grid grid-cols-2">
+          <div className="grid grid-cols-1 md:grid-cols-2">
             <FormCheckbox
               idPrefix="show-request-form"
               type="radio"
@@ -561,7 +561,7 @@ export default function ShowRequestForm() {
               onErrorMessageChange={setStateErrorMessage}
             />
             <p>Do you have a place I can crash after the show?</p>
-            <div className="grid grid-cols-2">
+            <div className="grid grid-cols-1 md:grid-cols-2">
               <FormCheckbox
                 idPrefix="show-request-form"
                 type="radio"
@@ -610,7 +610,7 @@ export default function ShowRequestForm() {
             {placeToCrashChecked === false && (
               <>
                 <p>Can you find a place for me to crash after the show?</p>
-                <div className="grid grid-cols-2">
+                <div className="grid grid-cols-1 md:grid-cols-2">
                   <FormCheckbox
                     idPrefix="show-request-form"
                     type="radio"
@@ -637,7 +637,7 @@ export default function ShowRequestForm() {
           </>
         )}
         <p>Do you have a venue in mind?</p>
-        <div className="grid grid-cols-2">
+        <div className="grid grid-cols-1 md:grid-cols-2">
           <FormCheckbox
             idPrefix="show-request-form"
             type="radio"
@@ -663,7 +663,7 @@ export default function ShowRequestForm() {
         {venueChecked === true && (
           <>
             <p>Great! What type of venue is it?</p>
-            <div className="grid grid-cols-3">
+            <div className="grid grid-cols-1 md:grid-cols-3">
               <FormCheckbox
                 idPrefix="show-request-form"
                 type="radio"

@@ -18,10 +18,7 @@ interface EmailLayoutProps {
   children: ReactNode;
 }
 
-export default function EmailLayout({
-  preview,
-  children,
-}: EmailLayoutProps) {
+export default function EmailLayout({ preview, children }: EmailLayoutProps) {
   return (
     <Html lang="en">
       <Head>
@@ -61,8 +58,8 @@ export default function EmailLayout({
             {/* Email-specific content */}
             <Section>{children}</Section>
 
-             <Section className="mb-6">
-               <table
+            <Section className="mb-6">
+              <table
                 role="presentation"
                 width="100%"
                 cellPadding="0"
@@ -143,9 +140,11 @@ export default function EmailLayout({
             </Section>
 
             {/* Footer */}
-            <Section className="text-center" style={{
-                  fontFamily: "'Special Elite', Georgia, serif",
-                }}>
+            <Section
+              className="text-center"
+              style={{
+                fontFamily: "'Special Elite', Georgia, serif",
+              }}>
               <Img
                 alt="The Long Emergency logo"
                 src="cid:band-logo"
@@ -177,6 +176,15 @@ export default function EmailLayout({
                 className="text-white underline">
                 info@thelongemergency.com
               </Link>
+
+              <Text className="text-center text-gray-400 my-6">
+                <Link
+                  className="underline text-gray-400"
+                  href="https://www.thelongemergency.com/mailing-list?mode=remove"
+                  title="Unsubscribe from mailing list">
+                  unsubscribe
+                </Link>
+              </Text>
             </Section>
           </Container>
         </Body>

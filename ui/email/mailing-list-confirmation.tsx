@@ -20,7 +20,7 @@
 // //   ? `https://${process.env.SITE_URL}`
 // //   : "";
 
-// export default function MailingListConfirmationEmailTemplate() {
+// export default function MailingListConfirmationTemplate() {
 //   return (
 //     <Html lang="en">
 //       <Head>
@@ -241,7 +241,7 @@
 import { Heading, Text } from "react-email";
 import EmailLayout from "./email-layout";
 
-export default function MailingListConfirmationEmail() {
+export default function MailingListConfirmation() {
   return (
     <EmailLayout preview="Welcome to The Long Emergency...">
       <Heading

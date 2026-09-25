@@ -286,41 +286,57 @@ export default function ShowRequestForm() {
       isLocationValid
     ) {
       try {
-        await submitShowRequest({
+        const payload = {
           firstName: trimmedFirstName,
-          lastName: trimmedLastName,
+          lastName: trimmedLastName || undefined,
           email: trimmedEmail,
-          phone: trimmedPhone,
+          phone: trimmedPhone || undefined,
           message: trimmedMessage,
           mailingListOptIn: mailingListChecked,
-
           preferredDateFirstChoice: preferredDateFirstChoice || undefined,
           preferredDateSecondChoice: preferredDateSecondChoice || undefined,
           preferredDateThirdChoice: preferredDateThirdChoice || undefined,
+          location: locationChecked!,
+          ...(locationChecked === "outside-stl-area"
+            ? {
+                city: city || undefined,
+                state: state || undefined,
+              }
+            : {}),
+          ...(locationChecked === "outside-stl-area" &&
+          placeToCrashChecked !== undefined
+            ? {
+                placeToCrashOptIn: placeToCrashChecked,
+              }
+            : {}),
+          ...(placeToCrashChecked === true
+            ? {
+                placeToCrashDescription: placeToCrashDescription || undefined,
+              }
+            : {}),
+          ...(placeToCrashChecked === false
+            ? {
+                needsHelpFindingPlaceToCrash: helpWithPlaceToCrash,
+              }
+            : {}),
+          hasVenue: venueChecked!,
+          ...(venueChecked
+            ? {
+                venueType: venueType as
+                  "house" | "bar/club" | "other" | undefined,
+                venueName: venueName || undefined,
+                venueWebsite: venueWebsite || undefined,
+                venueAddress: venueAddress || undefined,
+              }
+            : {}),
+          ...(venueChecked === false
+            ? {
+                canArrangeVenue: arrangeVenueChecked,
+              }
+            : {}),
+        };
 
-          location: locationChecked!, // validate before submit that this isn't undefined
-          city: locationChecked === "outside-stl-area" ? city : undefined,
-          state: locationChecked === "outside-stl-area" ? state : undefined,
-
-          placeToCrashOptIn:
-            locationChecked === "outside-stl-area"
-              ? placeToCrashChecked
-              : undefined,
-          placeToCrashDescription:
-            placeToCrashChecked === true ? placeToCrashDescription : undefined,
-          needsHelpFindingPlaceToCrash:
-            placeToCrashChecked === false ? helpWithPlaceToCrash : undefined,
-
-          hasVenue: venueChecked!, // validate before submit that this isn't undefined
-          venueType: venueChecked
-            ? (venueType as "house" | "bar/club" | "other")
-            : undefined,
-          venueName: venueChecked ? venueName : undefined,
-          venueWebsite: venueChecked ? venueWebsite : undefined,
-          venueAddress: venueChecked ? venueAddress : undefined,
-          canArrangeVenue:
-            venueChecked === false ? arrangeVenueChecked : undefined,
-        }).then(() => {
+        await submitShowRequest(payload).then(() => {
           track("show_request_submitted");
           setButtonSubmitted(true);
           setFirstName("");

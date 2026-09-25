@@ -19,7 +19,7 @@ export default function RequestAShowPage() {
         <li>Your first name</li>
         <li>Your email address</li>
         <li>Date preferences</li>
-        <li>A message describing your show request</li>
+        <li>A detailed message</li>
         
       </ul>
       <ShowRequestForm />

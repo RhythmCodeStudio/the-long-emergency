@@ -42,10 +42,16 @@ export default function MailingListConfirmationEmailTemplate() {
                   <Link
                     href={`https://www.thelongemergency.com/`}
                     className="inline-block">
-                    <Img
+                    {/* <Img
                       alt="The Long Emergency logo"
                       height="60"
                       src={`https://www.thelongemergency.com/images/email/band-name-white.png`}
+                    /> */}
+                    <Img
+                      alt="The Long Emergency logo"
+                      // width="240"
+                      height="60"
+                      src="cid:band-logo"
                     />
                   </Link>
                 </Column>
@@ -152,21 +158,35 @@ export default function MailingListConfirmationEmailTemplate() {
               </table>
             </Section>
             <Section>
-              <Img
-                src="https://www.thelongemergency.com/images/kevcutout3.png"
-                alt="Kevin Long playing the guitar"
-                className="mx-auto mt-4 w-60"
-              />
+              <Row>
+                <Column align="center">
+                  <Img
+                    src="cid:kevin-image"
+                    alt="Kevin Long playing the guitar"
+                    width="240"
+                    style={{
+                      display: "block",
+                      margin: "16px auto 0",
+                    }}
+                  />
+                </Column>
+              </Row>
             </Section>
 
             <Section className="text-center">
               <table className="w-full">
                 <tr className="w-full">
                   <td align="center">
-                    <Img
+                    {/* <Img
                       alt="The Long Emergency logo"
                       height="36"
                       src={`https://www.thelongemergency.com/images/email/band-name-white.png`}
+                    /> */}
+                    <Img
+                      alt="The Long Emergency logo"
+                      // width="144"
+                      height="36"
+                      src="cid:band-logo"
                     />
                     <Text className="text-center text-white mt-0 mb-2">
                       St. Louis, Missouri

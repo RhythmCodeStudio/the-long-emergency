@@ -16,9 +16,14 @@ import {
 interface EmailLayoutProps {
   preview: string;
   children: ReactNode;
+  includeUnsubscribeLink?: boolean;
 }
 
-export default function EmailLayout({ preview, children }: EmailLayoutProps) {
+export default function EmailLayout({
+  preview,
+  children,
+  includeUnsubscribeLink = true
+}: EmailLayoutProps) {
   return (
     <Html lang="en">
       <Head>
@@ -33,7 +38,7 @@ export default function EmailLayout({ preview, children }: EmailLayoutProps) {
 
       <Tailwind>
         <Body className="bg-zinc-950 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.16),transparent_58%)] font-sans w-full">
-          <Container className="w-full text-white">
+          <Container className="w-full text-white mb-6">
             {/* Header */}
             <Section className="my-4">
               <Link href="https://www.thelongemergency.com/">
@@ -177,14 +182,16 @@ export default function EmailLayout({ preview, children }: EmailLayoutProps) {
                 info@thelongemergency.com
               </Link>
 
-              <Text className="text-center text-gray-400 my-6">
-                <Link
-                  className="underline text-gray-400"
-                  href="https://www.thelongemergency.com/mailing-list?mode=remove"
-                  title="Unsubscribe from mailing list">
-                  unsubscribe
-                </Link>
-              </Text>
+              {includeUnsubscribeLink && (
+                <Text className="text-center text-gray-400 mt-6 mb-0">
+                  <Link
+                    className="underline text-gray-400"
+                    href="https://www.thelongemergency.com/mailing-list?mode=remove"
+                    title="Unsubscribe from mailing list">
+                    unsubscribe
+                  </Link>
+                </Text>
+              )}
             </Section>
           </Container>
         </Body>

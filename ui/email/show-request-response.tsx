@@ -3,7 +3,10 @@ import EmailLayout from "./email-layout";
 
 export default function ShowRequestResponseEmail() {
   return (
-    <EmailLayout preview="Thank you for your show request!">
+    <EmailLayout 
+      includeUnsubscribeLink={false}
+      preview="Thank you for your show request!"
+    >
        <Heading
         className="text-center text-lg"
         style={{

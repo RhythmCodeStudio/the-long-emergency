@@ -236,7 +236,7 @@ export default function ShowRequestForm() {
     }
   };
 
-  const handleFormSubmit = (e: { preventDefault: () => void }) => {
+  const handleFormSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
     const trimmedFirstName = firstName.trim();
@@ -286,7 +286,7 @@ export default function ShowRequestForm() {
       isLocationValid
     ) {
       try {
-        submitShowRequest({
+        await submitShowRequest({
           firstName: trimmedFirstName,
           lastName: trimmedLastName,
           email: trimmedEmail,
@@ -361,7 +361,7 @@ export default function ShowRequestForm() {
       <form
         onSubmit={handleFormSubmit}
         className="px-12 py-4 max-w-200 mx-auto relative">
-        <p className="text-center text-lg font-semibold mb-4">
+        <p className="text-center text-lg font-semibold mt-12 mb-4">
           Contact Information
         </p>
         <FormInput
@@ -758,7 +758,6 @@ export default function ShowRequestForm() {
         />
         <div className="flex justify-center items-center p-6 ">
           <button
-            onClick={handleFormSubmit}
             type="submit"
             disabled={buttonSubmitted}
             className={`px-6 py-1 rounded-full border-2 border-black ${

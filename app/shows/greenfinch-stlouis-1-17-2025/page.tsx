@@ -39,7 +39,7 @@ export default async function AlbumReleaseShow() {
             src="/music/habit/album-art/front-cover.png"
             alt="I spent all my money on a habit album cover"
           />
-          <h6 className="text-center text-2xl text-blue-300 hover:text-blue-400 underline">
+          <h6 className="text-center text-2xl text-customBlue hover:text-hoverBlue underline">
             Available Now
           </h6>
         </Link>
@@ -58,7 +58,7 @@ export default async function AlbumReleaseShow() {
               href="https://www.hopecreates.org/"
               target="_blank"
               rel="noreferrer noopener"
-              className="text-2xl text-blue-300 hover:text-blue-400">
+              className="text-2xl text-customBlue hover:text-hoverBlue">
               <Image
                 src="/images/hope-creates-logo.png"
                 alt="Hope Creates Logo"
@@ -73,7 +73,7 @@ export default async function AlbumReleaseShow() {
               href="https://www.hopecreates.org/give-today"
               target="_blank"
               rel="noreferrer noopener"
-              className="text-2xl text-blue-300 hover:text-blue-400 underline">
+              className="text-2xl text-customBlue hover:text-hoverBlue underline">
               DONATE TO HOPE CREATES
             </a>
           </div>
@@ -85,7 +85,7 @@ export default async function AlbumReleaseShow() {
               href="https://www.hopecreates.org/aart"
               target="_blank"
               rel="noreferrer noopener"
-              className="text-2xl text-blue-300 hover:text-blue-400 underline">
+              className="text-2xl text-customBlue hover:text-hoverBlue underline">
               BUY ART FROM HOPE CREATES
             </a>
           </div>
@@ -98,28 +98,28 @@ export default async function AlbumReleaseShow() {
               href="https://beacons.ai/leavingmissouri"
               target="_blank"
               rel="noreferrer noopener"
-              className="text-2xl text-blue-300 hover:text-blue-400 underline">
+              className="text-2xl text-customBlue hover:text-hoverBlue underline">
               <h6 className="text-xl">Website</h6>
             </a>
             <a
               href="https://leavingmissouri.bandcamp.com"
               target="_blank"
               rel="noreferrer noopener"
-              className="text-2xl text-blue-300 hover:text-blue-400 underline">
+              className="text-2xl text-customBlue hover:text-hoverBlue underline">
               <h6 className="text-xl">Bandcamp</h6>
             </a>
             <a
               href="https://www.instagram.com/leavingmissouri/"
               target="_blank"
               rel="noreferrer noopener"
-              className="text-2xl text-blue-300 hover:text-blue-400 underline">
+              className="text-2xl text-customBlue hover:text-hoverBlue underline">
               <h6 className="text-xl">Instagram</h6>
             </a>
             <a
               href="https://open.spotify.com/artist/6ccBaxBBCefMLqkUEmosdt"
               target="_blank"
               rel="noreferrer noopener"
-              className="text-2xl text-blue-300 hover:text-blue-400 underline">
+              className="text-2xl text-customBlue hover:text-hoverBlue underline">
               <h6 className="text-xl">Spotify</h6>
             </a>
           </div>
@@ -129,14 +129,14 @@ export default async function AlbumReleaseShow() {
               href="https://randomfog.com/"
               target="_blank"
               rel="noreferrer noopener"
-              className="text-2xl text-blue-300 hover:text-blue-400 underline">
+              className="text-2xl text-customBlue hover:text-hoverBlue underline">
               <h6 className="text-xl">Website</h6>
             </a>
             <a
               href="https://randomfog.bandcamp.com/"
               target="_blank"
               rel="noreferrer noopener"
-              className="text-2xl text-blue-300 hover:text-blue-400 underline">
+              className="text-2xl text-customBlue hover:text-hoverBlue underline">
               <h6 className="text-xl">Bandcamp</h6>
             </a>
 
@@ -144,14 +144,14 @@ export default async function AlbumReleaseShow() {
               href="https://www.instagram.com/randomfogband/"
               target="_blank"
               rel="noreferrer noopener"
-              className="text-2xl text-blue-300 hover:text-blue-400 underline">
+              className="text-2xl text-customBlue hover:text-hoverBlue underline">
               <h6 className="text-xl">Instagram</h6>
             </a>
             <a
               href="https://open.spotify.com/artist/1ZhBqLOcchDBuvBOqWoA8w"
               target="_blank"
               rel="noreferrer noopener"
-              className="text-2xl text-blue-300 hover:text-blue-400 underline">
+              className="text-2xl text-customBlue hover:text-hoverBlue underline">
               <h6 className="text-xl">Spotify</h6>
             </a>
           </div>
@@ -161,28 +161,28 @@ export default async function AlbumReleaseShow() {
               href="/"
               target="_blank"
               rel="noreferrer noopener"
-              className="text-2xl text-blue-300 hover:text-blue-400 underline">
+              className="text-2xl text-customBlue hover:text-hoverBlue underline">
               <h6 className="text-xl">Website</h6>
             </Link>
             <a
               href="https://thelongemergency.bandcamp.com/"
               target="_blank"
               rel="noreferrer noopener"
-              className="text-2xl text-blue-300 hover:text-blue-400 underline">
+              className="text-2xl text-customBlue hover:text-hoverBlue underline">
               <h6 className="text-xl">Bandcamp</h6>
             </a>
             <a
               href="https://www.instagram.com/longemergency/"
               target="_blank"
               rel="noreferrer noopener"
-              className="text-2xl text-blue-300 hover:text-blue-400 underline">
+              className="text-2xl text-customBlue hover:text-hoverBlue underline">
               <h6 className="text-xl">Instagram</h6>
             </a>
             <a
               href="https://open.spotify.com/artist/337ssIYmyo5p8gCv8v5X1z"
               target="_blank"
               rel="noreferrer noopener"
-              className="text-2xl text-blue-300 hover:text-blue-400 underline">
+              className="text-2xl text-customBlue hover:text-hoverBlue underline">
               <h6 className="text-xl">Spotify</h6>
             </a>
           </div>
@@ -198,8 +198,8 @@ export default async function AlbumReleaseShow() {
           />
         </div>
         <Link href="/">
-          <h6 className="mb-12 -mt-4 text-lg text-blue-300 hover:text-blue-400 underline">
-            www.thelongemergency.net
+          <h6 className="mb-12 -mt-4 text-lg text-customBlue hover:text-hoverBlue underline">
+            www.thelongemergency.com
           </h6>
         </Link>
       </div>

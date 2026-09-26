@@ -4,8 +4,8 @@ import Image from "next/image";
 import HostShowForm from "@/ui/host-show-form";
 export default function HostAShowPage() {
   return (
-    <div className="flex flex-col mx-auto w-full max-w-200 p-4">
-      <h3 className="text-2xl font-semibold mb-4 text-center">
+    <div className="flex flex-col mx-auto w-full max-w-200 ">
+      <h3 className="font-emergency text-outline text-center text-2xl md:text-3xl lg:text-3xl p-6">
         Host a Show
       </h3>
       <p className="px-6 py-4 max-w-200">

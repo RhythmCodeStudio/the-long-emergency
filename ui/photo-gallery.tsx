@@ -81,7 +81,7 @@ export default function PhotoGallery({
   return (
     <>
       {showOptions && (
-        <div className="flex flex-row justify-center items-center rounded-4xl shadow-white shadow-lg border-2 border-slate-400 bg-black/50 w-full max-w-[90vw] sm:w-7/12 md:w-6/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12 5xl:w-2/12 xl:max-w-sm mx-auto text-sm md:text-base mt-4 mb-8">
+        <div className="flex flex-row justify-center items-center rounded-3xl shadow-white shadow-lg border-2 border-slate-400 bg-black/50 w-full max-w-[90vw] sm:w-7/12 md:w-6/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12 5xl:w-2/12 xl:max-w-sm mx-auto text-sm md:text-base mt-4 mb-8">
           <Button
             label="band"
             onClick={() => {
@@ -89,7 +89,7 @@ export default function PhotoGallery({
               setActiveCategory("band");
               track("gallery_switch", { gallery: "band_photos" });
             }}
-            className={`m-2 px-2 rounded-4xl text-shadow-black-background-black ${activeCategory === "band" ? "" : "-hover"}`}
+            className={`m-2 px-2 rounded-3xl text-shadow-black-background-black ${activeCategory === "band" ? "" : "-hover"}`}
           />
           <span className="text-shadow-black-background-black">|</span>
           <Button
@@ -99,7 +99,7 @@ export default function PhotoGallery({
               setActiveCategory("solo");
               track("gallery_switch", { gallery: "solo_photos" });
             }}
-            className={`m-2 px-2 rounded-4xl text-shadow-black-background-black ${activeCategory === "solo" ? "" : "-hover"}`}
+            className={`m-2 px-2 rounded-3xl text-shadow-black-background-black ${activeCategory === "solo" ? "" : "-hover"}`}
           />
           <span className="text-shadow-black-background-black">|</span>
           <Button
@@ -109,7 +109,7 @@ export default function PhotoGallery({
               setActiveCategory("headshots");
               track("gallery_switch", { gallery: "headshots" });
             }}
-            className={`m-2 px-2 rounded-4xl text-shadow-black-background-black ${activeCategory === "headshots" ? "" : "-hover"}`}
+            className={`m-2 px-2 rounded-3xl text-shadow-black-background-black ${activeCategory === "headshots" ? "" : "-hover"}`}
           />
           <span className="text-shadow-black-background-black">|</span>
           <Button
@@ -119,7 +119,7 @@ export default function PhotoGallery({
               setActiveCategory("promo");
               track("gallery_switch", { gallery: "promo_pics" });
             }}
-            className={`m-2 px-2 rounded-4xl text-shadow-black-background-black ${activeCategory === "promo" ? "" : "-hover"}`}
+            className={`m-2 px-2 rounded-3xl text-shadow-black-background-black ${activeCategory === "promo" ? "" : "-hover"}`}
           />
         </div>
       )}

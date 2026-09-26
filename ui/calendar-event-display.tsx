@@ -88,8 +88,8 @@ export default function CalendarEventDisplay({
 
   return (
     <>
-      <section className=" border-slate-400 border-2 shadow-white shadow-lg rounded-4xl w-full md:min-w-xs text-center font-semibold">
-        <div className="w-full bg-black/50 rounded-4xl p-4 shadow-md shadow-white min-h-full flex flex-col items-center gap-1">
+      <section className=" border-slate-400 border-2 shadow-white shadow-lg rounded-3xl w-full md:min-w-xs text-center font-semibold">
+        <div className="w-full bg-black/50 rounded-3xl p-4 shadow-md shadow-white min-h-full flex flex-col items-center gap-1">
           <div className="w-full">
             <p className="">
               {formattedStartDate}{" "}

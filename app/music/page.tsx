@@ -37,9 +37,9 @@ export default async function MusicPage() {
   return (
     <div className="w-full">
       <div className="flex flex-col justify-center items-center ">
-         <h2 className="sm:hidden font-emergency text-outline text-center text-2xl lg:text-3xl xl:text-4xl py-4 sm:py-6">
+         <h3 className="font-emergency text-outline text-center text-2xl md:text-3xl lg:text-3xl p-6">
           {musicPageData?.page_title ?? "Music"}
-        </h2>
+        </h3>
         <section className="sm:py-6">
           <MusicDisplay releases={chronologicalReleases} songs={songs} />
         </section>

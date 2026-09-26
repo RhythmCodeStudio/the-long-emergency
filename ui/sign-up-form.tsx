@@ -79,7 +79,7 @@ export default function SignUpForm() {
       <form
         action={formAction}
         onSubmit={handleSubmit}
-        className="flex flex-col gap-5 items-center justify-center bg-black/50 border-slate-400 border-2 shadow-white shadow-lg rounded-4xl p-6 w-full max-w-md">
+        className="flex flex-col gap-5 items-center justify-center bg-black/50 border-slate-400 border-2 shadow-white shadow-md rounded-3xl p-6 w-full max-w-md">
         <div className="md:w-sm">
           <h2 className="text-center text-2xl font-bold ">
             Create New Account
@@ -98,7 +98,7 @@ export default function SignUpForm() {
             placeholder="The Long Emergency"
             autoComplete="username"
             disabled={isPending}
-            className="shadow-md shadow-black border-2 border-slate-400 p-2 w-full text-black placeholder-neutral-800 rounded-4xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
+            className="shadow-md shadow-black border-2 border-slate-400 p-2 w-full text-black placeholder-neutral-800 rounded-3xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
           />
         </div>
 
@@ -114,7 +114,7 @@ export default function SignUpForm() {
             placeholder="enter your email address"
             autoComplete="email"
             disabled={isPending}
-            className="shadow-md shadow-black border-2 border-slate-400 p-2 w-full text-black placeholder-neutral-800 rounded-4xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
+            className="shadow-md shadow-black border-2 border-slate-400 p-2 w-full text-black placeholder-neutral-800 rounded-3xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
           />
         </div>
 
@@ -134,7 +134,7 @@ export default function SignUpForm() {
               placeholder="enter a new password"
               autoComplete="new-password"
               disabled={isPending}
-              className="shadow-md shadow-black border-2 border-slate-400 p-2 w-full text-black placeholder-neutral-800 rounded-4xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
+              className="shadow-md shadow-black border-2 border-slate-400 p-2 w-full text-black placeholder-neutral-800 rounded-3xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
             />
             <button
               type="button"
@@ -165,7 +165,7 @@ export default function SignUpForm() {
               placeholder="confirm your password"
               autoComplete="new-password"
               disabled={isPending}
-              className="shadow-md shadow-black border-2 border-slate-400 p-2 w-full text-black placeholder-neutral-800 rounded-4xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
+              className="shadow-md shadow-black border-2 border-slate-400 p-2 w-full text-black placeholder-neutral-800 rounded-3xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
             />
             <button
               type="button"

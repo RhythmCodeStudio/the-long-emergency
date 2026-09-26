@@ -35,9 +35,9 @@ export default async function ShowsPage({
     <div className="flex flex-col items-center w-full min-h-full">
       {/* <div className="relative flex flex-col items-center"> */}
 
-      <h2 className="sm:hidden font-emergency text-outline text-center text-2xl lg:text-3xl xl:text-4xl py-4 sm:py-6">
+      <h3 className="font-emergency text-outline text-center text-2xl md:text-3xl lg:text-3xl p-6">
         {showsPageData?.page_title}
-      </h2>
+      </h3>
 
       <div className="w-full max-w-600 sm:py-4">
         <ShowDisplay gigView={gigView} />

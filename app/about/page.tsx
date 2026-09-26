@@ -15,12 +15,13 @@ export const metadata = {
 
 export default async function AboutPage() {
   const aboutPageData = await getPage("about");
+  console.log(aboutPageData);
   return (
     <div className="flex flex-col items-center w-full">
-      <h2 className="sm:hidden font-emergency text-outline text-center text-2xl lg:text-3xl xl:text-4xl py-4 sm:py-6">
+      <h3 className="font-emergency text-outline text-center text-2xl md:text-3xl lg:text-3xl p-6">
         {aboutPageData?.page_title ?? "About"}
-      </h2>
-      <div className="p-4 sm:pt-12">
+      </h3>
+      <div className="p-6">
         <BandBio />
       </div>
       {/* <Toaster toastId="default"/> */}

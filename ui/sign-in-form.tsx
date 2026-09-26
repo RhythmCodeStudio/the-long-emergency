@@ -53,7 +53,7 @@ export default function SignInForm() {
 
       <form
         action={formAction}
-        className="flex flex-col gap-5 items-center justify-center bg-black/50 border-slate-400 border-2 shadow-white shadow-lg rounded-4xl p-6 w-full max-w-md">
+        className="flex flex-col gap-5 items-center justify-center bg-black/50 border-slate-400 border-2 shadow-white shadow-md rounded-3xl p-6 w-full max-w-md">
         <div className="w-xs sm:w-sm">
           <h2 className="text-center text-2xl ">Sign In</h2>
         </div>
@@ -71,7 +71,7 @@ export default function SignInForm() {
             required
             placeholder="enter your email address"
             disabled={isPending}
-            className="shadow-md shadow-black border-2 border-slate-400 p-2 w-full text-black placeholder-neutral-800 rounded-4xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
+            className="shadow-md shadow-black border-2 border-slate-400 p-2 w-full text-black placeholder-neutral-800 rounded-3xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
           />
         </div>
 
@@ -89,7 +89,7 @@ export default function SignInForm() {
               autoComplete="current-password"
               placeholder="enter your password"
               disabled={isPending}
-              className="shadow-md shadow-black border-2 border-slate-400 p-2 w-full text-black placeholder-neutral-800 rounded-4xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
+              className="shadow-md shadow-black border-2 border-slate-400 p-2 w-full text-black placeholder-neutral-800 rounded-3xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
             />
             {/* CHANGED: Added aria-label improvement */}
             <button

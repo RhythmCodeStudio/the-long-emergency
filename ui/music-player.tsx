@@ -19,7 +19,7 @@ export default function MusicPlayer({
 
   return (
     <>
-      <div className="border-2 border-slate-400  flex flex-col justify-center items-center shadow-md shadow-white rounded-3xl w-full audio-player-container">
+      <div className="border-2 border-slate-400 flex flex-col justify-center items-center shadow-md shadow-white rounded-3xl w-full audio-player-container">
         <AudioPlayer
           className="h-36 text-center text-white rounded-3xl w-full"
           src={song.src}

@@ -196,7 +196,7 @@ export default function ShowDisplay({ gigView }: ShowDisplayProps) {
                               alt="show poster"
                               width={300}
                               height={425}
-                              className="shadow-md shadow-white rounded-3xl border-2 border-slate-400  hover:scale-105 transform transition-transform duration-500 ease-in-out"
+                              className="shadow-md shadow-white rounded-3xl border-2 border-slate-400  md:hover:scale-105 md:active:scale-95 transform transition-transform duration-500 ease-in-out"
                             />
                           ) : (
                             <span className="underline text-blue-300 hover:text-blue-400">

@@ -40,7 +40,7 @@ export default function FormDateInput({
         min={min}
         required={required}
         onChange={handleChange}
-        className="px-6 pb-1 pt-2 w-full rounded-3xl border-2 border-border-default
+        className="px-6 pb-1 pt-2 w-full rounded-3xl border-2 border-slate-400
         bg-[linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url('/images/masks-no-text.png')] bg-cover bg-center px-6 py-2 text-whitesmoke shadow-md shadow-white [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-calendar-picker-indicator]:invert"
       />
       <p

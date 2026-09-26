@@ -49,7 +49,7 @@ export default function InstallPrompt() {
   }
 
   return (
-    <div className="m-6 p-4 border-2 border-border-default rounded-4xl text-center max-w-[88vw] md:max-w-sm mx-auto text-black relative shadow-md shadow-white bg-black/80 z-50">
+    <div className="m-6 p-4 border-2 border-slate-400 rounded-4xl text-center max-w-[88vw] md:max-w-sm mx-auto text-black relative shadow-md shadow-white bg-black/80 z-50">
       <button
         onClick={handleDismiss}
         className="absolute top-2 right-2 hover:text-gray-700 text-2xl font-bold px-2 cursor-pointer "
@@ -66,7 +66,7 @@ export default function InstallPrompt() {
       {deferredPrompt && (
         <button
           onClick={handleInstallClick}
-          className=" p-1 rounded-full  border-2 border-border-default text-sm shadow-black/50 shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full max-w-xs hover:scale-105 transform transition-transform duration-600 active:scale-95 ">
+          className=" p-1 rounded-full  border-2 border-slate-400 text-sm shadow-black/50 shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full max-w-xs hover:scale-105 transform transition-transform duration-600 active:scale-95 ">
           Install App
         </button>
       )}

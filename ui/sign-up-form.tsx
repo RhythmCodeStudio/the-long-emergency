@@ -79,7 +79,7 @@ export default function SignUpForm() {
       <form
         action={formAction}
         onSubmit={handleSubmit}
-        className="flex flex-col gap-5 items-center justify-center bg-black/50 border-border-default border-2 shadow-white shadow-lg rounded-4xl p-6 w-full max-w-md">
+        className="flex flex-col gap-5 items-center justify-center bg-black/50 border-slate-400 border-2 shadow-white shadow-lg rounded-4xl p-6 w-full max-w-md">
         <div className="md:w-sm">
           <h2 className="text-center text-2xl font-bold ">
             Create New Account
@@ -98,7 +98,7 @@ export default function SignUpForm() {
             placeholder="The Long Emergency"
             autoComplete="username"
             disabled={isPending}
-            className="shadow-md shadow-black border-2 border-border-default p-2 w-full text-black placeholder-neutral-800 rounded-4xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
+            className="shadow-md shadow-black border-2 border-slate-400 p-2 w-full text-black placeholder-neutral-800 rounded-4xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
           />
         </div>
 
@@ -114,7 +114,7 @@ export default function SignUpForm() {
             placeholder="enter your email address"
             autoComplete="email"
             disabled={isPending}
-            className="shadow-md shadow-black border-2 border-border-default p-2 w-full text-black placeholder-neutral-800 rounded-4xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
+            className="shadow-md shadow-black border-2 border-slate-400 p-2 w-full text-black placeholder-neutral-800 rounded-4xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
           />
         </div>
 
@@ -134,7 +134,7 @@ export default function SignUpForm() {
               placeholder="enter a new password"
               autoComplete="new-password"
               disabled={isPending}
-              className="shadow-md shadow-black border-2 border-border-default p-2 w-full text-black placeholder-neutral-800 rounded-4xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
+              className="shadow-md shadow-black border-2 border-slate-400 p-2 w-full text-black placeholder-neutral-800 rounded-4xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
             />
             <button
               type="button"
@@ -165,7 +165,7 @@ export default function SignUpForm() {
               placeholder="confirm your password"
               autoComplete="new-password"
               disabled={isPending}
-              className="shadow-md shadow-black border-2 border-border-default p-2 w-full text-black placeholder-neutral-800 rounded-4xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
+              className="shadow-md shadow-black border-2 border-slate-400 p-2 w-full text-black placeholder-neutral-800 rounded-4xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
             />
             <button
               type="button"
@@ -186,7 +186,7 @@ export default function SignUpForm() {
         <button
           type="submit"
           disabled={isPending}
-          className="flex w-xs sm:w-sm mt-2 justify-center  px-3 py-1.5 text-sm/6 disabled:opacity-50 disabled:cursor-not-allowed border-2 border-border-default shadow-white shadow-md hover:shadow-lg rounded-full">
+          className="flex w-xs sm:w-sm mt-2 justify-center  px-3 py-1.5 text-sm/6 disabled:opacity-50 disabled:cursor-not-allowed border-2 border-slate-400 shadow-white shadow-md hover:shadow-lg rounded-full">
           <span className="">
             {isPending ? "Creating account..." : "Create Account"}
           </span>
@@ -196,7 +196,7 @@ export default function SignUpForm() {
           Already have an account?{" "}
           <Link
             href="/auth/sign-in"
-            className="font-medium text-blue-600 hover:text-blue-500 ml-1">
+            className="font-medium text-blue-300 hover:text-blue-400 ml-1">
             Sign in
           </Link>
         </p>

@@ -139,15 +139,13 @@ export default function ShowDisplay({ gigView }: ShowDisplayProps) {
       <div className="flex justify-center items-center p-4">
         <Link
           href="/shows?view=upcoming"
-          className={`${gigView === "upcoming" ? "bg-blue-300" : "bg-white"} inline-flex h-9 w-24 m-2 items-center justify-center rounded-full border-2 border-black text-black transition duration-300 ease-in-out md:hover:bg-blue-500 md:hover:text-white`}>
-          {" "}
-          <span className="relative top-px leading-none">Future</span>{" "}
+          className={`${gigView === "upcoming" ? "border-slate-400 bg-customBlue shadow-white pointer-events-none" : "bg-white border-black md:hover:border-slate-400"} inline-flex h-9 w-24 m-2 items-center justify-center rounded-full border-2 text-black transition ease-in-out duration-200 md:hover:shadow-white md:hover:bg-customBlue shadow-md`}>
+          <span className="relative top-px leading-none">Future</span>
         </Link>
         <Link
           href="/shows?view=past"
-          className={`${gigView === "past" ? "bg-blue-300" : "bg-white"} inline-flex h-9 w-24 m-2 items-center justify-center rounded-full border-2 border-black text-black transition duration-300 ease-in-out md:hover:bg-blue-500 md:hover:text-white`}>
-          {" "}
-          <span className="relative top-px leading-none">Past</span>{" "}
+          className={`${gigView === "past" ? "border-slate-400 bg-customBlue shadow-white pointer-events-none" : "bg-white border-black md:hover:border-slate-400"} inline-flex h-9 w-24 m-2 items-center justify-center rounded-full border-2 text-black transition ease-in-out duration-200 md:hover:shadow-white md:hover:bg-customBlue shadow-md`}>
+          <span className="relative top-px leading-none">Past</span>
         </Link>
       </div>
       <div className="p-6 text-outline">
@@ -162,7 +160,7 @@ export default function ShowDisplay({ gigView }: ShowDisplayProps) {
               <span>
                 <a
                   href="mailto:booking@thelongemergency.com"
-                  className="text-blue-300 hover:text-blue-400 underline">
+                  className="text-customBlue hover:text-hoverBlue underline">
                   booking@thelongemergency.com
                 </a>
               </span>

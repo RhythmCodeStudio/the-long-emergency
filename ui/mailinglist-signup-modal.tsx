@@ -17,7 +17,7 @@ export default function MailingListSignupModal() {
         label="Sign Up for Mailing List"
         title="Sign up for po's mailing list"
         onClick={() => setIsOpen(true)}
-        className="cursor-pointer border-2 border-border-default p-1 px-4 rounded-full   w-full font-semibold shadow-md shadow-white hover:shadow-lg transform transition-transform duration-200 active:scale-95"
+        className="cursor-pointer border-2 border-slate-400 p-1 px-4 rounded-full   w-full font-semibold shadow-md shadow-white hover:shadow-lg transform transition-transform duration-200 active:scale-95"
       />
       {isOpen && (
         <div className="fixed inset-0  flex items-center justify-center z-50">

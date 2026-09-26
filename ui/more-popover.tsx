@@ -80,7 +80,7 @@ export default function MorePopover({
                           close();
                           if (onAnyAction) onAnyAction(); // <-- close mobile menu if provided
                         }}
-                        className="flex items-center justify-center px-4 py-1 rounded-full border-2 border-border-default shadow-white shadow-md lg:hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full transform transition-transform duration-200 active:scale-95 font-medium tracking-wider text-sm">
+                        className="flex items-center justify-center px-4 py-1 rounded-full border-2 border-slate-400 shadow-white shadow-md lg:hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full transform transition-transform duration-200 active:scale-95 font-medium tracking-wider text-sm">
                         <span className="-mb-1">Admin Panel</span>
                       </Link>
                     </div>
@@ -108,7 +108,7 @@ export default function MorePopover({
                       close();
                       if (onAnyAction) onAnyAction(); // <-- close mobile menu if provided
                     }}
-                    className="flex items-center justify-center px-4 py-1 rounded-full border-2 border-border-default shadow-white shadow-md lg:hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full transform transition-transform duration-200 active:scale-95 font-medium tracking-wider text-sm">
+                    className="flex items-center justify-center px-4 py-1 rounded-full border-2 border-slate-400 shadow-white shadow-md lg:hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full transform transition-transform duration-200 active:scale-95 font-medium tracking-wider text-sm">
                     <span className="-mb-1">Signup for Mailing List</span>
                   </Link>
                 </div>
@@ -119,7 +119,7 @@ export default function MorePopover({
                       close();
                       if (onAnyAction) onAnyAction(); // <-- close mobile menu if provided
                     }}
-                    className="flex items-center justify-center px-4 py-1 rounded-full border-2 border-border-default shadow-white shadow-md lg:hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full transform transition-transform duration-200 active:scale-95 font-medium tracking-wider text-sm">
+                    className="flex items-center justify-center px-4 py-1 rounded-full border-2 border-slate-400 shadow-white shadow-md lg:hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full transform transition-transform duration-200 active:scale-95 font-medium tracking-wider text-sm">
                     <span className="-mb-1">Request a Show</span>
                   </Link>
                 </div>

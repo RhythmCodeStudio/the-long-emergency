@@ -24,7 +24,7 @@ export default function SignOutButton() {
       onClick={handleSignOut}
       // className="text-black hover:underline"
       className={clsx(
-        "flex items-center justify-center px-4 py-1 rounded-full border-2 border-border-default shadow-white shadow-md lg:hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full transform transition-transform duration-200 active:scale-95 font-medium tracking-wider text-sm",
+        "flex items-center justify-center px-4 py-1 rounded-full border-2 border-slate-400 shadow-white shadow-md lg:hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full transform transition-transform duration-200 active:scale-95 font-medium tracking-wider text-sm",
       )}
       labelClassName="-mb-1"
       label="Sign Out"

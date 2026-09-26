@@ -7,7 +7,7 @@ function SkeletonBox({ className }: { className?: string }) {
 export default function MailingListSkeleton() {
   return (
     <div className="flex flex-col justify-center items-center w-full p-8">
-      <div className="flex flex-col items-stretch w-full max-w-2xl p-4 lg:p-8 bg-black/50 border-border-default border-2 shadow-white shadow-lg rounded-4xl">
+      <div className="flex flex-col items-stretch w-full max-w-2xl p-4 lg:p-8 bg-black/50 border-slate-400 border-2 shadow-white shadow-lg rounded-4xl">
         {/* Heading skeleton */}
         <SkeletonBox className="h-8 w-48 sm:h-10 sm:w-64 mb-6 mx-auto" />
         {/* Email input skeleton */}

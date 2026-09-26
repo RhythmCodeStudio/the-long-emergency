@@ -53,7 +53,7 @@ export default function SignInForm() {
 
       <form
         action={formAction}
-        className="flex flex-col gap-5 items-center justify-center bg-black/50 border-border-default border-2 shadow-white shadow-lg rounded-4xl p-6 w-full max-w-md">
+        className="flex flex-col gap-5 items-center justify-center bg-black/50 border-slate-400 border-2 shadow-white shadow-lg rounded-4xl p-6 w-full max-w-md">
         <div className="w-xs sm:w-sm">
           <h2 className="text-center text-2xl ">Sign In</h2>
         </div>
@@ -71,7 +71,7 @@ export default function SignInForm() {
             required
             placeholder="enter your email address"
             disabled={isPending}
-            className="shadow-md shadow-black border-2 border-border-default p-2 w-full text-black placeholder-neutral-800 rounded-4xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
+            className="shadow-md shadow-black border-2 border-slate-400 p-2 w-full text-black placeholder-neutral-800 rounded-4xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
           />
         </div>
 
@@ -80,7 +80,7 @@ export default function SignInForm() {
             Password
           </label>
           <div className="relative">
-            {/* CHANGED: Added disabled state while pending */}
+            {/* disabled state while pending */}
             <input
               id="password"
               name="password"
@@ -89,7 +89,7 @@ export default function SignInForm() {
               autoComplete="current-password"
               placeholder="enter your password"
               disabled={isPending}
-              className="shadow-md shadow-black border-2 border-border-default p-2 w-full text-black placeholder-neutral-800 rounded-4xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
+              className="shadow-md shadow-black border-2 border-slate-400 p-2 w-full text-black placeholder-neutral-800 rounded-4xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
             />
             {/* CHANGED: Added aria-label improvement */}
             <button
@@ -110,7 +110,7 @@ export default function SignInForm() {
         <button
           type="submit"
           disabled={isPending}
-          className="flex w-xs sm:w-sm mt-2 justify-center  px-3 py-1.5 text-sm/6 disabled:opacity-50 disabled:cursor-not-allowed border-2 border-border-default shadow-white shadow-md hover:shadow-lg rounded-full">
+          className="flex w-xs sm:w-sm mt-2 justify-center  px-3 py-1.5 text-sm/6 disabled:opacity-50 disabled:cursor-not-allowed border-2 border-slate-400 shadow-white shadow-md hover:shadow-lg rounded-full">
           <span className="">{isPending ? "Signing in..." : "Sign in"}</span>
         </button>
 
@@ -118,7 +118,7 @@ export default function SignInForm() {
           Don't have an account?
           <Link
             href="/auth/sign-up"
-            className="font-medium text-blue-600 hover:text-blue-500 ml-1">
+            className="font-medium text-blue-300 hover:text-blue-400 ml-1">
             Sign up
           </Link>
         </p>

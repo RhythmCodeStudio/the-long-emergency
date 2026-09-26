@@ -111,7 +111,7 @@
 //           onClick={copyToClipboard}
 //           ariaLabel="copy mailing list to clipboard"
 //           className={clsx(
-//             "items-center justify-center appearance-none min-h-0 leading-none rounded-full border-border-default border-2 shadow-white shadow-md hover:shadow-lg px-4 py-2 text-white bg-black/50 transition duration-200 ease-in-out active:scale-95 -hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 whitespace-nowrap",
+//             "items-center justify-center appearance-none min-h-0 leading-none rounded-full border-slate-400 border-2 shadow-white shadow-md hover:shadow-lg px-4 py-2 text-white bg-black/50 transition duration-200 ease-in-out active:scale-95 -hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 whitespace-nowrap",
 //           )}
 //         />
 //       </div>
@@ -146,7 +146,7 @@
 //           label="open email to send message"
 //           ariaLabel="open email client to email mailing list"
 //           className={clsx(
-//             "items-center justify-center appearance-none min-h-0 leading-none rounded-full border-border-default border-2 shadow-white shadow-md hover:shadow-lg px-4 py-2 text-white bg-black/50 transition duration-200 ease-in-out active:scale-95 -hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 whitespace-nowrap",
+//             "items-center justify-center appearance-none min-h-0 leading-none rounded-full border-slate-400 border-2 shadow-white shadow-md hover:shadow-lg px-4 py-2 text-white bg-black/50 transition duration-200 ease-in-out active:scale-95 -hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 whitespace-nowrap",
 //           )}
 //         />
 //       </form>
@@ -295,7 +295,7 @@ export default function AdminMailingList({ rows }: MailingListProps) {
           onClick={copyToClipboard}
           ariaLabel="copy mailing list to clipboard"
           className={clsx(
-            "items-center justify-center appearance-none min-h-0 leading-none rounded-full border-border-default border-2 shadow-white shadow-md hover:shadow-lg px-4 py-2 text-white bg-black/50 transition duration-200 ease-in-out active:scale-95 -hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 whitespace-nowrap",
+            "items-center justify-center appearance-none min-h-0 leading-none rounded-full border-slate-400 border-2 shadow-white shadow-md hover:shadow-lg px-4 py-2 text-white bg-black/50 transition duration-200 ease-in-out active:scale-95 -hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 whitespace-nowrap",
           )}
         />
       </div>
@@ -342,7 +342,7 @@ export default function AdminMailingList({ rows }: MailingListProps) {
           label="send email to mailing list"
           ariaLabel="send email to mailing list"
           className={clsx(
-            " max-w-52 mx-auto items-center justify-center appearance-none min-h-0 leading-none rounded-full border-border-default border-2 shadow-white shadow-md hover:shadow-lg px-4 py-2 text-white bg-black/50 transition duration-200 ease-in-out active:scale-95 -hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 whitespace-nowrap",
+            " max-w-52 mx-auto items-center justify-center appearance-none min-h-0 leading-none rounded-full border-slate-400 border-2 shadow-white shadow-md hover:shadow-lg px-4 py-2 text-white bg-black/50 transition duration-200 ease-in-out active:scale-95 -hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 whitespace-nowrap",
           )}
         />
       </form>

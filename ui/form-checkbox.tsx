@@ -43,7 +43,7 @@ export default function FormCheckbox({
           checked={checked}
           onChange={onChange}
           required={required}
-          className="mt-1 h-4 w-4 accent-blue-500 cursor-pointer"
+          className="mt-1 h-4 w-4 accent-customBlue cursor-pointer"
         />
         <span>
           {label}

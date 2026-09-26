@@ -92,7 +92,7 @@
 //   return (
 //     <>
 //       <div
-//         className={`flex flex-col items-stretch w-full p-4 lg:p-8 bg-black/50 border-border-default border-2 shadow-white shadow-lg rounded-4xl max-w-lg text-black-shadow-only ${className}`}>
+//         className={`flex flex-col items-stretch w-full p-4 lg:p-8 bg-black/50 border-slate-400 border-2 shadow-white shadow-lg rounded-4xl max-w-lg text-black-shadow-only ${className}`}>
 //         <Heading
 //           text={
 //             mode === "sign-up"
@@ -122,10 +122,10 @@
 //             type="submit"
 //             disabled={!isFormValid || submitted}
 //             className={clsx(
-//               "border-2 border-border-default p-1 px-4 rounded-full text-sm   transition duration-700 ease-in-out tracking-widest will-change-transform mx-auto",
+//               "border-2 border-slate-400 p-1 px-4 rounded-full text-sm   transition duration-700 ease-in-out tracking-widest will-change-transform mx-auto",
 //               {
 //                 "cursor-not-allowed opacity-40": !isFormValid || submitted,
-//                 "border-green-500 hover:border-border-default cursor-pointer opacity-100 hover:scale-105 active:scale-95 shadow-lg shadow-white":
+//                 "border-green-500 hover:border-slate-400 cursor-pointer opacity-100 hover:scale-105 active:scale-95 shadow-lg shadow-white":
 //                   isFormValid && !submitted,
 //               },
 //             )}>
@@ -263,7 +263,7 @@ export default function MailingListForm({
     <>
       <div
         className={clsx(
-          "flex flex-col items-stretch w-full p-4 lg:p-8 bg-black/50 border-border-default border-2 shadow-white shadow-lg rounded-4xl max-w-lg text-black-shadow-only",
+          "flex flex-col items-stretch w-full p-4 lg:p-8 bg-black/50 border-slate-400 border-2 shadow-white shadow-lg rounded-4xl max-w-lg text-black-shadow-only",
           className,
         )}>
         <Heading
@@ -291,10 +291,10 @@ export default function MailingListForm({
             type="submit"
             disabled={!isFormValid || submitted}
             className={clsx(
-              "border-2 border-border-default p-1 px-4 rounded-full text-sm transition duration-700 ease-in-out tracking-widest will-change-transform mx-auto",
+              "border-2 border-slate-400 p-1 px-4 rounded-full text-sm transition duration-700 ease-in-out tracking-widest will-change-transform mx-auto",
               {
                 "cursor-not-allowed opacity-40": !isFormValid || submitted,
-                "border-blue-500 hover:border-border-default cursor-pointer opacity-100 hover:scale-105 active:scale-95 shadow-lg shadow-white":
+                "border-blue-500 hover:border-slate-400 cursor-pointer opacity-100 hover:scale-105 active:scale-95 shadow-lg shadow-white":
                   isFormValid && !submitted,
               },
             )}>

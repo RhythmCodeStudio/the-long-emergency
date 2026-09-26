@@ -80,9 +80,7 @@ export default function StateAutocomplete({
       : usStates;
   }, [value]);
 
-  const handleStateKeyDown = (
-    e: React.KeyboardEvent<HTMLInputElement>,
-  ) => {
+  const handleStateKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Tab" && filteredStates.length === 1) {
       const typedValue = value.trim().toLowerCase();
       const match = filteredStates[0];
@@ -98,7 +96,9 @@ export default function StateAutocomplete({
 
   return (
     <div className="flex flex-col justify-start w-full relative">
-      <label className="m-2 text-left text-base" htmlFor="show-request-form-state">
+      <label
+        className="m-2 text-left text-base"
+        htmlFor="show-request-form-state">
         State
       </label>
 
@@ -121,7 +121,7 @@ export default function StateAutocomplete({
           }
         }}
         onKeyDown={handleStateKeyDown}
-        className="shadow-md shadow-white border-2 border-border-default w-full text-whitesmoke placeholder-white/40 rounded-3xl tracking-wide caret-blue-500 bg-[linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url('/images/masks-no-text.png')] bg-no-repeat bg-cover bg-center px-6 pb-1 pt-2 flex items-center"
+        className="shadow-md shadow-white border-2 border-slate-400 w-full text-whitesmoke placeholder-white/40 rounded-3xl tracking-wide caret-blue-500 bg-[linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url('/images/masks-no-text.png')] bg-no-repeat bg-cover bg-center px-6 pb-1 pt-2 flex items-center"
       />
 
       {showSuggestions && filteredStates.length > 0 && (
@@ -136,8 +136,7 @@ export default function StateAutocomplete({
                 onErrorMessageChange?.("");
                 setShowSuggestions(false);
               }}
-              className="block w-full px-4 py-2 text-left text-sm text-white hover:bg-white/10"
-            >
+              className="block w-full px-4 py-2 text-left text-sm text-white hover:bg-white/10">
               {stateName}
             </button>
           ))}
@@ -149,8 +148,7 @@ export default function StateAutocomplete({
         style={{
           visibility: errorMessage ? "visible" : "hidden",
           opacity: errorMessage ? 1 : 0,
-        }}
-      >
+        }}>
         {errorMessage || " "}
       </p>
     </div>

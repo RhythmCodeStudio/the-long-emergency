@@ -12,6 +12,8 @@ export default {
     extend: {
       colors:{
         customGray: '#868686',
+        customBlue: "rgb(52 152 219)",
+        hoverBlue: "rgb(41, 128, 185)"
       },
       animation: {
         expand: "expand 1s ease-out",

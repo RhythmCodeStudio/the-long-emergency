@@ -37,7 +37,7 @@ export default async function LBShowPage() {
               href="https://www.instagram.com/robcannonthunderbolt/"
               target="_blank"
               rel="noreferrer noopener"
-              className="text-2xl text-blue-300 hover:text-blue-400 underline">
+              className="text-2xl text-customBlue hover:text-hoverBlue underline">
               <h6 className="text-xl">Instagram</h6>
             </a>
           </div>
@@ -47,14 +47,14 @@ export default async function LBShowPage() {
               href="https://linktr.ee/leechbandstl"
               target="_blank"
               rel="noreferrer noopener"
-              className="text-2xl text-blue-300 hover:text-blue-400 underline">
+              className="text-2xl text-customBlue hover:text-hoverBlue underline">
               <h6 className="text-xl">Website</h6>
             </a>
             <a
               href="https://leechbandstl.bandcamp.com/"
               target="_blank"
               rel="noreferrer noopener"
-              className="text-2xl text-blue-300 hover:text-blue-400 underline">
+              className="text-2xl text-customBlue hover:text-hoverBlue underline">
               <h6 className="text-xl">Bandcamp</h6>
             </a>
 
@@ -62,14 +62,14 @@ export default async function LBShowPage() {
               href="https://www.instagram.com/leechbandstl/"
               target="_blank"
               rel="noreferrer noopener"
-              className="text-2xl text-blue-300 hover:text-blue-400 underline">
+              className="text-2xl text-customBlue hover:text-hoverBlue underline">
               <h6 className="text-xl">Instagram</h6>
             </a>
             <a
               href="https://open.spotify.com/artist/2vccfLFGRVbZRXFV4GpAyc"
               target="_blank"
               rel="noreferrer noopener"
-              className="text-2xl text-blue-300 hover:text-blue-400 underline">
+              className="text-2xl text-customBlue hover:text-hoverBlue underline">
               <h6 className="text-xl">Spotify</h6>
             </a>
           </div>
@@ -79,14 +79,14 @@ export default async function LBShowPage() {
               href="https://linktr.ee/ignoramusband"
               target="_blank"
               rel="noreferrer noopener"
-              className="text-2xl text-blue-300 hover:text-blue-400 underline">
+              className="text-2xl text-customBlue hover:text-hoverBlue underline">
               <h6 className="text-xl">Website</h6>
             </a>
             <a
               href="https://ignoramus.bandcamp.com/album/ignoramus"
               target="_blank"
               rel="noreferrer noopener"
-              className="text-2xl text-blue-300 hover:text-blue-400 underline">
+              className="text-2xl text-customBlue hover:text-hoverBlue underline">
               <h6 className="text-xl">Bandcamp</h6>
             </a>
 
@@ -94,14 +94,14 @@ export default async function LBShowPage() {
               href="https://www.instagram.com/ignoramus_band/"
               target="_blank"
               rel="noreferrer noopener"
-              className="text-2xl text-blue-300 hover:text-blue-400 underline">
+              className="text-2xl text-customBlue hover:text-hoverBlue underline">
               <h6 className="text-xl">Instagram</h6>
             </a>
             <a
               href="https://open.spotify.com/artist/1ZhBqLOcchDBuvBOqWoA8w"
               target="_blank"
               rel="noreferrer noopener"
-              className="text-2xl text-blue-300 hover:text-blue-400 underline">
+              className="text-2xl text-customBlue hover:text-hoverBlue underline">
               <h6 className="text-xl">Spotify</h6>
             </a>
           </div>
@@ -111,14 +111,14 @@ export default async function LBShowPage() {
               href="/"
               target="_blank"
               rel="noreferrer noopener"
-              className="text-2xl text-blue-300 hover:text-blue-400 underline">
+              className="text-2xl text-customBlue hover:text-hoverBlue underline">
               <h6 className="text-xl">Website</h6>
             </Link>
             <a
               href="https://www.instagram.com/longemergency/"
               target="_blank"
               rel="noreferrer noopener"
-              className="text-2xl text-blue-300 hover:text-blue-400 underline">
+              className="text-2xl text-customBlue hover:text-hoverBlue underline">
               <h6 className="text-xl">Instagram</h6>
             </a>
           </div>
@@ -134,7 +134,7 @@ export default async function LBShowPage() {
           />
         </div>
         <Link href="/">
-          <span className="mb-12 -mt-4 text-lg text-blue-300 hover:text-blue-400 underline">
+          <span className="mb-12 -mt-4 text-lg text-customBlue hover:text-hoverBlue underline">
             www.thelongemergency.net
           </span>
         </Link>

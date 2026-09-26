@@ -40,7 +40,7 @@ export default async function VeniceCafeShowPage() {
               href="https://www.instagram.com/igordeathmusic/"
               target="_blank"
               rel="noreferrer noopener"
-              className="text-2xl text-blue-300 hover:text-blue-400 underline">
+              className="text-2xl text-customBlue hover:text-hoverBlue underline">
               <h6 className="text-xl">Instagram</h6>
             </a>
           </div>
@@ -50,7 +50,7 @@ export default async function VeniceCafeShowPage() {
               href="/"
               target="_blank"
               rel="noreferrer noopener"
-              className="text-2xl text-blue-300 hover:text-blue-400 underline">
+              className="text-2xl text-customBlue hover:text-hoverBlue underline">
               <h6 className="text-xl">Website</h6>
             </Link>
           </div>
@@ -65,11 +65,6 @@ export default async function VeniceCafeShowPage() {
             className="shadow-md shadow-white rounded-3xl border-2 border-slate-400 mb-12 xl:mb-0"
           />
         </div>
-        <Link href="/">
-          <span className="mb-12 -mt-4 text-lg text-blue-300 hover:text-blue-400 underline">
-            www.thelongemergency.net
-          </span>
-        </Link>
       </div>
     </div>
   );

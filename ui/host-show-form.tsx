@@ -946,7 +946,7 @@ export default function HostShowForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const notify = () =>
-    toast.info("Thank you for your show request! I will be in touch soon.", {
+    toast.info("Thank you for offering to host a show! I will be in touch soon.", {
       transition: Bounce,
       position: "top-center",
       icon: (
@@ -976,7 +976,7 @@ export default function HostShowForm() {
   const trimmedVenueWebsite = venueWebsite.trim();
   const trimmedVenueAddress = venueAddress.trim();
 
-  // CHANGE: Only these fields are required.
+  // Only these fields are required.
   const isFirstNameValid = validateName(trimmedFirstName);
   const isEmailValid = validateEmail(trimmedEmail);
   const isMessageValid = validateMessage(trimmedMessage);
@@ -993,7 +993,7 @@ export default function HostShowForm() {
     preferredDateThirdChoice !== "" &&
     validatePerformanceDate(new Date(preferredDateThirdChoice));
 
-  // CHANGE: Optional fields are valid when empty. If provided, they
+  //Optional fields are valid when empty. If provided, they
   // must contain valid values.
   const isLastNameValid =
     trimmedLastName === "" || validateName(trimmedLastName);
@@ -1024,9 +1024,6 @@ export default function HostShowForm() {
   // Venue address and accommodation details have no format requirement.
   const isVenueAddressValid = true;
   const isPlaceToCrashDescriptionValid = true;
-
-  // CHANGE: No location, venue, phone, last name, or accommodation choice
-  // is required for submission.
   const isFormValid =
     isFirstNameValid &&
     isEmailValid &&
@@ -1738,7 +1735,7 @@ export default function HostShowForm() {
           <button
             type="submit"
             disabled={!isFormValid || isSubmitting}
-            className="rounded-full border-2 border-slate-400 bg-customBlue px-6 py-1 text-white shadow-white transition enabled:hover:bg-hoverBlue enabled:hover:shadow-md disabled:cursor-not-allowed disabled:opacity-50 disabled:grayscale">
+            className="rounded-full border-2 border-slate-400 bg-customBlue px-6 py-1 text-white shadow-white transition enabled:hover:bg-hoverBlue enabled:hover:shadow-md disabled:cursor-not-allowed disabled:opacity-50 disabled:grayscale w-36">
             <span className="font-emergency text-outline">
               {isSubmitting ? "Sending..." : "Send"}
             </span>

@@ -27,7 +27,14 @@ export default async function AlbumReleaseShow() {
           Friday January 17th, 2025 <br /> Greenfinch Theater & Dive <br />
           St. Louis, MO
         </h3>
-        <h4 className="text-outline mt-4 text-lg lg:text-2xl p-2">
+        <Image
+          src="/images/show-posters/masks.png"
+          alt="show poster"
+          width={300}
+          height={425}
+          className="shadow-md shadow-white rounded-3xl border-2 border-slate-400"
+        />
+        <h4 className="text-outline mt-12 text-lg lg:text-2xl p-2">
           The Long Emergency proudly presents the new album:
         </h4>
         <h5 className="text-xl">&quot;I spent all my money on a habit&quot;</h5>

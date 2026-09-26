@@ -52,8 +52,16 @@ export default function FormDateInput({
           required={required}
           onChange={handleChange}
           onClick={openDatePicker}
-          className="box-border w-full appearance-none rounded-3xl border-2 border-slate-400 bg-[linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url('/images/masks-no-text.png')] bg-cover bg-center pl-5 pb-1 pt-2 text-whitesmoke shadow-md shadow-white [&::-webkit-calendar-picker-indicator]:hidden"
+          className={`box-border w-full appearance-none rounded-3xl border-2 border-slate-400 bg-[linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url('/images/masks-no-text.png')] bg-cover bg-center pl-5 pb-1 pt-2 shadow-md shadow-white [&::-webkit-calendar-picker-indicator]:hidden ${
+            value ? "text-whitesmoke" : "text-transparent"
+          }`}
         />
+
+        {!value && (
+          <span className="pointer-events-none absolute inset-y-0 left-5 flex items-center text-sm text-white">
+            mm/dd/yyyy
+          </span>
+        )}
 
         <FiCalendar
           aria-hidden="true"

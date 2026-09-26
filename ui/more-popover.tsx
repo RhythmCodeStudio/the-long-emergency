@@ -114,13 +114,13 @@ export default function MorePopover({
                 </div>
                 <div className="flex items-center justify-center my-6 w-full px-4">
                   <Link
-                    href="/request-a-show"
+                    href="/host-a-show"
                     onClick={() => {
                       close();
                       if (onAnyAction) onAnyAction(); // <-- close mobile menu if provided
                     }}
                     className="flex items-center justify-center px-4 py-1 rounded-full border-2 border-slate-400 shadow-white shadow-md lg:hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#174054] cursor-pointer w-full transform transition-transform duration-200 active:scale-95 font-medium tracking-wider text-sm">
-                    <span className="-mb-1">Request a Show</span>
+                    <span className="-mb-1">Host a Show</span>
                   </Link>
                 </div>
               </>

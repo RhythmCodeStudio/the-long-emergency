@@ -1,5 +1,3 @@
-// import from next
-// import Image from "next/image";
 // import data
 import { getPage } from "@/actions/actions";
 // import components

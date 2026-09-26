@@ -1,22 +1,21 @@
 // import from next
-
 import Image from "next/image";
 // import components
-import ShowRequestForm from "@/ui/show-request-form";
-export default function RequestAShowPage() {
+import HostShowForm from "@/ui/host-show-form";
+export default function HostAShowPage() {
   return (
     <div className="flex flex-col mx-auto w-full max-w-200 p-4">
       <h3 className="text-2xl font-semibold mb-4 text-center">
-        Request a Show
+        Host a Show
       </h3>
       <p className="px-6 py-4 max-w-200">
         I am trying to share my music with as many people as possible. I'll play
-        just about anywhere folks will have me. Wanna have a show in your
+        just about anywhere folks will have me. Wanna host a show in your
         basement, your living room, or wherever? Let's make it happen!
       </p>
       <p className="px-6 py-4 max-w-200">
-        Fill out the form below to request a show. Please be s detailed as
-        possible. It's cool if you can't fill out the whole form but be sure to
+        Fill out the form below to host a show. Please be as detailed as
+        possible. It's cool if you don't have all of the information but be sure to
         include:
       </p>
       <div className="flex justify-center">
@@ -27,7 +26,7 @@ export default function RequestAShowPage() {
           <li>A detailed message</li>
         </ul>
       </div>
-      <ShowRequestForm />
+      <HostShowForm />
       <div className="w-full h-auto px-6 max-w-200 my-12">
         <Image
           src="/images/website-images/trombone-no-text-banner.png"

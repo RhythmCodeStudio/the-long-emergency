@@ -1,8 +1,10 @@
-// ui/form-date-input.tsx
+import { useRef } from "react";
+import { FiCalendar } from "react-icons/fi";
+
 interface FormDateInputProps {
   label: string;
   name: string;
-  value: string; // yyyy-mm-dd
+  value: string;
   required: boolean;
   errorMessage: string;
   idPrefix?: string;
@@ -21,8 +23,14 @@ export default function FormDateInput({
   handleChange,
 }: FormDateInputProps) {
   const uniqueInputId = idPrefix ? `${idPrefix}-${name}` : name;
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const openDatePicker = () => {
+    inputRef.current?.showPicker?.();
+  };
+
   return (
-    <div className="flex flex-col justify-start w-full">
+    <div className="flex w-full flex-col justify-start">
       <label className="m-2 text-left" htmlFor={uniqueInputId}>
         {label}
         {required && (
@@ -32,19 +40,29 @@ export default function FormDateInput({
           </>
         )}
       </label>
-      <input
-        type="date"
-        id={uniqueInputId}
-        name={name}
-        value={value}
-        min={min}
-        required={required}
-        onChange={handleChange}
-        className="px-10 md:px-6 pb-1 pt-2 w-full rounded-3xl border-2 border-slate-400
-        bg-[linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url('/images/masks-no-text.png')] bg-cover bg-center text-whitesmoke shadow-md shadow-white [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-calendar-picker-indicator]:invert"
-      />
+
+      <div className="relative w-full">
+        <input
+          ref={inputRef}
+          type="date"
+          id={uniqueInputId}
+          name={name}
+          value={value}
+          min={min}
+          required={required}
+          onChange={handleChange}
+          onClick={openDatePicker}
+          className="box-border w-full appearance-none rounded-3xl border-2 border-slate-400 bg-[linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url('/images/masks-no-text.png')] bg-cover bg-center pl-5 pb-1 pt-2 text-whitesmoke shadow-md shadow-white [&::-webkit-calendar-picker-indicator]:hidden"
+        />
+
+        <FiCalendar
+          aria-hidden="true"
+          className="pointer-events-none absolute right-5 top-1/2 h-5 w-5 -translate-y-1/2 text-white"
+        />
+      </div>
+
       <p
-        className="text-red-200 text-xs mt-1 ml-2 min-h-5 transition-opacity duration-300"
+        className="mt-1 ml-2 min-h-5 text-xs text-red-200 transition-opacity duration-300"
         style={{
           visibility: errorMessage ? "visible" : "hidden",
           opacity: errorMessage ? 1 : 0,

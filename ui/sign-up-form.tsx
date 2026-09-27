@@ -1,28 +1,41 @@
 "use client";
-import { useActionState, useState, useEffect } from "react";
+
+import { useActionState, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { signUpWithEmail } from "@/app/auth/sign-up/actions";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css"; // ADD THIS LINE
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
-import { ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { signUpWithEmail } from "@/app/auth/sign-up/actions";
+import FormInput from "./form-input";
 
 const MIN_PASSWORD_LENGTH = 8;
 
 export default function SignUpForm() {
   const router = useRouter();
-  const [state, formAction, isPending] = useActionState(signUpWithEmail, null);
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
-    const formData = new FormData(e.currentTarget);
-    const password = formData.get("password") as string;
-    const confirmPassword = formData.get("confirmPassword") as string;
+  const [state, formAction, isPending] = useActionState(
+    signUpWithEmail,
+    null,
+  );
 
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    setState: React.Dispatch<React.SetStateAction<string>>,
+  ) => {
+    setState(event.target.value);
+  };
+
+  const handleSubmit = (event: React.SubmitEvent<HTMLFormElement>) => {
     if (password.length < MIN_PASSWORD_LENGTH) {
-      e.preventDefault();
+      event.preventDefault();
       toast.error(
         `Password must be at least ${MIN_PASSWORD_LENGTH} characters`,
       );
@@ -30,9 +43,8 @@ export default function SignUpForm() {
     }
 
     if (password !== confirmPassword) {
-      e.preventDefault();
+      event.preventDefault();
       toast.error("Passwords do not match");
-      return;
     }
   };
 
@@ -41,17 +53,6 @@ export default function SignUpForm() {
       toast.error(state.error);
     }
   }, [state?.error]);
-
-  // useEffect(() => {
-  //   if (state?.success) {
-  //     toast.success("Account created!");
-  //     const timer = setTimeout(() => {
-  //       router.refresh();
-  //       router.push("/admin");
-  //     }, 1200);
-  //     return () => clearTimeout(timer);
-  //   }
-  // }, [state?.success, router]);
 
   useEffect(() => {
     if (state?.success) {
@@ -68,7 +69,7 @@ export default function SignUpForm() {
         position="top-right"
         autoClose={5000}
         hideProgressBar={false}
-        newestOnTop={true}
+        newestOnTop
         closeOnClick
         rtl={false}
         pauseOnFocusLoss
@@ -79,124 +80,113 @@ export default function SignUpForm() {
       <form
         action={formAction}
         onSubmit={handleSubmit}
-        className="flex flex-col gap-5 items-center justify-center bg-black/50 border-slate-400 border-2 shadow-white shadow-md rounded-3xl p-6 w-full max-w-md">
+        className="flex w-full max-w-md flex-col items-center justify-center rounded-3xl border-2 border-slate-400 bg-black/50 p-6 shadow-md shadow-white">
         <div className="md:w-sm">
-          <h2 className="text-center text-2xl font-bold ">
+          <h2 className="text-center text-2xl font-bold">
             Create New Account
           </h2>
         </div>
 
-        <div className="flex flex-col gap-1.5 w-xs sm:w-sm">
-          <label htmlFor="name" className="block text-sm font-medium ">
-            Name
-          </label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            required
-            placeholder="The Long Emergency"
-            autoComplete="username"
-            disabled={isPending}
-            className="shadow-md shadow-black border-2 border-slate-400 p-2 w-full text-black placeholder-neutral-800 rounded-3xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
-          />
-        </div>
+        <FormInput
+          inputType="input"
+          label="Name"
+          name="name"
+          type="text"
+          required
+          placeholder="The Long Emergency"
+          autoComplete="username"
+          value={name}
+          errorMessage=""
+          disabled={isPending}
+          setStateVariable={setName}
+          handleChange={handleChange}
+        />
 
-        <div className="flex flex-col gap-1.5 w-xs sm:w-sm">
-          <label htmlFor="email" className="block text-sm font-medium ">
-            Email address
-          </label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            placeholder="enter your email address"
-            autoComplete="email"
-            disabled={isPending}
-            className="shadow-md shadow-black border-2 border-slate-400 p-2 w-full text-black placeholder-neutral-800 rounded-3xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
-          />
-        </div>
+        <FormInput
+          inputType="input"
+          label="Email address"
+          name="email"
+          type="email"
+          required
+          placeholder="enter your email address"
+          autoComplete="email"
+          value={email}
+          errorMessage=""
+          disabled={isPending}
+          setStateVariable={setEmail}
+          handleChange={handleChange}
+        />
 
-        <div className="flex flex-col gap-1.5 w-xs sm:w-sm">
-          <label htmlFor="password" className="block text-sm font-medium ">
-            Password
-            <span className="text-xs ml-2">
-              (minimum {MIN_PASSWORD_LENGTH} characters)
-            </span>
-          </label>
-          <div className="relative">
-            <input
-              id="password"
-              name="password"
-              type={showPassword ? "text" : "password"}
-              required
-              placeholder="enter a new password"
-              autoComplete="new-password"
-              disabled={isPending}
-              className="shadow-md shadow-black border-2 border-slate-400 p-2 w-full text-black placeholder-neutral-800 rounded-3xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
-            />
+        <FormInput
+          inputType="input"
+          label={`Password (minimum ${MIN_PASSWORD_LENGTH} characters)`}
+          name="password"
+          type={showPassword ? "text" : "password"}
+          required
+          placeholder="enter a new password"
+          autoComplete="new-password"
+          value={password}
+          errorMessage=""
+          disabled={isPending}
+          setStateVariable={setPassword}
+          handleChange={handleChange}
+          rightIcon={
             <button
               type="button"
-              onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition"
+              onClick={() => setShowPassword((visible) => !visible)}
+              className="text-gray-400 transition hover:text-white"
               aria-label={showPassword ? "Hide password" : "Show password"}>
               {showPassword ? (
-                <IoIosEyeOff className="w-5 h-5" />
+                <IoIosEyeOff className="h-5 w-5" />
               ) : (
-                <IoIosEye className="w-5 h-5" />
+                <IoIosEye className="h-5 w-5" />
               )}
             </button>
-          </div>
-        </div>
+          }
+        />
 
-        <div className="flex flex-col gap-1.5 w-xs sm:w-sm">
-          <label
-            htmlFor="confirmPassword"
-            className="block text-sm font-medium ">
-            Confirm Password
-          </label>
-          <div className="relative">
-            <input
-              id="confirmPassword"
-              name="confirmPassword"
-              type={showConfirmPassword ? "text" : "password"}
-              required
-              placeholder="confirm your password"
-              autoComplete="new-password"
-              disabled={isPending}
-              className="shadow-md shadow-black border-2 border-slate-400 p-2 w-full text-black placeholder-neutral-800 rounded-3xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
-            />
+        <FormInput
+          inputType="input"
+          label="Confirm Password"
+          name="confirmPassword"
+          type={showConfirmPassword ? "text" : "password"}
+          required
+          placeholder="confirm your password"
+          autoComplete="new-password"
+          value={confirmPassword}
+          errorMessage=""
+          disabled={isPending}
+          setStateVariable={setConfirmPassword}
+          handleChange={handleChange}
+          rightIcon={
             <button
               type="button"
-              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-              className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition"
+              onClick={() => setShowConfirmPassword((visible) => !visible)}
+              className="text-gray-400 transition hover:text-white"
               aria-label={
                 showConfirmPassword ? "Hide password" : "Show password"
               }>
               {showConfirmPassword ? (
-                <IoIosEyeOff className="w-5 h-5" />
+                <IoIosEyeOff className="h-5 w-5" />
               ) : (
-                <IoIosEye className="w-5 h-5" />
+                <IoIosEye className="h-5 w-5" />
               )}
             </button>
-          </div>
-        </div>
+          }
+        />
 
         <button
           type="submit"
           disabled={isPending}
-          className="flex w-xs sm:w-sm mt-2 justify-center  px-3 py-1.5 text-sm/6 disabled:opacity-50 disabled:cursor-not-allowed border-2 border-slate-400 shadow-white shadow-md hover:shadow-lg rounded-full">
-          <span className="">
-            {isPending ? "Creating account..." : "Create Account"}
-          </span>
+          className="mt-2 flex w-xs justify-center rounded-full border-2 border-slate-400 px-3 py-1.5 text-sm/6 shadow-md shadow-white hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50 sm:w-sm">
+          {isPending ? "Creating account..." : "Create Account"}
         </button>
 
-        <p className="w-full text-center text-sm ">
+        <p className="mt-4 w-full text-center text-sm">
           Already have an account?{" "}
           <Link
             href="/auth/sign-in"
-            className="font-medium text-blue-300 hover:text-blue-400 ml-1">
+            className="ml-1 font-medium text-customBlue hover:text-hoverBlue">
             Sign in
           </Link>
         </p>

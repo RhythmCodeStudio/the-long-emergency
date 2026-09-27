@@ -1,36 +1,31 @@
 "use client";
-// CHANGED: Added ToastContainer and CSS import
+
 import { useActionState, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { signInWithEmail } from "@/app/auth/sign-in/actions";
 import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css"; // CHANGED: Added CSS import
-import { ToastContainer } from "react-toastify"; // CHANGED: Added ToastContainer import
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
+// import components
+import FormInput from "./form-input";
 
 export default function SignInForm() {
   const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [state, formAction, isPending] = useActionState(signInWithEmail, null);
   const [showPassword, setShowPassword] = useState(false);
 
-  // CHANGED: Show error toast when there's an error
+  // Show error toast when there's an error
   useEffect(() => {
     if (state?.error) {
       toast.error(state.error);
     }
   }, [state?.error]);
 
-  // CHANGED: Show success toast and redirect on successful signin
   useEffect(() => {
-    // if (state?.success) {
-    //   toast.success("Signed in successfully!");
-    //   router.refresh();
-    //   const timer = setTimeout(() => {
-    //     router.push("/admin");
-    //   }, 1200);
-    //   return () => clearTimeout(timer);
-    // }
     window.dispatchEvent(new Event("auth-changed"));
     router.refresh();
     router.push("/admin");
@@ -38,7 +33,6 @@ export default function SignInForm() {
 
   return (
     <>
-      {/* CHANGED: Added ToastContainer for displaying toasts */}
       <ToastContainer
         position="top-right"
         autoClose={5000}
@@ -50,19 +44,16 @@ export default function SignInForm() {
         draggable
         pauseOnHover
       />
-
       <form
         action={formAction}
-        className="flex flex-col gap-5 items-center justify-center bg-black/50 border-slate-400 border-2 shadow-white shadow-md rounded-3xl p-6 w-full max-w-md">
+        className="flex flex-col items-center justify-center bg-black/50 border-slate-400 border-2 shadow-white shadow-md rounded-3xl p-4 w-full max-w-md ">
         <div className="w-xs sm:w-sm">
           <h2 className="text-center text-2xl ">Sign In</h2>
         </div>
-
-        <div className="flex flex-col gap-1.5 w-xs sm:w-sm">
+        {/* <div className="flex flex-col gap-1.5 w-xs sm:w-sm">
           <label htmlFor="email" className=" block text-sm text-gray-100">
             Email address
           </label>
-          {/* CHANGED: Added disabled state while pending */}
           <input
             id="email"
             name="email"
@@ -73,14 +64,47 @@ export default function SignInForm() {
             disabled={isPending}
             className="shadow-md shadow-black border-2 border-slate-400 p-2 w-full text-black placeholder-neutral-800 rounded-3xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
           />
-        </div>
+        </div> */}
 
-        <div className="flex flex-col gap-1.5 w-xs sm:w-sm">
+        <FormInput
+          inputType="input"
+          label="Email address"
+          name="email"
+          type="email"
+          autoComplete="email"
+          required
+          placeholder="enter your email address"
+          value={email}
+          errorMessage=""
+          disabled={isPending}
+          setStateVariable={setEmail}
+          handleChange={(event, setState) => {
+            setState(event.target.value);
+          }}
+        />
+
+        <FormInput
+          inputType="input"
+          label="Password"
+          name="password"
+          type={showPassword ? "text" : "password"}
+          autoComplete="current-password"
+          required
+          placeholder="enter your password"
+          value={password}
+          errorMessage=""
+          disabled={isPending}
+          setStateVariable={setPassword}
+          handleChange={(event, setState) => {
+            setState(event.target.value);
+          }}
+        />
+
+        {/* <div className="flex flex-col gap-1.5 w-xs sm:w-sm">
           <label htmlFor="password" className=" block text-sm text-gray-100">
             Password
           </label>
           <div className="relative">
-            {/* disabled state while pending */}
             <input
               id="password"
               name="password"
@@ -91,7 +115,6 @@ export default function SignInForm() {
               disabled={isPending}
               className="shadow-md shadow-black border-2 border-slate-400 p-2 w-full text-black placeholder-neutral-800 rounded-3xl bg-neutral-100 tracking-wide h-10 caret-[#ff7f00]"
             />
-            {/* CHANGED: Added aria-label improvement */}
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
@@ -104,21 +127,18 @@ export default function SignInForm() {
               )}
             </button>
           </div>
-        </div>
-
-        {/* CHANGED: Updated button text and disabled state */}
+        </div> */}
         <button
           type="submit"
           disabled={isPending}
           className="flex w-xs sm:w-sm mt-2 justify-center  px-3 py-1.5 text-sm/6 disabled:opacity-50 disabled:cursor-not-allowed border-2 border-slate-400 shadow-white shadow-md hover:shadow-lg rounded-full">
           <span className="">{isPending ? "Signing in..." : "Sign in"}</span>
         </button>
-
-        <p className=" w-full text-center text-sm">
+        <p className="w-full text-center text-sm mt-4">
           Don't have an account?
           <Link
             href="/auth/sign-up"
-            className="font-medium text-blue-300 hover:text-blue-400 ml-1">
+            className="font-medium text-customBlue hover:text-hoverBlue ml-1">
             Sign up
           </Link>
         </p>

@@ -34,12 +34,12 @@ export default function CalendarClientContainer({
           ? "w-full flex flex-col items-center"
           : !isAdminPath && !showViewToggle
             ? "w-full flex flex-col items-center p-8"
-            : "bg-black/50 rounded-(--container-radius) shadow-lg shadow-white border-2 border-slate-400 w-full flex flex-col items-center p-(--container-padding) my-8 [--container-radius:var(--radius-4xl)] [--container-padding:--spacing(8)]"
+            : "bg-black/50 rounded-(--container-radius) shadow-md shadow-white border-2 border-slate-400 w-full flex flex-col items-center p-(--container-padding) my-8 [--container-radius:var(--radius-4xl)] [--container-padding:--spacing(8)]"
       }>
       {showViewToggle && (
         <div className="flex flex-row gap-4 mb-8 justify-center">
           <Button
-            label="past"
+            label="Past"
             title="past events"
             onClick={() => setView("past")}
             className={clsx(
@@ -51,7 +51,7 @@ export default function CalendarClientContainer({
             labelClassName=""
           />
           <Button
-            label="future"
+            label="Future"
             title="future events"
             onClick={() => setView("future")}
             className={clsx(

@@ -1,6 +1,11 @@
 "use client";
+// import from react
 import { useState } from "react";
+// import actions
 import { sendNotification } from "@/actions/push-notifications/actions";
+// import components
+import Button from "@/ui/button";
+import FormInput from "../form-input";
 
 export default function AdminNotificationPanel({
   numberOfSubscriptions,
@@ -17,7 +22,11 @@ export default function AdminNotificationPanel({
     try {
       const result = await sendNotification(message, url);
       // console.log("sendNotification result", result);
-      setStatus(result?.success ? "Notification sent!" : `Failed: ${result?.error ?? "Unknown error"}`);
+      setStatus(
+        result?.success
+          ? "Notification sent!"
+          : `Failed: ${result?.error ?? "Unknown error"}`,
+      );
       setMessage("");
       setUrl("");
     } catch (err) {
@@ -26,9 +35,15 @@ export default function AdminNotificationPanel({
     }
   }
 
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setMessage(e.target.value);
+  };
+
   return (
     <div className="p-2">
-      <h3 className="text-center font-bold mb-2">notification admin</h3>
+      <h3 className="text-center font-bold mb-2">Notification Admin</h3>
       <p>
         {numberOfSubscriptions === 1
           ? `there is currently ${numberOfSubscriptions} person subscribed to notifications.`
@@ -37,27 +52,45 @@ export default function AdminNotificationPanel({
             } people subscribed to notifications.`}
       </p>
       <br />
-      <p>send a new notification:</p>
-      <input
+      <p>Send a new notification:</p>
+      {/* <input
         type="text"
         placeholder="enter notification message"
         value={message}
         onChange={(e) => setMessage(e.target.value)}
         className="border p-1 rounded-md my-2 w-full max-w-md"
       />
-      <br />
-      <input
+      <br /> */}
+      <FormInput
+        inputType="input"
         type="text"
-        placeholder="enter url to open on click"
-        value={url}
-        onChange={(e) => setUrl(e.target.value)}
-        className="border p-1 rounded-md my-2 w-full max-w-md"
+        label="Enter Notification Message"
+        name="notificationMessage"
+        placeholder="Enter Notification Message"
+        value={message}
+        handleChange={handleChange}
+        required={true}
+        errorMessage=""
+        setStateVariable={setMessage}
       />
-      <br />
+
+      <FormInput
+        inputType="input"
+        type="text"
+        label="Enter URL to open on click"
+        name="notificationUrl"
+        placeholder="Enter URL to open on click"
+        value={url}
+        handleChange={(e) => setUrl(e.target.value)}
+        required={false}
+        errorMessage=""
+        setStateVariable={setUrl}
+      />
+      
       <button
         onClick={handleSend}
-        className="mt-2 px-4 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-600 border-1">
-        send notification
+        className="rounded-full px-4 py-2 transition duration-200 bg-customBlue text-black hover:bg-hoverBlue border-1 border-slate-400 flex items-center">
+        Send Notification
       </button>
       {status && <p>{status}</p>}
     </div>

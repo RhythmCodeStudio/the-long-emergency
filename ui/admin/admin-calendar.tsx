@@ -32,13 +32,13 @@ export default function AdminCalendar({
       <div className="w-full flex flex-col space-y-6 items-center">
         <div className="flex gap-4">
           <Button
-            label="view events"
+            label="View Events"
             onClick={() => setView("events")}
             ariaLabel="View Events"
-            className="bg-blue-600 text-white pointer-events-none rounded-full px-4 py-2 transition duration-200"
+            className="bg-customBlue text-black pointer-events-none rounded-full px-4 py-2 transition duration-200"
           />
           <Button
-            label="add event"
+            label="Add Event"
             onClick={() => setView("addEvent")}
             ariaLabel="Add Event"
             className="bg-gray-200 text-gray-800 rounded-full px-4 py-2 transition duration-200"
@@ -91,16 +91,16 @@ export default function AdminCalendar({
       <div className="w-full flex flex-col space-y-6 items-center">
         <div className="flex gap-4">
           <Button
-            label="view events"
+            label="View Events"
             onClick={() => setView("events")}
             ariaLabel="view events"
             className="bg-gray-200 text-gray-800 rounded-full px-4 py-2 transition duration-200"
           />
           <Button
-            label="add event"
+            label="Add Event"
             onClick={() => setView("addEvent")}
-            ariaLabel="add event"
-            className="bg-blue-600 text-white pointer-events-none rounded-full px-4 py-2 transition duration-200"
+            ariaLabel="Add Event"
+            className="bg-customBlue pointer-events-none rounded-full px-4 py-2 transition duration-200"
           />
         </div>
         <CalendarEventForm

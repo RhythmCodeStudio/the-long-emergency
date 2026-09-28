@@ -205,7 +205,7 @@ export default function AdminMailingList({ rows }: MailingListProps) {
 
   const [isSending, setIsSending] = useState(false);
 
-  // REFACTOR: Add handleChange function to validate and set error messages
+  // handleChange function to validate and set error messages
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     setState: React.Dispatch<React.SetStateAction<any>>,
@@ -230,7 +230,7 @@ export default function AdminMailingList({ rows }: MailingListProps) {
     e.preventDefault();
     if (isSending) return;
 
-    // REFACTOR: Add validation before sending
+    // Add validation before sending
     const isSubjectValid = subject.trim().length > 0;
     const isBodyValid = body.trim().length > 0;
 
@@ -281,39 +281,40 @@ export default function AdminMailingList({ rows }: MailingListProps) {
   return (
     <div className="w-full flex flex-col justify-center">
       <Heading
-        text="mailing list administration"
-        headingLevel={2}
+        text="Mailing List Administration"
+        headingLevel={4}
         className="font-bold text-3xl mb-4 text-center"
       />
       <p className="text-center">
-        total mailing list subscribers: {numberOfMailingListSubscribers}
+        Total Mailing List Subscribers: {numberOfMailingListSubscribers}
       </p>
-      <div className="flex items-center justify-center mt-6 mb-4">
-        <Button
-          icon={<IoIosCopy />}
-          label="copy mailing list"
-          onClick={copyToClipboard}
-          ariaLabel="copy mailing list to clipboard"
-          className={clsx(
-            "items-center justify-center appearance-none min-h-0 leading-none rounded-full border-slate-400 border-2 shadow-white shadow-md hover:shadow-lg px-4 py-2 text-white bg-black/50 transition duration-200 ease-in-out active:scale-95 -hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 whitespace-nowrap",
-          )}
-        />
-      </div>
+      <div className="flex items-center justify-center my-4">
+          <Button
+            icon={<IoIosCopy size={20} />}
+            label="Copy Mailing List"
+            onClick={copyToClipboard}
+            ariaLabel="Copy mailing list to clipboard"
+            className={clsx(
+              "items-center justify-center appearance-none min-h-0 leading-none rounded-full border-slate-400 border-2 shadow-white shadow-md hover:shadow-lg px-4 py-2 text-white bg-black/50 transition duration-200 ease-in-out active:scale-95 -hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 whitespace-nowrap",
+            )}
+            labelClassName="mt-2"
+          />
+        </div>
+
       <form onSubmit={handleSubmit} className="mt-4 flex flex-col gap-2 w-full">
         <Heading
-          text="send email to mailing list"
+          text="Send Email to Mailing List"
           headingLevel={3}
           className="font-bold text-2xl text-center"
         />
 
-        {/* REFACTOR: Replace raw input with FormInput component */}
         <FormInput
           idPrefix="admin-mailing-list"
           inputType="input"
-          label="subject"
+          label="Subject"
           name="subject"
           type="text"
-          placeholder="enter email subject"
+          placeholder="Enter email subject"
           value={subject}
           required={true}
           autoComplete="off"
@@ -322,14 +323,13 @@ export default function AdminMailingList({ rows }: MailingListProps) {
           setStateVariable={setSubject}
         />
 
-        {/* REFACTOR: Replace raw textarea with FormInput component */}
         <FormInput
           idPrefix="admin-mailing-list"
           inputType="textarea"
-          label="message"
+          label="Message"
           name="body"
           type="text"
-          placeholder="enter message for mailing list"
+          placeholder="Enter message for mailing list"
           value={body}
           required={true}
           autoComplete="off"
@@ -339,20 +339,21 @@ export default function AdminMailingList({ rows }: MailingListProps) {
         />
         <Button
           type="submit"
-          label="send email to mailing list"
-          ariaLabel="send email to mailing list"
+          label="Send"
+          ariaLabel="Send email to mailing list"
           className={clsx(
             " max-w-52 mx-auto items-center justify-center appearance-none min-h-0 leading-none rounded-full border-slate-400 border-2 shadow-white shadow-md hover:shadow-lg px-4 py-2 text-white bg-black/50 transition duration-200 ease-in-out active:scale-95 -hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 whitespace-nowrap",
           )}
         />
       </form>
       <div className="my-4">
-        <p>mailing list:</p>
+        <p>Subscribers:</p>
         <ul>
           {mailingList.map((subscriber, index) => (
             <li key={index}>{subscriber.email}</li>
           ))}
         </ul>
+        
       </div>
     </div>
   );

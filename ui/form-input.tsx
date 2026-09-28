@@ -6,8 +6,8 @@ interface FormInputProps {
   placeholder: string;
   value: any;
   required: boolean;
-  autoComplete: string;
-  errorMessage: string;
+  autoComplete?: string;
+  errorMessage?: string;
   idPrefix?: string;
   disabled?: boolean;
   rightIcon?: React.ReactNode;

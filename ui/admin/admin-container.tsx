@@ -4,6 +4,7 @@ import AdminMailingList from "./admin-mailing-list";
 import AdminNotificationPanel from "./admin-notification-panel";
 import AdminCalendar from "./admin-calendar";
 import Messages from "./messages";
+import NavListItem from "../nav-list-item";
 import Button from "../button";
 import Heading from "../heading";
 import clsx from "clsx";
@@ -29,60 +30,60 @@ export default function AdminContainer({
   const contentMinHeight = "min-h-[42rem]"; // <-- change as needed
 
   return (
-    <section className="bg-black/50 rounded-3xl shadow-lg shadow-white border-2 border-slate-400 w-full max-w-6xl min-w-[16rem] flex flex-col items-center p-4 pb-8">
+    <section className="bg-black/50 rounded-3xl shadow-md shadow-white border-2 border-slate-400 w-full max-w-6xl min-w-[16rem] flex flex-col items-center p-4 pb-8">
       <Heading
-        headingLevel={2}
-        className="text-center text-xl mb-4"
+        headingLevel={3}
+        className="text-center text-2xl mb-4"
         text="Admin Panel"
       />
       <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 mb-6 justify-center w-full px-6">
         <Button
-          label="calendar"
+          label="Calendar"
           onClick={() => setView("calendar")}
           ariaLabel="View Calendar"
           className={clsx(
             "rounded-full px-4 py-2 transition duration-200", // always applied
             view === "calendar"
-              ? "bg-blue-600 text-white pointer-events-none"
+              ? "bg-customBlue text-black pointer-events-none"
               : "bg-gray-200 text-gray-800",
           )}
         />
         <Button
-          label="notifications"
+          label="Notifications"
           onClick={() => setView("notifications")}
           ariaLabel="Send Notifications"
           className={clsx(
             "rounded-full px-4 py-2 transition duration-200", // always applied
             view === "notifications"
-              ? "bg-blue-600 text-white pointer-events-none"
+              ? "bg-customBlue text-black pointer-events-none"
               : "bg-gray-200 text-gray-800",
           )}
         />
         <Button
-          label="mailing list"
+          label="Mailing List"
           onClick={() => setView("mailingList")}
           ariaLabel="View Mailing List"
           className={clsx(
             "rounded-full px-4 py-2 transition duration-200", // always applied
             view === "mailingList"
-              ? "bg-blue-600 text-white pointer-events-none"
+              ? "bg-customBlue text-black pointer-events-none"
               : "bg-gray-200 text-gray-800",
           )}
         />
-        {/* <Button
+        <Button
           label="Messages"
           onClick={() => setView("messages")}
           ariaLabel="View Messages"
           className={clsx(
-             "rounded-full font-semibold px-4 py-2 transition duration-200", // always applied
+             "rounded-full px-4 py-2 transition duration-200", // always applied
             view === "messages"
-              ? "bg-blue-600 text-white pointer-events-none"
+              ? "bg-customBlue text-black pointer-events-none"
               : "bg-gray-200 text-gray-800"
           )}
-        /> */}
+        />
       </div>
       {/* Conditional rendering: only the active panel is mounted */}
-      <div className={`w-full ${contentMinHeight} h-auto`}>
+      <div className={`w-full ${contentMinHeight} h-auto p-6`}>
         {view === "calendar" && (
           <AdminCalendar calendarEventRows={calendarEventRows} />
         )}

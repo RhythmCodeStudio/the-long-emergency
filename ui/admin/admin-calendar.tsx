@@ -8,6 +8,7 @@ import Button from "../button";
 // import CalendarEventDisplay from "../calendar-event-display";
 import CalendarEventForm from "./calendar-event-form";
 import CalendarClientContainer from "../calendar-client-container";
+import ShowDisplay from "../show-display";
 
 interface AdminCalendarProps {
   calendarEventRows: any[];
@@ -50,40 +51,9 @@ export default function AdminCalendar({
             pastEvents={pastEvents}
           />
         </div>
-        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full justify-items-center px-4">  
-          {calendarEventRows.map((event: any) => (
-            <CalendarEventDisplay
-              key={event.id}
-              id={event.id}
-              title={event.title}
-              startDate={
-                typeof event.start_date === "string"
-                  ? event.start_date
-                  : event.start_date?.toISOString().slice(0, 10)
-              }
-              endDate={
-                event.end_date
-                  ? typeof event.end_date === "string"
-                    ? event.end_date
-                    : event.end_date?.toISOString().slice(0, 10)
-                  : undefined
-              }
-              startTime={event.start_time}
-              endTime={event.end_time}
-              allDay={event.all_day}
-              cost={event.cost}
-              locationName={event.location_name}
-              locationStreetAddress={event.location_street_address}
-              locationCity={event.location_city}
-              locationState={event.location_state}
-              locationZip={event.location_zip}
-              description={event.description}
-              imageUrl={event.image}
-              ticketLink={event.ticket_link}
-              moreInfoLink={event.more_info_link}
-            />
-          ))}
-        </div> */}
+        {/* <ShowDisplay
+      
+        /> */}
       </div>
     );
   } else if (view === "addEvent") {

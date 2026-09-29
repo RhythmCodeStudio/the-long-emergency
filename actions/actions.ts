@@ -194,12 +194,15 @@ export async function submitShowRequest(showRequest: {
 // calendar event actions
 //create a new calendar event
 export async function createCalendarEvent(event: {
+  id: number;
   title: string;
-  startDate: Date | string;
-  endDate?: Date | string;
-  startTime: string;
-  endTime?: string;
-  allDay?: boolean;
+  // startDate: Date | string;
+  // endDate?: Date | string;
+  date: Date;
+  dayOfWeek: string;
+  time: string;
+  // endTime?: string;
+  // allDay?: boolean;
   cost?: string;
   locationName: string;
   locationStreetAddress: string;
@@ -212,6 +215,7 @@ export async function createCalendarEvent(event: {
   eventLink?: string;
   venueLink?: string;
   moreInfoLink?: string;
+  createdAt: Date;
 }) {
   await sql`
     INSERT INTO calendar_events (

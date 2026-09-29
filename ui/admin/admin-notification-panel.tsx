@@ -35,10 +35,16 @@ export default function AdminNotificationPanel({
     }
   }
 
-  const handleChange = (
+  const handleMessageChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
-    setMessage(e.target.value);
+    // setMessage(e.target.value);
+  };
+
+  const handleUrlChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    // setUrl(e.target.value);
   };
 
   return (
@@ -68,7 +74,7 @@ export default function AdminNotificationPanel({
         name="notificationMessage"
         placeholder="Enter Notification Message"
         value={message}
-        handleChange={handleChange}
+        handleChange={handleMessageChange}
         required={true}
         errorMessage=""
         setStateVariable={setMessage}
@@ -81,7 +87,7 @@ export default function AdminNotificationPanel({
         name="notificationUrl"
         placeholder="Enter URL to open on click"
         value={url}
-        handleChange={(e) => setUrl(e.target.value)}
+        handleChange={handleUrlChange}
         required={false}
         errorMessage=""
         setStateVariable={setUrl}
@@ -89,7 +95,7 @@ export default function AdminNotificationPanel({
       
       <button
         onClick={handleSend}
-        className="rounded-full px-4 py-2 transition duration-200 bg-customBlue text-black hover:bg-hoverBlue border-1 border-slate-400 flex items-center">
+        className="rounded-full px-4 py-2 transition duration-200 bg-customBlue text-black hover:shadow-md hover:shadow-white border-1 border-slate-400 flex items-center">
         Send Notification
       </button>
       {status && <p>{status}</p>}

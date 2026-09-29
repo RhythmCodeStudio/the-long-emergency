@@ -1,0 +1,20 @@
+CREATE TABLE calendar_events (
+  id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  title TEXT NOT NULL,
+  date DATE NOT NULL,
+  day_of_week TEXT NOT NULL,
+  time TIME NOT NULL,
+  cost TEXT,
+  venue_name TEXT NOT NULL,
+  venue_street_address TEXT NOT NULL,
+  venue_city TEXT NOT NULL,
+  venue_state TEXT NOT NULL,
+  venue_zip TEXT NOT NULL,
+  description TEXT,
+  image TEXT,
+  ticket_link TEXT,
+  event_link TEXT,
+  venue_link TEXT,
+  more_info_link TEXT,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);

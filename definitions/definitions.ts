@@ -1,23 +1,26 @@
 export type CalendarEvent = {
   id: number;
   title: string;
-  startDate: Date;
-  endDate?: Date;
-  startTime: string;
-  endTime?: string;
-  allDay?: boolean;
+  // startDate: Date;
+  // endDate?: Date;
+  date: Date;
+  dayOfWeek: string;
+  time: string;
+  // endTime?: string;
+  // allDay?: boolean;
   cost?: string;
-  locationName: string;
-  locationStreetAddress: string;
-  locationCity: string;
-  locationState: string;
-  locationZip: string;
+  venueName: string;
+  venueStreetAddress: string;
+  venueCity: string;
+  venueState: string;
+  venueZip: string;
   description?: string;
   image?: string;
   ticketLink?: string;
   eventLink?: string;
   venueLink?: string;
   moreInfoLink?: string;
+  createdAt: Date;
 };
 
 export type ShowRequest = {

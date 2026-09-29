@@ -1,13 +1,9 @@
 export type CalendarEvent = {
   id: number;
   title: string;
-  // startDate: Date;
-  // endDate?: Date;
   date: Date;
   dayOfWeek: string;
   time: string;
-  // endTime?: string;
-  // allDay?: boolean;
   cost?: string;
   venueName: string;
   venueStreetAddress: string;

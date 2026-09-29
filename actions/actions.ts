@@ -204,11 +204,11 @@ export async function createCalendarEvent(event: {
   // endTime?: string;
   // allDay?: boolean;
   cost?: string;
-  locationName: string;
-  locationStreetAddress: string;
-  locationCity: string;
-  locationState: string;
-  locationZip: string;
+  venueName: string;
+  venueStreetAddress: string;
+  venueCity: string;
+  venueState: string;
+  venueZip: string;
   description?: string;
   image?: string;
   ticketLink?: string;
@@ -220,17 +220,15 @@ export async function createCalendarEvent(event: {
   await sql`
     INSERT INTO calendar_events (
       title,
-      start_date,
-      end_date,
-      start_time,
-      end_time,
-      all_day,
+      date,
+      day_of_week,
+      time,
       cost,
-      location_name,
-      location_street_address,
-      location_city,
-      location_state,
-      location_zip,
+      venue_name,
+      venue_street_address,
+      venue_city,
+      venue_state,
+      venue_zip,
       description,
       image,
       ticket_link,
@@ -239,17 +237,15 @@ export async function createCalendarEvent(event: {
       more_info_link
     ) VALUES (
       ${event.title},
-      ${event.startDate},
-      ${event.endDate ?? null},
-      ${event.startTime},
-      ${event.endTime ?? null},
-      ${event.allDay ?? false},
+      ${event.date},
+      ${event.dayOfWeek},
+      ${event.time},
       ${event.cost ?? null},
-      ${event.locationName},
-      ${event.locationStreetAddress},
-      ${event.locationCity},
-      ${event.locationState},
-      ${event.locationZip},
+      ${event.venueName},
+      ${event.venueStreetAddress},
+      ${event.venueCity},
+      ${event.venueState},
+      ${event.venueZip},
       ${event.description ?? null},
       ${event.image ?? null},
       ${event.ticketLink ?? null},
@@ -264,7 +260,7 @@ export async function createCalendarEvent(event: {
 export async function getCalendarEvents() {
   const events = await sql`
     SELECT * FROM calendar_events
-    ORDER BY start_date, start_time
+    ORDER BY date, time
   `;
   return events;
 }
@@ -281,17 +277,15 @@ export async function deleteCalendarEvent(id: string) {
 export async function updateCalendarEvent(event: {
   id: string;
   title: string;
-  startDate: Date | string;
-  endDate?: Date | string;
-  startTime: string;
-  endTime?: string;
-  allDay?: boolean;
+  date: Date;
+  dayOfWeek: string;
+  time: string;
   cost?: string;
-  locationName: string;
-  locationStreetAddress: string;
-  locationCity: string;
-  locationState: string;
-  locationZip: string;
+  venueName: string;
+  venueStreetAddress: string;
+  venueCity: string;
+  venueState: string;
+  venueZip: string;
   description?: string;
   image?: string;
   ticketLink?: string;
@@ -303,17 +297,15 @@ export async function updateCalendarEvent(event: {
     UPDATE calendar_events
     SET
       title = ${event.title},
-      start_date = ${event.startDate},
-      end_date = ${event.endDate ?? null},
-      start_time = ${event.startTime},
-      end_time = ${event.endTime ?? null},
-      all_day = ${event.allDay ?? false},
+      date = ${event.date},
+      day_of_week = ${event.dayOfWeek},
+      time = ${event.time},
       cost = ${event.cost ?? null},
-      location_name = ${event.locationName},
-      location_street_address = ${event.locationStreetAddress},
-      location_city = ${event.locationCity},
-      location_state = ${event.locationState},
-      location_zip = ${event.locationZip},
+      venue_name = ${event.venueName},
+      venue_street_address = ${event.venueStreetAddress},
+      venue_city = ${event.venueCity},
+      venue_state = ${event.venueState},
+      venue_zip = ${event.venueZip},
       description = ${event.description ?? null},
       image = ${event.image ?? null},
       ticket_link = ${event.ticketLink ?? null},

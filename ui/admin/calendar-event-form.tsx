@@ -7,7 +7,7 @@ import {
   updateCalendarEvent,
 } from "../../actions/actions";
 // import components
-import ContactFormInput from "../form-input";
+import FormInput from "../form-input";
 import Button from "../button";
 import Heading from "../heading";
 
@@ -15,19 +15,17 @@ interface CalendarEventFormProps {
   mode: "create" | "edit";
   eventId: string;
   initialTitle: string;
-  initialStartDate: string;
-  initialEndDate?: string;
-  initialStartTime: string;
-  initialEndTime?: string;
-  initialAllDay: boolean;
+  initialDate: string;
+  initialDayOfWeek: string;
+  initialTime: string;
   initialCost: string;
-  initialLocationName: string;
-  initialLocationStreetAddress: string;
-  initialLocationCity: string;
-  initialLocationState: string;
-  initialLocationZip: string;
+  initialVenueName: string;
+  initialVenueStreetAddress: string;
+  initialVenueCity: string;
+  initialVenueState: string;
+  initialVenueZip: string;
   initialDescription?: string;
-  initialImageUrl?: string;
+  initialImage?: string;
   initialTicketLink?: string;
   initialEventLink?: string;
   initialVenueLink?: string;
@@ -39,19 +37,17 @@ export default function CalendarEventForm({
   mode,
   eventId,
   initialTitle,
-  initialStartDate,
-  initialEndDate,
-  initialStartTime,
-  initialEndTime,
-  initialAllDay,
+  initialDate,
+  initialDayOfWeek,
+  initialTime,
   initialCost,
-  initialLocationName,
-  initialLocationStreetAddress,
-  initialLocationCity,
-  initialLocationState,
-  initialLocationZip,
+  initialVenueName,
+  initialVenueStreetAddress,
+  initialVenueCity,
+  initialVenueState,
+  initialVenueZip,
   initialDescription,
-  initialImageUrl,
+  initialImage,
   initialTicketLink,
   initialEventLink,
   initialVenueLink,
@@ -62,23 +58,19 @@ export default function CalendarEventForm({
 
   // initialize state with initial props for editing, or empty/default for create ---
   const [eventTitle, setEventTitle] = useState(initialTitle || "");
-  const [date, setDate] = useState(initialStartDate || "");
-  const [endDate, setEndDate] = useState(initialEndDate || "");
-  const [time, setTime] = useState(initialStartTime || "");
-  const [endTime, setEndTime] = useState(initialEndTime || "");
-  const [allDay, setAllDay] = useState(initialAllDay || false);
+  const [date, setDate] = useState(initialDate || "");
+  const [dayOfWeek, setDayOfWeek] = useState(initialDayOfWeek || "");
+  const [time, setTime] = useState(initialTime || "");
   const [cost, setCost] = useState(initialCost || "");
-  const [locationName, setLocationName] = useState(initialLocationName || "");
-  const [locationStreetAddress, setLocationStreetAddress] = useState(
-    initialLocationStreetAddress || "",
+  const [venueName, setVenueName] = useState(initialVenueName || "");
+  const [venueStreetAddress, setVenueStreetAddress] = useState(
+    initialVenueStreetAddress || "",
   );
-  const [locationCity, setLocationCity] = useState(initialLocationCity || "");
-  const [locationState, setLocationState] = useState(
-    initialLocationState || "",
-  );
-  const [locationZip, setLocationZip] = useState(initialLocationZip || "");
+  const [venueCity, setVenueCity] = useState(initialVenueCity || "");
+  const [venueState, setVenueState] = useState(initialVenueState || "");
+  const [venueZip, setVenueZip] = useState(initialVenueZip || "");
   const [description, setDescription] = useState(initialDescription || "");
-  const [imageUrl, setImageUrl] = useState(initialImageUrl || "");
+  const [image, setImage] = useState(initialImage || "");
   const [ticketLink, setTicketLink] = useState(initialTicketLink || "");
   const [eventLink, setEventLink] = useState(initialEventLink || "");
   const [venueLink, setVenueLink] = useState(initialVenueLink || "");
@@ -86,47 +78,48 @@ export default function CalendarEventForm({
   const [dateTouched, setDateTouched] = useState(false);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
-  // --- CHANGED: update state if initial props change (for editing different events) ---
+  // update state if initial props change (for editing different events)
   useEffect(() => {
     setEventTitle(initialTitle || "");
-    setDate(initialStartDate || "");
-    setEndDate(initialEndDate || "");
-    setTime(initialStartTime || "");
-    setEndTime(initialEndTime || "");
-    setAllDay(initialAllDay || false);
+    setDate(initialDate || "");
+    setDayOfWeek(initialDayOfWeek || "");
+    // setEndDate(initialEndDate || "");
+    setTime(initialTime || "");
+    // setEndTime(initialEndTime || "");
+    // setAllDay(initialAllDay || false);
     setCost(initialCost || "");
-    setLocationName(initialLocationName || "");
-    setLocationStreetAddress(initialLocationStreetAddress || "");
-    setLocationCity(initialLocationCity || "");
-    setLocationState(initialLocationState || "");
-    setLocationZip(initialLocationZip || "");
+    setVenueName(initialVenueName || "");
+    setVenueStreetAddress(initialVenueStreetAddress || "");
+    setVenueCity(initialVenueCity || "");
+    setVenueState(initialVenueState || "");
+    setVenueZip(initialVenueZip || "");
     setDescription(initialDescription || "");
-    setImageUrl(initialImageUrl || "");
+    setImage(initialImage || "");
     setTicketLink(initialTicketLink || "");
     setEventLink(initialEventLink || "");
     setVenueLink(initialVenueLink || "");
     setMoreInfoLink(initialMoreInfoLink || "");
   }, [
     initialTitle,
-    initialStartDate,
-    initialEndDate,
-    initialStartTime,
-    initialEndTime,
-    initialAllDay,
+    initialDate,
+    initialDayOfWeek,
+    // initialEndDate,
+    initialTime,
+    // initialEndTime,
+    // initialAllDay,
     initialCost,
-    initialLocationName,
-    initialLocationStreetAddress,
-    initialLocationCity,
-    initialLocationState,
-    initialLocationZip,
+    initialVenueName,
+    initialVenueStreetAddress,
+    initialVenueCity,
+    initialVenueState,
+    initialVenueZip,
     initialDescription,
-    initialImageUrl,
+    initialImage,
     initialTicketLink,
     initialEventLink,
     initialVenueLink,
     initialMoreInfoLink,
   ]);
-  // --- END CHANGES ---
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -142,12 +135,12 @@ export default function CalendarEventForm({
     if (!date) newErrors.date = "Date is required";
     if (!time) newErrors.time = "Time is required";
     // if (!cost) newErrors.cost = "Cost is required";
-    if (!locationName) newErrors.locationName = "Location name is required";
-    if (!locationStreetAddress)
-      newErrors.locationStreetAddress = "Street address is required";
-    if (!locationCity) newErrors.locationCity = "City is required";
-    if (!locationState) newErrors.locationState = "State is required";
-    if (!locationZip) newErrors.locationZip = "Zip code is required";
+    if (!venueName) newErrors.venueName = "Venue name is required";
+    if (!venueStreetAddress)
+      newErrors.venueStreetAddress = "Street address is required";
+    if (!venueCity) newErrors.venueCity = "City is required";
+    if (!venueState) newErrors.venueState = "State is required";
+    if (!venueZip) newErrors.venueZip = "Zip code is required";
     return newErrors;
   };
 
@@ -167,61 +160,56 @@ export default function CalendarEventForm({
         await updateCalendarEvent({
           id: eventId,
           title: eventTitle,
-          startDate: new Date(date),
-          endDate: endDate ? new Date(endDate) : undefined,
-          startTime: time,
-          endTime: endTime ? endTime : undefined,
-          allDay: allDay,
+          date: new Date(date),
+          dayOfWeek,
+          time: time,
           cost: cost,
-          locationName,
-          locationStreetAddress,
-          locationCity,
-          locationState,
-          locationZip,
+          venueName,
+          venueStreetAddress,
+          venueCity,
+          venueState,
+          venueZip,
           description,
           ticketLink,
           eventLink,
           venueLink,
           moreInfoLink,
-          image: imageUrl,
+          image: image,
         });
         alert("Event updated successfully!");
         onClose();
       } else {
         await createCalendarEvent({
           title: eventTitle,
-          startDate: new Date(date),
-          endDate: endDate ? new Date(endDate) : undefined,
-          startTime: time,
-          endTime: endTime ? endTime : undefined,
-          allDay: allDay,
+          date: new Date(date),
+          dayOfWeek,
+          time: time,
           cost: cost,
-          locationName,
-          locationStreetAddress,
-          locationCity,
-          locationState,
-          locationZip,
+          venueName,
+          venueStreetAddress,
+          venueCity,
+          venueState,
+          venueZip,
           description,
           ticketLink,
           eventLink,
           venueLink,
           moreInfoLink,
-          image: imageUrl,
+          image: image,
+          id: 0,
+          createdAt: new Date(),
         });
         setEventTitle("");
         setDate("");
-        setEndDate("");
         setTime("");
-        setEndTime("");
-        setAllDay(false);
         setCost("");
-        setLocationName("");
-        setLocationStreetAddress("");
-        setLocationCity("");
-        setLocationState("");
-        setLocationZip("");
+        setVenueName("");
+        setVenueStreetAddress("");
+        setVenueCity("");
+        setVenueState("");
+        setVenueZip("");
         setDescription("");
-        setImageUrl("");
+        setImage("");
         setTicketLink("");
         setEventLink("");
         setVenueLink("");
@@ -243,11 +231,11 @@ export default function CalendarEventForm({
       <Heading
         headingLevel={2}
         className="text-center text-2xl font-bold"
-        text={mode === "edit" ? "edit event" : "add a new event"}
+        text={mode === "edit" ? "Edit event" : "Add a new event"}
       />
       <form onSubmit={handleFormSubmit}>
-        <ContactFormInput
-          label="event title"
+        <FormInput
+          label="Event Title"
           name="eventTitle"
           inputType="input"
           type="text"
@@ -261,7 +249,7 @@ export default function CalendarEventForm({
         />
         <div className="flex flex-col justify-start w-full">
           <label className="m-2 text-left text-base" htmlFor="date">
-            date*
+            Date*
             <span className="text-xs"> (required)</span>
           </label>
           <input
@@ -269,7 +257,7 @@ export default function CalendarEventForm({
             id="date"
             name="date"
             required
-            className="shadow-md shadow-green-500/50 border-2 border-green-500 p-2 max-w-xs w-full text-black placeholder-neutral-800 rounded-3xl bg-neutral-100 tracking-wide h-10"
+            className="shadow-md shadow-white border-2 border-slate-400 p-2 max-w-xs w-full text-black placeholder-neutral-800 rounded-3xl bg-neutral-100 tracking-wide h-10"
             value={date}
             autoComplete="off"
             onChange={(e) => setDate(e.target.value)}
@@ -287,31 +275,9 @@ export default function CalendarEventForm({
               : " "}
           </p>
         </div>
-        <div className="flex flex-col justify-start w-full mb-4">
-          <label className="m-2 text-left text-base" htmlFor="endDate">
-            end date
-          </label>
-          <input
-            type="date"
-            id="endDate"
-            name="endDate"
-            className="shadow-md shadow-green-500/50 border-2 border-green-500 p-2 text-black placeholder-neutral-800 rounded-3xl bg-neutral-100 tracking-wide h-10 w-full"
-            value={endDate}
-            autoComplete="off"
-            onChange={(e) => setDate(e.target.value)}
-            // onBlur={() => setDateTouched(true)}
-          />
-          {/* <p
-            className="text-red-200 text-xs mt-1 ml-2 min-h-[1.25rem] transition-opacity duration-300"
-            style={{
-              visibility: (dateTouched && !date) || errors.date ? "visible" : "hidden",
-              opacity: (dateTouched && !date) || errors.date ? 1 : 0,
-            }}>
-            {(dateTouched && !date) || errors.date ? (errors.date || "Date is required") : " "}
-          </p> */}
-        </div>
-        <ContactFormInput
-          label="time"
+
+        <FormInput
+          label="Time"
           name="time"
           inputType="input"
           type="text"
@@ -323,30 +289,8 @@ export default function CalendarEventForm({
           handleChange={(e) => handleChange(e, setTime)}
           setStateVariable={setTime}
         />
-        <ContactFormInput
-          label="end time"
-          name="endTime"
-          inputType="input"
-          type="text"
-          placeholder=""
-          value={endTime}
-          required={false}
-          autoComplete="off"
-          errorMessage=""
-          handleChange={(e) => handleChange(e, setEndTime)}
-          setStateVariable={setEndTime}
-        />
-        <input
-          type="checkbox"
-          checked={allDay}
-          onChange={() => setAllDay(!allDay)}
-          className="ml-2 mt-4 mb-6"
-        />
-        <label htmlFor="allDay" className="ml-4">
-          all day event
-        </label>
-        <ContactFormInput
-          label="cost"
+        <FormInput
+          label="Cost"
           name="cost"
           inputType="input"
           type="text"
@@ -358,73 +302,73 @@ export default function CalendarEventForm({
           handleChange={(e) => handleChange(e, setCost)}
           setStateVariable={setCost}
         />
-        <ContactFormInput
-          label="location name"
-          name="locationName"
+        <FormInput
+          label="Venue Name"
+          name="venueName"
           inputType="input"
           type="text"
           placeholder=""
-          value={locationName}
+          value={venueName}
           required={true}
           autoComplete="off"
-          errorMessage={errors.locationName || ""}
-          handleChange={(e) => handleChange(e, setLocationName)}
-          setStateVariable={setLocationName}
+          errorMessage={errors.venueName || ""}
+          handleChange={(e) => handleChange(e, setVenueName)}
+          setStateVariable={setVenueName}
         />
-        <ContactFormInput
-          label="location street address"
-          name="locationStreetAddress"
+        <FormInput
+          label="Venue Street Address"
+          name="venueStreetAddress"
           inputType="input"
           type="text"
           placeholder=""
-          value={locationStreetAddress}
+          value={venueStreetAddress}
           required={true}
           autoComplete="off"
-          errorMessage={errors.locationStreetAddress || ""}
-          handleChange={(e) => handleChange(e, setLocationStreetAddress)}
-          setStateVariable={setLocationStreetAddress}
+          errorMessage={errors.venueStreetAddress || ""}
+          handleChange={(e) => handleChange(e, setVenueStreetAddress)}
+          setStateVariable={setVenueStreetAddress}
         />
-        <ContactFormInput
-          label="city"
-          name="locationCity"
+        <FormInput
+          label="City"
+          name="venueCity"
           inputType="input"
           type="text"
           placeholder=""
-          value={locationCity}
+          value={venueCity}
           required={true}
           autoComplete="off"
-          errorMessage={errors.locationCity || ""}
-          handleChange={(e) => handleChange(e, setLocationCity)}
-          setStateVariable={setLocationCity}
+          errorMessage={errors.venueCity || ""}
+          handleChange={(e) => handleChange(e, setVenueCity)}
+          setStateVariable={setVenueCity}
         />
-        <ContactFormInput
-          label="state"
-          name="locationState"
+        <FormInput
+          label="State"
+          name="venueState"
           inputType="input"
           type="text"
           placeholder=""
-          value={locationState}
+          value={venueState}
           required={true}
           autoComplete="off"
-          errorMessage={errors.locationState || ""}
-          handleChange={(e) => handleChange(e, setLocationState)}
-          setStateVariable={setLocationState}
+          errorMessage={errors.venueState || ""}
+          handleChange={(e) => handleChange(e, setVenueState)}
+          setStateVariable={setVenueState}
         />
-        <ContactFormInput
-          label="zip code"
-          name="locationZip"
+        <FormInput
+          label="Zip Code"
+          name="venueZip"
           inputType="input"
           type="text"
           placeholder=""
-          value={locationZip}
+          value={venueZip}
           required={true}
           autoComplete="off"
-          errorMessage={errors.locationZip || ""}
-          handleChange={(e) => handleChange(e, setLocationZip)}
-          setStateVariable={setLocationZip}
+          errorMessage={errors.venueZip || ""}
+          handleChange={(e) => handleChange(e, setVenueZip)}
+          setStateVariable={setVenueZip}
         />
-        <ContactFormInput
-          label="description"
+        <FormInput
+          label="Description"
           name="description"
           inputType="textarea"
           type="text"
@@ -436,21 +380,21 @@ export default function CalendarEventForm({
           handleChange={(e) => handleChange(e, setDescription)}
           setStateVariable={setDescription}
         />
-        <ContactFormInput
-          label="image url"
-          name="imageUrl"
+        <FormInput
+          label="Image"
+          name="image"
           inputType="input"
           type="text"
           placeholder=""
-          value={imageUrl}
+          value={image}
           required={false}
           autoComplete="off"
           errorMessage=""
-          handleChange={(e) => handleChange(e, setImageUrl)}
-          setStateVariable={setImageUrl}
+          handleChange={(e) => handleChange(e, setImage)}
+          setStateVariable={setImage}
         />
-        <ContactFormInput
-          label="ticket link"
+        <FormInput
+          label="Ticket Link"
           name="ticketLink"
           inputType="input"
           type="text"
@@ -462,8 +406,8 @@ export default function CalendarEventForm({
           handleChange={(e) => handleChange(e, setTicketLink)}
           setStateVariable={setTicketLink}
         />
-        <ContactFormInput
-          label="more info link"
+        <FormInput
+          label="More Info Link"
           name="moreInfoLink"
           inputType="input"
           type="text"
@@ -475,8 +419,8 @@ export default function CalendarEventForm({
           handleChange={(e) => handleChange(e, setMoreInfoLink)}
           setStateVariable={setMoreInfoLink}
         />
-        <ContactFormInput
-          label="event link"
+        <FormInput
+          label="Event Link"
           name="eventLink"
           inputType="input"
           type="text"
@@ -488,8 +432,8 @@ export default function CalendarEventForm({
           handleChange={(e) => handleChange(e, setEventLink)}
           setStateVariable={setEventLink}
         />
-        <ContactFormInput
-          label="venue link"
+        <FormInput
+          label="Venue Link"
           name="venueLink"
           inputType="input"
           type="text"
@@ -503,16 +447,16 @@ export default function CalendarEventForm({
         />
         <div className="flex justify-center mt-4">
           <Button
-            label={mode === "edit" ? "edit event" : "create event"}
+            label={mode === "edit" ? "Edit Event" : "Create Event"}
             onClick={handleFormSubmit}
-            ariaLabel={mode === "edit" ? "edit event" : "create event"}
-            className="bg-blue-600 text-white rounded-full font-semibold px-4 py-2 transition duration-200"
+            ariaLabel={mode === "edit" ? "Edit Event" : "Create Event"}
+            className="bg-customBlue text-black rounded-full px-4 py-2 transition duration-200"
           />
           <Button
-            label="cancel"
+            label="Cancel"
             onClick={onClose}
-            ariaLabel="cancel"
-            className="ml-2 bg-gray-400 text-white rounded-full font-semibold px-4 py-2 transition duration-200"
+            ariaLabel="Cancel"
+            className="ml-2 bg-gray-400 text-black rounded-full px-4 py-2 transition duration-200"
             type="button"
           />
         </div>

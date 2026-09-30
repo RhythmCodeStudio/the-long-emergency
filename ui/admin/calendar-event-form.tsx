@@ -8,6 +8,7 @@ import {
 } from "../../actions/actions";
 // import components
 import FormInput from "../form-input";
+import FormDateInput from "../form-date-input";
 import Button from "../button";
 import Heading from "../heading";
 
@@ -247,35 +248,14 @@ export default function CalendarEventForm({
           handleChange={(e) => handleChange(e, setEventTitle)}
           setStateVariable={setEventTitle}
         />
-        <div className="flex flex-col justify-start w-full">
-          <label className="m-2 text-left text-base" htmlFor="date">
-            Date*
-            <span className="text-xs"> (required)</span>
-          </label>
-          <input
-            type="date"
-            id="date"
-            name="date"
-            required
-            className="shadow-md shadow-white border-2 border-slate-400 p-2 max-w-xs w-full text-black placeholder-neutral-800 rounded-3xl bg-neutral-100 tracking-wide h-10"
-            value={date}
-            autoComplete="off"
-            onChange={(e) => setDate(e.target.value)}
-            onBlur={() => setDateTouched(true)}
-          />
-          <p
-            className="text-red-200 text-xs mt-1 ml-2 min-h-5 transition-opacity duration-300"
-            style={{
-              visibility:
-                (dateTouched && !date) || errors.date ? "visible" : "hidden",
-              opacity: (dateTouched && !date) || errors.date ? 1 : 0,
-            }}>
-            {(dateTouched && !date) || errors.date
-              ? errors.date || "Date is required"
-              : " "}
-          </p>
-        </div>
-
+        <FormDateInput
+          label="Date"
+          name="date"
+          value={date}
+          required={true}
+          errorMessage={errors.date || ""}
+          handleChange={(e) => handleChange(e, setDate)}
+        />
         <FormInput
           label="Time"
           name="time"
@@ -445,18 +425,18 @@ export default function CalendarEventForm({
           handleChange={(e) => handleChange(e, setVenueLink)}
           setStateVariable={setVenueLink}
         />
-        <div className="flex justify-center mt-4">
+        <div className="grid grid-cols-2 gap-6 mt-4 w-1/2 mx-auto">
           <Button
             label={mode === "edit" ? "Edit Event" : "Create Event"}
             onClick={handleFormSubmit}
             ariaLabel={mode === "edit" ? "Edit Event" : "Create Event"}
-            className="bg-customBlue text-black rounded-full px-4 py-2 transition duration-200"
+            className="font-medium rounded-full px-4 py-2 border-2 border-slate-400 bg-gray-200 text-gray-800 hover:shadow-md hover:shadow-white hover:bg-customBlue transition duration-400 active:scale-95"
           />
           <Button
             label="Cancel"
             onClick={onClose}
             ariaLabel="Cancel"
-            className="ml-2 bg-gray-400 text-black rounded-full px-4 py-2 transition duration-200"
+            className="font-medium rounded-full px-4 py-2 border-2 border-slate-400 bg-gray-200 text-gray-800 hover:shadow-md hover:shadow-white hover:bg-customBlue transition duration-400 active:scale-95"
             type="button"
           />
         </div>

@@ -42,10 +42,10 @@ export default function AdminContainer({
           onClick={() => setView("calendar")}
           ariaLabel="View Calendar"
           className={clsx(
-            "rounded-full px-4 py-2 border-2 border-slate-400 transition duration-200", // always applied
+            "rounded-full px-4 py-2 border-2 border-slate-400 transition duration-400 ease-in-out", // always applied
             view === "calendar"
-              ? "bg-customBlue text-black pointer-events-none"
-              : "bg-gray-200 text-gray-800 hover:shadow-md hover:shadow-white hover:bg-customBlue",
+              ? "bg-customBlue shadow-md shadow-white text-black pointer-events-none"
+              : "bg-gray-200 text-gray-800 hover:shadow-md hover:shadow-white hover:bg-customBlue active:scale-95",
           )}
         />
         <Button
@@ -53,10 +53,10 @@ export default function AdminContainer({
           onClick={() => setView("notifications")}
           ariaLabel="Send Notifications"
           className={clsx(
-            "rounded-full px-4 py-2 transition duration-200 border-2 border-slate-400", // always applied
+            "rounded-full px-4 py-2 transition duration-400 ease-in-out border-2 border-slate-400", // always applied
             view === "notifications"
-              ? "bg-customBlue text-black pointer-events-none"
-              : "bg-gray-200 text-gray-800 hover:shadow-md hover:shadow-white hover:bg-customBlue",
+              ? "bg-customBlue shadow-md shadow-white text-black pointer-events-none"
+              : "bg-gray-200 text-gray-800 hover:shadow-md hover:shadow-white hover:bg-customBlue active:scale-95",
           )}
         />
         <Button
@@ -64,10 +64,10 @@ export default function AdminContainer({
           onClick={() => setView("mailingList")}
           ariaLabel="View Mailing List"
           className={clsx(
-            "rounded-full px-4 py-2 transition duration-200 border-2 border-slate-400", // always applied
+            "rounded-full px-4 py-2 transition duration-400 ease-in-out border-2 border-slate-400", // always applied
             view === "mailingList"
-              ? "bg-customBlue text-black pointer-events-none"
-              : "bg-gray-200 text-gray-800 hover:shadow-md hover:shadow-white hover:bg-customBlue",
+              ? "bg-customBlue shadow-md shadow-white text-black pointer-events-none"
+              : "bg-gray-200 text-gray-800 hover:shadow-md hover:shadow-white hover:bg-customBlue active:scale-95",
           )}
         />
         <Button
@@ -75,10 +75,10 @@ export default function AdminContainer({
           onClick={() => setView("messages")}
           ariaLabel="View Messages"
           className={clsx(
-             "rounded-full px-4 py-2 transition duration-200 border-2 border-slate-400", // always applied
+            "rounded-full px-4 py-2 transition duration-400 ease-in-out border-2 border-slate-400", // always applied
             view === "messages"
-              ? "bg-customBlue text-black pointer-events-none"
-              : "bg-gray-200 text-gray-800 hover:shadow-md hover:shadow-white hover:bg-customBlue"
+              ? "bg-customBlue shadow-md shadow-white text-black pointer-events-none"
+              : "bg-gray-200 text-gray-800 hover:shadow-md hover:shadow-white hover:bg-customBlue active:scale-95"
           )}
         />
       </div>

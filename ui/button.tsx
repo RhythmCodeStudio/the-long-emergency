@@ -56,7 +56,7 @@ export default function Button({
     <button
       title={title}
       autoFocus={autoFocus}
-      className={`cursor-pointer ${className} flex flex-col items-center justify-center rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-customBlue disabled:opacity-50`}
+      className={`cursor-pointer ${className} flex flex-col items-center justify-center rounded focus:outline-none disabled:opacity-50`}
       disabled={disabled}
       form={form}
       name={name}

@@ -57,12 +57,14 @@ export default function FormInput({
           placeholder={placeholder}
           id={uniqueInputId}
           disabled={disabled}
-          className="shadow-md shadow-white border-2 border-slate-400 p-2 w-full text-whitesmoke placeholder-white/40 rounded-3xl tracking-wide h-80 resize-none caret-blue-500 bg-[linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url('/images/masks-no-text.png')] bg-no-repeat bg-cover bg-center p-6"
+          className="shadow-md shadow-white border-2 border-slate-400 p-2 w-full text-whitesmoke placeholder-white/40 rounded-3xl tracking-wide h-80 resize-none caret-blue-500 bg-[linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url('/images/masks-no-text.png')] bg-no-repeat bg-cover bg-center p-6 focus:border-slate-400 focus:shadow-md focus:shadow-white
+focus:outline-none focus-visible:outline-2
+focus-visible:outline-customBlue focus-visible:outline-offset-2"
         />
       ) : (
         <div className="relative">
           <input
-            className="shadow-md shadow-white border-2 border-slate-400 w-full text-whitesmoke placeholder-white/40 rounded-3xl tracking-wide  caret-blue-500 bg-[linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url('/images/masks-no-text.png')] bg-no-repeat bg-cover bg-center px-6 pb-1 pt-2 flex items-center"
+            className="shadow-md shadow-white border-2 border-slate-400 w-full text-whitesmoke placeholder-white/40 rounded-3xl tracking-wide  caret-blue-500 bg-[linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url('/images/masks-no-text.png')] bg-no-repeat bg-cover bg-center px-6 pb-1 pt-2 flex items-center focus:border-slate-400 focus:shadow-md focus:shadow-white focus:outline-none focus-visible:outline-2 focus-visible:outline-customBlue focus-visible:outline-offset-2"
             type={type}
             id={uniqueInputId}
             name={name}

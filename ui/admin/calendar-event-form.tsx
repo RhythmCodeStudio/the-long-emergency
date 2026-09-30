@@ -9,6 +9,7 @@ import {
 // import components
 import FormInput from "../form-input";
 import FormDateInput from "../form-date-input";
+import StateAutoComplete from "../state-auto-complete";
 import Button from "../button";
 import Heading from "../heading";
 
@@ -69,6 +70,7 @@ export default function CalendarEventForm({
   );
   const [venueCity, setVenueCity] = useState(initialVenueCity || "");
   const [venueState, setVenueState] = useState(initialVenueState || "");
+  const [venueStateErrorMessage, setVenueStateErrorMessage] = useState("");
   const [venueZip, setVenueZip] = useState(initialVenueZip || "");
   const [description, setDescription] = useState(initialDescription || "");
   const [image, setImage] = useState(initialImage || "");
@@ -321,7 +323,7 @@ export default function CalendarEventForm({
           handleChange={(e) => handleChange(e, setVenueCity)}
           setStateVariable={setVenueCity}
         />
-        <FormInput
+        {/* <FormInput
           label="State"
           name="venueState"
           inputType="input"
@@ -333,6 +335,15 @@ export default function CalendarEventForm({
           errorMessage={errors.venueState || ""}
           handleChange={(e) => handleChange(e, setVenueState)}
           setStateVariable={setVenueState}
+        /> */}
+        <StateAutoComplete
+          value={venueState}
+          errorMessage={venueStateErrorMessage}
+          onChange={(nextValue) => {
+            setVenueState(nextValue);
+            setVenueStateErrorMessage("");
+          }}
+          onErrorMessageChange={setVenueStateErrorMessage}
         />
         <FormInput
           label="Zip Code"

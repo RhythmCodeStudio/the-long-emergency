@@ -95,10 +95,10 @@ export default function AdminNotificationPanel({
       
       <button
         onClick={handleSend}
-        className="rounded-full px-4 py-2 transition duration-200 bg-customBlue text-black hover:shadow-md hover:shadow-white border-1 border-slate-400 flex items-center">
+        className="rounded-full px-4 py-2 bg-customBlue text-black hover:shadow-md hover:shadow-white border-1 border-slate-400 flex items-center active:scale-95 transition ease-in-out duration-400">
         Send Notification
       </button>
-      {status && <p>{status}</p>}
+      {status && <p className="mt-2">{status}</p>}
     </div>
   );
 }

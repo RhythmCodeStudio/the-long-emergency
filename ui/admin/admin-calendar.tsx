@@ -19,12 +19,12 @@ export default function AdminCalendar({
 }: AdminCalendarProps) {
   const [view, setView] = useState<"viewEvents" | "addEvent">("viewEvents");
   const upComingEvents = calendarEventRows.filter((event) => {
-    const eventDate = new Date(event.start_date);
+    const eventDate = new Date(event.date);
     const currentDate = new Date();
     return eventDate >= currentDate;
   });
   const pastEvents = calendarEventRows.filter((event) => {
-    const eventDate = new Date(event.start_date);
+    const eventDate = new Date(event.date);
     const currentDate = new Date();
     return eventDate < currentDate;
   });
@@ -36,7 +36,7 @@ export default function AdminCalendar({
             label="View Events"
             onClick={() => setView("viewEvents")}
             ariaLabel="View Events"
-            className="rounded-full px-4 py-2 border-2 shadow-md shadow-white border-slate-400 bg-customBlue text-black pointer-events-none transition duration-400"
+            className="rounded-full px-4 py-2 border-2 shadow-md shadow-white border-slate-400 bg-customBlue text-black pointer-events-none transition duration-400 ease-in-out"
           />
           <Button
             label="Add Event"

@@ -121,11 +121,11 @@ export default function StateAutocomplete({
           }
         }}
         onKeyDown={handleStateKeyDown}
-        className="shadow-md shadow-white border-2 border-slate-400 w-full text-whitesmoke placeholder-white/40 rounded-3xl tracking-wide caret-blue-500 bg-[linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url('/images/masks-no-text.png')] bg-no-repeat bg-cover bg-center px-6 pb-1 pt-2 flex items-center"
+        className="shadow-md shadow-white border-2 border-slate-400 w-full text-whitesmoke placeholder-white/40 rounded-3xl tracking-wide caret-blue-500 bg-[linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url('/images/masks-no-text.png')] bg-no-repeat bg-cover bg-center px-6 pb-1 pt-2 flex items-center focus:border-slate-400 focus:shadow-md focus:shadow-white focus:outline-none focus-visible:outline-2 focus-visible:outline-customBlue focus-visible:outline-offset-2"
       />
 
       {showSuggestions && filteredStates.length > 0 && (
-        <div className="absolute top-full left-0 right-0 z-20 mt-2 rounded-2xl border border-white/20 bg-black/80 shadow-lg">
+        <div className="absolute top-full left-0 right-0 z-20 rounded-3xl border-2 border-slate-400 bg-black shadow-md shadow-white">
           {filteredStates.slice(0, 6).map((stateName) => (
             <button
               key={stateName}

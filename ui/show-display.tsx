@@ -20,7 +20,7 @@ export default function ShowDisplay({ gigView }: ShowDisplayProps) {
       street_address: "1903 Pestalozzi St",
       zip_code: "63118",
       google_maps_url: "https://maps.app.goo.gl/GcvfaGqrL4CAJ3au7",
-      // gig_info: "Album Release Show",
+      
       other_acts: "Opening for Igor Death",
       cost: "$5",
       poster: "/images/show-posters/masks-no-text.png",

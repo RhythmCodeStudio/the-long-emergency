@@ -4,7 +4,7 @@ import { useState } from "react";
 // import from next
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-// import Image from "next/image";
+import Image from "next/image";
 // import actions
 import { deleteCalendarEvent } from "@/actions/actions";
 // import components
@@ -13,7 +13,7 @@ import GoogleMapsLink from "./google-maps-link";
 import Button from "./button";
 import CalendarEventForm from "./admin/calendar-event-form";
 // import from utils
-import { formatDate } from "../utils/utils";
+import { formatDate, formatTime } from "../utils/utils";
 // import from react icons
 import { MdEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
@@ -62,9 +62,10 @@ export default function CalendarEventDisplay({
   const [duplicateModalOpen, setDuplicateModalOpen] = useState(false);
   const formattedDate = formatDate(date);
   // const formattedEndDate = endDate ? formatDate(endDate) : undefined;
+  const formattedTime = formatTime(time);
 
   const pathname = usePathname();
-
+  console.log("image", image);
   const handleDelete = async () => {
     if (confirm("Are you sure you want to delete this event?")) {
       await deleteCalendarEvent(id);
@@ -84,39 +85,46 @@ export default function CalendarEventDisplay({
 
   return (
     <>
-      <section className=" border-slate-400 border-2 shadow-white shadow-lg rounded-3xl w-full md:min-w-xs text-center font-semibold">
-        <div className="w-full bg-black/50 rounded-3xl p-4 shadow-md shadow-white min-h-full flex flex-col items-center gap-1">
-          <div className="w-full">
-            <p className="">
-              {formattedDate}
-            </p>
-            <p className="">
-              {dayOfWeek}, {time}
-            </p>
+      <section className="border-2 border-slate-400 bg-[rgba(0,0,0,0.6)] rounded-3xl shadow-md shadow-white flex flex-col justify-center items-center p-8">
+        <Image
+          src={`${image}`}
+          alt="Show poster"
+          width={300}
+          height={425}
+          className="shadow-md shadow-white rounded-3xl border-2 border-slate-400  transform transition-transform duration-500 ease-in-out"
+        />
+        <div className="mt-6 space-y-4 text-center">
+          <div className="w-full flex flex-col items-center">
+            <p>{dayOfWeek}</p>
+            <p>{formattedDate}</p>
+            <p>{formattedTime}</p>
           </div>
+          <div className="w-full">
           <Link
-            href={`/calendar/events/${id}`}
+            href={`/shows/${id}`}
             title={`View details for ${title}`}>
             <Heading
               text={title}
               headingLevel={3}
-              className="text-lg md:text-xl font-bold  underline decoration-[#ff0000] wrap-break-word whitespace-normal min-w-[16rem] max-w-[16rem]"
+              className="text-lg md:text-xl font-bold hover:underline hover:decoration-hoverBlue wrap-break-word whitespace-normal min-w-[16rem] max-w-[16rem]"
             />
           </Link>
-          {/* <div className="w-full"> */}
-          <p className=" md:text-lg">
-            {venueLink ? (
-              <a
-                href={venueLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline decoration-[#ff7f00]">
-                {venueName}
-              </a>
-            ) : (
-              venueName
-            )}
-          </p>
+          </div>
+          <div className="w-full">
+            <p className="w-full md:text-lg">
+              {venueLink ? (
+                <a
+                  href={venueLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline hover:decoration-hoverBlue">
+                  {venueName}
+                </a>
+              ) : (
+                venueName
+              )}
+            </p>
+          </div>
           <p className="">
             {cost && cost.toLowerCase() !== "free" ? `${cost}` : "Free"}
           </p>
@@ -126,14 +134,14 @@ export default function CalendarEventDisplay({
             city={venueCity}
             state={venueState}
             zipCode={Number(venueZip)}
-            className=" underline decoration-[#ffff00]"
+            className="hover:underline hover:decoration-hoverBlue"
           />
           {ticketLink && (
             <a
               href={ticketLink}
               target="_blank"
               rel="noopener noreferrer"
-              className=" underline decoration-[#00ff00]">
+              className=" hover:underline hover:decoration-hoverBlue">
               Tickets
             </a>
           )}
@@ -142,7 +150,7 @@ export default function CalendarEventDisplay({
               href={moreInfoLink}
               target="_blank"
               rel="noopener noreferrer"
-              className=" underline decoration-[#8b00ff]">
+              className=" hover:underline hover:decoration-hoverBlue">
               More Info
             </a>
           )}
@@ -167,7 +175,11 @@ export default function CalendarEventDisplay({
               />
             </div>
           )}
-          {/* </div> */}
+          <a
+  href={`/api/shows/${id}/calendar`}
+  className="mt-4 inline-block underline hover:decoration-hoverBlue">
+  Add to calendar
+</a>
         </div>
       </section>
       {editModalOpen && (

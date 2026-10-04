@@ -1,9 +1,10 @@
 // import from next
 import Link from "next/link";
 import Image from "next/image";
-// import data
-import { getPage } from "@/actions/actions";
+// import actions
+import { getPage, getCalendarEvents } from "@/actions/actions";
 import ShowDisplay from "@/ui/show-display";
+import CalendarClientContainer from "@/ui/admin/calendar-client-container";
 import Toaster from "@/ui/toaster";
 import InstallAppButton from "@/ui/install-app-button";
 // export metadata
@@ -25,6 +26,27 @@ export default async function ShowsPage({
   searchParams: Promise<ShowsPageSearchParams>;
 }) {
   const showsPageData = await getPage("shows");
+  const events = await getCalendarEvents();
+  console.log("Calendar events:", events);
+  const eventsInOrder = events.sort((a, b) => {
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
+    return dateA.getTime() - dateB.getTime();
+  });
+
+  const currentDate = new Date();
+  // filter out past events
+  const upComingEvents = eventsInOrder.filter((event) => {
+    const eventDate = new Date(event.date);
+    return eventDate >= currentDate;
+  });
+
+  const pastEvents = eventsInOrder.filter((event) => {
+    const eventDate = new Date(event.date);
+    return eventDate < currentDate;
+  });
+  console.log("Upcoming events:", upComingEvents);
+  console.log("Past events:", pastEvents);
 
   const resolvedSearchParams = await searchParams;
   const rawView = resolvedSearchParams?.view;
@@ -39,9 +61,16 @@ export default async function ShowsPage({
         {showsPageData?.page_title}
       </h3>
 
-      <div className="w-full max-w-600 sm:py-4">
-        <ShowDisplay gigView={gigView} />
+      <div className="w-full max-w-600">
+        <CalendarClientContainer
+          upComingEvents={upComingEvents}
+          pastEvents={pastEvents}
+        />
       </div>
+
+      {/* <div className="w-full max-w-600 sm:py-4">
+        <ShowDisplay gigView={gigView} />
+      </div> */}
       <div className="w-full h-auto px-12 py-6 sm:px-6 flex justify-center">
         <Image
           priority

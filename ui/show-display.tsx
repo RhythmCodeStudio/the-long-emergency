@@ -20,7 +20,6 @@ export default function ShowDisplay({ gigView }: ShowDisplayProps) {
       street_address: "1903 Pestalozzi St",
       zip_code: "63118",
       google_maps_url: "https://maps.app.goo.gl/GcvfaGqrL4CAJ3au7",
-      
       other_acts: "Opening for Igor Death",
       cost: "$5",
       poster: "/images/show-posters/masks-no-text.png",
@@ -150,7 +149,7 @@ export default function ShowDisplay({ gigView }: ShowDisplayProps) {
       </div>
       <div className="p-6 text-outline">
         {filteredGigs.length === 0 ? (
-          <div className="">
+          <div>
             <p className="text-center text-lg md:text-xl text-balance">
               {gigView === "upcoming"
                 ? "No upcoming shows currently scheduled."

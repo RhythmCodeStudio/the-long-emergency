@@ -1,6 +1,7 @@
 CREATE TABLE calendar_events (
   id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   title TEXT NOT NULL,
+  slug TEXT NOT NULL,
   date DATE NOT NULL,
   day_of_week TEXT NOT NULL,
   time TIME NOT NULL,

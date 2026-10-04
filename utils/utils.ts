@@ -118,6 +118,19 @@ export const formatDate = (date: Date | string | undefined) => {
   });
 };
 
+export const formatTime = (time: string | undefined) => {
+  if (!time) {
+    return "";
+  }
+  const [hour, minute] = time.split(":").map(Number);
+  const date = new Date();
+  date.setHours(hour, minute);
+  return date.toLocaleTimeString(undefined, {
+    hour: "numeric",
+    minute: "2-digit",
+  });
+};
+
 export function delayPageLoad(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }

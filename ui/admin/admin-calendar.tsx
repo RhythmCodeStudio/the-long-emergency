@@ -7,8 +7,8 @@ import { useState } from "react";
 import Button from "../button";
 // import CalendarEventDisplay from "../calendar-event-display";
 import CalendarEventForm from "./calendar-event-form";
-import CalendarClientContainer from "../calendar-client-container";
-import ShowDisplay from "../show-display";
+import CalendarClientContainer from "./calendar-client-container";
+// import ShowDisplay from "../show-display";
 
 interface AdminCalendarProps {
   calendarEventRows: any[];
@@ -51,9 +51,6 @@ export default function AdminCalendar({
             pastEvents={pastEvents}
           />
         </div>
-        {/* <ShowDisplay
-      
-        /> */}
       </div>
     );
   } else if (view === "addEvent") {

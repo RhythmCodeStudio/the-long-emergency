@@ -1,19 +1,13 @@
 export const dynamic = "force-dynamic";
-// import stack server app
-// import { stackServerApp } from "@/stack/server";
+
 // import data
 import { getSubscriptionsFromDB } from "@/actions/push-notifications/notification-subscriptions-db";
-import { getMailingList, getCalendarEvents } from "../../actions/actions";
-// import from neon auth
-// import { SignIn } from "@stackframe/stack";
-// import { AccountSettings } from "@stackframe/stack";
+import { getMailingList, getCalendarEvents } from "@/actions/actions";
 // import components
 import Heading from "@/ui/heading";
 import AdminContainer from "@/ui/admin/admin-container";
-// import AdminNotificationPanel from "@/app/ui/admin/admin-notification-panel";
 
 export default async function AdminPage() {
-  // const app = stackServerApp;
   // const user = await app.getUser();
   const subsctiptions = await getSubscriptionsFromDB();
   const numberOfSubscriptions = subsctiptions.length;

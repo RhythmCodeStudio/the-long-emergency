@@ -66,7 +66,7 @@ export default function Button({
       aria-label={ariaLabel}
     >
       {icon}
-      <span className={labelClassName}>{label}</span>
+      <span className={`translate-y-0.5 block leading-none ${labelClassName}`}>{label}</span>
     </button>
   );
 }

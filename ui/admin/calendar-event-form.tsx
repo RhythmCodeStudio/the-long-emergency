@@ -1,17 +1,17 @@
 "use client";
 // import from react
 import { useState, useEffect } from "react";
+// import from next
+import Image from "next/image";
 // import actions
-import {
-  createCalendarEvent,
-  updateCalendarEvent,
-} from "../../actions/actions";
+import { createCalendarEvent, updateCalendarEvent } from "@/actions/actions";
+import { getCloudinaryUploadSignature } from "@/actions/cloudinary";
 // import components
-import FormInput from "../form-input";
-import FormDateInput from "../form-date-input";
-import StateAutoComplete from "../state-auto-complete";
-import Button from "../button";
-import Heading from "../heading";
+import FormInput from "@/ui/form-input";
+import FormDateInput from "@/ui/form-date-input";
+import StateAutoComplete from "@/ui/state-auto-complete";
+import Button from "@/ui/button";
+import Heading from "@/ui/heading";
 
 interface CalendarEventFormProps {
   mode: "create" | "edit";
@@ -57,7 +57,8 @@ export default function CalendarEventForm({
   onClose,
 }: CalendarEventFormProps) {
   const [id, setId] = useState(1);
-
+  const [uploadingImage, setUploadingImage] = useState(false);
+  const [imageUploadError, setImageUploadError] = useState("");
   // initialize state with initial props for editing, or empty/default for create ---
   const [eventTitle, setEventTitle] = useState(initialTitle || "");
   const [date, setDate] = useState(initialDate || "");
@@ -130,6 +131,60 @@ export default function CalendarEventForm({
   ) => {
     const value = e.target.value;
     setStateVariable(value);
+  };
+
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (!["image/jpeg", "image/png", "image/webp"].includes(file.type)) {
+      setImageUploadError("Please choose a JPG, PNG, or WebP image.");
+      return;
+    }
+    if (file.size > 10 * 1024 * 1024) {
+      setImageUploadError("Image must be under 10 MB.");
+      return;
+    }
+
+    setUploadingImage(true);
+    setImageUploadError("");
+
+    try {
+      const {
+        signature,
+        timestamp,
+        folder,
+        allowedFormats,
+        apiKey,
+        cloudName,
+      } = await getCloudinaryUploadSignature();
+
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("api_key", apiKey);
+      formData.append("timestamp", String(timestamp));
+      formData.append("signature", signature);
+      formData.append("folder", folder);
+      formData.append("allowed_formats", allowedFormats);
+
+      const res = await fetch(
+        `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
+        { method: "POST", body: formData },
+      );
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data?.error?.message ?? "Upload failed");
+      }
+
+      setImage(data.secure_url);
+    } catch (err) {
+      console.error("Image upload failed:", err);
+      setImageUploadError("Image upload failed. Please try again.");
+    } finally {
+      setUploadingImage(false);
+      e.target.value = "";
+    }
   };
 
   const validate = () => {
@@ -323,19 +378,6 @@ export default function CalendarEventForm({
           handleChange={(e) => handleChange(e, setVenueCity)}
           setStateVariable={setVenueCity}
         />
-        {/* <FormInput
-          label="State"
-          name="venueState"
-          inputType="input"
-          type="text"
-          placeholder=""
-          value={venueState}
-          required={true}
-          autoComplete="off"
-          errorMessage={errors.venueState || ""}
-          handleChange={(e) => handleChange(e, setVenueState)}
-          setStateVariable={setVenueState}
-        /> */}
         <StateAutoComplete
           value={venueState}
           errorMessage={venueStateErrorMessage}
@@ -371,7 +413,7 @@ export default function CalendarEventForm({
           handleChange={(e) => handleChange(e, setDescription)}
           setStateVariable={setDescription}
         />
-        <FormInput
+        {/* <FormInput
           label="Image"
           name="image"
           inputType="input"
@@ -383,7 +425,41 @@ export default function CalendarEventForm({
           errorMessage=""
           handleChange={(e) => handleChange(e, setImage)}
           setStateVariable={setImage}
-        />
+        /> */}
+        <div className="flex flex-col gap-2 my-4">
+          <label htmlFor="imageUpload" className="font-medium">
+            Event Image
+          </label>
+          <input
+            id="imageUpload"
+            type="file"
+            accept="image/jpeg,image/png,image/webp"
+            onChange={handleImageUpload}
+            disabled={uploadingImage}
+            className="file:mr-4 file:rounded-full file:border-2 file:border-slate-400 file:bg-gray-200 file:px-4 file:py-1 file:text-gray-800 hover:file:bg-customBlue"
+          />
+          {uploadingImage && <p className="text-sm">Uploading…</p>}
+          {imageUploadError && (
+            <p className="text-sm text-red-500">{imageUploadError}</p>
+          )}
+          {image && (
+            <div className="flex flex-col items-center gap-2">
+              <Image
+                src={image}
+                alt="Event image preview"
+                width={200}
+                height={283}
+                className="rounded-xl border-2 border-slate-400"
+              />
+              <button
+                type="button"
+                onClick={() => setImage("")}
+                className="text-sm underline">
+                Remove image
+              </button>
+            </div>
+          )}
+        </div>
         <FormInput
           label="Ticket Link"
           name="ticketLink"

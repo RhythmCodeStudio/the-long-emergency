@@ -471,6 +471,10 @@ export async function getPage(slug: string): Promise<Page | null> {
       .update(databaseUrl)
       .digest("hex")
       .slice(0, 16),
+    passwordFingerprint: createHash("sha256")
+      .update(decodeURIComponent(parsed.password))
+      .digest("hex")
+      .slice(0, 16),
   });
 
   try {

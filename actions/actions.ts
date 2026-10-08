@@ -211,6 +211,7 @@ export async function createCalendarEvent(event: {
   venueZip: string;
   description?: string;
   image?: string;
+  imagePublicId?: string;
   ticketLink?: string;
   eventLink?: string;
   venueLink?: string;
@@ -231,6 +232,7 @@ export async function createCalendarEvent(event: {
       venue_zip,
       description,
       image,
+      image_public_id,
       ticket_link,
       event_link,
       venue_link,
@@ -248,6 +250,7 @@ export async function createCalendarEvent(event: {
       ${event.venueZip},
       ${event.description ?? null},
       ${event.image ?? null},
+      ${event.imagePublicId ?? null},
       ${event.ticketLink ?? null},
       ${event.eventLink ?? null},
       ${event.venueLink ?? null},
@@ -288,6 +291,7 @@ export async function updateCalendarEvent(event: {
   venueZip: string;
   description?: string;
   image?: string;
+  imagePublicId?: string;
   ticketLink?: string;
   eventLink?: string;
   venueLink?: string;
@@ -308,6 +312,7 @@ export async function updateCalendarEvent(event: {
       venue_zip = ${event.venueZip},
       description = ${event.description ?? null},
       image = ${event.image ?? null},
+      image_public_id = ${event.imagePublicId ?? null},
       ticket_link = ${event.ticketLink ?? null},
       event_link = ${event.eventLink ?? null},
       venue_link = ${event.venueLink ?? null},

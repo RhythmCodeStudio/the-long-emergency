@@ -6,12 +6,15 @@ import Image from "next/image";
 // import actions
 import { createCalendarEvent, updateCalendarEvent } from "@/actions/actions";
 import { getCloudinaryUploadSignature } from "@/actions/cloudinary";
+import { removeCalendarEventImage } from "@/actions/cloudinary";
 // import components
 import FormInput from "@/ui/form-input";
 import FormDateInput from "@/ui/form-date-input";
 import StateAutoComplete from "@/ui/state-auto-complete";
 import Button from "@/ui/button";
 import Heading from "@/ui/heading";
+// import from cloudinary
+import { CldUploadWidget } from "next-cloudinary";
 
 interface CalendarEventFormProps {
   mode: "create" | "edit";
@@ -28,6 +31,7 @@ interface CalendarEventFormProps {
   initialVenueZip: string;
   initialDescription?: string;
   initialImage?: string;
+  initialImagePublicId?: string;
   initialTicketLink?: string;
   initialEventLink?: string;
   initialVenueLink?: string;
@@ -50,6 +54,7 @@ export default function CalendarEventForm({
   initialVenueZip,
   initialDescription,
   initialImage,
+  initialImagePublicId,
   initialTicketLink,
   initialEventLink,
   initialVenueLink,
@@ -75,6 +80,9 @@ export default function CalendarEventForm({
   const [venueZip, setVenueZip] = useState(initialVenueZip || "");
   const [description, setDescription] = useState(initialDescription || "");
   const [image, setImage] = useState(initialImage || "");
+  const [imagePublicId, setImagePublicId] = useState(
+    initialImagePublicId || "",
+  );
   const [ticketLink, setTicketLink] = useState(initialTicketLink || "");
   const [eventLink, setEventLink] = useState(initialEventLink || "");
   const [venueLink, setVenueLink] = useState(initialVenueLink || "");
@@ -99,6 +107,7 @@ export default function CalendarEventForm({
     setVenueZip(initialVenueZip || "");
     setDescription(initialDescription || "");
     setImage(initialImage || "");
+    setImagePublicId(initialImagePublicId || "");
     setTicketLink(initialTicketLink || "");
     setEventLink(initialEventLink || "");
     setVenueLink(initialVenueLink || "");
@@ -119,6 +128,7 @@ export default function CalendarEventForm({
     initialVenueZip,
     initialDescription,
     initialImage,
+    initialImagePublicId,
     initialTicketLink,
     initialEventLink,
     initialVenueLink,
@@ -133,59 +143,59 @@ export default function CalendarEventForm({
     setStateVariable(value);
   };
 
-  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
+  // const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const file = e.target.files?.[0];
+  //   if (!file) return;
 
-    if (!["image/jpeg", "image/png", "image/webp"].includes(file.type)) {
-      setImageUploadError("Please choose a JPG, PNG, or WebP image.");
-      return;
-    }
-    if (file.size > 10 * 1024 * 1024) {
-      setImageUploadError("Image must be under 10 MB.");
-      return;
-    }
+  //   if (!["image/jpeg", "image/png", "image/webp"].includes(file.type)) {
+  //     setImageUploadError("Please choose a JPG, PNG, or WebP image.");
+  //     return;
+  //   }
+  //   if (file.size > 10 * 1024 * 1024) {
+  //     setImageUploadError("Image must be under 10 MB.");
+  //     return;
+  //   }
 
-    setUploadingImage(true);
-    setImageUploadError("");
+  //   setUploadingImage(true);
+  //   setImageUploadError("");
 
-    try {
-      const {
-        signature,
-        timestamp,
-        folder,
-        allowedFormats,
-        apiKey,
-        cloudName,
-      } = await getCloudinaryUploadSignature();
+  //   try {
+  //     const {
+  //       signature,
+  //       timestamp,
+  //       folder,
+  //       allowedFormats,
+  //       apiKey,
+  //       cloudName,
+  //     } = await getCloudinaryUploadSignature();
 
-      const formData = new FormData();
-      formData.append("file", file);
-      formData.append("api_key", apiKey);
-      formData.append("timestamp", String(timestamp));
-      formData.append("signature", signature);
-      formData.append("folder", folder);
-      formData.append("allowed_formats", allowedFormats);
+  //     const formData = new FormData();
+  //     formData.append("file", file);
+  //     formData.append("api_key", apiKey);
+  //     formData.append("timestamp", String(timestamp));
+  //     formData.append("signature", signature);
+  //     formData.append("folder", folder);
+  //     formData.append("allowed_formats", allowedFormats);
 
-      const res = await fetch(
-        `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
-        { method: "POST", body: formData },
-      );
-      const data = await res.json();
+  //     const res = await fetch(
+  //       `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
+  //       { method: "POST", body: formData },
+  //     );
+  //     const data = await res.json();
 
-      if (!res.ok) {
-        throw new Error(data?.error?.message ?? "Upload failed");
-      }
+  //     if (!res.ok) {
+  //       throw new Error(data?.error?.message ?? "Upload failed");
+  //     }
 
-      setImage(data.secure_url);
-    } catch (err) {
-      console.error("Image upload failed:", err);
-      setImageUploadError("Image upload failed. Please try again.");
-    } finally {
-      setUploadingImage(false);
-      e.target.value = "";
-    }
-  };
+  //     setImage(data.secure_url);
+  //   } catch (err) {
+  //     console.error("Image upload failed:", err);
+  //     setImageUploadError("Image upload failed. Please try again.");
+  //   } finally {
+  //     setUploadingImage(false);
+  //     e.target.value = "";
+  //   }
+  // };
 
   const validate = () => {
     const newErrors: { [key: string]: string } = {};
@@ -233,6 +243,7 @@ export default function CalendarEventForm({
           venueLink,
           moreInfoLink,
           image: image,
+          imagePublicId: imagePublicId,
         });
         alert("Event updated successfully!");
         onClose();
@@ -254,6 +265,7 @@ export default function CalendarEventForm({
           venueLink,
           moreInfoLink,
           image: image,
+          imagePublicId: imagePublicId,
           id: 0,
           createdAt: new Date(),
         });
@@ -268,6 +280,7 @@ export default function CalendarEventForm({
         setVenueZip("");
         setDescription("");
         setImage("");
+        setImagePublicId("");
         setTicketLink("");
         setEventLink("");
         setVenueLink("");
@@ -426,7 +439,7 @@ export default function CalendarEventForm({
           handleChange={(e) => handleChange(e, setImage)}
           setStateVariable={setImage}
         /> */}
-        <div className="flex flex-col gap-2 my-4">
+        {/* <div className="flex flex-col gap-2 my-4">
           <label htmlFor="imageUpload" className="font-medium">
             Event Image
           </label>
@@ -459,7 +472,70 @@ export default function CalendarEventForm({
               </button>
             </div>
           )}
-        </div>
+        </div> */}
+
+        <CldUploadWidget
+          signatureEndpoint="/api/cloudinary-signature"
+          uploadPreset={process.env.NEXT_PUBLIC_CLOUDINARY_CALENDAR_EVENT_IMAGE_UPLOAD_PRESET}
+          options={{
+            folder: "the-long-emergency/events",
+            clientAllowedFormats: ["jpg", "jpeg", "png", "webp"],
+            maxFileSize: 10 * 1024 * 1024,
+            multiple: false,
+          }}
+          onSuccess={(result) => {
+            if (result.info && typeof result.info !== "string") {
+              setImage(result.info.secure_url);
+              setImagePublicId(result.info.public_id);
+              setImageUploadError("");
+            }
+          }}>
+          {({ open }) => (
+            <button
+              type="button"
+              onClick={() => open()}
+              disabled={uploadingImage}>
+              Upload event image
+            </button>
+          )}
+        </CldUploadWidget>
+
+        {imageUploadError && (
+          <p className="text-sm text-red-500">{imageUploadError}</p>
+        )}
+
+        {image && (
+          <div className="flex flex-col items-center gap-2">
+            <Image
+              src={image}
+              alt="Event image preview"
+              width={200}
+              height={283}
+            />
+            <button
+              type="button"
+              disabled={uploadingImage}
+              onClick={async () => {
+                try {
+                  await removeCalendarEventImage(
+                    eventId,
+                    imagePublicId,
+                  );
+                  setImage("");
+                  setImagePublicId("");
+                } catch (error) {
+                  console.error("Image removal failed:", error);
+                  setImageUploadError(
+                    "Could not remove the image. Please try again.",
+                  );
+                }
+              }}>
+              Remove image
+            </button>
+          </div>
+        )}
+
+        {/* <input type="hidden" name="imagePublicId" value={imagePublicId} /> */}
         <FormInput
           label="Ticket Link"
           name="ticketLink"

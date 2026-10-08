@@ -12,6 +12,7 @@ export type CalendarEvent = {
   venueZip: string;
   description?: string;
   image?: string;
+  imagePublicId?: string;
   ticketLink?: string;
   eventLink?: string;
   venueLink?: string;

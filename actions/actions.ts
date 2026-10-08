@@ -79,6 +79,7 @@ export async function signUpForMailingList(email: string) {
   });
 
   if (error) {
+    console.error("Mailing-list confirmation failed:", error);
     throw new Error("Failed to send confirmation email.");
   }
 }

@@ -1,4 +1,5 @@
 "use server";
+import { createHash } from "node:crypto";
 import { neon } from "@neondatabase/serverless";
 import { auth } from "@/auth/server";
 import { redirect } from "next/navigation";
@@ -55,8 +56,12 @@ export async function signUpForMailingList(email: string) {
   // });
 
   const [logo, kevinImage] = await Promise.all([
-    readFile(join(process.cwd(), "public/images/email/the-long-emergency-logo.png")),
-    readFile(join(process.cwd(), "public/images/email/kevin-playing-guitar.png")),
+    readFile(
+      join(process.cwd(), "public/images/email/the-long-emergency-logo.png"),
+    ),
+    readFile(
+      join(process.cwd(), "public/images/email/kevin-playing-guitar.png"),
+    ),
   ]);
 
   const { error } = await resend.emails.send({
@@ -157,8 +162,12 @@ export async function submitShowRequest(showRequest: {
 
   async function sendShowRequestConfirmation(email: string) {
     const [logo, kevinImage] = await Promise.all([
-      readFile(join(process.cwd(), "public/images/email/the-long-emergency-logo.png")),
-      readFile(join(process.cwd(), "public/images/email/kevin-playing-guitar.png")),
+      readFile(
+        join(process.cwd(), "public/images/email/the-long-emergency-logo.png"),
+      ),
+      readFile(
+        join(process.cwd(), "public/images/email/kevin-playing-guitar.png"),
+      ),
     ]);
 
     const { error } = await resend.emails.send({
@@ -450,6 +459,20 @@ export async function getPages(): Promise<Page[]> {
 }
 
 export async function getPage(slug: string): Promise<Page | null> {
+  const databaseUrl = process.env.DATABASE_URL ?? "";
+  const parsed = new URL(databaseUrl);
+
+  console.log("Database configuration check:", {
+    host: parsed.hostname,
+    role: parsed.username,
+    database: parsed.pathname,
+    length: databaseUrl.length,
+    fingerprint: createHash("sha256")
+      .update(databaseUrl)
+      .digest("hex")
+      .slice(0, 16),
+  });
+
   try {
     const page =
       (await sql`SELECT * FROM public.pages WHERE slug=${slug}`) as Page[];

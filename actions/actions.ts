@@ -55,8 +55,12 @@ export async function signUpForMailingList(email: string) {
   // });
 
   const [logo, kevinImage] = await Promise.all([
-    readFile(join(process.cwd(), "public/images/email/the-long-emergency-logo.png")),
-    readFile(join(process.cwd(), "public/images/email/kevin-playing-guitar.png")),
+    readFile(
+      join(process.cwd(), "public/images/email/the-long-emergency-logo.png"),
+    ),
+    readFile(
+      join(process.cwd(), "public/images/email/kevin-playing-guitar.png"),
+    ),
   ]);
 
   const { error } = await resend.emails.send({
@@ -79,6 +83,7 @@ export async function signUpForMailingList(email: string) {
   });
 
   if (error) {
+    console.error("Mailing-list confirmation failed:", error);
     throw new Error("Failed to send confirmation email.");
   }
 }
@@ -156,8 +161,12 @@ export async function submitShowRequest(showRequest: {
 
   async function sendShowRequestConfirmation(email: string) {
     const [logo, kevinImage] = await Promise.all([
-      readFile(join(process.cwd(), "public/images/email/the-long-emergency-logo.png")),
-      readFile(join(process.cwd(), "public/images/email/kevin-playing-guitar.png")),
+      readFile(
+        join(process.cwd(), "public/images/email/the-long-emergency-logo.png"),
+      ),
+      readFile(
+        join(process.cwd(), "public/images/email/kevin-playing-guitar.png"),
+      ),
     ]);
 
     const { error } = await resend.emails.send({

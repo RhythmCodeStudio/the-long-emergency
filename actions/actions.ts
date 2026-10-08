@@ -22,7 +22,8 @@ import { join } from "node:path";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-const sql = neon(`${process.env.DATABASE_URL}`);
+// const sql = neon(`${process.env.DATABASE_URL}`);
+const sql = neon(process.env.NEON_DATABASE_URL!);
 
 // user authentication actions
 export async function getSession() {

@@ -1,4 +1,5 @@
 "use server";
+import { createHash } from "node:crypto";
 import { neon } from "@neondatabase/serverless";
 import { auth } from "@/auth/server";
 import { redirect } from "next/navigation";
@@ -21,7 +22,8 @@ import { join } from "node:path";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-const sql = neon(`${process.env.DATABASE_URL}`);
+// const sql = neon(`${process.env.NEON_DATABASE_URL}`);
+const sql = neon(process.env.NEON_DATABASE_URL!);
 
 // user authentication actions
 export async function getSession() {
@@ -454,6 +456,24 @@ export async function getPages(): Promise<Page[]> {
 }
 
 export async function getPage(slug: string): Promise<Page | null> {
+  // const databaseUrl = process.env.NEON_DATABASE_URL ?? "";
+  // const parsed = new URL(databaseUrl);
+
+  // console.log("Database configuration check:", {
+  //   host: parsed.hostname,
+  //   role: parsed.username,
+  //   database: parsed.pathname,
+  //   length: databaseUrl.length,
+  //   fingerprint: createHash("sha256")
+  //     .update(databaseUrl)
+  //     .digest("hex")
+  //     .slice(0, 16),
+  //   passwordFingerprint: createHash("sha256")
+  //     .update(decodeURIComponent(parsed.password))
+  //     .digest("hex")
+  //     .slice(0, 16),
+  // });
+
   try {
     const page =
       (await sql`SELECT * FROM public.pages WHERE slug=${slug}`) as Page[];

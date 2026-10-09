@@ -14,8 +14,8 @@ import {
   merch 
 } from "../app/lib/initial-site-data.js";
 
-const sql = postgres(process.env.DATABASE_URL, { ssl: "require" });
-// console.log('Connecting to:', process.env.DATABASE_URL);
+const sql = postgres(process.env.NEON_DATABASE_URL, { ssl: "require" });
+// console.log('Connecting to:', process.env.NEON_DATABASE_URL);
 // const bcrypt = require("bcrypt");
 
 async function seedSongs() {

@@ -8,6 +8,7 @@
 - [Tailwind CSS](https://tailwindcss.com/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Resend](https://resend.com/)
+- [Neon](https://neon.tech/)
 - [Cloudinary](https://cloudinary.com/)
 
 ## Features

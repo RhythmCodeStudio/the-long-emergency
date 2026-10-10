@@ -3,7 +3,9 @@
 import { useState } from "react";
 // import from next
 import { usePathname } from "next/navigation";
-import Link from "next/link";
+// import Link from "next/link";
+// import defintions
+import type { CalendarEvent } from "@/definitions/definitions";
 // import components
 import CalendarEventDisplay from "../calendar-event-display";
 import Button from "../button";
@@ -11,8 +13,8 @@ import Button from "../button";
 import clsx from "clsx";
 
 interface CalendarClientContainerProps {
-  upComingEvents: any[];
-  pastEvents?: any[];
+  upComingEvents: CalendarEvent[];
+  pastEvents?: CalendarEvent[];
   numberOfEventsToShow?: number;
   showViewToggle?: boolean;
 }
@@ -33,47 +35,44 @@ export default function CalendarClientContainer({
 
   return (
     <section
-      className={
-        isAdminPath && !showViewToggle
-          ? "w-full flex flex-col items-center"
-          : !isAdminPath && !showViewToggle
-            ? "w-full flex flex-col items-center p-8"
-            : "rounded-(--container-radius) w-full flex flex-col items-center p-(--container-padding) [--container-radius:var(--radius-4xl)] [--container-padding:--spacing(8)]"
-      }>
+      className={clsx(
+  "w-full flex flex-col items-center",
+  showViewToggle ? "rounded-4xl p-6" : !isAdminPath && "p-8",
+)}>
       {showViewToggle && (
-        <div className="flex flex-row gap-4 mb-8 justify-center">
+        <div className="flex flex-row justify-center items-center pb-6 w-full gap-4">
           <Button
             label="Past"
             title="past events"
             onClick={() => setView("past")}
             className={clsx(
-              "inline-flex h-9 w-24 m-2 items-center justify-center rounded-full text-black border-2 border-slate-400 shadow-md transition ease-in-out duration-400",
+              "inline-flex h-9 w-24 items-center justify-center rounded-full text-black border-2 border-slate-400 shadow-md transition ease-in-out duration-400",
               view === "past"
-                ? "pointer-events-none shadow-white duration-200 bg-customBlue" : "bg-white hover:bg-customBlue hover:shadow-white"
+                ? "pointer-events-none shadow-white duration-200 bg-customBlue"
+                : "bg-white hover:bg-customBlue hover:shadow-white",
             )}
-            labelClassName=""
           />
           <Button
             label="Future"
             title="future events"
             onClick={() => setView("future")}
             className={clsx(
-              "inline-flex h-9 w-24 m-2 items-center justify-center rounded-full text-black border-2 border-slate-400 shadow-md transition ease-in-out duration-400",
+              "inline-flex h-9 w-24 items-center justify-center rounded-full text-black border-2 border-slate-400 shadow-md transition ease-in-out duration-400",
               view === "future"
-                ? "pointer-events-none shadow-white duration-200 bg-customBlue" : "bg-white hover:bg-customBlue hover:shadow-white"
+                ? "pointer-events-none shadow-white duration-200 bg-customBlue"
+                : "bg-white hover:bg-customBlue hover:shadow-white",
             )}
-            labelClassName=""
           />
         </div>
       )}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8 w-full z-50 p-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 w-full">
         {view === "future" ? (
           upComingEvents.length > 0 ? (
             upComingEvents
               .slice(0, numberOfEventsToShow)
               .map((event) => (
                 <CalendarEventDisplay
-                  id={event.id}
+                  id={String(event.id)}
                   key={event.id}
                   title={event.title}
                   date={
@@ -81,29 +80,28 @@ export default function CalendarClientContainer({
                       ? event.date
                       : event.date?.toISOString().slice(0, 10)
                   }
-                  dayOfWeek={event}
+                  dayOfWeek={event.dayOfWeek}
                   time={event.time}
-                  cost={event.cost}
-                  venueName={event.venue_name}
-                  venueStreetAddress={event.venue_street_address}
-                  venueCity={event.venue_city}
-                  venueState={event.venue_state}
-                  venueZip={event.venue_zip}
+                  cost={event.cost ?? ""}
+                  venueName={event.venueName}
+                  venueStreetAddress={event.venueStreetAddress}
+                  venueCity={event.venueCity}
+                  venueState={event.venueState}
+                  venueZip={event.venueZip}
                   description={event.description}
                   image={event.image}
-                  ticketLink={event.ticket_link}
-                  moreInfoLink={event.more_info_link}
-                  venueLink={event.venue_link}
-                  eventLink={event.event_link}
+                  ticketLink={event.ticketLink}
+                  moreInfoLink={event.moreInfoLink}
+                  venueLink={event.venueLink}
+                  eventLink={event.eventLink}
                 />
               ))
           ) : (
             // no upcoming events
             <div className="col-span-full text-center ">
+              <p>No upcoming shows are currently scheduled. </p>
               <p>
-                No upcoming shows are currently scheduled. </p>
-              <p>
-                For booking please email{" "} 
+                For booking please email{" "}
                 <a
                   href="mailto:booking@thelongemergency.com"
                   className="text-customBlue hover:text-hoverBlue underline">
@@ -116,7 +114,7 @@ export default function CalendarClientContainer({
         {view === "past"
           ? pastEvents.map((event) => (
               <CalendarEventDisplay
-                id={event.id}
+                id={String(event.id)}
                 key={event.id}
                 title={event.title}
                 date={
@@ -124,20 +122,20 @@ export default function CalendarClientContainer({
                     ? event.date
                     : event.date?.toISOString().slice(0, 10)
                 }
-                dayOfWeek={event.day_of_week}
+                dayOfWeek={event.dayOfWeek}
                 time={event.time}
-                cost={event.cost}
-                venueName={event.venue_name}
-                venueStreetAddress={event.venue_street_address}
-                venueCity={event.venue_city}
-                venueState={event.venue_state}
-                venueZip={event.venue_zip}
+                cost={event.cost ?? ""}
+                venueName={event.venueName}
+                venueStreetAddress={event.venueStreetAddress}
+                venueCity={event.venueCity}
+                venueState={event.venueState}
+                venueZip={event.venueZip}
                 description={event.description}
                 image={event.image}
-                ticketLink={event.ticket_link}
-                moreInfoLink={event.more_info_link}
-                venueLink={event.venue_link}
-                eventLink={event.event_link}
+                ticketLink={event.ticketLink}
+                moreInfoLink={event.moreInfoLink}
+                venueLink={event.venueLink}
+                eventLink={event.eventLink}
               />
             ))
           : null}

@@ -118,6 +118,14 @@ export const formatDate = (date: Date | string | undefined) => {
   });
 };
 
+export function getDayOfWeek(date: string) {
+  if (!date) return "";
+  const [year, month, day] = date.split("-").map(Number);
+  return new Date(year, month - 1, day).toLocaleDateString("en-US", {
+    weekday: "long",
+  });
+}
+
 export const formatTime = (time: string | undefined) => {
   if (!time) {
     return "";

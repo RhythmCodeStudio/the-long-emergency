@@ -14,7 +14,9 @@ import StateAutoComplete from "@/ui/state-auto-complete";
 import Button from "@/ui/button";
 import Heading from "@/ui/heading";
 // import from cloudinary
-import { CldUploadWidget } from "next-cloudinary";
+import { CldUploadWidget, CldImage } from "next-cloudinary";
+// import from utils
+import { getDayOfWeek } from "@/utils/utils";
 
 interface CalendarEventFormProps {
   mode: "create" | "edit";
@@ -67,7 +69,7 @@ export default function CalendarEventForm({
   // initialize state with initial props for editing, or empty/default for create ---
   const [eventTitle, setEventTitle] = useState(initialTitle || "");
   const [date, setDate] = useState(initialDate || "");
-  const [dayOfWeek, setDayOfWeek] = useState(initialDayOfWeek || "");
+  // const [dayOfWeek, setDayOfWeek] = useState(initialDayOfWeek || "");
   const [time, setTime] = useState(initialTime || "");
   const [cost, setCost] = useState(initialCost || "");
   const [venueName, setVenueName] = useState(initialVenueName || "");
@@ -90,11 +92,13 @@ export default function CalendarEventForm({
   const [dateTouched, setDateTouched] = useState(false);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
+  
+const dayOfWeek = getDayOfWeek(date);
+
   // update state if initial props change (for editing different events)
   useEffect(() => {
     setEventTitle(initialTitle || "");
     setDate(initialDate || "");
-    setDayOfWeek(initialDayOfWeek || "");
     // setEndDate(initialEndDate || "");
     setTime(initialTime || "");
     // setEndTime(initialEndTime || "");
@@ -212,7 +216,18 @@ export default function CalendarEventForm({
     return newErrors;
   };
 
-  const handleFormSubmit = async (e: React.FormEvent) => {
+  const handleRemoveImage = async () => {
+    try {
+      await removeCalendarEventImage(eventId, imagePublicId);
+      setImage("");
+      setImagePublicId("");
+    } catch (error) {
+      console.error("Image removal failed:", error);
+      setImageUploadError("Could not remove the image. Please try again.");
+    }
+  };
+
+  const handleFormSubmit = async (e: React.SubmitEvent) => {
     e.preventDefault();
     const validationErrors = validate();
     setErrors(validationErrors);
@@ -304,7 +319,68 @@ export default function CalendarEventForm({
         className="text-center text-2xl font-bold"
         text={mode === "edit" ? "Edit event" : "Add a new event"}
       />
-      <form onSubmit={handleFormSubmit}>
+      <form onSubmit={handleFormSubmit} className="w-full max-w-3xl mx-auto">
+
+        <div className="relative mx-auto w-50 h-70.75 overflow-hidden rounded-3xl border-2 border-slate-400 shadow-md shadow-white bg-gray-800/40">
+          {image ? (
+            // <CldImage
+            //   src={image}
+            //   alt="Event image preview"
+            //   fill
+            //   sizes="200px"
+            //   className="object-cover"
+            // />
+            <Image
+              src={image}
+              alt="Event image preview"
+              fill
+              sizes="200px"
+              className="object-cover"
+              unoptimized
+            />
+          ) : (
+            <div className="flex h-full items-center justify-center text-sm text-gray-400">
+              No image
+            </div>
+          )}
+        </div>
+
+        <div className="flex justify-center items-center">
+          <CldUploadWidget
+            signatureEndpoint="/api/cloudinary-signature"
+            uploadPreset={
+              process.env
+                .NEXT_PUBLIC_CLOUDINARY_CALENDAR_EVENT_IMAGE_UPLOAD_PRESET
+            }
+            options={{
+              folder: "the-long-emergency/events",
+              clientAllowedFormats: ["jpg", "jpeg", "png", "webp"],
+              maxFileSize: 10 * 1024 * 1024,
+              multiple: false,
+            }}
+            onSuccess={(result) => {
+              if (result.info && typeof result.info !== "string") {
+                setImage(result.info.secure_url);
+                setImagePublicId(result.info.public_id);
+                setImageUploadError("");
+              }
+            }}>
+            {({ open }) => (
+              <Button
+                type="button"
+                disabled={uploadingImage}
+                onClick={image ? handleRemoveImage : () => open()}
+                label={image ? "Remove Image" : "Upload Image"}
+                className="mt-4 font-medium rounded-full px-4 py-2 border-2 border-slate-400 bg-gray-200 text-gray-800 hover:shadow-md hover:shadow-white hover:bg-customBlue transition duration-400 active:scale-95"
+              />
+            )}
+          </CldUploadWidget>
+        </div>
+
+        {imageUploadError && (
+          <p className="text-sm text-red-500">{imageUploadError}</p>
+        )}
+
         <FormInput
           label="Event Title"
           name="eventTitle"
@@ -326,6 +402,20 @@ export default function CalendarEventForm({
           errorMessage={errors.date || ""}
           handleChange={(e) => handleChange(e, setDate)}
         />
+        {dayOfWeek && <p className="text-sm text-gray-400">{dayOfWeek}</p>}
+        {/* <FormInput
+          label="Day of Week"
+          name="dayOfWeek"
+          inputType="input"
+          type="text"
+          placeholder=""
+          value={dayOfWeek}
+          required={true}
+          autoComplete="off"
+          errorMessage={errors.dayOfWeek || ""}
+          handleChange={(e) => handleChange(e, setDayOfWeek)}
+          setStateVariable={setDayOfWeek}
+        /> */}
         <FormInput
           label="Time"
           name="time"
@@ -426,19 +516,7 @@ export default function CalendarEventForm({
           handleChange={(e) => handleChange(e, setDescription)}
           setStateVariable={setDescription}
         />
-        {/* <FormInput
-          label="Image"
-          name="image"
-          inputType="input"
-          type="text"
-          placeholder=""
-          value={image}
-          required={false}
-          autoComplete="off"
-          errorMessage=""
-          handleChange={(e) => handleChange(e, setImage)}
-          setStateVariable={setImage}
-        /> */}
+        
         {/* <div className="flex flex-col gap-2 my-4">
           <label htmlFor="imageUpload" className="font-medium">
             Event Image
@@ -474,68 +552,6 @@ export default function CalendarEventForm({
           )}
         </div> */}
 
-        <CldUploadWidget
-          signatureEndpoint="/api/cloudinary-signature"
-          uploadPreset={process.env.NEXT_PUBLIC_CLOUDINARY_CALENDAR_EVENT_IMAGE_UPLOAD_PRESET}
-          options={{
-            folder: "the-long-emergency/events",
-            clientAllowedFormats: ["jpg", "jpeg", "png", "webp"],
-            maxFileSize: 10 * 1024 * 1024,
-            multiple: false,
-          }}
-          onSuccess={(result) => {
-            if (result.info && typeof result.info !== "string") {
-              setImage(result.info.secure_url);
-              setImagePublicId(result.info.public_id);
-              setImageUploadError("");
-            }
-          }}>
-          {({ open }) => (
-            <button
-              type="button"
-              onClick={() => open()}
-              disabled={uploadingImage}>
-              Upload event image
-            </button>
-          )}
-        </CldUploadWidget>
-
-        {imageUploadError && (
-          <p className="text-sm text-red-500">{imageUploadError}</p>
-        )}
-
-        {image && (
-          <div className="flex flex-col items-center gap-2">
-            <Image
-              src={image}
-              alt="Event image preview"
-              width={200}
-              height={283}
-            />
-            <button
-              type="button"
-              disabled={uploadingImage}
-              onClick={async () => {
-                try {
-                  await removeCalendarEventImage(
-                    eventId,
-                    imagePublicId,
-                  );
-                  setImage("");
-                  setImagePublicId("");
-                } catch (error) {
-                  console.error("Image removal failed:", error);
-                  setImageUploadError(
-                    "Could not remove the image. Please try again.",
-                  );
-                }
-              }}>
-              Remove image
-            </button>
-          </div>
-        )}
-
-        {/* <input type="hidden" name="imagePublicId" value={imagePublicId} /> */}
         <FormInput
           label="Ticket Link"
           name="ticketLink"
@@ -588,12 +604,12 @@ export default function CalendarEventForm({
           handleChange={(e) => handleChange(e, setVenueLink)}
           setStateVariable={setVenueLink}
         />
-        <div className="grid grid-cols-2 gap-6 mt-4 w-1/2 mx-auto">
+        <div className="grid grid-cols-2 gap-6 w-1/2 mx-auto">
           <Button
             label={mode === "edit" ? "Edit Event" : "Create Event"}
-            onClick={handleFormSubmit}
             ariaLabel={mode === "edit" ? "Edit Event" : "Create Event"}
             className="font-medium rounded-full px-4 py-2 border-2 border-slate-400 bg-gray-200 text-gray-800 hover:shadow-md hover:shadow-white hover:bg-customBlue transition duration-400 active:scale-95"
+            type="submit"
           />
           <Button
             label="Cancel"

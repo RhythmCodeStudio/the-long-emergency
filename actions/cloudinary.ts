@@ -30,7 +30,6 @@ export async function getCloudinaryUploadSignature() {
   };
 }
 
-
 export async function removeCalendarEventImage(
   eventId: string | null,
   publicId: string,

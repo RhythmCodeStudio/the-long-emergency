@@ -3,7 +3,7 @@ type GoogleMapsLinkProps = {
   addressLineTwo?: string;
   city: string;
   state: string;
-  zipCode: number;
+  zipCode: string;
   text?: string;
   className?: string;
   title?: string

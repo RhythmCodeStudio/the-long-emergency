@@ -110,7 +110,7 @@ export default function MailingListForm({
     <>
       <div
         className={clsx(
-          "flex flex-col items-stretch w-full p-4 lg:p-8 bg-black/50 border-slate-400 border-2 shadow-white shadow-lg rounded-3xl max-w-lg text-black-shadow-only",
+          "flex flex-col items-stretch w-full p-4 lg:p-8 bg-black/50 border-slate-400 border-2 shadow-white shadow-md rounded-3xl max-w-lg text-black-shadow-only",
           className,
         )}>
         <Heading

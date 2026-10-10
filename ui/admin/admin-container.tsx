@@ -30,13 +30,13 @@ export default function AdminContainer({
   const contentMinHeight = "min-h-[42rem]"; // <-- change as needed
 
   return (
-    <section className="bg-black/50 rounded-3xl shadow-md shadow-white border-2 border-slate-400 w-full max-w-6xl min-w-[16rem] flex flex-col items-center p-4 pb-8">
+    <section className="bg-black/50 rounded-3xl shadow-md shadow-white border-2 border-slate-400 w-full max-w-6xl min-w-[16rem] flex flex-col items-center p-4">
       <Heading
         headingLevel={3}
         className="text-center text-2xl mb-4"
         text="Admin Panel"
       />
-      <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 mb-6 justify-center w-full px-6">
+      <div className="flex flex-col sm:flex-row gap-4 justify-center w-full ">
         <Button
           label="Calendar"
           onClick={() => setView("calendar")}
@@ -83,7 +83,7 @@ export default function AdminContainer({
         />
       </div>
       {/* Conditional rendering: only the active panel is mounted */}
-      <div className={`w-full ${contentMinHeight} h-auto p-6`}>
+      <div className={`w-full ${contentMinHeight} h-auto`}>
         {view === "calendar" && (
           <AdminCalendar calendarEventRows={calendarEventRows} />
         )}

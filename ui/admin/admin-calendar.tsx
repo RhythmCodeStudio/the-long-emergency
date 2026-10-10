@@ -28,48 +28,37 @@ export default function AdminCalendar({
     const currentDate = new Date();
     return eventDate < currentDate;
   });
-  if (view === "viewEvents") {
-    return (
-      <div className="w-full flex flex-col space-y-6 items-center">
-        <div className="flex gap-4">
-          <Button
-            label="View Events"
-            onClick={() => setView("viewEvents")}
-            ariaLabel="View Events"
-            className="rounded-full px-4 py-2 border-2 shadow-md shadow-white border-slate-400 bg-customBlue text-black pointer-events-none transition duration-400 ease-in-out"
-          />
-          <Button
-            label="Add Event"
-            onClick={() => setView("addEvent")}
-            ariaLabel="Add Event"
-            className="rounded-full px-4 py-2 border-2 border-slate-400 bg-gray-200 text-gray-800 hover:shadow-md hover:shadow-white hover:bg-customBlue transition duration-400 active:scale-95"
-          />
-        </div>
-        <div className="px-8">
-          <CalendarClientContainer
-            upComingEvents={upComingEvents}
-            pastEvents={pastEvents}
-          />
-        </div>
+  const activeClass =
+  "rounded-full px-4 py-2 border-2 shadow-md shadow-white border-slate-400 bg-customBlue text-black pointer-events-none transition duration-400 ease-in-out w-34";
+const inactiveClass =
+  "rounded-full px-4 py-2 border-2 border-slate-400 bg-gray-200 text-gray-800 hover:shadow-md hover:shadow-white hover:bg-customBlue transition duration-400 active:scale-95 w-34";
+
+  return (
+  <div className="w-full flex flex-col items-center">
+    <div className="mt-4 flex justify-center gap-4">
+      <Button
+        label="View Events"
+        ariaLabel="View Events"
+        onClick={() => setView("viewEvents")}
+        className={view === "viewEvents" ? activeClass : inactiveClass}
+      />
+      <Button
+        label="Add Event"
+        ariaLabel="Add Event"
+        onClick={() => setView("addEvent")}
+        className={view === "addEvent" ? activeClass : inactiveClass}
+      />
+    </div>
+
+    {view === "viewEvents" ? (
+      <div className="w-full">
+        <CalendarClientContainer
+          upComingEvents={upComingEvents}
+          pastEvents={pastEvents}
+        />
       </div>
-    );
-  } else if (view === "addEvent") {
-    return (
-      <div className="w-full flex flex-col space-y-6 items-center">
-        <div className="flex gap-4">
-          <Button
-            label="View Events"
-            onClick={() => setView("viewEvents")}
-            ariaLabel="View Events"
-            className="rounded-full px-4 py-2 border-2 border-slate-400 bg-gray-200 text-gray-800 hover:shadow-md hover:shadow-white hover:bg-customBlue transition duration-400 active:scale-95"
-          />
-          <Button
-            label="Add Event"
-            onClick={() => setView("addEvent")}
-            ariaLabel="Add Event"
-            className="rounded-full px-4 py-2 border-2 shadow-md shadow-white border-slate-400 bg-customBlue text-black pointer-events-none transition duration-400"
-          />
-        </div>
+    ) : (
+      <div className="w-full mt-6">
         <CalendarEventForm
           mode="create"
           eventId=""
@@ -90,8 +79,7 @@ export default function AdminCalendar({
           onClose={() => setView("viewEvents")}
         />
       </div>
-    );
-  } else {
-    return null;
-  }
+    )}
+  </div>
+);
 }

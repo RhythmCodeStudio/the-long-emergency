@@ -1,5 +1,5 @@
 // import data
-import { getCalendarEvents } from "@/actions/actions";
+import { getCalendarEvents, getCalendarEventById } from "@/actions/actions";
 // import from next
 import Image from "next/image";
 // import definitions
@@ -58,18 +58,9 @@ export default async function ShowPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const events = await getCalendarEvents();
-  // console.log("events:", events);
-  // console.log("Looking for id:", id, "as number:", Number(id));
-  // console.log("Event ids:", events.map((e: any) => ({ id: e.id, type: typeof e.id })));
+  const event = await getCalendarEventById(id);
 
-  const event = events.find((event: any) => {
-    // console.log("Comparing:", event.id, "===", Number(id), "result:", event.id === Number(id));
-    return event.id === Number(id);
-  });
-  const eventLink = event?.event_link;
-
-  console.log("event:", event);
+  // console.log("event:", event);
   if (!event) {
     return <div>Event not found</div>;
   }
@@ -82,13 +73,15 @@ export default async function ShowPage({
         className="text-4xl font-bold text-shadow-black-background-black"
       />
       <div className="px-8 w-full mx-auto flex flex-col justify-center items-center">
-        <div className="flex flex-col justify-center items-center p-8 gap-4 bg-black/50 rounded-4xl shadow-lg shadow-white border-2 border-border-default w-full max-w-xl my-8">
-          <div className="text-lg w-full max-w-4xl flex flex-col justify-center items-center ">
+        <div className="flex flex-col justify-center items-center p-8 gap-4 bg-black/50 rounded-3xl shadow-md shadow-white border-2 border-border-default w-full max-w-xl my-8">
+          <div className="text-lg w-full max-w-4xl flex flex-col justify-center items-center">
+            <p className="text-shadow-black-background-black text-xl font-medium">
+              {event.dayOfWeek}
+            </p>
             <p className="text-shadow-black-background-black text-xl font-medium">
               {typeof event.date === "string"
                 ? formatDate(event.date)
                 : formatDate(event.date?.toISOString().slice(0, 10))}
-        
             </p>
             <p className="text-shadow-black-background-black text-xl font-medium">
               {formatTime(event.time)}
@@ -96,24 +89,24 @@ export default async function ShowPage({
           </div>
 
           <div className="w-full flex flex-col justify-center items-center">
-            {event.venue_link ? (
+            {event.venueLink ? (
               <a
-                href={event.venue_link}
+                href={event.venueLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-shadow-black-background-black text-3xl font-semibold mb-1 hover:underline hover:decoration-hoverBlue">
-                {event.venue_name}
+                {event.venueName}
               </a>
             ) : (
               <p className="text-shadow-black-background-black text-3xl font-semibold mb-1">
-                {event.venue_name}
+                {event.venueName}
               </p>
             )}
             <GoogleMapsLink
-              addressLineOne={event.venue_street_address}
-              city={event.venue_city}
-              state={event.venue_state}
-              zipCode={event.venue_zip}
+              addressLineOne={event.venueStreetAddress}
+              city={event.venueCity}
+              state={event.venueState}
+              zipCode={event.venueZip}
               className="text-shadow-black-background-black hover:underline hover:decoration-hoverBlue text-lg"
             />
           </div>

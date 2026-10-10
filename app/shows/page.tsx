@@ -54,14 +54,13 @@ export default async function ShowsPage({
   const gigView = requestedView === "past" ? "past" : "upcoming";
 
   return (
-    <div className="flex flex-col items-center w-full min-h-full">
-      {/* <div className="relative flex flex-col items-center"> */}
+    <div className="flex flex-col items-center w-full max-w-7xl mx-auto min-h-full">
 
-      <h3 className="font-emergency text-outline text-center text-2xl md:text-3xl lg:text-3xl p-6">
+      <h3 className="font-emergency text-outline text-center text-2xl md:text-3xl lg:text-3xl md:pt-6">
         {showsPageData?.page_title}
       </h3>
 
-      <div className="w-full max-w-600">
+      <div className="w-full">
         <CalendarClientContainer
           upComingEvents={upComingEvents}
           pastEvents={pastEvents}
@@ -71,7 +70,7 @@ export default async function ShowsPage({
       {/* <div className="w-full max-w-600 sm:py-4">
         <ShowDisplay gigView={gigView} />
       </div> */}
-      <div className="w-full h-auto px-12 py-6 sm:px-6 flex justify-center">
+      <div className="w-full h-auto px-8 py-8 flex justify-center">
         <Image
           priority
           src="/images/banner.png"

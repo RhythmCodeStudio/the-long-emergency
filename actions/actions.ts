@@ -4,6 +4,7 @@ import { neon } from "@neondatabase/serverless";
 import { auth } from "@/auth/server";
 import { redirect } from "next/navigation";
 import {
+  CalendarEvent,
   User,
   Section,
   Page,
@@ -33,7 +34,6 @@ export async function getSession() {
 
 export async function signOut() {
   await auth.signOut();
-  // redirect to "/"
   redirect("/");
 }
 
@@ -48,13 +48,6 @@ export async function signUpForMailingList(email: string) {
   if (entries.length === 0) {
     return;
   }
-
-  // const { error } = await resend.emails.send({
-  //   from: "The Long Emergency <info@thelongemergency.com>",
-  //   to: email,
-  //   subject: "Welcome to The Long Emergency",
-  //   react: createElement(MailingListConfirmation),
-  // });
 
   const [logo, kevinImage] = await Promise.all([
     readFile(
@@ -207,13 +200,9 @@ export async function submitShowRequest(showRequest: {
 export async function createCalendarEvent(event: {
   id: number;
   title: string;
-  // startDate: Date | string;
-  // endDate?: Date | string;
   date: Date;
   dayOfWeek: string;
   time: string;
-  // endTime?: string;
-  // allDay?: boolean;
   cost?: string;
   venueName: string;
   venueStreetAddress: string;
@@ -270,13 +259,68 @@ export async function createCalendarEvent(event: {
   `;
 }
 
+export async function getCalendarEventById(id: string) {
+  const event = await sql`
+    SELECT
+      id,
+      title,
+      date,
+      day_of_week          AS "dayOfWeek",
+      time,
+      cost,
+      venue_name           AS "venueName",
+      venue_street_address AS "venueStreetAddress",
+      venue_city           AS "venueCity",
+      venue_state          AS "venueState",
+      venue_zip            AS "venueZip",
+      description,
+      image,
+      image_public_id      AS "imagePublicId",
+      ticket_link          AS "ticketLink",
+      event_link           AS "eventLink",
+      venue_link           AS "venueLink",
+      more_info_link       AS "moreInfoLink",
+      created_at           AS "createdAt"
+    FROM calendar_events
+    WHERE id = ${id}
+  `;
+  return event[0] as CalendarEvent | undefined;
+}
+
 // get all calendar events
+// export async function getCalendarEvents() {
+//   const events = await sql`
+//     SELECT * FROM calendar_events
+//     ORDER BY date, time
+//   `;
+//   return events;
+// }
 export async function getCalendarEvents() {
   const events = await sql`
-    SELECT * FROM calendar_events
+    SELECT
+      id,
+      title,
+      date,
+      day_of_week          AS "dayOfWeek",
+      time,
+      cost,
+      venue_name           AS "venueName",
+      venue_street_address AS "venueStreetAddress",
+      venue_city           AS "venueCity",
+      venue_state          AS "venueState",
+      venue_zip            AS "venueZip",
+      description,
+      image,
+      image_public_id      AS "imagePublicId",
+      ticket_link          AS "ticketLink",
+      event_link           AS "eventLink",
+      venue_link           AS "venueLink",
+      more_info_link       AS "moreInfoLink",
+      created_at           AS "createdAt"
+    FROM calendar_events
     ORDER BY date, time
   `;
-  return events;
+  return events as CalendarEvent[];
 }
 
 // delete calendar event by id
@@ -461,24 +505,6 @@ export async function getPages(): Promise<Page[]> {
 }
 
 export async function getPage(slug: string): Promise<Page | null> {
-  // const databaseUrl = process.env.NEON_DATABASE_URL ?? "";
-  // const parsed = new URL(databaseUrl);
-
-  // console.log("Database configuration check:", {
-  //   host: parsed.hostname,
-  //   role: parsed.username,
-  //   database: parsed.pathname,
-  //   length: databaseUrl.length,
-  //   fingerprint: createHash("sha256")
-  //     .update(databaseUrl)
-  //     .digest("hex")
-  //     .slice(0, 16),
-  //   passwordFingerprint: createHash("sha256")
-  //     .update(decodeURIComponent(parsed.password))
-  //     .digest("hex")
-  //     .slice(0, 16),
-  // });
-
   try {
     const page =
       (await sql`SELECT * FROM public.pages WHERE slug=${slug}`) as Page[];

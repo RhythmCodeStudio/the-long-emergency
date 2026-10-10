@@ -14,6 +14,8 @@ import Button from "./button";
 import CalendarEventForm from "./admin/calendar-event-form";
 // import from utils
 import { formatDate, formatTime } from "../utils/utils";
+// import definitions
+import { CalendarEvent } from "@/definitions/definitions";
 // import from react icons
 import { MdEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
@@ -65,7 +67,8 @@ export default function CalendarEventDisplay({
   const formattedTime = formatTime(time);
 
   const pathname = usePathname();
-  console.log("image", image);
+  const isAdminPath = pathname.startsWith("/admin");
+  // console.log("image", image);
   const handleDelete = async () => {
     if (confirm("Are you sure you want to delete this event?")) {
       await deleteCalendarEvent(id);
@@ -85,47 +88,45 @@ export default function CalendarEventDisplay({
 
   return (
     <>
-      <section className="border-2 border-slate-400 bg-[rgba(0,0,0,0.6)] rounded-3xl shadow-md shadow-white flex flex-col justify-center items-center p-8">
+      <section className="border-2 border-slate-400 bg-[rgba(0,0,0,0.6)] rounded-3xl shadow-md shadow-white flex flex-col justify-center items-center p-8 text-lg">
         <Image
           src={`${image}`}
           alt="Show poster"
           width={300}
           height={425}
-          className="shadow-md shadow-white rounded-3xl border-2 border-slate-400  transform transition-transform duration-500 ease-in-out"
+          className="shadow-md shadow-white rounded-3xl border-2 border-slate-400"
         />
-        <div className="mt-6 space-y-4 text-center">
+        <div className="mt-8 space-y-2 text-center">
           <div className="w-full flex flex-col items-center">
             <p>{dayOfWeek}</p>
             <p>{formattedDate}</p>
             <p>{formattedTime}</p>
           </div>
           <div className="w-full">
-          <Link
-            href={`/shows/${id}`}
-            title={`View details for ${title}`}>
-            <Heading
-              text={title}
-              headingLevel={3}
-              className="text-lg md:text-xl font-bold hover:underline hover:decoration-hoverBlue wrap-break-word whitespace-normal min-w-[16rem] max-w-[16rem]"
-            />
-          </Link>
+            <Link href={`/shows/${id}`} title={`View details for ${title}`}>
+              <Heading
+                text={title}
+                headingLevel={3}
+                className="text-xl md:text-2xl font-bold hover:underline hover:decoration-hoverBlue wrap-break-word whitespace-normal min-w-[16rem] max-w-[16rem]"
+              />
+            </Link>
           </div>
-          <div className="w-full">
-            <p className="w-full md:text-lg">
-              {venueLink ? (
-                <a
-                  href={venueLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:underline hover:decoration-hoverBlue">
-                  {venueName}
-                </a>
-              ) : (
-                venueName
-              )}
-            </p>
-          </div>
-          <p className="">
+
+          <p className="w-full text-lg md:text-xl">
+            {venueLink ? (
+              <a
+                href={venueLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline hover:decoration-hoverBlue">
+                {venueName}
+              </a>
+            ) : (
+              venueName
+            )}
+          </p>
+
+          <p className="text-xl">
             {cost && cost.toLowerCase() !== "free" ? `${cost}` : "Free"}
           </p>
           <GoogleMapsLink
@@ -133,27 +134,29 @@ export default function CalendarEventDisplay({
             addressLineTwo={""}
             city={venueCity}
             state={venueState}
-            zipCode={Number(venueZip)}
+            zipCode={venueZip}
             className="hover:underline hover:decoration-hoverBlue"
           />
-          {ticketLink && (
-            <a
-              href={ticketLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className=" hover:underline hover:decoration-hoverBlue">
-              Tickets
-            </a>
-          )}
-          {moreInfoLink && (
-            <a
-              href={moreInfoLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className=" hover:underline hover:decoration-hoverBlue">
-              More Info
-            </a>
-          )}
+          <div className="flex flex-col items-center space-y-2">
+            {ticketLink && (
+              <a
+                href={ticketLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className=" hover:underline hover:decoration-hoverBlue">
+                Tickets
+              </a>
+            )}
+            {moreInfoLink && (
+              <a
+                href={moreInfoLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className=" hover:underline hover:decoration-hoverBlue">
+                More Info
+              </a>
+            )}
+          </div>
 
           {/* if pathname includes "admin", show edit button and delete button */}
           {pathname.includes("admin") && (
@@ -175,11 +178,14 @@ export default function CalendarEventDisplay({
               />
             </div>
           )}
-          <a
-  href={`/api/shows/${id}/calendar`}
-  className="mt-4 inline-block underline hover:decoration-hoverBlue">
-  Add to calendar
-</a>
+          {!isAdminPath && (
+            <a
+              href={`/api/shows/${id}/calendar`}
+              className="inline-block underline hover:decoration-hoverBlue">
+              Add to calendar
+            </a>
+          )}
+         
         </div>
       </section>
       {editModalOpen && (

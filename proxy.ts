@@ -38,7 +38,7 @@ export function proxy(request: NextRequest) {
     connect-src 'self' https://api.emailjs.com/ https://vercel.live wss://ws-us3.pusher.com https://api.iconify.design https://va.vercel-scripts.com/v1/script.debug.js;
     script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com feature/image-upload;
     style-src 'self' https://vercel.live 'unsafe-inline';
-    img-src 'self' https://vercel.live https://vercel.com blob: data:;
+    img-src 'self' https://res.cloudinary.com/t53x7ri1/ https://vercel.live https://vercel.com blob: data:;
     font-src 'self' https://vercel.live https://assets.vercel.com;
     object-src 'none';
     base-uri 'self';

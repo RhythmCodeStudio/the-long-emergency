@@ -8,6 +8,7 @@ import Image from "next/image";
 // import CalendarEventDisplay from "@/ui/calendar-event-display";
 import Heading from "@/ui/heading";
 import GoogleMapsLink from "@/ui/google-maps-link";
+import CloudinaryImage from "@/ui/cloudinary-image";
 // import from utils
 import { formatDate, formatTime } from "@/utils/utils";
 
@@ -25,7 +26,7 @@ export async function generateMetadata({
   }
 
   const calendarEventOgImgUrl =
-    "https://www.pomiamusic.com/images/open-graph/calendar-event-og.png";
+    "https://www.thelongemergency.com/images/open-graph/calendar-event-og.png";
 
   return {
     title: `${event.title} | The Long Emergency | St. Louis, Missouri`,
@@ -36,8 +37,8 @@ export async function generateMetadata({
     openGraph: {
       type: "website",
       locale: "en_US",
-      url: `https://www.pomiamusic.com/calendar/events/${id}`,
-      siteName: "Po Mia: St. Louis Musician",
+      url: `https://www.thelongemergency.com/calendar/events/${id}`,
+      siteName: "The Long Emergency | St. Louis, Missouri",
       title: `${event.title} | The Long Emergency | St. Louis, Missouri`,
       description: event.description,
       images: [
@@ -60,7 +61,7 @@ export default async function ShowPage({
   const { id } = await params;
   const event = await getCalendarEventById(id);
 
-  // console.log("event:", event);
+  console.log("event:", event);
   if (!event) {
     return <div>Event not found</div>;
   }
@@ -72,8 +73,17 @@ export default async function ShowPage({
         headingLevel={2}
         className="text-4xl font-bold text-shadow-black-background-black"
       />
+      {event.image && (
+        <CloudinaryImage
+          src={event.image}
+          alt={event.title}
+          width={300}
+          height={425}
+          className="border-2 border-slate-400 rounded-3xl shadow-md shadow-white my-6"
+        />
+      )}
       <div className="px-8 w-full mx-auto flex flex-col justify-center items-center">
-        <div className="flex flex-col justify-center items-center p-8 gap-4 bg-black/50 rounded-3xl shadow-md shadow-white border-2 border-border-default w-full max-w-xl my-8">
+        <div className="flex flex-col justify-center items-center p-8 gap-4 w-full max-w-xl my-8">
           <div className="text-lg w-full max-w-4xl flex flex-col justify-center items-center">
             <p className="text-shadow-black-background-black text-xl font-medium">
               {event.dayOfWeek}

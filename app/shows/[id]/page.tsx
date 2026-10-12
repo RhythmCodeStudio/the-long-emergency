@@ -25,8 +25,7 @@ export async function generateMetadata({
     return {};
   }
 
-  const calendarEventOgImgUrl =
-    "https://www.thelongemergency.com/images/open-graph/calendar-event-og.png";
+  const calendarEventOgImgUrl = event.image ? event.image : "/images/open-graph/calendar-event-og.png";
 
   return {
     title: `${event.title} | The Long Emergency | St. Louis, Missouri`,
@@ -67,12 +66,28 @@ export default async function ShowPage({
   }
 
   return (
-    <div className="flex flex-col justify-center items-center w-full">
+    <div className="flex flex-col items-center justify-center w-full text-center text-outline">
+      {/* <div className="flex justify-center items-center flex-col "> */}
       <Heading
         text={event.title}
-        headingLevel={2}
-        className="text-4xl font-bold text-shadow-black-background-black"
+        headingLevel={3}
+        className="font-emergency text-outline text-center text-2xl md:text-3xl lg:text-3xl p-6"
       />
+      <div>
+        <p className="text-xl font-medium">{event.dayOfWeek}</p>
+        <p className="text-xl font-medium">
+          {typeof event.date === "string"
+            ? formatDate(event.date)
+            : formatDate(event.date?.toISOString().slice(0, 10))}
+        </p>
+        <p className="text-xl font-medium">{formatTime(event.time)}</p>
+      </div>
+      <div className="mt-6">
+        <p className="text-2xl font-semibold">
+          {event.cost ? `${event.cost}` : "Free Event"}
+        </p>
+      </div>
+
       {event.image && (
         <CloudinaryImage
           src={event.image}
@@ -82,55 +97,50 @@ export default async function ShowPage({
           className="border-2 border-slate-400 rounded-3xl shadow-md shadow-white my-6"
         />
       )}
-      <div className="px-8 w-full mx-auto flex flex-col justify-center items-center">
-        <div className="flex flex-col justify-center items-center p-8 gap-4 w-full max-w-xl my-8">
-          <div className="text-lg w-full max-w-4xl flex flex-col justify-center items-center">
-            <p className="text-shadow-black-background-black text-xl font-medium">
-              {event.dayOfWeek}
-            </p>
-            <p className="text-shadow-black-background-black text-xl font-medium">
-              {typeof event.date === "string"
-                ? formatDate(event.date)
-                : formatDate(event.date?.toISOString().slice(0, 10))}
-            </p>
-            <p className="text-shadow-black-background-black text-xl font-medium">
-              {formatTime(event.time)}
-            </p>
-          </div>
 
-          <div className="w-full flex flex-col justify-center items-center">
-            {event.venueLink ? (
-              <a
-                href={event.venueLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-shadow-black-background-black text-3xl font-semibold mb-1 hover:underline hover:decoration-hoverBlue">
-                {event.venueName}
-              </a>
-            ) : (
-              <p className="text-shadow-black-background-black text-3xl font-semibold mb-1">
-                {event.venueName}
-              </p>
-            )}
-            <GoogleMapsLink
-              addressLineOne={event.venueStreetAddress}
-              city={event.venueCity}
-              state={event.venueState}
-              zipCode={event.venueZip}
-              className="text-shadow-black-background-black hover:underline hover:decoration-hoverBlue text-lg"
-            />
-          </div>
-          <div className="w-full flex flex-col justify-center items-center">
-            <p className="text-shadow-black-background-black text-xl font-semibold">
-              {event.cost ? `Cost: ${event.cost}` : "Free Event"}
-            </p>
-          </div>
-          <div className="w-full flex flex-col justify-center items-center">
-            <p className="text-shadow-black-background-black text-lg">
-              {event.description}
-            </p>
-          </div>
-        </div>
+      <div className="w-full flex flex-col justify-center items-center mb-2">
+        {event.venueLink ? (
+          <a
+            href={event.venueLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-2xl font-semibold hover:underline hover:decoration-hoverBlue">
+            {event.venueName}
+          </a>
+        ) : (
+          <p className="text-2xl font-semibold mb-1">{event.venueName}</p>
+        )}
+      </div>
+      <div className="w-full flex flex-col justify-center items-center">
+        <GoogleMapsLink
+          addressLineOne={event.venueStreetAddress}
+          city={event.venueCity}
+          state={event.venueState}
+          zipCode={event.venueZip}
+          className="hover:underline hover:decoration-hoverBlue text-lg text-center"
+        />
+      </div>
+
+      <div className="w-full flex flex-col justify-center items-center mt-6">
+        <p className="text-lg">{event.description}</p>
+      </div>
+
+      <div className="mt-6">
+        <a
+          href={`/api/shows/${id}/calendar`}
+          className="inline-block underline hover:decoration-hoverBlue">
+          Add to calendar
+        </a>
+      </div>
+
+      <div className="md:w-1/2 p-12">
+        <Image
+          src="/images/dark-stage.png"
+          alt={event.title}
+          width={1680}
+          height={1120}
+          className="border-2 border-slate-400 rounded-3xl shadow-md shadow-white"
+        />
       </div>
     </div>
   );

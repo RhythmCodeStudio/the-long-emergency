@@ -126,9 +126,6 @@ export default function CalendarEventDisplay({
             )}
           </p>
 
-          <p className="text-xl">
-            {cost && cost.toLowerCase() !== "free" ? `${cost}` : "Free"}
-          </p>
           <GoogleMapsLink
             addressLineOne={venueStreetAddress}
             addressLineTwo={""}
@@ -137,6 +134,11 @@ export default function CalendarEventDisplay({
             zipCode={venueZip}
             className="hover:underline hover:decoration-hoverBlue"
           />
+
+          <p className="text-xl">
+            {cost && cost.toLowerCase() !== "free" ? `${cost}` : "Free"}
+          </p>
+
           <div className="flex flex-col items-center space-y-2">
             {ticketLink && (
               <a
@@ -185,7 +187,6 @@ export default function CalendarEventDisplay({
               Add to calendar
             </a>
           )}
-         
         </div>
       </section>
       {editModalOpen && (

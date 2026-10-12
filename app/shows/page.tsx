@@ -51,7 +51,7 @@ export default async function ShowsPage({
   const resolvedSearchParams = await searchParams;
   const rawView = resolvedSearchParams?.view;
   const requestedView = Array.isArray(rawView) ? rawView[0] : rawView;
-  const gigView = requestedView === "past" ? "past" : "upcoming";
+  // const gigView = requestedView === "past" ? "past" : "upcoming";
 
   return (
     <div className="flex flex-col items-center w-full max-w-7xl mx-auto min-h-full">

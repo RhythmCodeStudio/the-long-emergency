@@ -4,6 +4,7 @@ import AdminMailingList from "./admin-mailing-list";
 import AdminNotificationPanel from "./admin-notification-panel";
 import AdminCalendar from "./admin-calendar";
 import Messages from "./messages";
+import MusicManager from "./music-manager";
 import NavListItem from "../nav-list-item";
 import Button from "../button";
 import Heading from "../heading";
@@ -23,7 +24,7 @@ export default function AdminContainer({
   calendarEventRows,
 }: AdminContainerProps) {
   const [view, setView] = useState<
-    "calendar" | "mailingList" | "notifications" | "messages"
+    "calendar" | "mailingList" | "notifications" | "messages" | "music"
   >("calendar");
 
   // Adjust this value based on your shortest panel
@@ -78,7 +79,18 @@ export default function AdminContainer({
             "rounded-full px-4 py-2 transition duration-400 ease-in-out border-2 border-slate-400", // always applied
             view === "messages"
               ? "bg-customBlue shadow-md shadow-white text-black pointer-events-none"
-              : "bg-gray-200 text-gray-800 hover:shadow-md hover:shadow-white hover:bg-customBlue active:scale-95"
+              : "bg-gray-200 text-gray-800 hover:shadow-md hover:shadow-white hover:bg-customBlue active:scale-95",
+          )}
+        />
+        <Button
+          label="Music"
+          onClick={() => setView("music")}
+          ariaLabel="View Music"
+          className={clsx(
+            "rounded-full px-4 py-2 transition duration-400 ease-in-out border-2 border-slate-400", // always applied
+            view === "music"
+              ? "bg-customBlue shadow-md shadow-white text-black pointer-events-none"
+              : "bg-gray-200 text-gray-800 hover:shadow-md hover:shadow-white hover:bg-customBlue active:scale-95",
           )}
         />
       </div>
@@ -94,6 +106,7 @@ export default function AdminContainer({
           />
         )}
         {view === "messages" && <Messages />}
+        {view === "music" && <MusicManager />}
       </div>
     </section>
   );

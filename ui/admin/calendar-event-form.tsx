@@ -323,13 +323,6 @@ const dayOfWeek = getDayOfWeek(date);
 
         <div className="relative mx-auto w-50 h-70.75 overflow-hidden rounded-3xl border-2 border-slate-400 shadow-md shadow-white bg-gray-800/40">
           {image ? (
-            // <CldImage
-            //   src={image}
-            //   alt="Event image preview"
-            //   fill
-            //   sizes="200px"
-            //   className="object-cover"
-            // />
             <Image
               src={image}
               alt="Event image preview"
@@ -403,19 +396,6 @@ const dayOfWeek = getDayOfWeek(date);
           handleChange={(e) => handleChange(e, setDate)}
         />
         {dayOfWeek && <p className="text-sm text-gray-400">{dayOfWeek}</p>}
-        {/* <FormInput
-          label="Day of Week"
-          name="dayOfWeek"
-          inputType="input"
-          type="text"
-          placeholder=""
-          value={dayOfWeek}
-          required={true}
-          autoComplete="off"
-          errorMessage={errors.dayOfWeek || ""}
-          handleChange={(e) => handleChange(e, setDayOfWeek)}
-          setStateVariable={setDayOfWeek}
-        /> */}
         <FormInput
           label="Time"
           name="time"

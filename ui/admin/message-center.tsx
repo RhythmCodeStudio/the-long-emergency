@@ -1,4 +1,4 @@
-export default function Messages() {
+export default function MessageCenter() {
   return (
     <section>
       Messages

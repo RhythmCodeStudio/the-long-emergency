@@ -3,7 +3,7 @@ import { useState } from "react";
 import AdminMailingList from "./admin-mailing-list";
 import AdminNotificationPanel from "./admin-notification-panel";
 import AdminCalendar from "./admin-calendar";
-import Messages from "./messages";
+import MessageCenter from "./message-center";
 import MusicManager from "./music-manager";
 import NavListItem from "../nav-list-item";
 import Button from "../button";
@@ -105,7 +105,7 @@ export default function AdminContainer({
             numberOfSubscriptions={numberOfNotificationSubscriptions}
           />
         )}
-        {view === "messages" && <Messages />}
+        {view === "messages" && <MessageCenter />}
         {view === "music" && <MusicManager />}
       </div>
     </section>
